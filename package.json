@@ -34,15 +34,15 @@
     "@changesets/cli": "^2.24.0",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@mheob/eslint-config": "workspace:*",
-    "@mheob/prettier-config": "workspace:*",
+    "@mheob/eslint-config": "workspace:0.0.0",
+    "@mheob/prettier-config": "workspace:0.0.0",
     "eslint": "^8.20.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
     "turbo": "^1.3.4"
   },
-  "packageManager": "pnpm@7.5.2",
+  "packageManager": "pnpm@7.6.0",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
