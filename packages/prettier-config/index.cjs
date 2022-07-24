@@ -3,6 +3,8 @@ const sortImports = require('@trivago/prettier-plugin-sort-imports');
 /** @type {import('prettier').Config} */
 module.exports = {
   plugins: [sortImports],
+  arrowParens: 'always',
+  endOfLine: 'lf',
   printWidth: 100,
   proseWrap: 'always',
   importOrder: ['^node:', '<THIRD_PARTY_MODULES>', '^[./]'],
@@ -10,6 +12,10 @@ module.exports = {
   importOrderSortSpecifiers: true,
   singleQuote: true,
   semi: true,
+  tabWidth: 2,
+  trailingComma: 'all',
+  useTabs: false,
+
   overrides: [
     {
       files: '*.{yaml,yml}',
