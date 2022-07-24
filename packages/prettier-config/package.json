@@ -1,0 +1,41 @@
+{
+  "name": "@mheob/prettier-config",
+  "version": "0.0.0",
+  "description": "My personal configuration for prettier.",
+  "keywords": [
+    "prettier",
+    "config"
+  ],
+  "homepage": "https://github.com/mheob/config/tree/main/packages/prettier-config",
+  "bugs": "https://github.com/mheob/config/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mheob/config.git"
+  },
+  "license": "MIT",
+  "author": "Alexander Böhm <tools@boehm.work>",
+  "main": "index.cjs",
+  "files": [
+    "index.cjs",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "lint": "TIMING=1 eslint src/**/*.ts* --fix"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0"
+  },
+  "devDependencies": {
+    "@mheob/eslint-config": "workspace:*",
+    "eslint": "^8.20.0",
+    "prettier": "^2.7.1"
+  },
+  "peerDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

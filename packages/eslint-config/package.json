@@ -1,0 +1,48 @@
+{
+  "name": "@mheob/eslint-config",
+  "version": "0.0.0",
+  "description": "My personal configuration for eslint.",
+  "keywords": [
+    "eslint",
+    "config"
+  ],
+  "homepage": "https://github.com/mheob/config/tree/main/packages/eslint-config",
+  "bugs": "https://github.com/mheob/config/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mheob/config.git"
+  },
+  "license": "MIT",
+  "author": "Alexander Böhm <tools@boehm.work>",
+  "main": "index.cjs",
+  "files": [
+    "index.cjs",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "lint": "TIMING=1 eslint src/**/*.ts* --fix"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint-config-next": "^12.2.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-unicorn": "^43.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "eslint": "^8.20.0",
+    "prettier": "^2.7.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
