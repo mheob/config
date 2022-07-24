@@ -13,9 +13,14 @@ name: "CodeQL"
 
 on:
   push:
+    paths:
+      - ".changeset/**"
+      - "packages/**"
     branches: [ "main" ]
   pull_request:
-    # The branches below must be a subset of the branches above
+    paths:
+      - ".changeset/**"
+      - "packages/**"
     branches: [ "main" ]
   schedule:
     - cron: '38 21 * * 6'

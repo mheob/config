@@ -1,6 +1,12 @@
 name: Release
 
-on: workflow_dispatch
+on:
+  push:
+    paths:
+      - ".changeset/**"
+      - "packages/**"
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
