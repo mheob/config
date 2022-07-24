@@ -1,8 +1,9 @@
+const jsDocPlugin = require('prettier-plugin-jsdoc');
 const sortImports = require('@trivago/prettier-plugin-sort-imports');
 
 /** @type {import('prettier').Config} */
 module.exports = {
-  plugins: [sortImports],
+  plugins: [jsDocPlugin, sortImports],
   arrowParens: 'always',
   endOfLine: 'lf',
   printWidth: 100,

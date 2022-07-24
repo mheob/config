@@ -25,7 +25,8 @@
     "lint": "TIMING=1 eslint src/**/*.ts* --fix"
   },
   "dependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0"
+    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "prettier-plugin-jsdoc": "^0.3.38"
   },
   "devDependencies": {
     "@mheob/eslint-config": "workspace:*",
