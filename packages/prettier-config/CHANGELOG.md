@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 1.2.1
+
+### Patch Changes
+
+- 7d96f86: Update all dependencies
+
 ## 1.2.0
 
 ### Minor Changes
