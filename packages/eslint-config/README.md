@@ -17,25 +17,32 @@ yarn add -D @mheob/eslint-config
 pnpm add -D @mheob/eslint-config
 ```
 
-### Edit `package.json`
+### Include in your project
+
+#### Simple: Edit `package.json`
 
 ```jsonc
 {
   // ...
-  "prettier": "@mheob/eslint-config"
+  "eslint": {
+    "extends": "@mheob/eslint-config"
+  }
 }
 ```
 
-### Override settings
+#### Or with override settings
 
 If you need to override some settings you can do it this way:
 
 ```js
 // .eslintrc.cjs
 module.exports = {
-  ...require('@mheob/eslint-config'),
-  'prettier/prettier': 'error',
-  'no-console': ['error'],
+  root: true,
+  extends: ['@mheob/eslint-config'],
+  rules: {
+    'prettier/prettier': 'off',
+    'no-console': 'warn',
+  },
 };
 ```
 

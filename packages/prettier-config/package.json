@@ -26,11 +26,11 @@
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
-    "prettier-plugin-jsdoc": "^0.3.38"
+    "prettier-plugin-jsdoc": "^0.4.2"
   },
   "devDependencies": {
     "@mheob/eslint-config": "workspace:*",
-    "eslint": "^8.20.0",
+    "eslint": "^8.22.0",
     "prettier": "^2.7.1"
   },
   "peerDependencies": {

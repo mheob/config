@@ -17,7 +17,9 @@ yarn add -D @mheob/prettier-config
 pnpm add -D @mheob/prettier-config
 ```
 
-### Edit `package.json`
+### Include in your project
+
+#### Simple: Edit `package.json`
 
 ```jsonc
 {
@@ -26,7 +28,7 @@ pnpm add -D @mheob/prettier-config
 }
 ```
 
-### Override settings
+#### Or with override settings
 
 If you need to override some settings you can do it this way:
 
