@@ -5,7 +5,7 @@
   "rangeStrategy": "replace",
   "separateMajorMinor": true,
   "dependencyDashboard": true,
-  "dependencyDashboardAutoclose": true,
+  "dependencyDashboardAutoclose": false,
   "major": {
     "dependencyDashboardApproval": true
   },
