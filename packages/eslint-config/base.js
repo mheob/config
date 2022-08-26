@@ -1,12 +1,10 @@
-/** @type {import('eslint').ESLint.ConfigData} */
+/**
+ * Base ESLint rules
+ * @type {import('eslint').ESLint.ConfigData}
+ */
 module.exports = {
   plugins: ['@typescript-eslint'],
   extends: ['eslint:recommended', 'plugin:unicorn/recommended', 'plugin:prettier/recommended'],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   rules: {
     'prettier/prettier': 'warn',
     'no-console': ['warn', { allow: ['warn', 'error'] }],
@@ -42,17 +40,6 @@ module.exports = {
           'warn',
           { allowExpressions: true, allowTypedFunctionExpressions: true },
         ],
-      },
-    },
-    {
-      files: ['*.jsx', '*.tsx'],
-      extends: ['plugin:eslint-plugin-react/recommended', 'next/core-web-vitals'],
-      settings: { react: { version: 'detect' } },
-      rules: {
-        'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
-        'react/jsx-no-useless-fragment': 'warn',
-        'react/react-in-jsx-scope': 'off',
-        'unicorn/filename-case': ['error', { case: 'pascalCase' }],
       },
     },
   ],
