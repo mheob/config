@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 2.0.0
+
+### Major Changes
+
+- 6e97fe2: Split ESLint configuration into specified files (base/reat/next for now).
+
+### Patch Changes
+
+- 6e97fe2: Improve README to get a better copy/paste experience.
+
 ## 1.0.1
 
 ### Patch Changes

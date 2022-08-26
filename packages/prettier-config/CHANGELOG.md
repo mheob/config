@@ -1,5 +1,15 @@
 # @mheob/prettier-config
 
+## 1.3.0
+
+### Minor Changes
+
+- 347593b: Set markdown `printWidth` to `130`.
+
+### Patch Changes
+
+- 347593b: Improve README to get a better copy/paste experience.
+
 ## 1.2.1
 
 ### Patch Changes
