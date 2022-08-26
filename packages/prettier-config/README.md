@@ -2,33 +2,27 @@
 
 To make my configurations a bit easier I share my [Prettier](https://prettier.io) config.
 
-## Usage
+## Install
 
-### Install
+### With NPM
 
 ```sh
-# with npm
 npm install -D @mheob/prettier-config
+```
 
-# with yarn
+### With YARN
+
+```sh
 yarn add -D @mheob/prettier-config
+```
 
-# with pnpm
+### With PNPM
+
+```sh
 pnpm add -D @mheob/prettier-config
 ```
 
-### Include in your project
-
-#### Simple: Edit `package.json`
-
-```jsonc
-{
-  // ...
-  "prettier": "@mheob/prettier-config"
-}
-```
-
-#### Or with override settings
+## Usage
 
 If you need to override some settings you can do it this way:
 
@@ -43,8 +37,7 @@ module.exports = {
 
 ## Ruleset
 
-This configuration uses the
-[`@trivago/prettier-plugin-sort-imports`](https://github.com/trivago/prettier-plugin-sort-imports)
+This configuration uses the [`@trivago/prettier-plugin-sort-imports`](https://github.com/trivago/prettier-plugin-sort-imports)
 plugin and set these styles:
 
 ```js

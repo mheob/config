@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "lint": "TIMING=1 eslint src/**/*.ts* --fix"
+    "lint": "TIMING=1 eslint **/*.cjs --fix"
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",

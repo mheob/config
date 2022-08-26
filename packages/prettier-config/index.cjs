@@ -25,5 +25,11 @@ module.exports = {
         singleQuote: false,
       },
     },
+    {
+      files: '*.md',
+      options: {
+        printWidth: 130,
+      },
+    },
   ],
 };
