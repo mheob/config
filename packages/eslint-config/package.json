@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "author": "Alexander Böhm <tools@boehm.work>",
-  "main": "index.cjs",
+  "main": "index.js",
   "files": [
     "index.js",
     "base.js",
