@@ -1,0 +1,11 @@
+# Changeset
+.changeset
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# turbo
+.turbo

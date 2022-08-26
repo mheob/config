@@ -2,42 +2,64 @@
 
 To make my configurations a bit easier I share my [ESLint](https://eslint.org/) config.
 
-## Usage
+## Install
 
-### Install
+### With NPM
 
 ```sh
-# with npm
 npm install -D @mheob/eslint-config
+```
 
-# with yarn
+### With YARN
+
+```sh
 yarn add -D @mheob/eslint-config
+```
 
-# with pnpm
+### With PNPM
+
+```sh
 pnpm add -D @mheob/eslint-config
 ```
 
-### Include in your project
+## Usage
 
-#### Simple: Edit `package.json`
-
-```jsonc
-{
-  // ...
-  "eslint": {
-    "extends": "@mheob/eslint-config"
-  }
-}
-```
-
-#### Or with override settings
-
-If you need to override some settings you can do it this way:
+### Basic Rules only
 
 ```js
 // .eslintrc.cjs
 module.exports = {
-  root: true,
+  root: true, // optional
+  extends: ['@mheob/eslint-config'],
+};
+```
+
+### React and Basic Rules (`@mheob/eslint-config/react`)
+
+```js
+// .eslintrc.cjs
+module.exports = {
+  root: true, // optional
+  extends: ['@mheob/eslint-config/react'],
+};
+```
+
+### NextJS and Basic Rules (`@mheob/eslint-config/next`)
+
+```js
+// .eslintrc.cjs
+module.exports = {
+  root: true, // optional
+  extends: ['@mheob/eslint-config/next'],
+};
+```
+
+If you need to override some rules you can do it this way:
+
+```js
+// .eslintrc.cjs
+module.exports = {
+  root: true, // optional
   extends: ['@mheob/eslint-config'],
   rules: {
     'prettier/prettier': 'off',
@@ -46,14 +68,22 @@ module.exports = {
 };
 ```
 
-## Ruleset
+Or override rules specified for some files:
 
-This configuration uses these external ESLint packages:
-
-- [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin)
-- [`@typescript-eslint/parser`](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/parser)
-- [`eslint-config-next`](https://github.com/vercel/next.js/tree/canary/packages/eslint-config-next)
-- [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier)
-- [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier)
-- [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react)
-- [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn)
+```js
+// .eslintrc.cjs
+module.exports = {
+  root: true, // optional
+  extends: ['@mheob/eslint-config'],
+  overrides: [
+    {
+      files: ['*.jsx', '*.tsx'],
+      settings: { react: { version: 'detect' } },
+      rules: {
+        'react/jsx-no-useless-fragment': 'warn',
+        'react/react-in-jsx-scope': 'off',
+      },
+    },
+  ],
+};
+```
