@@ -33,13 +33,19 @@ module.exports = {
       rules: { 'unicorn/filename-case': ['error', { case: 'camelCase' }] },
     },
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.tsx'],
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
+        '@typescript-eslint/consistent-type-imports': 'error',
         '@typescript-eslint/explicit-function-return-type': [
           'warn',
           { allowExpressions: true, allowTypedFunctionExpressions: true },
         ],
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+        ],
+        '@typescript-eslint/quotes': ['warn', 'single', { avoidEscape: true }],
       },
     },
   ],
