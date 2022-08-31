@@ -30,12 +30,12 @@
     "package.json": "pnpm dlx sort-package-json"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.3",
-    "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.3",
+    "@changesets/cli": "^2.24.4",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@mheob/eslint-config": "workspace:*",
     "@mheob/prettier-config": "workspace:*",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
