@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 1.3.1
+
+### Patch Changes
+
+- 87fb7e0: Update all dependencies
+
 ## 1.3.0
 
 ### Minor Changes

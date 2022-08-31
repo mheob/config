@@ -1,5 +1,12 @@
 # @mheob/eslint-config
 
+## 2.0.2
+
+### Patch Changes
+
+- 87fb7e0: Update all dependencies
+- a211713: Add more typescript specific rules.
+
 ## 2.0.1
 
 ### Patch Changes
