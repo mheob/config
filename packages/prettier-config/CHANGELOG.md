@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 1.4.0
+
+### Minor Changes
+
+- 70cbb2c: Add typescript definitions
+
 ## 1.3.1
 
 ### Patch Changes
