@@ -15,8 +15,10 @@
   "license": "MIT",
   "author": "Alexander Böhm <tools@boehm.work>",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
+    "index.d.ts",
     "base.js",
     "next.js",
     "react.js",
@@ -25,7 +27,8 @@
   ],
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "lint": "TIMING=1 eslint **/*.cjs --fix"
+    "lint": "TIMING=1 eslint **/*.cjs --fix",
+    "sort-package-json": "pnpm dlx sort-package-json"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.36.1",
