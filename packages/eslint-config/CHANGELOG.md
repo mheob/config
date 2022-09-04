@@ -1,5 +1,16 @@
 # @mheob/eslint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- 718c5e2: Deactivate `@typescript-eslint/explicit-function-return-type` rule for jsx files.
+- 70cbb2c: Add typescript definitions
+
+### Patch Changes
+
+- 8a868bf: Update dependencies
+
 ## 2.0.2
 
 ### Patch Changes
