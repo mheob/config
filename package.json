@@ -10,14 +10,14 @@
     "changeset": "changeset",
     "clean": "turbo run clean",
     "clean:root": "rm -rf .turbo && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{cjs,js,jsx,ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{cjs,js,jsx,ts,tsx,json,md,mdx,yml}\"",
     "lint": "turbo run lint",
     "release": "changeset publish",
     "sort-package-json": "pnpm dlx sort-package-json && turbo run sort-package-json",
     "version-packages": "changeset version"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged",
+    "pre-commit": "pnpm exec lint-staged && pnpm run changeset status --since main",
     "commit-msg": "pnpm exec commitlint --edit ${1}"
   },
   "commitlint": {

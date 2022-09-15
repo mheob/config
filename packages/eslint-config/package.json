@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "lint": "TIMING=1 eslint **/*.cjs --fix",
+    "lint": "eslint **/*.cjs --fix",
     "sort-package-json": "pnpm dlx sort-package-json"
   },
   "dependencies": {
