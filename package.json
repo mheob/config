@@ -36,13 +36,13 @@
     "@commitlint/config-conventional": "^17.1.0",
     "@mheob/eslint-config": "workspace:*",
     "@mheob/prettier-config": "workspace:*",
-    "eslint": "^8.23.0",
+    "eslint": "^8.23.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
-    "turbo": "^1.4.5"
+    "turbo": "^1.4.6"
   },
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.11.0",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
