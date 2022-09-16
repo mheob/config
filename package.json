@@ -8,6 +8,7 @@
 	],
 	"scripts": {
 		"changeset": "changeset",
+		"build": "turbo run build",
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
 		"format": "prettier --write \"**/*.{cjs,js,jsx,ts,tsx,json,md,mdx,yml}\"",

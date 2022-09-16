@@ -10,7 +10,7 @@
 	"bugs": "https://github.com/mheob/config/issues",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mheob/config.git"
+		"url": "https://github.com/mheob/config"
 	},
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
