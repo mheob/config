@@ -1,45 +1,45 @@
 {
-  "name": "@mheob/prettier-config",
-  "version": "1.4.0",
-  "description": "My personal configuration for prettier.",
-  "keywords": [
-    "prettier",
-    "config"
-  ],
-  "homepage": "https://github.com/mheob/config/tree/main/packages/prettier-config",
-  "bugs": "https://github.com/mheob/config/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mheob/config.git"
-  },
-  "license": "MIT",
-  "author": "Alexander Böhm <tools@boehm.work>",
-  "main": "index.cjs",
-  "types": "index.d.ts",
-  "files": [
-    "index.cjs",
-    "index.d.ts",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "lint": "eslint **/*.cjs --fix",
-    "sort-package-json": "pnpm dlx sort-package-json"
-  },
-  "dependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
-    "prettier-plugin-jsdoc": "^0.4.2"
-  },
-  "devDependencies": {
-    "@mheob/eslint-config": "workspace:*",
-    "eslint": "^8.23.1",
-    "prettier": "^2.7.1"
-  },
-  "peerDependencies": {
-    "prettier": "^2.7.1"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@mheob/prettier-config",
+	"version": "1.4.0",
+	"description": "My personal configuration for prettier.",
+	"keywords": [
+		"prettier",
+		"config"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/prettier-config",
+	"bugs": "https://github.com/mheob/config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config.git"
+	},
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@boehm.work>",
+	"main": "index.cjs",
+	"types": "index.d.ts",
+	"files": [
+		"index.cjs",
+		"index.d.ts",
+		"LICENSE",
+		"README.md"
+	],
+	"scripts": {
+		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+		"lint": "eslint **/*.cjs --fix",
+		"sort-package-json": "pnpm dlx sort-package-json"
+	},
+	"dependencies": {
+		"@trivago/prettier-plugin-sort-imports": "^3.3.0",
+		"prettier-plugin-jsdoc": "^0.4.2"
+	},
+	"devDependencies": {
+		"@mheob/eslint-config": "workspace:*",
+		"eslint": "^8.23.1",
+		"prettier": "^2.7.1"
+	},
+	"peerDependencies": {
+		"prettier": "^2.7.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

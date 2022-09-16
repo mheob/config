@@ -1,5 +1,5 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
-  root: true,
-  extends: ['@mheob/eslint-config'],
+	root: true,
+	extends: ['@mheob/eslint-config'],
 };

@@ -29,9 +29,9 @@ If you need to override some settings you can do it this way:
 ```js
 // .prettierrc.cjs
 module.exports = {
-  ...require('@mheob/prettier-config'),
-  semi: false,
-  importOrder: ['^@company/(.*)$', '^[./]'],
+	...require('@mheob/prettier-config'),
+	semi: false,
+	importOrder: ['^@company/(.*)$', '^[./]'],
 };
 ```
 
@@ -46,28 +46,28 @@ const sortImports = require('@trivago/prettier-plugin-sort-imports');
 
 /** @type {import('prettier').Config} */
 module.exports = {
-  plugins: [jsDocPlugin, sortImports],
-  arrowParens: 'always',
-  endOfLine: 'lf',
-  printWidth: 100,
-  proseWrap: 'always',
-  importOrder: ['^node:', '<THIRD_PARTY_MODULES>', '^[./]'],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
-  singleQuote: true,
-  semi: true,
-  tabWidth: 2,
-  trailingComma: 'all',
-  useTabs: false,
+	plugins: [jsDocPlugin, sortImports],
+	arrowParens: 'always',
+	endOfLine: 'lf',
+	printWidth: 100,
+	proseWrap: 'always',
+	importOrder: ['^node:', '<THIRD_PARTY_MODULES>', '^[./]'],
+	importOrderSeparation: true,
+	importOrderSortSpecifiers: true,
+	singleQuote: true,
+	semi: true,
+	tabWidth: 2,
+	trailingComma: 'all',
+	useTabs: false,
 
-  overrides: [
-    {
-      files: '*.{yaml,yml}',
-      options: {
-        printWidth: 130,
-        singleQuote: false,
-      },
-    },
-  ],
+	overrides: [
+		{
+			files: '*.{yaml,yml}',
+			options: {
+				printWidth: 130,
+				singleQuote: false,
+			},
+		},
+	],
 };
 ```
