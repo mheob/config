@@ -1,8 +1,6 @@
-/**
- * React specific ESLint rules
- * @type {import('eslint').ESLint.ConfigData}
- */
-module.exports = {
+import type { Linter } from 'eslint';
+
+const config: Linter.Config = {
 	extends: ['./base', 'plugin:eslint-plugin-react/recommended'],
 	settings: {
 		react: {
@@ -23,3 +21,5 @@ module.exports = {
 		},
 	],
 };
+
+export = config;
