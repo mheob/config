@@ -12,7 +12,6 @@ importers:
       '@types/node': ^18.7.18
       eslint: ^8.23.1
       husky: ^8.0.0
-      is-ci: ^3.0.1
       lint-staged: ^13.0.3
       prettier: ^2.7.1
       ts-node: ^10.9.1
@@ -27,7 +26,6 @@ importers:
       '@types/node': 18.7.18
       eslint: 8.23.1
       husky: 8.0.1
-      is-ci: 3.0.1
       lint-staged: 13.0.3
       prettier: 2.7.1
       ts-node: 10.9.1_bidgzm5cq2du6gnjtweqqjrrn4
