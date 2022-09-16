@@ -1,11 +1,36 @@
 {
-	"name": "tsconfig",
+	"name": "@mheob/tsconfig",
 	"version": "0.0.0",
-	"private": true,
-	"main": "index.js",
+	"description": "My personal configurations for typescript.",
+	"keywords": [
+		"tsconfig",
+		"typescript",
+		"ts",
+		"config",
+		"configuration"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/tsconfig",
+	"bugs": "https://github.com/mheob/config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config.git"
+	},
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@boehm.work>",
+	"main": "commonjs.json",
 	"files": [
-		"base.json",
+		"astro.json",
+		"commonjs.json",
+		"esm.json",
 		"nextjs.json",
-		"react-library.json"
-	]
+		"react.json",
+		"LICENSE",
+		"README.md"
+	],
+	"scripts": {
+		"sort-package-json": "pnpm dlx sort-package-json"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }
