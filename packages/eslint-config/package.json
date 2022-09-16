@@ -1,54 +1,54 @@
 {
-  "name": "@mheob/eslint-config",
-  "version": "2.1.0",
-  "description": "My personal configuration for eslint.",
-  "keywords": [
-    "eslint",
-    "config"
-  ],
-  "homepage": "https://github.com/mheob/config/tree/main/packages/eslint-config",
-  "bugs": "https://github.com/mheob/config/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mheob/config.git"
-  },
-  "license": "MIT",
-  "author": "Alexander Böhm <tools@boehm.work>",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "base.js",
-    "next.js",
-    "react.js",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "lint": "eslint **/*.cjs --fix",
-    "sort-package-json": "pnpm dlx sort-package-json"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
-    "eslint-config-next": "^12.3.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.8",
-    "eslint-plugin-unicorn": "^43.0.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.23.1",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.3"
-  },
-  "peerDependencies": {
-    "eslint": "^8.23.1",
-    "prettier": "^2.7.1"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@mheob/eslint-config",
+	"version": "2.1.0",
+	"description": "My personal configuration for eslint.",
+	"keywords": [
+		"eslint",
+		"config"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/eslint-config",
+	"bugs": "https://github.com/mheob/config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config.git"
+	},
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@boehm.work>",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"files": [
+		"index.js",
+		"index.d.ts",
+		"base.js",
+		"next.js",
+		"react.js",
+		"LICENSE",
+		"README.md"
+	],
+	"scripts": {
+		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+		"lint": "eslint **/*.cjs --fix",
+		"sort-package-json": "pnpm dlx sort-package-json"
+	},
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.37.0",
+		"@typescript-eslint/parser": "^5.37.0",
+		"eslint-config-next": "^12.3.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.31.8",
+		"eslint-plugin-unicorn": "^43.0.2"
+	},
+	"devDependencies": {
+		"eslint": "^8.23.1",
+		"prettier": "^2.7.1",
+		"typescript": "^4.8.3"
+	},
+	"peerDependencies": {
+		"eslint": "^8.23.1",
+		"prettier": "^2.7.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

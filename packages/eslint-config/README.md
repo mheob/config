@@ -29,8 +29,8 @@ pnpm add -D @mheob/eslint-config
 ```js
 // .eslintrc.cjs
 module.exports = {
-  root: true, // optional
-  extends: ['@mheob/eslint-config'],
+	root: true, // optional
+	extends: ['@mheob/eslint-config'],
 };
 ```
 
@@ -39,8 +39,8 @@ module.exports = {
 ```js
 // .eslintrc.cjs
 module.exports = {
-  root: true, // optional
-  extends: ['@mheob/eslint-config/react'],
+	root: true, // optional
+	extends: ['@mheob/eslint-config/react'],
 };
 ```
 
@@ -49,8 +49,8 @@ module.exports = {
 ```js
 // .eslintrc.cjs
 module.exports = {
-  root: true, // optional
-  extends: ['@mheob/eslint-config/next'],
+	root: true, // optional
+	extends: ['@mheob/eslint-config/next'],
 };
 ```
 
@@ -59,12 +59,12 @@ If you need to override some rules you can do it this way:
 ```js
 // .eslintrc.cjs
 module.exports = {
-  root: true, // optional
-  extends: ['@mheob/eslint-config'],
-  rules: {
-    'prettier/prettier': 'off',
-    'no-console': 'warn',
-  },
+	root: true, // optional
+	extends: ['@mheob/eslint-config'],
+	rules: {
+		'prettier/prettier': 'off',
+		'no-console': 'warn',
+	},
 };
 ```
 
@@ -73,17 +73,17 @@ Or override rules specified for some files:
 ```js
 // .eslintrc.cjs
 module.exports = {
-  root: true, // optional
-  extends: ['@mheob/eslint-config'],
-  overrides: [
-    {
-      files: ['*.jsx', '*.tsx'],
-      settings: { react: { version: 'detect' } },
-      rules: {
-        'react/jsx-no-useless-fragment': 'warn',
-        'react/react-in-jsx-scope': 'off',
-      },
-    },
-  ],
+	root: true, // optional
+	extends: ['@mheob/eslint-config'],
+	overrides: [
+		{
+			files: ['*.jsx', '*.tsx'],
+			settings: { react: { version: 'detect' } },
+			rules: {
+				'react/jsx-no-useless-fragment': 'warn',
+				'react/react-in-jsx-scope': 'off',
+			},
+		},
+	],
 };
 ```
