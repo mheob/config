@@ -29,6 +29,7 @@
 		"package.json": "pnpm dlx sort-package-json"
 	},
 	"devDependencies": {
+		"@changesets/changelog-github": "^0.4.6",
 		"@changesets/cli": "^2.24.4",
 		"@commitlint/cli": "^17.1.2",
 		"@commitlint/config-conventional": "^17.1.0",

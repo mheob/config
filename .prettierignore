@@ -1,5 +1,5 @@
 # Changeset
-.changeset
+.changeset/*.md
 
 # dependencies
 node_modules
