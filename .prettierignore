@@ -9,3 +9,9 @@ coverage
 
 # turbo
 .turbo
+
+# builds
+.next/
+out
+build
+dist

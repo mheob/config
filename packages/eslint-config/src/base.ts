@@ -1,8 +1,6 @@
-/**
- * Base ESLint rules
- * @type {import('eslint').ESLint.ConfigData}
- */
-module.exports = {
+import type { Linter } from 'eslint';
+
+const config: Linter.Config = {
 	plugins: ['@typescript-eslint'],
 	extends: ['eslint:recommended', 'plugin:unicorn/recommended', 'plugin:prettier/recommended'],
 	rules: {
@@ -50,3 +48,5 @@ module.exports = {
 		},
 	],
 };
+
+export = config;
