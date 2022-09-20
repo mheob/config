@@ -2,9 +2,7 @@ name: Check
 
 on:
   pull_request:
-    paths: ["packages/**"]
   push:
-    paths: ["packages/**"]
 
 jobs:
   release:
