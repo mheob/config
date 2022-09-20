@@ -3,10 +3,8 @@ name: Check
 on:
   pull_request:
     paths: ["packages/**"]
-    branches: [main]
   push:
     paths: ["packages/**"]
-    branches: [main]
 
 jobs:
   release:

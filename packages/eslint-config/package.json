@@ -24,13 +24,13 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint **/*.cjs --fix",
+		"lint": "eslint src/**/*.ts --fix",
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.37.0",
-		"@typescript-eslint/parser": "^5.37.0",
-		"eslint-config-next": "^12.3.0",
+		"@typescript-eslint/eslint-plugin": "^5.38.0",
+		"@typescript-eslint/parser": "^5.38.0",
+		"eslint-config-next": "^12.3.1",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.31.8",

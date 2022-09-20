@@ -15,6 +15,7 @@
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"files": [
 		"dist",
 		"LICENSE",
@@ -23,7 +24,7 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint **/*.ts --fix",
+		"lint": "eslint src/**/*.ts --fix",
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
 	"dependencies": {
