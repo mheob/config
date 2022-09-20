@@ -15,6 +15,7 @@
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"files": [
 		"dist",
 		"LICENSE",
