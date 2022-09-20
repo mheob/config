@@ -1,0 +1,16 @@
+{
+	"rules": {
+		"no-console": "off",
+		"unicorn/no-process-exit": "off"
+	},
+	"overrides": [
+		{
+			"files": ["bin/*"],
+			"rules": {
+				"no-undef": "off",
+				"unicorn/filename-case": ["error", { "case": "kebabCase" }],
+				"unicorn/prefer-module": "off"
+			}
+		}
+	]
+}

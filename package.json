@@ -33,6 +33,7 @@
 		"@changesets/cli": "^2.24.4",
 		"@commitlint/cli": "^17.1.2",
 		"@commitlint/config-conventional": "^17.1.0",
+		"@mheob/check-package-manager": "workspace:*",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
 		"@types/node": "^18.7.18",
