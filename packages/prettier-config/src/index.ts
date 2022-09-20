@@ -32,6 +32,7 @@ const options: Config = {
 			options: {
 				printWidth: 130,
 				singleQuote: false,
+				useTabs: false,
 			},
 		},
 		{
