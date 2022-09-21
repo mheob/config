@@ -44,7 +44,6 @@ jobs:
           commit: "chore(release): bump version and deploy packages"
           title: "chore(release): bump version and deploy packages"
           publish: pnpm run release
-          setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ secrets.MACHINE_USER_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
