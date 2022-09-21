@@ -1,5 +1,26 @@
 # @mheob/eslint-config
 
+## 2.1.1
+
+### Patch Changes
+
+- [#49](https://github.com/mheob/config/pull/49)
+  [`348d277`](https://github.com/mheob/config/commit/348d27713aab3a4927447f9870075cb2ace4275e)
+  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+
+- [#46](https://github.com/mheob/config/pull/46)
+  [`6f731ee`](https://github.com/mheob/config/commit/6f731eeba2c6cf3f8e8ce896e19069bc88d45557)
+  Thanks [@mheob](https://github.com/mheob)! - Switch to typescript as source files
+
+- [#42](https://github.com/mheob/config/pull/42)
+  [`cf8ba94`](https://github.com/mheob/config/commit/cf8ba94f23489673593eb101dcab47af445054a0)
+  Thanks [@mheob](https://github.com/mheob)! - Format all files to the new tabs instead of spaces
+  behaviour
+
+- [#36](https://github.com/mheob/config/pull/36)
+  [`fd1474e`](https://github.com/mheob/config/commit/fd1474e0bcb9d6495a53358b4da62ec7d4754994)
+  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+
 ## 2.1.0
 
 ### Minor Changes
