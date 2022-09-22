@@ -1,5 +1,13 @@
 # @mheob/eslint-config
 
+## 2.1.2
+
+### Patch Changes
+
+- [#53](https://github.com/mheob/config/pull/53)
+  [`f7b87f4`](https://github.com/mheob/config/commit/f7b87f470129ee795855484b7ca394f2980ba8b1)
+  Thanks [@mheob](https://github.com/mheob)! - Simpplify and fix calling sub configurations
+
 ## 2.1.1
 
 ### Patch Changes
