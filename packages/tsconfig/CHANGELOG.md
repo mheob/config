@@ -1,5 +1,13 @@
 # @mheob/tsconfig
 
+## 1.0.1
+
+### Patch Changes
+
+- [#55](https://github.com/mheob/config/pull/55)
+  [`27aa074`](https://github.com/mheob/config/commit/27aa07445d4ca381070ce9c0549fcc4fb079ce97)
+  Thanks [@mheob](https://github.com/mheob)! - Simpplify and fix calling sub configurations
+
 ## 1.0.0
 
 ### Major Changes
