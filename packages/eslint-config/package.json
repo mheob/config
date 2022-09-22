@@ -14,8 +14,31 @@
 	},
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
+	"exports": {
+		".": "./dist/index.js",
+		"./base": "./dist/base.js",
+		"./next": "./dist/next.js",
+		"./react": "./dist/react.js",
+		"./package.json": "./package.json"
+	},
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"typesVersions": {
+		"*": {
+			".": [
+				"./dist/index.d.ts"
+			],
+			"./base": [
+				"./dist/base.d.ts"
+			],
+			"./next": [
+				"./dist/next.d.ts"
+			],
+			"./react": [
+				"./dist/react.d.ts"
+			]
+		}
+	},
 	"files": [
 		"dist",
 		"LICENSE",
