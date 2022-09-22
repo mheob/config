@@ -17,6 +17,14 @@
 	},
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
+	"exports": {
+		".": "./commonjs.json",
+		"./astro": "./astro.json",
+		"./commonjs": "./commonjs.json",
+		"./esm": "./esm.json",
+		"./nextjs": "./nextjs.json",
+		"./react": "./react.json"
+	},
 	"main": "commonjs.json",
 	"files": [
 		"astro.json",
