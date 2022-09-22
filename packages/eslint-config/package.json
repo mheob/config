@@ -40,9 +40,7 @@
 		}
 	},
 	"files": [
-		"dist",
-		"LICENSE",
-		"README.md"
+		"dist"
 	],
 	"scripts": {
 		"build": "tsc",

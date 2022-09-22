@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  release:
+  check:
     name: Check
     runs-on: ubuntu-latest
     steps:

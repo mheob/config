@@ -31,9 +31,7 @@
 		"commonjs.json",
 		"esm.json",
 		"nextjs.json",
-		"react.json",
-		"LICENSE",
-		"README.md"
+		"react.json"
 	],
 	"scripts": {
 		"sort-package-json": "pnpm dlx sort-package-json"
