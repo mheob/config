@@ -32,8 +32,8 @@
 	"devDependencies": {
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
-		"@types/prettier": "^2.7.0",
-		"eslint": "^8.23.1",
+		"@types/prettier": "^2.7.1",
+		"eslint": "^8.24.0",
 		"prettier": "^2.7.1"
 	},
 	"peerDependencies": {
