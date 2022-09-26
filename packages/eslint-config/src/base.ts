@@ -9,6 +9,7 @@ const config: Linter.Config = {
 		'no-implicit-coercion': ['error', { allow: ['!!', '+', '~'] }],
 		'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
 		'unicorn/import-index': 'error',
+		'unicorn/no-array-for-each': 'off',
 		'unicorn/prevent-abbreviations': [
 			'error',
 			{
