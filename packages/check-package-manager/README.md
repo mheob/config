@@ -33,13 +33,13 @@ Use one of the examples.
 
 ```json
 "scripts": {
-	"check-package-manager": "npx check-package-manager npm",        // NPM
-	"check-package-manager": "yarn dlx check-package-manager yarn",  // YARN
-	"check-package-manager": "yarn exec check-package-manager yarn", // YARN - locally installed
-	"check-package-manager": "pnpm dlx check-package-manager",       // PNPM
-	"check-package-manager": "pnpm dlx check-package-manager pnpm",  // PNPM - alternative
-	"check-package-manager": "pnpm exec check-package-manager",      // PNPM - locally installed
-	"check-package-manager": "pnpm exec check-package-manager pnpm", // PNPM - alternative locally installed
+	"check-package-manager": "npx @mheob/check-package-manager npm",        // NPM
+	"check-package-manager": "yarn dlx @mheob/check-package-manager yarn",  // YARN
+	"check-package-manager": "yarn exec @mheob/check-package-manager yarn", // YARN - locally installed
+	"check-package-manager": "pnpm dlx @mheob/check-package-manager",       // PNPM
+	"check-package-manager": "pnpm dlx @mheob/check-package-manager pnpm",  // PNPM - alternative
+	"check-package-manager": "pnpm exec @mheob/check-package-manager",      // PNPM - locally installed
+	"check-package-manager": "pnpm exec @mheob/check-package-manager pnpm", // PNPM - alternative locally installed
 },
 ```
 
@@ -51,25 +51,25 @@ Use `npx` if you use `NPM` as package manager.\
 Otherwise use `exec` if you have installed the package in your project, otherwise use `dlx`.
 
 ```sh
-npx check-package-manager
+npx @mheob/check-package-manager
 ```
 
 #### `NPM`
 
 ```sh
-npx check-package-manager npm
+npx @mheob/check-package-manager npm
 ```
 
 #### `YARN`
 
 ```sh
-yarn dlx check-package-manager yarn
+yarn dlx @mheob/check-package-manager yarn
 ```
 
 #### `PNPM`
 
 ```sh
-pnpm dlx check-package-manager pnpm
+pnpm dlx @mheob/check-package-manager pnpm
 ```
 
 ### As git hook
@@ -82,5 +82,5 @@ For example used in combination with [husky](https://typicode.github.io/husky/).
 
 [ -n "$CI" ] && exit 0
 
-pnpm exec check-package-manager
+pnpm dlx @mheob/check-package-manager
 ```
