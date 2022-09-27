@@ -36,7 +36,7 @@
 		"@mheob/check-package-manager": "workspace:*",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
-		"@types/node": "^18.7.21",
+		"@types/node": "^18.7.23",
 		"eslint": "^8.24.0",
 		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
@@ -45,7 +45,7 @@
 		"turbo": "^1.5.3",
 		"typescript": "^4.8.3"
 	},
-	"packageManager": "pnpm@7.12.1",
+	"packageManager": "pnpm@7.12.2",
 	"engines": {
 		"node": ">=16.0.0",
 		"npm": ">=8.0.0"
