@@ -41,12 +41,11 @@ This configuration uses the [`@trivago/prettier-plugin-sort-imports`](https://gi
 plugin and set these styles:
 
 ```js
-const jsDocPlugin = require('prettier-plugin-jsdoc');
 const sortImports = require('@trivago/prettier-plugin-sort-imports');
 
 /** @type {import('prettier').Config} */
 module.exports = {
-	plugins: [jsDocPlugin, sortImports],
+	plugins: [sortImports],
 	arrowParens: 'always',
 	endOfLine: 'lf',
 	printWidth: 100,
@@ -56,9 +55,8 @@ module.exports = {
 	importOrderSortSpecifiers: true,
 	singleQuote: true,
 	semi: true,
-	tabWidth: 2,
 	trailingComma: 'all',
-	useTabs: false,
+	useTabs: true,
 
 	overrides: [
 		{
@@ -66,6 +64,13 @@ module.exports = {
 			options: {
 				printWidth: 130,
 				singleQuote: false,
+				useTabs: false,
+			},
+		},
+		{
+			files: '*.md',
+			options: {
+				printWidth: 130,
 			},
 		},
 	],
