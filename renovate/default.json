@@ -1,0 +1,13 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:base", "group:allNonMajor", "schedule:earlyMondays"],
+	"labels": ["dependencies"],
+	"rangeStrategy": "bump",
+	"major": {
+		"dependencyDashboardApproval": true
+	},
+	"stabilityDays": 3,
+	"prCreation": "not-pending",
+	"prConcurrentLimit": 5,
+	"timezone": "Europe/Berlin"
+}
