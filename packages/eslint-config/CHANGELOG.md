@@ -1,5 +1,19 @@
 # @mheob/eslint-config
 
+## 2.2.0
+
+### Minor Changes
+
+- [#59](https://github.com/mheob/config/pull/59)
+  [`ec5e9e3`](https://github.com/mheob/config/commit/ec5e9e3a75aec80591c23aaa55b28932d6db7036)
+  Thanks [@mheob](https://github.com/mheob)! - Disable `unicorn/no-array-for-each` rule as default
+
+### Patch Changes
+
+- [#60](https://github.com/mheob/config/pull/60)
+  [`12b3867`](https://github.com/mheob/config/commit/12b38679f9fa123e20e634932ae1c8e277421464)
+  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+
 ## 2.1.2
 
 ### Patch Changes

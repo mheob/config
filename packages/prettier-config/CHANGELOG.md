@@ -1,5 +1,17 @@
 # @mheob/prettier-config
 
+## 2.0.1
+
+### Patch Changes
+
+- [#63](https://github.com/mheob/config/pull/63)
+  [`49204ca`](https://github.com/mheob/config/commit/49204ca26b3c0b1d4efa11f7f3ef06166fbe8873)
+  Thanks [@mheob](https://github.com/mheob)! - Add the newest ruleset to the README
+
+- [#60](https://github.com/mheob/config/pull/60)
+  [`12b3867`](https://github.com/mheob/config/commit/12b38679f9fa123e20e634932ae1c8e277421464)
+  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+
 ## 2.0.0
 
 ### Major Changes
