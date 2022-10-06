@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 3.0.0
+
+### Major Changes
+
+- [#72](https://github.com/mheob/config/pull/72)
+  [`6c13a4f`](https://github.com/mheob/config/commit/6c13a4fdabf14e2e4f0aa3495a328e45356ee6ff)
+  Thanks [@mheob](https://github.com/mheob)! - Update dependencies and use the new rules from
+  `eslint-plugin-unicorn`, especially
+  [switch-case-braces](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/switch-case-braces.md)
+
 ## 2.2.0
 
 ### Minor Changes

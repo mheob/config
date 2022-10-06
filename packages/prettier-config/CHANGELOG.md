@@ -1,5 +1,13 @@
 # @mheob/prettier-config
 
+## 2.0.2
+
+### Patch Changes
+
+- [#71](https://github.com/mheob/config/pull/71)
+  [`b79f37d`](https://github.com/mheob/config/commit/b79f37d8ede49c113938fa72389ce2277485ccbb)
+  Thanks [@mheob](https://github.com/mheob)! - Remove obsolete `prettier-plugin-jsdoc` package
+
 ## 2.0.1
 
 ### Patch Changes
