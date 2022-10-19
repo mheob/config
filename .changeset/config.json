@@ -2,12 +2,7 @@
 	"$schema": "https://unpkg.com/@changesets/config@2.0.1/schema.json",
 	"access": "public",
 	"baseBranch": "main",
-	"changelog": [
-		"@changesets/changelog-github",
-		{
-			"repo": "mheob/config"
-		}
-	],
+	"changelog": ["@mheob/changeset-changelog", { "repo": "mheob/config" }],
 	"commit": false,
 	"fixed": [],
 	"ignore": [],
