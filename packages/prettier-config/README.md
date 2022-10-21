@@ -37,8 +37,7 @@ module.exports = {
 
 ## Ruleset
 
-This configuration uses the [`@trivago/prettier-plugin-sort-imports`](https://github.com/trivago/prettier-plugin-sort-imports)
-plugin and set these styles:
+This configuration uses the [`@trivago/prettier-plugin-sort-imports`](https://github.com/trivago/prettier-plugin-sort-imports) plugin and set these styles:
 
 ```js
 const sortImports = require('@trivago/prettier-plugin-sort-imports');
