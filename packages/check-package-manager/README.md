@@ -4,8 +4,7 @@ A simple check of the usage of the correct package manager.
 
 ## Install
 
-The local installation is optional. It is only needed if you want to have the package inside your project. This could improve
-performance, for example.
+The local installation is optional. It is only needed if you want to have the package inside your project. This could improve performance, for example.
 
 ### With NPM
 
