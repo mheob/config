@@ -16,7 +16,7 @@
 		"prepare": "ts-node ./scripts/prepare.ts",
 		"release": "changeset publish",
 		"sort-package-json": "pnpm dlx sort-package-json && turbo run sort-package-json",
-		"version-packages": "changeset version"
+		"version-packages": "changeset version && pnpm run format"
 	},
 	"commitlint": {
 		"extends": [
