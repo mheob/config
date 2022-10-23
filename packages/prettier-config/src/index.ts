@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import sortImports from '@trivago/prettier-plugin-sort-imports';
 import type { Config as DefaultConfig } from 'prettier';
 
