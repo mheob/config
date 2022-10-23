@@ -1,0 +1,27 @@
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+  go: "1.19"
+
+linters:
+  enable:
+    - errcheck
+    - goimports
+    - gosimple
+    - govet
+    - ineffassign
+    - nakedret
+    - revive
+    - staticcheck
+    - typecheck
+    - unused
+
+linters-settings:
+  nakedret:
+    # Aggressively disallow naked returns
+    max-func-lines: 3
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
