@@ -1,5 +1,18 @@
 # @mheob/prettier-config
 
+## 2.0.3
+
+### Patch Changes
+
+- update dependencies --> ([#81](https://github.com/mheob/config/pull/81)) by
+  [@mheob](https://github.com/mheob)
+
+- update dependencies --> ([#86](https://github.com/mheob/config/pull/86)) by
+  [@mheob](https://github.com/mheob)
+
+- update dependencies --> ([#84](https://github.com/mheob/config/pull/84)) by
+  [@renovate](https://github.com/apps/renovate)
+
 ## 2.0.2
 
 ### Patch Changes
