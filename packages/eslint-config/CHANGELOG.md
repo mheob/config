@@ -1,5 +1,21 @@
 # @mheob/eslint-config
 
+## 3.0.1
+
+### Patch Changes
+
+- Update dependencies --> ([#77](https://github.com/mheob/config/pull/77)) by
+  [@mheob](https://github.com/mheob)
+
+- update dependencies --> ([#81](https://github.com/mheob/config/pull/81)) by
+  [@mheob](https://github.com/mheob)
+
+- update dependencies --> ([#86](https://github.com/mheob/config/pull/86)) by
+  [@mheob](https://github.com/mheob)
+
+- update dependencies --> ([#84](https://github.com/mheob/config/pull/84)) by
+  [@renovate](https://github.com/apps/renovate)
+
 ## 3.0.0
 
 ### Major Changes

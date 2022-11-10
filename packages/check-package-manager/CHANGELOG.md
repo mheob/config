@@ -1,5 +1,17 @@
 # @mheob/check-package-manager
 
+## 2.0.0
+
+### Major Changes
+
+- switch to golang to speed up the execution --> ([#85](https://github.com/mheob/config/pull/85)) by
+  [@mheob](https://github.com/mheob)
+
+### Patch Changes
+
+- update dependencies --> ([#84](https://github.com/mheob/config/pull/84)) by
+  [@renovate](https://github.com/apps/renovate)
+
 ## 1.0.1
 
 ### Patch Changes
