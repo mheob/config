@@ -16,12 +16,15 @@
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
 	"scripts": {
-		"postinstall": "go-npm install",
+		"postinstall": "is-ci || go-npm install",
 		"sort-package-json": "pnpm dlx sort-package-json",
 		"preuninstall": "go-npm uninstall"
 	},
 	"dependencies": {
 		"go-npm": "^0.1.9"
+	},
+	"devDependencies": {
+		"is-ci": "^3.0.1"
 	},
 	"publishConfig": {
 		"access": "public"

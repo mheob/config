@@ -39,8 +39,11 @@ importers:
   packages/check-package-manager:
     specifiers:
       go-npm: ^0.1.9
+      is-ci: ^3.0.1
     dependencies:
       go-npm: 0.1.9
+    devDependencies:
+      is-ci: 3.0.1
 
   packages/eslint-config:
     specifiers:
