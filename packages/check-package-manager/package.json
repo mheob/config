@@ -21,7 +21,7 @@
 		"preuninstall": "go-npm uninstall"
 	},
 	"dependencies": {
-		"go-npm": "^0.1.9"
+		"@go-task/go-npm": "^0.1.15"
 	},
 	"devDependencies": {
 		"is-ci": "^3.0.1"
