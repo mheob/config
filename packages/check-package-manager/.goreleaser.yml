@@ -1,0 +1,8 @@
+builds:
+  - binary: check-package-manager
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64

@@ -15,27 +15,23 @@
 	},
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"bin": {
-		"check-package-manager": "./bin/cli.js"
-	},
-	"files": [
-		"bin",
-		"dist"
-	],
 	"scripts": {
-		"build": "tsc",
-		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint **/*.ts --fix",
-		"sort-package-json": "pnpm dlx sort-package-json"
+		"postinstall": "is-ci || go-npm install",
+		"sort-package-json": "pnpm dlx sort-package-json",
+		"preuninstall": "go-npm uninstall"
+	},
+	"dependencies": {
+		"@go-task/go-npm": "^0.1.15"
 	},
 	"devDependencies": {
-		"@mheob/eslint-config": "workspace:*",
-		"@mheob/tsconfig": "workspace:*",
-		"eslint": "^8.26.0"
+		"is-ci": "^3.0.1"
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"goBinary": {
+		"name": "check-package-manager",
+		"path": "./bin",
+		"url": "https://github.com/mheob/config/releases/download/%40mheob%2Fcheck-package-manager%40{{version}}/check-package-manager_{{version}}_{{platform}}_{{arch}}.tar.gz"
 	}
 }
