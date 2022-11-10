@@ -1,0 +1,34 @@
+{
+	"name": "@mheob/check-package-manager",
+	"version": "1.0.1",
+	"description": "A simple check of the usage of the correct package manager.",
+	"keywords": [
+		"package-manager",
+		"node",
+		"config"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/check-package-manager",
+	"bugs": "https://github.com/mheob/config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config"
+	},
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@boehm.work>",
+	"scripts": {
+		"postinstall": "go-npm install",
+		"sort-package-json": "pnpm dlx sort-package-json",
+		"preuninstall": "go-npm uninstall"
+	},
+	"dependencies": {
+		"go-npm": "^0.1.9"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"goBinary": {
+		"name": "check-package-manager",
+		"path": "./bin",
+		"url": "https://github.com/mheob/config/releases/download/%40mheob%2Fcheck-package-manager%40{{version}}/check-package-manager_{{version}}_{{platform}}_{{arch}}.tar.gz"
+	}
+}
