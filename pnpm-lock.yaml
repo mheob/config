@@ -8,9 +8,9 @@ importers:
       '@commitlint/cli': ^17.2.0
       '@commitlint/config-conventional': ^17.2.0
       '@mheob/changeset-changelog': ^2.0.0
-      '@mheob/check-package-manager': workspace:1.0.1
-      '@mheob/eslint-config': workspace:3.0.0
-      '@mheob/prettier-config': workspace:2.0.2
+      '@mheob/check-package-manager': workspace:*
+      '@mheob/eslint-config': workspace:*
+      '@mheob/prettier-config': workspace:*
       '@types/node': ^18.11.9
       eslint: ^8.27.0
       husky: ^8.0.2
@@ -76,8 +76,8 @@ importers:
 
   packages/prettier-config:
     specifiers:
-      '@mheob/eslint-config': workspace:3.0.0
-      '@mheob/tsconfig': workspace:1.0.1
+      '@mheob/eslint-config': workspace:*
+      '@mheob/tsconfig': workspace:*
       '@trivago/prettier-plugin-sort-imports': ^3.4.0
       '@types/prettier': ^2.7.1
       eslint: ^8.27.0
