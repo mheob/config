@@ -8,7 +8,6 @@ importers:
       '@commitlint/cli': ^17.2.0
       '@commitlint/config-conventional': ^17.2.0
       '@mheob/changeset-changelog': ^2.0.0
-      '@mheob/check-package-manager': workspace:*
       '@mheob/eslint-config': workspace:*
       '@mheob/prettier-config': workspace:*
       '@types/node': ^18.11.9
@@ -19,12 +18,12 @@ importers:
       ts-node: ^10.9.1
       turbo: ^1.6.3
       typescript: ^4.8.4
+      use-correct-pm: ^1.0.2
     devDependencies:
       '@changesets/cli': 2.25.2
       '@commitlint/cli': 17.2.0
       '@commitlint/config-conventional': 17.2.0
       '@mheob/changeset-changelog': 2.0.0
-      '@mheob/check-package-manager': link:packages/check-package-manager
       '@mheob/eslint-config': link:packages/eslint-config
       '@mheob/prettier-config': link:packages/prettier-config
       '@types/node': 18.11.9
@@ -35,15 +34,7 @@ importers:
       ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
       turbo: 1.6.3
       typescript: 4.8.4
-
-  packages/check-package-manager:
-    specifiers:
-      '@go-task/go-npm': ^0.1.15
-      is-ci: ^3.0.1
-    dependencies:
-      '@go-task/go-npm': 0.1.15
-    devDependencies:
-      is-ci: 3.0.1
+      use-correct-pm: 1.0.2
 
   packages/eslint-config:
     specifiers:
@@ -52,7 +43,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.42.1
       '@typescript-eslint/parser': ^5.42.1
       eslint: ^8.27.0
-      eslint-config-next: ^13.0.2
+      eslint-config-next: ^13.0.3
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-react: ^7.31.10
@@ -62,7 +53,7 @@ importers:
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.42.1_2udltptbznfmezdozpdoa2aemq
       '@typescript-eslint/parser': 5.42.1_rmayb2veg2btbq6mbmnyivgasy
-      eslint-config-next: 13.0.2_rmayb2veg2btbq6mbmnyivgasy
+      eslint-config-next: 13.0.3_rmayb2veg2btbq6mbmnyivgasy
       eslint-config-prettier: 8.5.0_eslint@8.27.0
       eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
       eslint-plugin-react: 7.31.10_eslint@8.27.0
@@ -731,7 +722,7 @@ packages:
   /@go-task/go-npm/0.1.15:
     resolution: {integrity: sha512-xG+6SsSQsa6MzWML1CABWHTwHrCrBqXc/D1POoMDGIgjsRE/PB1noSBGLFhvU5DWHdPksqbAt/w9VOjbqlXpYw==}
     hasBin: true
-    dev: false
+    dev: true
 
   /@humanwhocodes/config-array/0.11.7:
     resolution: {integrity: sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw==}
@@ -823,8 +814,8 @@ packages:
       - encoding
     dev: true
 
-  /@next/eslint-plugin-next/13.0.2:
-    resolution: {integrity: sha512-W+fIIIaFU7Kct7Okx91C7XDRGolv/w2RUenX2yZFeeNVcuVzDIKUcNmckrYbYcwrNQUSXmtwrs3g8xwast0YtA==}
+  /@next/eslint-plugin-next/13.0.3:
+    resolution: {integrity: sha512-slmTAHNKDyc7jhx4VF8lFbmOPWJ3PShtUUWpb6x9+ga59CyOxgP6AdcDhxfapnWYACKe/TwYiaveufu7LqXgZg==}
     dependencies:
       glob: 7.1.7
     dev: false
@@ -1786,8 +1777,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  /eslint-config-next/13.0.2_rmayb2veg2btbq6mbmnyivgasy:
-    resolution: {integrity: sha512-SrrHp+zBDYLjOFZdM5b9aW/pliK687Xxfa+qpDuL08Z04ReHhmz3L+maXaAqgrEVZHQximP7nh0El4yNDJW+CA==}
+  /eslint-config-next/13.0.3_rmayb2veg2btbq6mbmnyivgasy:
+    resolution: {integrity: sha512-i2JoQP8gGv303GjXTonA27fm1ckRRkRoAP1WYEQgN0D2DDoFeBPqlJgHlMHnXKWjmNct/sW8jQEvy9am2juc8g==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
       typescript: '>=3.3.1'
@@ -1795,7 +1786,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@next/eslint-plugin-next': 13.0.2
+      '@next/eslint-plugin-next': 13.0.3
       '@rushstack/eslint-patch': 1.2.0
       '@typescript-eslint/parser': 5.42.1_rmayb2veg2btbq6mbmnyivgasy
       eslint: 8.27.0
@@ -4065,6 +4056,13 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.1.1
+
+  /use-correct-pm/1.0.2:
+    resolution: {integrity: sha512-bsY+lIX6NHtEQGPu4QVNwmTx3/zgFtxkRWmLK8l0kyZRQdHbPS+g5pm2/48P2K6QJ9m0xCpeJic/4WcB5NOCxA==}
+    requiresBuild: true
+    dependencies:
+      '@go-task/go-npm': 0.1.15
+    dev: true
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
