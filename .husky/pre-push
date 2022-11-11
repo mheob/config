@@ -4,4 +4,4 @@
 [ -n "$CI" ] && exit 0
 
 pnpm exec changeset status --since main
-pnpm exec check-package-manager
+pnpm exec use-correct-pm
