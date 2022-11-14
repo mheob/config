@@ -1,4 +1,5 @@
 {
+	"npm.packageManager": "pnpm",
 	"markdownlint.config": {
 		"MD010": false
 	},
