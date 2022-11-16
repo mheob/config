@@ -10,6 +10,7 @@ const config: Linter.Config = {
 		'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
 		'unicorn/import-index': 'error',
 		'unicorn/no-array-for-each': 'off',
+		'unicorn/no-array-reduce': 'off',
 		'unicorn/prevent-abbreviations': [
 			'error',
 			{
