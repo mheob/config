@@ -4,8 +4,7 @@
 
 ### Minor Changes
 
-- disable `unicorn/no-array-reduce` ESLint rule --> ([#93](https://github.com/mheob/config/pull/93))
-  by [@mheob](https://github.com/mheob)
+- disable `unicorn/no-array-reduce` ESLint rule --> ([#93](https://github.com/mheob/config/pull/93)) by [@mheob](https://github.com/mheob)
 
 ### Patch Changes
 
