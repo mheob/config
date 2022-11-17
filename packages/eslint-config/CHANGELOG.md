@@ -8,11 +8,9 @@
 
 ### Patch Changes
 
-- bump eslint to ^8.27.0 --> ([#91](https://github.com/mheob/config/pull/91)) by
-  [@renovate](https://github.com/apps/renovate)
+- bump eslint to ^8.27.0 --> ([#91](https://github.com/mheob/config/pull/91)) by [@renovate](https://github.com/apps/renovate)
 
-- bump `@typescript-eslint` monorepo --> ([#89](https://github.com/mheob/config/pull/89)) by
-  [@mheob](https://github.com/mheob)
+- bump `@typescript-eslint` monorepo --> ([#89](https://github.com/mheob/config/pull/89)) by [@mheob](https://github.com/mheob)
 
 ## 3.0.1
 
