@@ -26,7 +26,7 @@
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
 	"dependencies": {
-		"@trivago/prettier-plugin-sort-imports": "^3.4.0"
+		"@trivago/prettier-plugin-sort-imports": "^4.0.0"
 	},
 	"devDependencies": {
 		"@mheob/eslint-config": "workspace:*",
