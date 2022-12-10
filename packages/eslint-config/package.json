@@ -49,9 +49,9 @@
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.44.0",
-		"@typescript-eslint/parser": "^5.44.0",
-		"eslint-config-next": "^13.0.5",
+		"@typescript-eslint/eslint-plugin": "^5.45.1",
+		"@typescript-eslint/parser": "^5.45.1",
+		"eslint-config-next": "^13.0.6",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.31.11",
@@ -60,12 +60,12 @@
 	"devDependencies": {
 		"@mheob/tsconfig": "workspace:*",
 		"@types/eslint": "^8.4.10",
-		"eslint": "^8.28.0",
+		"eslint": "^8.29.0",
 		"prettier": "^2.8.0",
 		"typescript": "^4.9.3"
 	},
 	"peerDependencies": {
-		"eslint": "^8.28.0",
+		"eslint": "^8.29.0",
 		"prettier": "^2.8.0"
 	},
 	"publishConfig": {
