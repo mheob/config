@@ -8,7 +8,7 @@
 		"changeset": "changeset",
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
-		"format": "prettier --write \"**/*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml}\"",
+		"format": "prettier --write .",
 		"lint": "turbo run lint",
 		"prepare": "ts-node ./scripts/prepare.ts",
 		"release": "changeset publish",
@@ -32,13 +32,13 @@
 		"@mheob/changeset-changelog": "^2.0.0",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
-		"@types/node": "^18.11.11",
-		"eslint": "^8.29.0",
+		"@types/node": "^18.11.16",
+		"eslint": "^8.30.0",
 		"husky": "^8.0.2",
 		"lint-staged": "^13.1.0",
-		"prettier": "^2.8.0",
+		"prettier": "^2.8.1",
 		"ts-node": "^10.9.1",
 		"turbo": "^1.6.3",
-		"typescript": "^4.9.3"
+		"typescript": "^4.9.4"
 	}
 }

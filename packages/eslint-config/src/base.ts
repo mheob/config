@@ -11,6 +11,7 @@ const config: Linter.Config = {
 		'unicorn/import-index': 'error',
 		'unicorn/no-array-for-each': 'off',
 		'unicorn/no-array-reduce': 'off',
+		'unicorn/no-negated-condition': 'off',
 		'unicorn/prevent-abbreviations': [
 			'error',
 			{
