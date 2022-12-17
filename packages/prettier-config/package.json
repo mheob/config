@@ -32,8 +32,8 @@
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"@types/prettier": "^2.7.1",
-		"eslint": "^8.29.0",
-		"prettier": "^2.8.0"
+		"eslint": "^8.30.0",
+		"prettier": "^2.8.1"
 	},
 	"peerDependencies": {
 		"prettier": "^2.8.0"
