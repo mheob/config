@@ -1,15 +1,38 @@
 # @mheob/eslint-config
 
+## 4.0.0
+
+### Major Changes
+
+- add `eslint-plugin-simple-import-sort` and `eslint-plugin-import` ESLint plugins -->
+  ([#103](https://github.com/mheob/config/pull/103)) by [@mheob](https://github.com/mheob)
+
+### Minor Changes
+
+- add newest rules from `eslint-plugin-unicorn` -->
+  ([#101](https://github.com/mheob/config/pull/101)) by [@mheob](https://github.com/mheob)
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies -->
+  ([#99](https://github.com/mheob/config/pull/99)) by [@renovate](https://github.com/apps/renovate)
+
+- chore(deps): update all non-major dependencies -->
+  ([#95](https://github.com/mheob/config/pull/95)) by [@renovate](https://github.com/apps/renovate)
+
 ## 3.1.0
 
 ### Minor Changes
 
-- disable `unicorn/no-array-reduce` ESLint rule --> ([#93](https://github.com/mheob/config/pull/93)) by [@mheob](https://github.com/mheob)
+- disable `unicorn/no-array-reduce` ESLint rule --> ([#93](https://github.com/mheob/config/pull/93))
+  by [@mheob](https://github.com/mheob)
 
 ### Patch Changes
 
-- bump eslint to ^8.27.0 --> ([#91](https://github.com/mheob/config/pull/91)) by [@renovate](https://github.com/apps/renovate)
-- bump `@typescript-eslint` monorepo --> ([#89](https://github.com/mheob/config/pull/89)) by [@mheob](https://github.com/mheob)
+- bump eslint to ^8.27.0 --> ([#91](https://github.com/mheob/config/pull/91)) by
+  [@renovate](https://github.com/apps/renovate)
+- bump `@typescript-eslint` monorepo --> ([#89](https://github.com/mheob/config/pull/89)) by
+  [@mheob](https://github.com/mheob)
 
 ## 3.0.1
 

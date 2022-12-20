@@ -1,5 +1,17 @@
 # @mheob/prettier-config
 
+## 3.0.0
+
+### Major Changes
+
+- remove `@trivago/prettier-plugin-sort-imports` -->
+  ([#102](https://github.com/mheob/config/pull/102)) by [@mheob](https://github.com/mheob)
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies -->
+  ([#95](https://github.com/mheob/config/pull/95)) by [@renovate](https://github.com/apps/renovate)
+
 ## 2.0.3
 
 ### Patch Changes
