@@ -1,13 +1,47 @@
 import type { Linter } from 'eslint';
 
 const config: Linter.Config = {
-	plugins: ['@typescript-eslint'],
-	extends: ['eslint:recommended', 'plugin:unicorn/recommended', 'plugin:prettier/recommended'],
+	plugins: ['@typescript-eslint', 'simple-import-sort'],
+	extends: [
+		'eslint:recommended',
+		'plugin:unicorn/recommended',
+		'plugin:import/recommended',
+		'plugin:import/typescript',
+		'plugin:prettier/recommended',
+	],
+	settings: {
+		'import/resolver': {
+			typescript: true,
+			node: true,
+		},
+	},
 	rules: {
 		'prettier/prettier': 'warn',
 		'no-console': ['warn', { allow: ['warn', 'error'] }],
 		'no-implicit-coercion': ['error', { allow: ['!!', '+', '~'] }],
 		'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+		'simple-import-sort/imports': [
+			'error',
+			{
+				groups: [
+					// Side effect imports
+					['^\\u0000'],
+					// Node.js builtins
+					['^node:'],
+					// Packages
+					['^@?\\w'],
+					// Internal packages
+					['^@/?\\w'],
+					// Absolute imports
+					['^'],
+					// Relative imports
+					['^\\.'],
+					// Style imports
+					['^.+\\.s?css$'],
+				],
+			},
+		],
+		'simple-import-sort/exports': 'error',
 		'unicorn/import-index': 'error',
 		'unicorn/no-array-for-each': 'off',
 		'unicorn/no-array-reduce': 'off',
