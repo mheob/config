@@ -26,13 +26,13 @@
 		"package.json": "npx sort-package-json"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.25.2",
+		"@changesets/cli": "^2.26.0",
 		"@commitlint/cli": "^17.3.0",
 		"@commitlint/config-conventional": "^17.3.0",
 		"@mheob/changeset-changelog": "^2.0.0",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
-		"@types/node": "^18.11.16",
+		"@types/node": "^18.11.17",
 		"eslint": "^8.30.0",
 		"husky": "^8.0.2",
 		"lint-staged": "^13.1.0",
