@@ -1,6 +1,6 @@
 {
 	"name": "@mheob/prettier-config",
-	"version": "2.0.3",
+	"version": "3.0.0",
 	"description": "My personal configuration for prettier.",
 	"keywords": [
 		"prettier",
