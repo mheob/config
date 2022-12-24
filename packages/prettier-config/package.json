@@ -28,12 +28,12 @@
 	"devDependencies": {
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
-		"@types/prettier": "^2.7.1",
+		"@types/prettier": "^2.7.2",
 		"eslint": "^8.30.0",
 		"prettier": "^2.8.1"
 	},
 	"peerDependencies": {
-		"prettier": "^2.8.0"
+		"prettier": "^2.8.1"
 	},
 	"publishConfig": {
 		"access": "public"
