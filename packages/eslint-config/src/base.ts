@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 
 const config: Linter.Config = {
-	plugins: ['@typescript-eslint', 'simple-import-sort'],
+	plugins: ['@typescript-eslint', 'simple-import-sort', 'unused-imports'],
 	extends: [
 		'eslint:recommended',
 		'plugin:unicorn/recommended',
@@ -19,7 +19,6 @@ const config: Linter.Config = {
 		'prettier/prettier': 'warn',
 		'no-console': ['warn', { allow: ['warn', 'error'] }],
 		'no-implicit-coercion': ['error', { allow: ['!!', '+', '~'] }],
-		'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
 		'simple-import-sort/imports': [
 			'error',
 			{
@@ -57,6 +56,10 @@ const config: Linter.Config = {
 				},
 			},
 		],
+		// Disable the default rule so that `unused-imports` can auto-fix
+		'no-unused-vars': 'off',
+		'unused-imports/no-unused-imports': 'warn',
+		'unused-imports/no-unused-vars': ['warn', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
 	},
 	overrides: [
 		{
@@ -76,10 +79,8 @@ const config: Linter.Config = {
 					'warn',
 					{ allowExpressions: true, allowTypedFunctionExpressions: true },
 				],
-				'@typescript-eslint/no-unused-vars': [
-					'warn',
-					{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-				],
+				// Disable the default rule so that `unused-imports` can auto-fix
+				'@typescript-eslint/no-unused-vars': 'off',
 				'@typescript-eslint/quotes': ['warn', 'single', { avoidEscape: true }],
 			},
 		},
