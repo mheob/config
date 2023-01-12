@@ -1,5 +1,17 @@
 # @mheob/eslint-config
 
+## 4.1.0
+
+### Minor Changes
+
+- add auto-fix for unused imports and vars --> ([#106](https://github.com/mheob/config/pull/106)) by
+  [@mheob](https://github.com/mheob)
+
+### Patch Changes
+
+- bump `eslint-config-next` to `13.1.0` --> ([#106](https://github.com/mheob/config/pull/106)) by
+  [@mheob](https://github.com/mheob)
+
 ## 4.0.0
 
 ### Major Changes
