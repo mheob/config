@@ -31,27 +31,21 @@ If you need to override some settings you can do it this way:
 module.exports = {
 	...require('@mheob/prettier-config'),
 	semi: false,
-	importOrder: ['^@company/(.*)$', '^[./]'],
+	useTabs: false,
 };
 ```
 
 ## Ruleset
 
-This configuration uses the [`@trivago/prettier-plugin-sort-imports`](https://github.com/trivago/prettier-plugin-sort-imports) plugin and set these styles:
+This configuration uses these styles:
 
 ```js
-const sortImports = require('@trivago/prettier-plugin-sort-imports');
-
 /** @type {import('prettier').Config} */
 module.exports = {
-	plugins: [sortImports],
 	arrowParens: 'always',
 	endOfLine: 'lf',
 	printWidth: 100,
 	proseWrap: 'always',
-	importOrder: ['^node:', '<THIRD_PARTY_MODULES>', '^[./]'],
-	importOrderSeparation: true,
-	importOrderSortSpecifiers: true,
 	singleQuote: true,
 	semi: true,
 	trailingComma: 'all',

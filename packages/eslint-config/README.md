@@ -54,6 +54,8 @@ module.exports = {
 };
 ```
 
+## Overwrite Rules
+
 If you need to override some rules you can do it this way:
 
 ```js
@@ -62,8 +64,29 @@ module.exports = {
 	root: true, // optional
 	extends: ['@mheob/eslint-config'],
 	rules: {
-		'prettier/prettier': 'off',
 		'no-console': 'warn',
+		'prettier/prettier': 'off',
+		'simple-import-sort/imports': [
+			'error',
+			{
+				groups: [
+					// Side effect imports
+					['^\\u0000'],
+					// Node.js builtins
+					['^node:'],
+					// Packages
+					['^@?\\w'],
+					// Internal packages
+					['^~/?\\w'],
+					// Absolute imports
+					['^'],
+					// Relative imports
+					['^\\.'],
+					// Style imports
+					['^.+\\.s?css$'],
+				],
+			},
+		],
 	},
 };
 ```
@@ -80,8 +103,8 @@ module.exports = {
 			files: ['*.jsx', '*.tsx'],
 			settings: { react: { version: 'detect' } },
 			rules: {
-				'react/jsx-no-useless-fragment': 'warn',
-				'react/react-in-jsx-scope': 'off',
+				'react/jsx-no-useless-fragment': 'error',
+				'unicorn/filename-case': ['error', { case: 'kebabCase' }],
 			},
 		},
 	],
