@@ -75,10 +75,6 @@ const config: Linter.Config = {
 			extends: ['plugin:@typescript-eslint/recommended'],
 			rules: {
 				'@typescript-eslint/consistent-type-imports': 'error',
-				'@typescript-eslint/explicit-function-return-type': [
-					'warn',
-					{ allowExpressions: true, allowTypedFunctionExpressions: true },
-				],
 				// Disable the default rule so that `unused-imports` can auto-fix
 				'@typescript-eslint/no-unused-vars': 'off',
 				'@typescript-eslint/quotes': ['warn', 'single', { avoidEscape: true }],
