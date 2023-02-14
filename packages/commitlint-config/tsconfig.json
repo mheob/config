@@ -1,0 +1,9 @@
+{
+	"extends": "@mheob/tsconfig/commonjs.json",
+	"compilerOptions": {
+		"declaration": true,
+		"outDir": "dist",
+		"rootDir": "src"
+	},
+	"include": ["src/**/*"]
+}

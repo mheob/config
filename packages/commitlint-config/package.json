@@ -1,0 +1,45 @@
+{
+	"name": "@mheob/commitlint-config",
+	"version": "0.0.0",
+	"description": "My personal configuration for commitlint.",
+	"keywords": [
+		"commitlint",
+		"config"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/commitlint-config",
+	"bugs": "https://github.com/mheob/config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config"
+	},
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@boehm.work>",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc",
+		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+		"lint": "eslint src/**/*.ts --fix",
+		"sort-package-json": "pnpm dlx sort-package-json"
+	},
+	"dependencies": {
+		"@commitlint/config-conventional": "^17.4.3"
+	},
+	"devDependencies": {
+		"@mheob/eslint-config": "workspace:*",
+		"@mheob/tsconfig": "workspace:*",
+		"commitizen": "^4.3.0",
+		"cz-git": "^1.4.1",
+		"eslint": "^8.34.0"
+	},
+	"peerDependencies": {
+		"commitizen": "^4.3.0",
+		"cz-git": "^1.4.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

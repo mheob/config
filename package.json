@@ -15,24 +15,26 @@
 		"sort-package-json": "npx sort-package-json && turbo run sort-package-json",
 		"version-packages": "changeset version && pnpm exec prettier --write ."
 	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
 	"lint-staged": {
 		"*.{cjs,js,jsx,ts,tsx}": "eslint --fix",
 		"!(pnpm-)*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml}": "pnpm exec prettier --write",
 		"package.json": "npx sort-package-json"
 	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.0",
 		"@commitlint/cli": "^17.4.3",
-		"@commitlint/config-conventional": "^17.4.3",
 		"@mheob/changeset-changelog": "^2.0.1",
+		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
 		"@types/node": "^18.13.0",
+		"commitizen": "^4.3.0",
+		"cz-git": "^1.4.1",
 		"eslint": "^8.34.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.1.1",
