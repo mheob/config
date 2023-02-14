@@ -8,17 +8,17 @@
 		"changeset": "changeset",
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
-		"format": "prettier --write .",
+		"format": "prettier --write \"**/*.{cjs,js,mjs,ts,json,md,mdx,yaml,yml}\"",
 		"lint": "turbo run lint",
 		"prepare": "ts-node ./scripts/prepare.ts",
 		"release": "changeset publish",
-		"sort-package-json": "npx sort-package-json && turbo run sort-package-json",
-		"version-packages": "changeset version && pnpm exec prettier --write ."
+		"sort-package-json": "pnpm dlx sort-package-json && turbo run sort-package-json",
+		"version-packages": "changeset version && pnpm run format"
 	},
 	"lint-staged": {
 		"*.{cjs,js,jsx,ts,tsx}": "eslint --fix",
 		"!(pnpm-)*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml}": "pnpm exec prettier --write",
-		"package.json": "npx sort-package-json"
+		"package.json": "pnpm dlx sort-package-json"
 	},
 	"config": {
 		"commitizen": {
