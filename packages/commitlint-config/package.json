@@ -25,9 +25,6 @@
 		"lint": "eslint src/**/*.ts --fix",
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
-	"dependencies": {
-		"@commitlint/config-conventional": "^17.4.3"
-	},
 	"devDependencies": {
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
