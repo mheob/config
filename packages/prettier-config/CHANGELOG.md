@@ -1,5 +1,12 @@
 # @mheob/prettier-config
 
+## 3.0.1
+
+### Patch Changes
+
+- fix the README files after the change of using ESLint to fix the imports -->
+  ([#109](https://github.com/mheob/config/pull/109)) by [@mheob](https://github.com/mheob)
+
 ## 3.0.0
 
 ### Major Changes
