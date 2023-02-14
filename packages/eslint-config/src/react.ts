@@ -12,7 +12,6 @@ const config: Linter.Config = {
 			files: ['*.jsx', '*.tsx'],
 			settings: { react: { version: 'detect' } },
 			rules: {
-				'@typescript-eslint/explicit-function-return-type': 'off',
 				'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
 				'react/jsx-no-useless-fragment': 'warn',
 				'react/react-in-jsx-scope': 'off',
