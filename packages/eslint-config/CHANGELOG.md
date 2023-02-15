@@ -1,5 +1,23 @@
 # @mheob/eslint-config
 
+## 4.2.0
+
+### Minor Changes
+
+- remove explicit return rule --> ([#113](https://github.com/mheob/config/pull/113)) by
+  [@mheob](https://github.com/mheob)
+
+- move `explicit-function-return-type` rule to base config -->
+  ([#116](https://github.com/mheob/config/pull/116)) by [@mheob](https://github.com/mheob)
+
+### Patch Changes
+
+- update dependencies --> ([#112](https://github.com/mheob/config/pull/112)) by
+  [@mheob](https://github.com/mheob)
+
+- fix the README files after the change of using ESLint to fix the imports -->
+  ([#109](https://github.com/mheob/config/pull/109)) by [@mheob](https://github.com/mheob)
+
 ## 4.1.0
 
 ### Minor Changes
