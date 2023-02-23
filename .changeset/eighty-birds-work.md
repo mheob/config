@@ -1,5 +1,5 @@
 ---
-"@mheob/eslint-config": patch
+"@mheob/commitlint-config": patch
 ---
 
 chore(deps): update dependencies
