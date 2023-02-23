@@ -79,6 +79,8 @@ const options: UserConfig = {
 			customFooterPrefix: 'Input ISSUES prefix:',
 			footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
 			confirmCommit: 'Are you sure you want to proceed with the commit above?',
+			generatedSelectByAI: 'Select suitable subject by AI generated:',
+			generatingByAI: 'Generating your AI commit subject...',
 		},
 		types: [
 			{ value: 'feat', name: 'feat:     A new feature' },
