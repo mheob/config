@@ -32,15 +32,15 @@
 		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
-		"@types/node": "^18.14.0",
+		"@types/node": "^18.15.3",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.5.0",
-		"eslint": "^8.34.0",
+		"cz-git": "^1.6.0",
+		"eslint": "^8.36.0",
 		"husky": "^8.0.3",
-		"lint-staged": "^13.1.2",
+		"lint-staged": "^13.2.0",
 		"prettier": "^2.8.4",
 		"ts-node": "^10.9.1",
-		"turbo": "^1.8.1",
+		"turbo": "^1.8.3",
 		"typescript": "^4.9.5"
 	}
 }

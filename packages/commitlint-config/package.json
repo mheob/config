@@ -29,12 +29,12 @@
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.5.0",
-		"eslint": "^8.34.0"
+		"cz-git": "^1.6.0",
+		"eslint": "^8.36.0"
 	},
 	"peerDependencies": {
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.5.0"
+		"cz-git": "^1.6.0"
 	},
 	"publishConfig": {
 		"access": "public"
