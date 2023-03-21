@@ -1,5 +1,12 @@
 # @mheob/tsconfig
 
+## 2.0.0
+
+### Major Changes
+
+- remove depricated `importsNotUsedAsValues` config -->
+  ([#121](https://github.com/mheob/config/pull/121)) by [@mheob](https://github.com/mheob)
+
 ## 1.0.1
 
 ### Patch Changes

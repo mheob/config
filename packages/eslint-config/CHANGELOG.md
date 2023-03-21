@@ -1,5 +1,12 @@
 # @mheob/eslint-config
 
+## 4.2.1
+
+### Patch Changes
+
+- update dependencies --> ([#121](https://github.com/mheob/config/pull/121)) by
+  [@mheob](https://github.com/mheob)
+
 ## 4.2.0
 
 ### Minor Changes
