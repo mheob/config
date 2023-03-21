@@ -30,7 +30,8 @@
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.0",
 		"cz-git": "^1.6.0",
-		"eslint": "^8.36.0"
+		"eslint": "^8.36.0",
+		"typescript": "^5.0.2"
 	},
 	"peerDependencies": {
 		"commitizen": "^4.3.0",

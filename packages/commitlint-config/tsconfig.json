@@ -1,5 +1,5 @@
 {
-	"extends": "@mheob/tsconfig/commonjs.json",
+	"extends": "../tsconfig/commonjs.json",
 	"compilerOptions": {
 		"declaration": true,
 		"outDir": "dist",
