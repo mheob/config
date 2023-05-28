@@ -29,12 +29,12 @@
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"@types/prettier": "^2.7.2",
-		"eslint": "^8.36.0",
-		"prettier": "^2.8.6",
-		"typescript": "^5.0.2"
+		"eslint": "^8.41.0",
+		"prettier": "^2.8.8",
+		"typescript": "^5.0.4"
 	},
 	"peerDependencies": {
-		"prettier": "^2.8.4"
+		"prettier": "^2.8.8"
 	},
 	"publishConfig": {
 		"access": "public"
