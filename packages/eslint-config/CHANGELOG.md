@@ -1,5 +1,19 @@
 # @mheob/eslint-config
 
+## 5.0.0
+
+### Major Changes
+
+- [#124](https://github.com/mheob/config/pull/124) ([@mheob](https://github.com/mheob)): Bump
+  `eslint-plugin-unicorn` to v47. BREAKING CHANGE: Enable `prefer-at`, `prefer-event-target`, and
+  `prefer-string-replace-all` in recommended config (see
+  [#2073](https://github.com/sindresorhus/eslint-plugin-unicorn/pull/2073))
+
+### Patch Changes
+
+- [#122](https://github.com/mheob/config/pull/122) ([@renovate](https://github.com/apps/renovate)):
+  chore(deps): update all non-major dependencies
+
 ## 4.2.1
 
 ### Patch Changes
