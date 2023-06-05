@@ -1,5 +1,12 @@
 # @mheob/commitlint-config
 
+## 1.1.0
+
+### Minor Changes
+
+- [#128](https://github.com/mheob/config/pull/128) ([@mheob](https://github.com/mheob)): add
+  `@commitlint/cli` to `peerDependencies`
+
 ## 1.0.1
 
 ### Patch Changes

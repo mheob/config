@@ -1,5 +1,12 @@
 # @mheob/eslint-config
 
+## 5.0.1
+
+### Patch Changes
+
+- [#125](https://github.com/mheob/config/pull/125) ([@renovate](https://github.com/apps/renovate)):
+  chore(deps): update all non-major dependencies
+
 ## 5.0.0
 
 ### Major Changes
