@@ -63,15 +63,18 @@ const config: Linter.Config = {
 	},
 	overrides: [
 		{
-			files: ['*.cjs'],
+			files: ['*.cjs', '*.cts'],
 			env: { node: true },
 		},
 		{
 			files: ['*.js', '*.ts'],
-			rules: { 'unicorn/filename-case': ['error', { case: 'camelCase' }] },
+			rules: {
+				'unicorn/filename-case': ['error', { case: 'camelCase' }],
+				'unicorn/no-null': 'off',
+			},
 		},
 		{
-			files: ['*.ts', '*.tsx'],
+			files: ['*.cts', '*.mts', '*.ts', '*.tsx'],
 			extends: ['plugin:@typescript-eslint/recommended'],
 			rules: {
 				'@typescript-eslint/consistent-type-imports': 'error',
