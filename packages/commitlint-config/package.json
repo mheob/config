@@ -34,9 +34,9 @@
 		"typescript": "^5.1.6"
 	},
 	"peerDependencies": {
-		"@commitlint/cli": "^17.6.6",
-		"commitizen": "^4.3.0",
-		"cz-git": "^1.6.1"
+		"@commitlint/cli": ">=17",
+		"commitizen": ">=4",
+		"cz-git": ">=1"
 	},
 	"publishConfig": {
 		"access": "public"
