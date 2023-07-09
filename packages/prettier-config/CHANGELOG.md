@@ -1,5 +1,12 @@
 # @mheob/prettier-config
 
+## 3.1.0
+
+### Minor Changes
+
+- [#133](https://github.com/mheob/config/pull/133) ([@mheob](https://github.com/mheob)): bump
+  prettier to version 3
+
 ## 3.0.1
 
 ### Patch Changes
