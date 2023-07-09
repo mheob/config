@@ -1,5 +1,20 @@
 # @mheob/eslint-config
 
+## 5.1.0
+
+### Minor Changes
+
+- [#131](https://github.com/mheob/config/pull/131) ([@mheob](https://github.com/mheob)): add `cts`
+  and `mts` file extensions to the eslint config
+
+### Patch Changes
+
+- [#133](https://github.com/mheob/config/pull/133) ([@mheob](https://github.com/mheob)): update
+  dependencies
+
+- [#129](https://github.com/mheob/config/pull/129) ([@renovate](https://github.com/apps/renovate)):
+  chore(deps): update all non-major dependencies
+
 ## 5.0.1
 
 ### Patch Changes
