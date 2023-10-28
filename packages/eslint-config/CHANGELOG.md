@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 5.1.1
+
+### Patch Changes
+
+- [#145](https://github.com/mheob/config/pull/145) ([@mheob](https://github.com/mheob)): update
+  dependencies
+
+- [#135](https://github.com/mheob/config/pull/135) ([@mheob](https://github.com/mheob)): update
+  dependencies
+
 ## 5.1.0
 
 ### Minor Changes
