@@ -35,7 +35,7 @@
 		"typescript": "^5.2.2"
 	},
 	"peerDependencies": {
-		"@commitlint/cli": "^17.8.1",
+		"@commitlint/cli": "^18.1.0",
 		"commitizen": "^4.3.0",
 		"cz-git": "^1.7.1"
 	},
