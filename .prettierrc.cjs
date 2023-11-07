@@ -1,12 +1,12 @@
+/** @type {import('prettier').Config} */
 module.exports = {
 	...require('@mheob/prettier-config'),
 
 	overrides: [
 		...require('@mheob/prettier-config').overrides,
 		{
-			files: '*.md',
+			files: '**/*.md',
 			options: {
-				printWidth: 999,
 				proseWrap: 'never',
 			},
 		},

@@ -4,187 +4,140 @@
 
 ### Patch Changes
 
-- [#145](https://github.com/mheob/config/pull/145) ([@mheob](https://github.com/mheob)): update
-  dependencies
+- [#145](https://github.com/mheob/config/pull/145) ([@mheob](https://github.com/mheob)): update dependencies
 
-- [#135](https://github.com/mheob/config/pull/135) ([@mheob](https://github.com/mheob)): update
-  dependencies
+- [#135](https://github.com/mheob/config/pull/135) ([@mheob](https://github.com/mheob)): update dependencies
 
 ## 5.1.0
 
 ### Minor Changes
 
-- [#131](https://github.com/mheob/config/pull/131) ([@mheob](https://github.com/mheob)): add `cts`
-  and `mts` file extensions to the eslint config
+- [#131](https://github.com/mheob/config/pull/131) ([@mheob](https://github.com/mheob)): add `cts` and `mts` file extensions to the eslint config
 
 ### Patch Changes
 
-- [#133](https://github.com/mheob/config/pull/133) ([@mheob](https://github.com/mheob)): update
-  dependencies
+- [#133](https://github.com/mheob/config/pull/133) ([@mheob](https://github.com/mheob)): update dependencies
 
-- [#129](https://github.com/mheob/config/pull/129) ([@renovate](https://github.com/apps/renovate)):
-  chore(deps): update all non-major dependencies
+- [#129](https://github.com/mheob/config/pull/129) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
 
 ## 5.0.1
 
 ### Patch Changes
 
-- [#125](https://github.com/mheob/config/pull/125) ([@renovate](https://github.com/apps/renovate)):
-  chore(deps): update all non-major dependencies
+- [#125](https://github.com/mheob/config/pull/125) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
 
 ## 5.0.0
 
 ### Major Changes
 
-- [#124](https://github.com/mheob/config/pull/124) ([@mheob](https://github.com/mheob)): Bump
-  `eslint-plugin-unicorn` to v47. BREAKING CHANGE: Enable `prefer-at`, `prefer-event-target`, and
-  `prefer-string-replace-all` in recommended config (see
-  [#2073](https://github.com/sindresorhus/eslint-plugin-unicorn/pull/2073))
+- [#124](https://github.com/mheob/config/pull/124) ([@mheob](https://github.com/mheob)): Bump `eslint-plugin-unicorn` to v47. BREAKING CHANGE: Enable `prefer-at`, `prefer-event-target`, and `prefer-string-replace-all` in recommended config (see [#2073](https://github.com/sindresorhus/eslint-plugin-unicorn/pull/2073))
 
 ### Patch Changes
 
-- [#122](https://github.com/mheob/config/pull/122) ([@renovate](https://github.com/apps/renovate)):
-  chore(deps): update all non-major dependencies
+- [#122](https://github.com/mheob/config/pull/122) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
 
 ## 4.2.1
 
 ### Patch Changes
 
-- update dependencies --> ([#121](https://github.com/mheob/config/pull/121)) by
-  [@mheob](https://github.com/mheob)
+- update dependencies --> ([#121](https://github.com/mheob/config/pull/121)) by [@mheob](https://github.com/mheob)
 
 ## 4.2.0
 
 ### Minor Changes
 
-- remove explicit return rule --> ([#113](https://github.com/mheob/config/pull/113)) by
-  [@mheob](https://github.com/mheob)
+- remove explicit return rule --> ([#113](https://github.com/mheob/config/pull/113)) by [@mheob](https://github.com/mheob)
 
-- move `explicit-function-return-type` rule to base config -->
-  ([#116](https://github.com/mheob/config/pull/116)) by [@mheob](https://github.com/mheob)
+- move `explicit-function-return-type` rule to base config --> ([#116](https://github.com/mheob/config/pull/116)) by [@mheob](https://github.com/mheob)
 
 ### Patch Changes
 
-- update dependencies --> ([#112](https://github.com/mheob/config/pull/112)) by
-  [@mheob](https://github.com/mheob)
+- update dependencies --> ([#112](https://github.com/mheob/config/pull/112)) by [@mheob](https://github.com/mheob)
 
-- fix the README files after the change of using ESLint to fix the imports -->
-  ([#109](https://github.com/mheob/config/pull/109)) by [@mheob](https://github.com/mheob)
+- fix the README files after the change of using ESLint to fix the imports --> ([#109](https://github.com/mheob/config/pull/109)) by [@mheob](https://github.com/mheob)
 
 ## 4.1.0
 
 ### Minor Changes
 
-- add auto-fix for unused imports and vars --> ([#106](https://github.com/mheob/config/pull/106)) by
-  [@mheob](https://github.com/mheob)
+- add auto-fix for unused imports and vars --> ([#106](https://github.com/mheob/config/pull/106)) by [@mheob](https://github.com/mheob)
 
 ### Patch Changes
 
-- bump `eslint-config-next` to `13.1.0` --> ([#106](https://github.com/mheob/config/pull/106)) by
-  [@mheob](https://github.com/mheob)
+- bump `eslint-config-next` to `13.1.0` --> ([#106](https://github.com/mheob/config/pull/106)) by [@mheob](https://github.com/mheob)
 
 ## 4.0.0
 
 ### Major Changes
 
-- add `eslint-plugin-simple-import-sort` and `eslint-plugin-import` ESLint plugins -->
-  ([#103](https://github.com/mheob/config/pull/103)) by [@mheob](https://github.com/mheob)
+- add `eslint-plugin-simple-import-sort` and `eslint-plugin-import` ESLint plugins --> ([#103](https://github.com/mheob/config/pull/103)) by [@mheob](https://github.com/mheob)
 
 ### Minor Changes
 
-- add newest rules from `eslint-plugin-unicorn` -->
-  ([#101](https://github.com/mheob/config/pull/101)) by [@mheob](https://github.com/mheob)
+- add newest rules from `eslint-plugin-unicorn` --> ([#101](https://github.com/mheob/config/pull/101)) by [@mheob](https://github.com/mheob)
 
 ### Patch Changes
 
-- chore(deps): update all non-major dependencies -->
-  ([#99](https://github.com/mheob/config/pull/99)) by [@renovate](https://github.com/apps/renovate)
+- chore(deps): update all non-major dependencies --> ([#99](https://github.com/mheob/config/pull/99)) by [@renovate](https://github.com/apps/renovate)
 
-- chore(deps): update all non-major dependencies -->
-  ([#95](https://github.com/mheob/config/pull/95)) by [@renovate](https://github.com/apps/renovate)
+- chore(deps): update all non-major dependencies --> ([#95](https://github.com/mheob/config/pull/95)) by [@renovate](https://github.com/apps/renovate)
 
 ## 3.1.0
 
 ### Minor Changes
 
-- disable `unicorn/no-array-reduce` ESLint rule --> ([#93](https://github.com/mheob/config/pull/93))
-  by [@mheob](https://github.com/mheob)
+- disable `unicorn/no-array-reduce` ESLint rule --> ([#93](https://github.com/mheob/config/pull/93)) by [@mheob](https://github.com/mheob)
 
 ### Patch Changes
 
-- bump eslint to ^8.27.0 --> ([#91](https://github.com/mheob/config/pull/91)) by
-  [@renovate](https://github.com/apps/renovate)
-- bump `@typescript-eslint` monorepo --> ([#89](https://github.com/mheob/config/pull/89)) by
-  [@mheob](https://github.com/mheob)
+- bump eslint to ^8.27.0 --> ([#91](https://github.com/mheob/config/pull/91)) by [@renovate](https://github.com/apps/renovate)
+- bump `@typescript-eslint` monorepo --> ([#89](https://github.com/mheob/config/pull/89)) by [@mheob](https://github.com/mheob)
 
 ## 3.0.1
 
 ### Patch Changes
 
-- Update dependencies --> ([#77](https://github.com/mheob/config/pull/77)) by
-  [@mheob](https://github.com/mheob)
+- Update dependencies --> ([#77](https://github.com/mheob/config/pull/77)) by [@mheob](https://github.com/mheob)
 
-- update dependencies --> ([#81](https://github.com/mheob/config/pull/81)) by
-  [@mheob](https://github.com/mheob)
+- update dependencies --> ([#81](https://github.com/mheob/config/pull/81)) by [@mheob](https://github.com/mheob)
 
-- update dependencies --> ([#86](https://github.com/mheob/config/pull/86)) by
-  [@mheob](https://github.com/mheob)
+- update dependencies --> ([#86](https://github.com/mheob/config/pull/86)) by [@mheob](https://github.com/mheob)
 
-- update dependencies --> ([#84](https://github.com/mheob/config/pull/84)) by
-  [@renovate](https://github.com/apps/renovate)
+- update dependencies --> ([#84](https://github.com/mheob/config/pull/84)) by [@renovate](https://github.com/apps/renovate)
 
 ## 3.0.0
 
 ### Major Changes
 
-- [#72](https://github.com/mheob/config/pull/72)
-  [`6c13a4f`](https://github.com/mheob/config/commit/6c13a4fdabf14e2e4f0aa3495a328e45356ee6ff)
-  Thanks [@mheob](https://github.com/mheob)! - Update dependencies and use the new rules from
-  `eslint-plugin-unicorn`, especially
-  [switch-case-braces](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/switch-case-braces.md)
+- [#72](https://github.com/mheob/config/pull/72) [`6c13a4f`](https://github.com/mheob/config/commit/6c13a4fdabf14e2e4f0aa3495a328e45356ee6ff) Thanks [@mheob](https://github.com/mheob)! - Update dependencies and use the new rules from `eslint-plugin-unicorn`, especially [switch-case-braces](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/switch-case-braces.md)
 
 ## 2.2.0
 
 ### Minor Changes
 
-- [#59](https://github.com/mheob/config/pull/59)
-  [`ec5e9e3`](https://github.com/mheob/config/commit/ec5e9e3a75aec80591c23aaa55b28932d6db7036)
-  Thanks [@mheob](https://github.com/mheob)! - Disable `unicorn/no-array-for-each` rule as default
+- [#59](https://github.com/mheob/config/pull/59) [`ec5e9e3`](https://github.com/mheob/config/commit/ec5e9e3a75aec80591c23aaa55b28932d6db7036) Thanks [@mheob](https://github.com/mheob)! - Disable `unicorn/no-array-for-each` rule as default
 
 ### Patch Changes
 
-- [#60](https://github.com/mheob/config/pull/60)
-  [`12b3867`](https://github.com/mheob/config/commit/12b38679f9fa123e20e634932ae1c8e277421464)
-  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+- [#60](https://github.com/mheob/config/pull/60) [`12b3867`](https://github.com/mheob/config/commit/12b38679f9fa123e20e634932ae1c8e277421464) Thanks [@mheob](https://github.com/mheob)! - Update dependencies
 
 ## 2.1.2
 
 ### Patch Changes
 
-- [#53](https://github.com/mheob/config/pull/53)
-  [`f7b87f4`](https://github.com/mheob/config/commit/f7b87f470129ee795855484b7ca394f2980ba8b1)
-  Thanks [@mheob](https://github.com/mheob)! - Simpplify and fix calling sub configurations
+- [#53](https://github.com/mheob/config/pull/53) [`f7b87f4`](https://github.com/mheob/config/commit/f7b87f470129ee795855484b7ca394f2980ba8b1) Thanks [@mheob](https://github.com/mheob)! - Simpplify and fix calling sub configurations
 
 ## 2.1.1
 
 ### Patch Changes
 
-- [#49](https://github.com/mheob/config/pull/49)
-  [`348d277`](https://github.com/mheob/config/commit/348d27713aab3a4927447f9870075cb2ace4275e)
-  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+- [#49](https://github.com/mheob/config/pull/49) [`348d277`](https://github.com/mheob/config/commit/348d27713aab3a4927447f9870075cb2ace4275e) Thanks [@mheob](https://github.com/mheob)! - Update dependencies
 
-- [#46](https://github.com/mheob/config/pull/46)
-  [`6f731ee`](https://github.com/mheob/config/commit/6f731eeba2c6cf3f8e8ce896e19069bc88d45557)
-  Thanks [@mheob](https://github.com/mheob)! - Switch to typescript as source files
+- [#46](https://github.com/mheob/config/pull/46) [`6f731ee`](https://github.com/mheob/config/commit/6f731eeba2c6cf3f8e8ce896e19069bc88d45557) Thanks [@mheob](https://github.com/mheob)! - Switch to typescript as source files
 
-- [#42](https://github.com/mheob/config/pull/42)
-  [`cf8ba94`](https://github.com/mheob/config/commit/cf8ba94f23489673593eb101dcab47af445054a0)
-  Thanks [@mheob](https://github.com/mheob)! - Format all files to the new tabs instead of spaces
-  behaviour
+- [#42](https://github.com/mheob/config/pull/42) [`cf8ba94`](https://github.com/mheob/config/commit/cf8ba94f23489673593eb101dcab47af445054a0) Thanks [@mheob](https://github.com/mheob)! - Format all files to the new tabs instead of spaces behaviour
 
-- [#36](https://github.com/mheob/config/pull/36)
-  [`fd1474e`](https://github.com/mheob/config/commit/fd1474e0bcb9d6495a53358b4da62ec7d4754994)
-  Thanks [@mheob](https://github.com/mheob)! - Update dependencies
+- [#36](https://github.com/mheob/config/pull/36) [`fd1474e`](https://github.com/mheob/config/commit/fd1474e0bcb9d6495a53358b4da62ec7d4754994) Thanks [@mheob](https://github.com/mheob)! - Update dependencies
 
 ## 2.1.0
 
