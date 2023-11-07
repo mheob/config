@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 5.2.0
+
+### Minor Changes
+
+- [#147](https://github.com/mheob/config/pull/147) ([@mheob](https://github.com/mheob)): set `unicorn/no-null` rule to `off`
+
 ## 5.1.1
 
 ### Patch Changes
