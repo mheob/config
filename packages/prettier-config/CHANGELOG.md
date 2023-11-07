@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.2.0
+
+### Minor Changes
+
+- [#149](https://github.com/mheob/config/pull/149) ([@mheob](https://github.com/mheob)): remove line wraps in markdown files
+
 ## 3.1.1
 
 ### Patch Changes
