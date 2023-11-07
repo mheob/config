@@ -37,6 +37,14 @@ jobs:
       - name: Build files
         run: pnpm run build
 
+      - name: Setup service bot git
+        env:
+          GIT_EMAIL: ${{ secrets.MACHINE_USER_TOKEN_EMAIL }}
+          GIT_NAME: ${{ secrets.MACHINE_USER_TOKEN_NAME }}
+        run: |
+          git config --local user.email "${GIT_EMAIL}"
+          git config --local user.name "${GIT_NAME}"
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
