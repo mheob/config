@@ -10,7 +10,7 @@ See the readmes in each package for further information.
 
 From the [official Kodiak docs](https://kodiakhq.com/docs/config-reference):
 
-> Kodiak's configuration file is a TOML file and should be placed at `.kodiak.toml` (repository root or `.github/.kodiak.toml`.
+> Kodiak's configuration file is a TOML file and should be placed at `.kodiak.toml` (repository root or `.github/.kodiak.toml`).
 
 If Kodiak cannot find configuration in the repository, Kodiak will use the global configuration in look in the [`.github`](https://github.com/mheob/.github) repository if the project is inside of the `@mheob` scope.
 

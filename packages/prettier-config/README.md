@@ -28,6 +28,7 @@ If you need to override some settings you can do it this way:
 
 ```js
 // .prettierrc.cjs
+/** @type {import('prettier').Config} */
 module.exports = {
 	...require('@mheob/prettier-config'),
 	semi: false,

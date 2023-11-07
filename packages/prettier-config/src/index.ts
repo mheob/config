@@ -12,7 +12,7 @@ const options: Config = {
 
 	overrides: [
 		{
-			files: '*.{yaml,yml}',
+			files: '**/*.{yaml,yml}',
 			options: {
 				printWidth: 130,
 				singleQuote: false,
@@ -20,7 +20,7 @@ const options: Config = {
 			},
 		},
 		{
-			files: '*.md',
+			files: '**/*.md',
 			options: {
 				printWidth: 130,
 			},
