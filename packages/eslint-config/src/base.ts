@@ -45,6 +45,7 @@ const config: Linter.Config = {
 		'unicorn/no-array-for-each': 'off',
 		'unicorn/no-array-reduce': 'off',
 		'unicorn/no-negated-condition': 'off',
+		'unicorn/no-null': 'off',
 		'unicorn/prevent-abbreviations': [
 			'error',
 			{
@@ -70,7 +71,6 @@ const config: Linter.Config = {
 			files: ['*.js', '*.ts'],
 			rules: {
 				'unicorn/filename-case': ['error', { case: 'camelCase' }],
-				'unicorn/no-null': 'off',
 			},
 		},
 		{
