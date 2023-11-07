@@ -39,8 +39,8 @@ jobs:
 
       - name: Setup service bot git
         env:
-          GIT_EMAIL: ${{ secrets.MACHINE_USER_TOKEN_EMAIL }}
-          GIT_NAME: ${{ secrets.MACHINE_USER_TOKEN_NAME }}
+          GIT_EMAIL: ${{ secrets.MACHINE_USER_EMAIL }}
+          GIT_NAME: ${{ secrets.MACHINE_USER_NAME }}
         run: |
           git config --local user.email "${GIT_EMAIL}"
           git config --local user.name "${GIT_NAME}"
