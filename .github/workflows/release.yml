@@ -10,6 +10,12 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  packages: write
+
 jobs:
   release:
     name: Release
@@ -43,6 +49,7 @@ jobs:
         with:
           commit: "chore(release): bump version and deploy packages"
           title: "chore(release): bump version and deploy packages"
+          setupGitUser: false
           publish: pnpm run release
           version: pnpm run version-packages
         env:
