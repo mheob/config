@@ -26,18 +26,18 @@
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^18.2.0",
+		"@commitlint/cli": "^18.4.3",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.7.1",
-		"eslint": "^8.53.0",
-		"typescript": "^5.2.2"
+		"cz-git": "^1.8.0",
+		"eslint": "^8.56.0",
+		"typescript": "^5.3.3"
 	},
 	"peerDependencies": {
-		"@commitlint/cli": "^18.1.0",
+		"@commitlint/cli": "^18.4.3",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.7.1"
+		"cz-git": "^1.8.0"
 	},
 	"publishConfig": {
 		"access": "public"
