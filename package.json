@@ -10,7 +10,7 @@
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
 		"format": "prettier --write \"**/*.{cjs,js,mjs,ts,json,md,mdx,yaml,yml}\"",
 		"lint": "turbo run lint",
-		"prepare": "ts-node ./scripts/prepare.ts",
+		"prepare": "husky install",
 		"release": "changeset publish",
 		"sort-package-json": "pnpm dlx sort-package-json && turbo run sort-package-json",
 		"version-packages": "changeset version && pnpm run format"
@@ -36,10 +36,9 @@
 		"commitizen": "^4.3.0",
 		"cz-git": "^1.8.0",
 		"eslint": "^8.56.0",
-		"husky": "^9.0.0",
+		"husky": "^9.0.10",
 		"lint-staged": "^15.2.2",
 		"prettier": "^3.2.5",
-		"ts-node": "^10.9.2",
 		"turbo": "^1.12.2",
 		"typescript": "^5.3.3"
 	}
