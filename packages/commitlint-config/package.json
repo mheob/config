@@ -26,13 +26,13 @@
 		"sort-package-json": "pnpm dlx sort-package-json"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.0.0",
+		"@commitlint/cli": "^19.2.1",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.8.0",
-		"eslint": "^8.56.0",
-		"typescript": "^5.3.3"
+		"cz-git": "^1.9.0",
+		"eslint": "^8.57.0",
+		"typescript": "^5.4.3"
 	},
 	"peerDependencies": {
 		"@commitlint/cli": "^18.6.0",
