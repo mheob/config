@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 5.2.1
+
+### Patch Changes
+
+- [#150](https://github.com/mheob/config/pull/150) ([@mheob](https://github.com/mheob)): update dependencies
+
+- [#161](https://github.com/mheob/config/pull/161) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
+
+- [#163](https://github.com/mheob/config/pull/163) ([@renovate](https://github.com/apps/renovate)): chore(deps): update dependency eslint-plugin-unicorn to v51
+
 ## 5.2.0
 
 ### Minor Changes
