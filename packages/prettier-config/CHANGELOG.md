@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.2.1
+
+### Patch Changes
+
+- [#161](https://github.com/mheob/config/pull/161) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
+
 ## 3.2.0
 
 ### Minor Changes
