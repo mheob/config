@@ -24,19 +24,19 @@ const config: Linter.Config = {
 			{
 				groups: [
 					// Side effect imports
-					['^\\u0000'],
+					[String.raw`^\u0000`],
 					// Node.js builtins
 					['^node:'],
 					// Packages
-					['^@?\\w'],
+					[String.raw`^@?\w`],
 					// Internal packages
-					['^@/?\\w'],
+					[String.raw`^@/?\w`],
 					// Absolute imports
 					['^'],
 					// Relative imports
-					['^\\.'],
+					[String.raw`^\.`],
 					// Style imports
-					['^.+\\.s?css$'],
+					[String.raw`^.+\.s?css$`],
 				],
 			},
 		],

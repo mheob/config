@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
-import { resolve } from 'node:path';
+import nodePath from 'node:path';
 
 import type { UserConfig } from 'cz-git';
 
@@ -14,7 +14,7 @@ function getPackagesFromPath(...directoryPaths: string[]) {
 	const packages: string[] = [];
 
 	for (const directoryPath of directoryPaths) {
-		const path = resolve(process.cwd(), directoryPath);
+		const path = nodePath.resolve(process.cwd(), directoryPath);
 		if (!existsSync(path)) continue;
 		const packages = readdirSync(path);
 		packages.push(...packages);
