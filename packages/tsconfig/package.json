@@ -20,6 +20,7 @@
 	"exports": {
 		".": "./commonjs.json",
 		"./astro": "./astro.json",
+		"./base": "./base.json",
 		"./commonjs": "./commonjs.json",
 		"./esm": "./esm.json",
 		"./nextjs": "./nextjs.json",
@@ -28,6 +29,7 @@
 	"main": "commonjs.json",
 	"files": [
 		"astro.json",
+		"base.json",
 		"commonjs.json",
 		"esm.json",
 		"nextjs.json",
