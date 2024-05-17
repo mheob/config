@@ -1,7 +1,0 @@
-{
-	"extends": ["./dist/base.js"],
-	"env": { "node": true },
-	"rules": {
-		"unicorn/prefer-module": "off"
-	}
-}
