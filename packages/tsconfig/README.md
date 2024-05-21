@@ -22,6 +22,12 @@ yarn add -D @mheob/tsconfig
 pnpm add -D @mheob/tsconfig
 ```
 
+### With BUN
+
+```sh
+bun add -D @mheob/tsconfig
+```
+
 ## Usage
 
 `tsconfig.json`

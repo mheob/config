@@ -5,11 +5,12 @@ const options: Config = {
 	endOfLine: 'lf',
 	printWidth: 100,
 	proseWrap: 'always',
-	singleQuote: true,
 	semi: true,
+	singleQuote: true,
 	trailingComma: 'all',
 	useTabs: true,
 
+	// eslint-disable-next-line perfectionist/sort-objects
 	overrides: [
 		{
 			files: '**/*.{yaml,yml}',
@@ -28,4 +29,4 @@ const options: Config = {
 	],
 };
 
-export = options;
+export default options;

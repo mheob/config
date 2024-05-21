@@ -1,8 +1,11 @@
+/* eslint-disable node/prefer-global/process */
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
 import nodePath from 'node:path';
 
 import type { UserConfig } from 'cz-git';
+
+export type { UserConfig } from 'cz-git';
 
 /**
  * Returns all packages inside the given path.
@@ -15,7 +18,7 @@ function getPackagesFromPath(...directoryPaths: string[]) {
 
 	for (const directoryPath of directoryPaths) {
 		const path = nodePath.resolve(process.cwd(), directoryPath);
-		if (!existsSync(path)) continue;
+		if (!existsSync(path)) { continue; }
 		const packages = readdirSync(path);
 		packages.push(...packages);
 	}
@@ -49,6 +52,68 @@ function getIssue() {
 }
 
 const options: UserConfig = {
+	prompt: {
+		allowBreakingChanges: ['feat', 'fix'],
+		allowCustomIssuePrefix: true,
+		allowCustomScopes: false,
+		allowEmptyIssuePrefix: true,
+		allowEmptyScopes: false,
+		breaklineChar: '|',
+		breaklineNumber: 80,
+		confirmColorize: true,
+		customIssuePrefixAlias: 'custom',
+		customIssuePrefixAlign: getIssue() ? 'bottom' : 'top',
+		customScopesAlias: 'custom',
+		customScopesAlign: 'bottom',
+		defaultBody: '',
+		defaultIssues: getIssue() ?? '',
+		defaultScope: '',
+		defaultSubject: '',
+		emojiAlign: 'center',
+		emptyIssuePrefixAlias: 'skip',
+		emptyScopesAlias: 'empty',
+		enableMultipleScopes: true,
+		issuePrefixes: [{ name: 'closes:   ISSUES has been processed', value: 'closes' }],
+		markBreakingChangeMode: true,
+		maxHeaderLength: 100,
+		maxSubjectLength: 72,
+		messages: {
+			body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
+			breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
+			confirmCommit: 'Are you sure you want to proceed with the commit above?',
+			customFooterPrefix: 'Input ISSUES prefix:',
+			customScope: 'Denote the SCOPE of this change:',
+			footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+			footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
+			generatedSelectByAI: 'Select suitable subject by AI generated:',
+			generatingByAI: 'Generating your AI commit subject...',
+			scope: 'Denote the SCOPE of this change (optional):',
+			subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
+			type: 'Select the type of change that you\'re committing:',
+		},
+		minSubjectLength: 0,
+		scopeEnumSeparator: ',',
+		scopes: getScopes(),
+		skipQuestions: [],
+		themeColorCode: '',
+		types: [
+			{ name: 'feat:     A new feature', value: 'feat' },
+			{ name: 'fix:      A bug fix', value: 'fix' },
+			{ name: 'docs:     Documentation only changes', value: 'docs' },
+			{ name: 'style:    Changes that do not affect the meaning of the code', value: 'style' },
+			{
+				name: 'refactor: A code change that neither fixes a bug nor adds a feature',
+				value: 'refactor',
+			},
+			{ name: 'perf:     A code change that improves performance', value: 'perf' },
+			{ name: 'test:     Adding missing tests or correcting existing tests', value: 'test' },
+			{ name: 'ci:       Changes to our CI configuration files and scripts', value: 'ci' },
+			{ name: 'chore:    Other changes that don\'t modify src or test files', value: 'chore' },
+			{ name: 'revert:   Reverts a previous commit', value: 'revert' },
+		],
+		upperCaseSubject: false,
+		useEmoji: false,
+	},
 	rules: {
 		'body-leading-blank': [1, 'always'],
 		'body-max-line-length': [2, 'always', 100],
@@ -67,68 +132,6 @@ const options: UserConfig = {
 			['chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test'],
 		],
 	},
-	prompt: {
-		messages: {
-			type: "Select the type of change that you're committing:",
-			scope: 'Denote the SCOPE of this change (optional):',
-			customScope: 'Denote the SCOPE of this change:',
-			subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
-			body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-			breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-			footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
-			customFooterPrefix: 'Input ISSUES prefix:',
-			footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
-			confirmCommit: 'Are you sure you want to proceed with the commit above?',
-			generatedSelectByAI: 'Select suitable subject by AI generated:',
-			generatingByAI: 'Generating your AI commit subject...',
-		},
-		types: [
-			{ value: 'feat', name: 'feat:     A new feature' },
-			{ value: 'fix', name: 'fix:      A bug fix' },
-			{ value: 'docs', name: 'docs:     Documentation only changes' },
-			{ value: 'style', name: 'style:    Changes that do not affect the meaning of the code' },
-			{
-				value: 'refactor',
-				name: 'refactor: A code change that neither fixes a bug nor adds a feature',
-			},
-			{ value: 'perf', name: 'perf:     A code change that improves performance' },
-			{ value: 'test', name: 'test:     Adding missing tests or correcting existing tests' },
-			{ value: 'ci', name: 'ci:       Changes to our CI configuration files and scripts' },
-			{ value: 'chore', name: "chore:    Other changes that don't modify src or test files" },
-			{ value: 'revert', name: 'revert:   Reverts a previous commit' },
-		],
-		useEmoji: false,
-		emojiAlign: 'center',
-		themeColorCode: '',
-		scopes: getScopes(),
-		enableMultipleScopes: true,
-		scopeEnumSeparator: ',',
-		allowCustomScopes: false,
-		allowEmptyScopes: false,
-		customScopesAlign: 'bottom',
-		customScopesAlias: 'custom',
-		emptyScopesAlias: 'empty',
-		upperCaseSubject: false,
-		markBreakingChangeMode: true,
-		allowBreakingChanges: ['feat', 'fix'],
-		breaklineNumber: 80,
-		breaklineChar: '|',
-		skipQuestions: [],
-		issuePrefixes: [{ value: 'closes', name: 'closes:   ISSUES has been processed' }],
-		customIssuePrefixAlign: getIssue() ? 'bottom' : 'top',
-		emptyIssuePrefixAlias: 'skip',
-		customIssuePrefixAlias: 'custom',
-		allowCustomIssuePrefix: true,
-		allowEmptyIssuePrefix: true,
-		confirmColorize: true,
-		maxHeaderLength: 100,
-		maxSubjectLength: 72,
-		minSubjectLength: 0,
-		defaultBody: '',
-		defaultIssues: getIssue() ?? '',
-		defaultScope: '',
-		defaultSubject: '',
-	},
 };
 
-export = options;
+export default options;
