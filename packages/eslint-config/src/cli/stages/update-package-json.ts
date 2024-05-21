@@ -35,8 +35,7 @@ export async function updatePackageJson(result: PromptResult) {
 						'eslint-plugin-format',
 						result.frameworks.includes('astro') ? 'prettier-plugin-astro' : null,
 					]).forEach((f) => {
-						if (!f)
-							return;
+						if (!f) { return; }
 						// eslint-disable-next-line ts/ban-ts-comment
 						// @ts-expect-error
 						pkg.devDependencies[f] = pkgJson.devDependencies[f];
@@ -59,8 +58,9 @@ export async function updatePackageJson(result: PromptResult) {
 		}
 	}
 
-	if (addedPackages.length)
+	if (addedPackages.length) {
 		p.note(`${c.dim(addedPackages.join(', '))}`, 'Added packages');
+	}
 
 	await fsp.writeFile(pathPackageJSON, JSON.stringify(pkg, null, 2));
 	p.log.success(c.green('Changes wrote to package.json'));

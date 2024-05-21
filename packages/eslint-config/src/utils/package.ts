@@ -17,13 +17,15 @@ interface PackageResolvingOptions {
 }
 
 function resolve(path: string, options: PackageResolvingOptions = {}) {
-	if (options.platform === 'auto' || !options.platform)
+	if (options.platform === 'auto' || !options.platform) {
 		options.platform = process.platform === 'win32' ? 'win32' : 'posix';
+	}
 
 	const modulePath = resolvePathSync(path, { url: options.paths });
 
-	if (options.platform === 'win32')
+	if (options.platform === 'win32') {
 		return win32.normalize(modulePath);
+	}
 
 	return modulePath;
 }
@@ -31,16 +33,15 @@ function resolve(path: string, options: PackageResolvingOptions = {}) {
 function resolvePackage(name: string, options: PackageResolvingOptions = {}) {
 	try {
 		return resolve(`${name}/package.json`, options);
-	}
-	catch {}
+	} catch {}
 
 	try {
 		return resolve(name, options);
-	}
-	catch (error: any) {
+	} catch (error: any) {
 		// compatible with nodejs and mlly error
-		if (error.code !== 'MODULE_NOT_FOUND' && error.code !== 'ERR_MODULE_NOT_FOUND')
+		if (error.code !== 'MODULE_NOT_FOUND' && error.code !== 'ERR_MODULE_NOT_FOUND') {
 			console.error(error);
+		}
 
 		return false;
 	}
@@ -59,12 +60,10 @@ export async function interopDefault<T>(
 }
 
 export async function ensurePackages(packages: (string | undefined)[]) {
-	if (process.env.CI || process.stdout.isTTY === false)
-		return;
+	if (process.env.CI || process.stdout.isTTY === false) { return; }
 
 	const nonExistingPackages = packages.filter(i => i && !existsPackage(i)) as string[];
-	if (nonExistingPackages.length === 0)
-		return;
+	if (nonExistingPackages.length === 0) { return; }
 
 	const p = await import('@clack/prompts');
 	const result = await p.confirm({

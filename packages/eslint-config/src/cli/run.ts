@@ -47,8 +47,7 @@ export async function run(options: CliRunOptions = {}) {
 						= argExtra?.length
 						&& !argExtra.filter(element => !extra.includes(<ExtraLibrariesOption>element)).length;
 
-					if (!results.uncommittedConfirmed || isArgExtraValid)
-						return;
+					if (!results.uncommittedConfirmed || isArgExtraValid) { return; }
 
 					const message
 						= !isArgExtraValid && argExtra
@@ -65,8 +64,7 @@ export async function run(options: CliRunOptions = {}) {
 					const isArgTemplateValid
 						= typeof argTemplate === 'string' && !!frameworks.includes(<FrameworkOption>argTemplate);
 
-					if (!results.uncommittedConfirmed || isArgTemplateValid)
-						return;
+					if (!results.uncommittedConfirmed || isArgTemplateValid) { return; }
 
 					const message
 						= !isArgTemplateValid && argTemplate
@@ -80,8 +78,7 @@ export async function run(options: CliRunOptions = {}) {
 					});
 				},
 				uncommittedConfirmed: () => {
-					if (argSkipPrompt || isGitClean())
-						return Promise.resolve(true);
+					if (argSkipPrompt || isGitClean()) { return Promise.resolve(true); }
 
 					return p.confirm({
 						initialValue: false,
@@ -91,8 +88,7 @@ export async function run(options: CliRunOptions = {}) {
 				},
 
 				updateVscodeSettings: ({ results }) => {
-					if (!results.uncommittedConfirmed)
-						return;
+					if (!results.uncommittedConfirmed) { return; }
 
 					return p.confirm({
 						initialValue: true,
@@ -108,8 +104,7 @@ export async function run(options: CliRunOptions = {}) {
 			},
 		)) as PromptResult;
 
-		if (!result.uncommittedConfirmed)
-			return process.exit(1);
+		if (!result.uncommittedConfirmed) { return process.exit(1); }
 	}
 
 	await updatePackageJson(result);

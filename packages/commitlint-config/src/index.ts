@@ -18,7 +18,7 @@ function getPackagesFromPath(...directoryPaths: string[]) {
 
 	for (const directoryPath of directoryPaths) {
 		const path = nodePath.resolve(process.cwd(), directoryPath);
-		if (!existsSync(path)) continue;
+		if (!existsSync(path)) { continue; }
 		const packages = readdirSync(path);
 		packages.push(...packages);
 	}

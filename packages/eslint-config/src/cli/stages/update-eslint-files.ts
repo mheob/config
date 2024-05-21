@@ -31,22 +31,27 @@ export async function updateEslintFiles(result: PromptResult) {
 		const globs = parsed.globs();
 
 		for (const glob of globs) {
-			if (glob.type === 'ignore')
+			if (glob.type === 'ignore') {
 				eslintIgnores.push(...glob.patterns);
-			else if (glob.type === 'unignore')
+			} else if (glob.type === 'unignore') {
 				eslintIgnores.push(...glob.patterns.map((pattern: string) => `!${pattern}`));
+			}
 		}
 	}
 
 	const configLines: string[] = [];
 
-	if (eslintIgnores.length)
+	if (eslintIgnores.length) {
 		configLines.push(`ignores: ${JSON.stringify(eslintIgnores)},`);
+	}
 
-	if (result.extra.includes('formatter'))
+	if (result.extra.includes('formatter')) {
 		configLines.push(`formatters: true,`);
+	}
 
-	for (const framework of result.frameworks) configLines.push(`${framework}: true,`);
+	for (const framework of result.frameworks) {
+		configLines.push(`${framework}: true,`);
+	}
 
 	const mainConfig = configLines.map(i => `  ${i}`).join('\n');
 	const additionalConfig: string[] = [];
@@ -59,10 +64,12 @@ export async function updateEslintFiles(result: PromptResult) {
 	const files = fs.readdirSync(cwd);
 	const legacyConfig: string[] = [];
 	files.forEach((file) => {
-		if (/eslint|prettier/.test(file) && !/eslint\.config\./.test(file))
+		if (/eslint|prettier/.test(file) && !/eslint\.config\./.test(file)) {
 			legacyConfig.push(file);
+		}
 	});
 
-	if (legacyConfig.length)
+	if (legacyConfig.length) {
 		p.note(`${c.dim(legacyConfig.join(', '))}`, 'You can now remove those files manually');
+	}
 }

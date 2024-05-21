@@ -47,6 +47,10 @@ export async function stylistic(options: StylisticOptions = {}): Promise<TypedFl
 				'antfu/consistent-list-newline': 'error',
 				'antfu/top-level-function': 'error',
 
+				'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+				'style/comma-dangle': ['error', 'always-multiline'],
+				'style/max-statements-per-line': ['error', { max: 2 }],
+
 				...overrides,
 			},
 		},

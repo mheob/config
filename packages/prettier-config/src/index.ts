@@ -9,6 +9,7 @@ const options: Config = {
 	singleQuote: true,
 	trailingComma: 'all',
 	useTabs: true,
+
 	// eslint-disable-next-line perfectionist/sort-objects
 	overrides: [
 		{

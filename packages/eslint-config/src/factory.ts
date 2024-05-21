@@ -1,4 +1,4 @@
-/* eslint-disable node/prefer-global/process */
+/* eslint-disable node/prefer-global/process, ts/no-explicit-any */
 import fs from 'node:fs';
 
 import type { Linter } from 'eslint';
@@ -110,8 +110,9 @@ export function mheob(
 				? options.stylistic
 				: {};
 
-	if (stylisticOptions && !('jsx' in stylisticOptions))
+	if (stylisticOptions && !('jsx' in stylisticOptions)) {
 		stylisticOptions.jsx = options.jsx ?? true;
+	}
 
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
@@ -120,10 +121,8 @@ export function mheob(
 			configs.push(
 				interopDefault(import('eslint-config-flat-gitignore')).then(r => [r(enableGitignore)]),
 			);
-		}
-		else {
-			if (fs.existsSync('.gitignore'))
-				configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r()]));
+		} else if (fs.existsSync('.gitignore')) {
+			configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r()]));
 		}
 	}
 
@@ -244,20 +243,23 @@ export function mheob(
 	// User can optionally pass a flat config item to the first argument
 	// We pick the known keys as ESLint would do schema validation
 	const fusedConfig = flatConfigProps.reduce((acc, key) => {
-		if (key in options)
+		if (key in options) {
 			acc[key] = options[key] as any;
+		}
 		return acc;
 	}, {} as TypedFlatConfigItem);
 
-	if (Object.keys(fusedConfig).length)
+	if (Object.keys(fusedConfig).length) {
 		configs.push([fusedConfig]);
+	}
 
 	let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
 	composer = composer.append(...configs, ...(userConfigs as any));
 
-	if (autoRenamePlugins)
+	if (autoRenamePlugins) {
 		composer = composer.renamePlugins(defaultPluginRenaming);
+	}
 
 	return composer;
 }
