@@ -3,8 +3,8 @@ name: Release
 on:
   push:
     paths:
-      - ".changeset/**"
-      - "packages/**"
+      - '.changeset/**'
+      - 'packages/**'
     branches:
       - main
 
@@ -26,22 +26,14 @@ jobs:
         with:
           token: ${{ secrets.MACHINE_USER_TOKEN }}
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "pnpm"
+      - name: Setup BUN
+        uses: oven-sh/setup-bun@v1
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Build files
-        run: pnpm run build
+        run: bun run build
 
       - name: Setup service bot git
         env:
@@ -55,11 +47,11 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: "chore(release): bump version and deploy packages"
-          title: "chore(release): bump version and deploy packages"
+          commit: 'chore(release): bump version and deploy packages'
+          title: 'chore(release): bump version and deploy packages'
           setupGitUser: false
-          publish: pnpm run release
-          version: pnpm run version-packages
+          publish: bun run release
+          version: bun run version-packages
         env:
           GITHUB_TOKEN: ${{ secrets.MACHINE_USER_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
