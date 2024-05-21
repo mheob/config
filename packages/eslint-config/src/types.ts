@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-explicit-any */
 import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin';
 import type { ParserOptions } from '@typescript-eslint/parser';
 import type { Linter } from 'eslint';
@@ -12,15 +13,18 @@ export type Rules = RuleOptions;
 
 export type { ConfigNames };
 
+// eslint-disable style/max-len
 export type TypedFlatConfigItem = {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
 	/**
-	 * An object containing a name-value mapping of plugin names to plugin objects. When `files` is specified, these plugins are only available to the matching files.
+	 * An object containing a name-value mapping of plugin names to plugin objects. When `files` is
+	 * specified, these plugins are only available to the matching files.
 	 *
 	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
 	 */
 	plugins?: Record<string, any>;
 } & Omit<Linter.FlatConfig<Linter.RulesRecord & Rules>, 'plugins'>;
+// eslint-enable style/max-len
 
 export interface OptionsFiles {
 	/** Override the `files` option to provide custom globs. */

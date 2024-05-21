@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-explicit-any */
 /** Vendor types from Prettier so we don't rely on the dependency. */
 
 export type VendoredPrettierOptions = Partial<VendoredPrettierOptionsRequired>;
@@ -9,8 +10,8 @@ export interface VendoredPrettierOptionsRequired {
 	 */
 	arrowParens: 'always' | 'avoid';
 	/**
-	 * Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line instead of being
-	 * alone on the next line (does not apply to self closing elements).
+	 * Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line
+	 * instead of being alone on the next line (does not apply to self closing elements).
 	 */
 	bracketSameLine: boolean;
 	/**
@@ -28,7 +29,8 @@ export interface VendoredPrettierOptionsRequired {
 	 */
 	htmlWhitespaceSensitivity: 'css' | 'ignore' | 'strict';
 	/**
-	 * Put the `>` of a multi-line JSX element at the end of the last line instead of being alone on the next line.
+	 * Put the `>` of a multi-line JSX element at the end of the last line instead of being alone on
+	 * the next line.
 	 * @deprecated use bracketSameLine instead
 	 */
 	jsxBracketSameLine: boolean;
@@ -39,6 +41,7 @@ export interface VendoredPrettierOptionsRequired {
 	/**
 	 * Provide ability to support new languages to prettier.
 	 */
+
 	plugins: Array<any | string>;
 	/**
 	 * Specify the line length that the printer will wrap on.
@@ -46,8 +49,9 @@ export interface VendoredPrettierOptionsRequired {
 	 */
 	printWidth: number;
 	/**
-	 * By default, Prettier will wrap markdown text as-is since some services use a linebreak-sensitive renderer.
-	 * In some cases you may want to rely on editor/viewer soft wrapping instead, so this option allows you to opt out.
+	 * By default, Prettier will wrap markdown text as-is since some services use a
+	 * linebreak-sensitive renderer. In some cases you may want to rely on editor/viewer soft wrapping
+	 * instead, so this option allows you to opt out.
 	 * @default "preserve"
 	 */
 	proseWrap: 'always' | 'never' | 'preserve';

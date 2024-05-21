@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-explicit-any */
 import { GLOB_ASTRO } from '../globs';
 import type {
 	OptionsFiles,

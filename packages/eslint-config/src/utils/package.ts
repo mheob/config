@@ -1,4 +1,4 @@
-/* eslint-disable node/prefer-global/process */
+/* eslint-disable node/prefer-global/process, ts/no-explicit-any */
 import { win32 } from 'node:path';
 
 import { resolvePathSync } from 'mlly';
@@ -54,6 +54,7 @@ export async function interopDefault<T>(
 	m: Awaitable<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
 	const resolved = await m;
+
 	return (resolved as any).default || resolved;
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-explicit-any */
 import process from 'node:process';
 
 import { GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs';
@@ -33,6 +34,7 @@ export async function typescript(
 		'no-throw-literal': 'off',
 		'ts/await-thenable': 'error',
 		'ts/dot-notation': ['error', { allowKeywords: true }],
+		'ts/no-explicit-any': 'warn',
 		'ts/no-floating-promises': 'error',
 		'ts/no-for-in-array': 'error',
 		'ts/no-implied-eval': 'error',
@@ -116,7 +118,7 @@ export async function typescript(
 				'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
 				'ts/no-dupe-class-members': 'error',
 				'ts/no-dynamic-delete': 'off',
-				'ts/no-explicit-any': 'off',
+				'ts/no-explicit-any': 'warn',
 				'ts/no-extraneous-class': 'off',
 				'ts/no-import-type-side-effects': 'error',
 				'ts/no-invalid-void-type': 'off',

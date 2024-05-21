@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-explicit-any */
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';

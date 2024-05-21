@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-explicit-any */
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs';
 import type {
 	OptionsFiles,
