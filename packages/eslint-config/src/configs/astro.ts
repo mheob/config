@@ -1,4 +1,3 @@
-/* eslint-disable ts/no-explicit-any */
 import { GLOB_ASTRO } from '../globs';
 import type {
 	OptionsFiles,
@@ -32,7 +31,7 @@ export async function astro(
 				parser: parserAstro,
 				parserOptions: {
 					extraFileExtensions: ['.astro'],
-					parser: parserTs as any,
+					parser: parserTs,
 				},
 			},
 			name: 'mheob/astro/rules',

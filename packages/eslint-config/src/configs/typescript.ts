@@ -88,7 +88,7 @@ export async function typescript(
 			name: 'mheob/typescript/setup',
 			plugins: {
 				antfu: pluginAntfu,
-				ts: pluginTs as any,
+				ts: pluginTs,
 			},
 		},
 		// assign type-aware parser for type-aware files and type-unaware parser for the rest
@@ -99,9 +99,11 @@ export async function typescript(
 			files,
 			name: 'mheob/typescript/rules',
 			rules: {
+				// eslint-disable-next-line ts/no-non-null-assertion
 				...renameRules(pluginTs.configs['eslint-recommended'].overrides![0].rules!, {
 					'@typescript-eslint': 'ts',
 				}),
+				// eslint-disable-next-line ts/no-non-null-assertion
 				...renameRules(pluginTs.configs.strict.rules!, { '@typescript-eslint': 'ts' }),
 				'no-dupe-class-members': 'off',
 				'no-loss-of-precision': 'off',
@@ -123,7 +125,7 @@ export async function typescript(
 				'ts/no-import-type-side-effects': 'error',
 				'ts/no-invalid-void-type': 'off',
 				'ts/no-loss-of-precision': 'error',
-				'ts/no-non-null-assertion': 'off',
+				'ts/no-non-null-assertion': 'warn',
 				'ts/no-redeclare': 'error',
 				'ts/no-require-imports': 'error',
 				'ts/no-unused-vars': 'off',

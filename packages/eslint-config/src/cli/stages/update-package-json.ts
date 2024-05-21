@@ -29,19 +29,17 @@ export async function updatePackageJson(result: PromptResult) {
 
 	if (result.extra.length) {
 		result.extra.forEach((item: ExtraLibrariesOption) => {
-			switch (item) {
-				case 'formatter':
-					(<const>[
-						'eslint-plugin-format',
-						result.frameworks.includes('astro') ? 'prettier-plugin-astro' : null,
-					]).forEach((f) => {
-						if (!f) { return; }
-						// eslint-disable-next-line ts/ban-ts-comment
-						// @ts-expect-error
-						pkg.devDependencies[f] = pkgJson.devDependencies[f];
-						addedPackages.push(f);
-					});
-					break;
+			if (item === 'formatter') {
+				(<const>[
+					'eslint-plugin-format',
+					result.frameworks.includes('astro') ? 'prettier-plugin-astro' : null,
+				]).forEach((f) => {
+					if (!f) { return; }
+					// eslint-disable-next-line ts/ban-ts-comment
+					// @ts-expect-error
+					pkg.devDependencies[f] = pkgJson.devDependencies[f];
+					addedPackages.push(f);
+				});
 			}
 		});
 	}

@@ -78,7 +78,7 @@ export async function run(options: CliRunOptions = {}) {
 					});
 				},
 				uncommittedConfirmed: () => {
-					if (argSkipPrompt || isGitClean()) { return Promise.resolve(true); }
+					if (isGitClean()) { return Promise.resolve(true); }
 
 					return p.confirm({
 						initialValue: false,

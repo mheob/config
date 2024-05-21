@@ -1,4 +1,3 @@
-/* eslint-disable ts/no-explicit-any */
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs';
 import type {
 	OptionsFiles,
@@ -24,7 +23,7 @@ export async function jsonc(
 		{
 			name: 'mheob/jsonc/setup',
 			plugins: {
-				jsonc: pluginJsonc as any,
+				jsonc: pluginJsonc,
 			},
 		},
 		{
