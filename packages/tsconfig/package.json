@@ -36,7 +36,7 @@
 		"react.json"
 	],
 	"scripts": {
-		"sort-package-json": "pnpm dlx sort-package-json"
+		"sort-package-json": "bunx sort-package-json"
 	},
 	"publishConfig": {
 		"access": "public"

@@ -4,6 +4,9 @@
 	"private": true,
 	"license": "MIT",
 	"type": "module",
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
 		"build": "turbo run build",
 		"changeset": "changeset",
@@ -13,12 +16,12 @@
 		"lint": "turbo run lint",
 		"prepare": "husky",
 		"release": "changeset publish",
-		"sort-package-json": "pnpm dlx sort-package-json && turbo run sort-package-json",
-		"version-packages": "changeset version && pnpm run format"
+		"sort-package-json": "bunx sort-package-json && turbo run sort-package-json",
+		"version-packages": "changeset version && bun run format"
 	},
 	"lint-staged": {
 		"*": "eslint --fix",
-		"package.json": "pnpm dlx sort-package-json"
+		"package.json": "bunx sort-package-json"
 	},
 	"config": {
 		"commitizen": {
@@ -43,5 +46,5 @@
 		"turbo": "^1.13.3",
 		"typescript": "^5.4.5"
 	},
-	"packageManager": "pnpm@9.1.0+sha512.67f5879916a9293e5cf059c23853d571beaf4f753c707f40cb22bed5fb1578c6aad3b6c4107ccb3ba0b35be003eb621a16471ac836c87beb53f9d54bb4612724"
+	"packageManager": "bun@1.1.8"
 }

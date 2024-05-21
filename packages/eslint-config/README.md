@@ -22,6 +22,12 @@ yarn add -D @mheob/eslint-config
 pnpm add -D @mheob/eslint-config
 ```
 
+### With BUN
+
+```sh
+bun add -D @mheob/eslint-config
+```
+
 ## Usage
 
 ### Basic Rules only

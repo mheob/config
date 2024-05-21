@@ -22,6 +22,12 @@ yarn add -D @mheob/prettier-config
 pnpm add -D @mheob/prettier-config
 ```
 
+### With BUN
+
+```sh
+bun add -D @mheob/prettier-config
+```
+
 ## Usage
 
 If you need to override some settings you can do it this way:

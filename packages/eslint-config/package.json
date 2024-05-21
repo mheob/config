@@ -29,12 +29,12 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "pnpm typegen && tsup --format esm,cjs --clean --dts",
-		"build:inspector": "pnpm build && npx @eslint/config-inspector build",
+		"build": "bun run typegen && tsup --format esm,cjs --clean --dts",
+		"build:inspector": "bun run build && npx @eslint/config-inspector build",
 		"clean": "rimraf .turbo node_modules dist",
 		"dev": "npx @eslint/config-inspector --config eslint.config.ts",
-		"lint": "eslint src/**/*.ts --fix",
-		"sort-package-json": "pnpm dlx sort-package-json",
+		"lint": "eslint src/**/* --fix",
+		"sort-package-json": "bunx sort-package-json",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
 		"watch": "tsup --format esm,cjs --watch"
 	},
