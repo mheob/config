@@ -5,7 +5,7 @@ const config = {
 	...defaultConfig,
 
 	overrides: [
-		...defaultConfig.overrides,
+		...(defaultConfig.overrides ?? []),
 		{
 			files: '**/*.md',
 			options: {
