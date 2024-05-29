@@ -22,8 +22,7 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint src/**/* --fix",
-		"sort-package-json": "bunx sort-package-json"
+		"lint": "eslint src/**/* --fix"
 	},
 	"devDependencies": {
 		"@mheob/eslint-config": "workspace:*",

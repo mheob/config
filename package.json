@@ -16,12 +16,11 @@
 		"lint": "turbo run lint",
 		"prepare": "husky",
 		"release": "changeset publish",
-		"sort-package-json": "bunx sort-package-json && turbo run sort-package-json",
+		"typegen": "turbo run typegen",
 		"version-packages": "changeset version && bun run lint"
 	},
 	"lint-staged": {
-		"*": "eslint --fix",
-		"package.json": "bunx sort-package-json"
+		"*": "eslint --fix"
 	},
 	"config": {
 		"commitizen": {
@@ -46,5 +45,5 @@
 		"turbo": "^1.13.3",
 		"typescript": "^5.4.5"
 	},
-	"packageManager": "bun@1.1.9"
+	"packageManager": "bun@1.1.10"
 }

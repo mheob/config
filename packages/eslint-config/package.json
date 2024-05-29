@@ -34,7 +34,6 @@
 		"clean": "rimraf .turbo node_modules dist",
 		"dev": "npx @eslint/config-inspector --config eslint.config.ts",
 		"lint": "eslint src/**/* --fix",
-		"sort-package-json": "bunx sort-package-json",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
 		"watch": "tsup --format esm,cjs --watch"
 	},

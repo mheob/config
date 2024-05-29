@@ -23,8 +23,7 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint src/**/*.ts --fix",
-		"sort-package-json": "pnpm dlx sort-package-json"
+		"lint": "eslint src/**/*.ts --fix"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.3.0",
