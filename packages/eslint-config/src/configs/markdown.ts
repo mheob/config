@@ -64,9 +64,7 @@ export async function markdown(
 				'no-unused-vars': 'off',
 
 				'node/prefer-global/process': 'off',
-				'style/comma-dangle': 'off',
 
-				'style/eol-last': 'off',
 				'ts/consistent-type-imports': 'off',
 				'ts/no-namespace': 'off',
 				'ts/no-redeclare': 'off',

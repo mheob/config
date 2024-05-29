@@ -2,15 +2,14 @@ import { GLOB_ASTRO } from '../globs';
 import type {
 	OptionsFiles,
 	OptionsOverrides,
-	OptionsStylistic,
 	TypedFlatConfigItem,
 } from '../types';
 import { interopDefault } from '../utils';
 
 export async function astro(
-	options: OptionsFiles & OptionsOverrides & OptionsStylistic = {},
+	options: OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
-	const { files = [GLOB_ASTRO], overrides = {}, stylistic = true } = options;
+	const { files = [GLOB_ASTRO], overrides = {} } = options;
 
 	const [pluginAstro, parserAstro, parserTs] = await Promise.all([
 		interopDefault(import('eslint-plugin-astro')),
@@ -38,16 +37,6 @@ export async function astro(
 			rules: {
 				'astro/no-set-html-directive': 'off',
 				'astro/semi': 'off',
-
-				...(stylistic
-					? {
-							'style/indent': 'off',
-							'style/jsx-closing-tag-location': 'off',
-							'style/jsx-indent': 'off',
-							'style/jsx-one-expression-per-line': 'off',
-							'style/no-multiple-empty-lines': 'off',
-						}
-					: {}),
 
 				...overrides,
 			},

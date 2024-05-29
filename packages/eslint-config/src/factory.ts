@@ -8,7 +8,6 @@ import {
 	astro,
 	command,
 	comments,
-	formatters,
 	ignores,
 	imports,
 	javascript,
@@ -20,7 +19,6 @@ import {
 	react,
 	sortPackageJson,
 	sortTsconfig,
-	stylistic,
 	svelte,
 	test,
 	toml,
@@ -48,7 +46,6 @@ export const defaultPluginRenaming = {
 	'@eslint-react/hooks-extra': 'react-hooks-extra',
 	'@eslint-react/naming-convention': 'react-naming-convention',
 
-	'@stylistic': 'style',
 	'@typescript-eslint': 'ts',
 	'import-x': 'import',
 	'n': 'node',
@@ -103,17 +100,6 @@ export function mheob(
 		typescript: enableTypeScript = existsPackage('typescript'),
 	} = options;
 
-	const stylisticOptions
-		= options.stylistic === false
-			? false
-			: typeof options.stylistic === 'object'
-				? options.stylistic
-				: {};
-
-	if (stylisticOptions && !('jsx' in stylisticOptions)) {
-		stylisticOptions.jsx = options.jsx ?? true;
-	}
-
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
 	if (enableGitignore) {
@@ -132,8 +118,8 @@ export function mheob(
 		javascript({ isInEditor, overrides: getOverrides(options, 'javascript') }),
 		comments(),
 		node(),
-		jsdoc({ stylistic: stylisticOptions }),
-		imports({ stylistic: stylisticOptions }),
+		jsdoc(),
+		imports(),
 		command(),
 
 		// Optional plugins (installed but not enabled by default)
@@ -146,15 +132,6 @@ export function mheob(
 				...resolveSubOptions(options, 'typescript'),
 				componentExts,
 				overrides: getOverrides(options, 'typescript'),
-			}),
-		);
-	}
-
-	if (stylisticOptions) {
-		configs.push(
-			stylistic({
-				...stylisticOptions,
-				overrides: getOverrides(options, 'stylistic'),
 			}),
 		);
 	}
@@ -181,48 +158,29 @@ export function mheob(
 		configs.push(
 			svelte({
 				overrides: getOverrides(options, 'svelte'),
-				stylistic: stylisticOptions,
 				typescript: !!enableTypeScript,
 			}),
 		);
 	}
 
 	if (enableAstro) {
-		configs.push(
-			astro({
-				overrides: getOverrides(options, 'astro'),
-				stylistic: stylisticOptions,
-			}),
-		);
+		configs.push(astro({ overrides: getOverrides(options, 'astro') }));
 	}
 
 	if (options.jsonc ?? true) {
 		configs.push(
-			jsonc({
-				overrides: getOverrides(options, 'jsonc'),
-				stylistic: stylisticOptions,
-			}),
+			jsonc({ overrides: getOverrides(options, 'jsonc') }),
 			sortPackageJson(),
 			sortTsconfig(),
 		);
 	}
 
 	if (options.yaml ?? true) {
-		configs.push(
-			yaml({
-				overrides: getOverrides(options, 'yaml'),
-				stylistic: stylisticOptions,
-			}),
-		);
+		configs.push(yaml({ overrides: getOverrides(options, 'yaml') }));
 	}
 
 	if (options.toml ?? true) {
-		configs.push(
-			toml({
-				overrides: getOverrides(options, 'toml'),
-				stylistic: stylisticOptions,
-			}),
-		);
+		configs.push(toml({ overrides: getOverrides(options, 'toml') }));
 	}
 
 	if (options.markdown ?? true) {
@@ -231,12 +189,6 @@ export function mheob(
 				componentExts,
 				overrides: getOverrides(options, 'markdown'),
 			}),
-		);
-	}
-
-	if (options.formatters) {
-		configs.push(
-			formatters(options.formatters, typeof stylisticOptions === 'boolean' ? {} : stylisticOptions),
 		);
 	}
 

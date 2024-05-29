@@ -1,9 +1,7 @@
-import type { OptionsStylistic, TypedFlatConfigItem } from '../types';
+import type { TypedFlatConfigItem } from '../types';
 import { interopDefault } from '../utils';
 
-export async function jsdoc(options: OptionsStylistic = {}): Promise<TypedFlatConfigItem[]> {
-	const { stylistic = true } = options;
-
+export async function jsdoc(): Promise<TypedFlatConfigItem[]> {
 	return [
 		{
 			name: 'mheob/jsdoc/rules',
@@ -26,13 +24,6 @@ export async function jsdoc(options: OptionsStylistic = {}): Promise<TypedFlatCo
 				'jsdoc/require-returns-check': 'warn',
 				'jsdoc/require-returns-description': 'warn',
 				'jsdoc/require-yields-check': 'warn',
-
-				...(stylistic
-					? {
-							'jsdoc/check-alignment': 'warn',
-							'jsdoc/multiline-blocks': 'warn',
-						}
-					: {}),
 			},
 		},
 	];

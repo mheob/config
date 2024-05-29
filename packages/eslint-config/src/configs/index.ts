@@ -1,7 +1,6 @@
 export * from './astro';
 export * from './command';
 export * from './comments';
-export * from './formatters';
 export * from './ignores';
 export * from './imports';
 export * from './javascript';
@@ -12,7 +11,6 @@ export * from './node';
 export * from './perfectionist';
 export * from './react';
 export * from './sort';
-export * from './stylistic';
 export * from './svelte';
 export * from './test';
 export * from './toml';
