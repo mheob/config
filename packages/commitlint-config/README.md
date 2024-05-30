@@ -35,14 +35,16 @@ bun add -D @mheob/commitlint-config
 Add this config to your root `package.json`.
 
 ```json
-"config": {
-	"commitizen": {
-		"path": "node_modules/cz-git"
+{
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
 	}
 }
 ```
 
-Now create a `.commitlintrc.cjs` file in the root of your project with this content:
+Now create a `.commitlint.config.js` file in the root of your project with this content:
 
 ```js
 /** @type {import('cz-git').UserConfig} */
@@ -51,7 +53,7 @@ module.exports = {
 };
 ```
 
-If you want to use your own scopes or if you need to override some settings you can do it in the `.commitlintrc.cjs` this way:
+If you want to use your own scopes or if you need to override some settings you can do it in the `commitlint.config.js` this way:
 
 ```js
 const fs = require('node:fs');

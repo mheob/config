@@ -143,7 +143,7 @@
 
 ### Patch Changes
 
-- [#53](https://github.com/mheob/config/pull/53) [`f7b87f4`](https://github.com/mheob/config/commit/f7b87f470129ee795855484b7ca394f2980ba8b1) Thanks [@mheob](https://github.com/mheob)! - Simpplify and fix calling sub configurations
+- [#53](https://github.com/mheob/config/pull/53) [`f7b87f4`](https://github.com/mheob/config/commit/f7b87f470129ee795855484b7ca394f2980ba8b1) Thanks [@mheob](https://github.com/mheob)! - Simplify and fix calling sub configurations
 
 ## 2.1.1
 
@@ -153,7 +153,7 @@
 
 - [#46](https://github.com/mheob/config/pull/46) [`6f731ee`](https://github.com/mheob/config/commit/6f731eeba2c6cf3f8e8ce896e19069bc88d45557) Thanks [@mheob](https://github.com/mheob)! - Switch to typescript as source files
 
-- [#42](https://github.com/mheob/config/pull/42) [`cf8ba94`](https://github.com/mheob/config/commit/cf8ba94f23489673593eb101dcab47af445054a0) Thanks [@mheob](https://github.com/mheob)! - Format all files to the new tabs instead of spaces behaviour
+- [#42](https://github.com/mheob/config/pull/42) [`cf8ba94`](https://github.com/mheob/config/commit/cf8ba94f23489673593eb101dcab47af445054a0) Thanks [@mheob](https://github.com/mheob)! - Format all files to the new tabs instead of spaces behavior
 
 - [#36](https://github.com/mheob/config/pull/36) [`fd1474e`](https://github.com/mheob/config/commit/fd1474e0bcb9d6495a53358b4da62ec7d4754994) Thanks [@mheob](https://github.com/mheob)! - Update dependencies
 
@@ -185,7 +185,7 @@
 
 ### Major Changes
 
-- 6e97fe2: Split ESLint configuration into specified files (base/reat/next for now).
+- 6e97fe2: Split ESLint configuration into specified files (base/react/next for now).
 
 ### Patch Changes
 
