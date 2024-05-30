@@ -1,5 +1,17 @@
 # @mheob/eslint-config
 
+## 6.1.0
+
+### Minor Changes
+
+- [#179](https://github.com/mheob/config/pull/179) ([@mheob](https://github.com/mheob)): Add prettier and all the needed roles.
+
+- [#179](https://github.com/mheob/config/pull/179) ([@mheob](https://github.com/mheob)): Remove stylistic and all other formatter rules.
+
+### Patch Changes
+
+- [#179](https://github.com/mheob/config/pull/179) ([@mheob](https://github.com/mheob)): Remove not needed ESLint CLI binary.
+
 ## 5.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.3.0
+
+### Minor Changes
+
+- [#179](https://github.com/mheob/config/pull/179) ([@mheob](https://github.com/mheob)): Improve prettier config and output.
+
 ## 3.2.0
 
 ### Minor Changes
