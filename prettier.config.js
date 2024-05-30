@@ -9,6 +9,7 @@ const config = {
 		{
 			files: '**/*.md',
 			options: {
+				parser: 'markdown',
 				proseWrap: 'never',
 			},
 		},

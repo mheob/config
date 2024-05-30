@@ -1,7 +1,7 @@
 import type { Config } from 'prettier';
 
 const options: Config = {
-	arrowParens: 'always',
+	arrowParens: 'avoid',
 	endOfLine: 'lf',
 	printWidth: 100,
 	proseWrap: 'always',
@@ -23,6 +23,7 @@ const options: Config = {
 		{
 			files: '**/*.md',
 			options: {
+				parser: 'markdown',
 				printWidth: 130,
 			},
 		},

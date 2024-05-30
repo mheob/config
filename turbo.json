@@ -9,7 +9,6 @@
 			"outputs": []
 		},
 		"lint": {
-			"dependsOn": ["typegen", "^build"],
 			"outputs": []
 		},
 		"typegen": {
