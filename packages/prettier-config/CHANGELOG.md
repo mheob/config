@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.3.1
+
+### Patch Changes
+
+- [#182](https://github.com/mheob/config/pull/182) ([@mheob](https://github.com/mheob)): Improve `README.md` file and add spell checker.
+
 ## 3.3.0
 
 ### Minor Changes
