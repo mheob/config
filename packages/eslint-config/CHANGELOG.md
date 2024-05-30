@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 6.1.1
+
+### Patch Changes
+
+- [#182](https://github.com/mheob/config/pull/182) ([@mheob](https://github.com/mheob)): Improve `README.md` file and add spell checker.
+
 ## 6.1.0
 
 ### Minor Changes

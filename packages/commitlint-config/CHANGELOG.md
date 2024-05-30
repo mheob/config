@@ -1,5 +1,11 @@
 # @mheob/commitlint-config
 
+## 1.1.2
+
+### Patch Changes
+
+- [#182](https://github.com/mheob/config/pull/182) ([@mheob](https://github.com/mheob)): Improve `README.md` file and add spell checker.
+
 ## 1.1.1
 
 ### Patch Changes
