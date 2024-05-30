@@ -35,7 +35,7 @@ export async function javascript(
 			},
 			name: 'mheob/javascript/rules',
 			plugins: {
-				'antfu': pluginAntfu,
+				antfu: pluginAntfu,
 				'unused-imports': pluginUnusedImports,
 			},
 			rules: {
@@ -44,10 +44,10 @@ export async function javascript(
 				'array-callback-return': 'error',
 				'block-scoped-var': 'error',
 				'constructor-super': 'error',
-				'curly': ['error', 'all'],
+				curly: ['error', 'all'],
 				'default-case-last': 'error',
 				'dot-notation': ['error', { allowKeywords: true }],
-				'eqeqeq': ['error', 'smart'],
+				eqeqeq: ['error', 'smart'],
 				'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
 				'no-alert': 'error',
 				'no-array-constructor': 'error',
@@ -111,8 +111,14 @@ export async function javascript(
 						message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
 						property: '__proto__',
 					},
-					{ message: 'Use `Object.defineProperty` instead.', property: '__defineGetter__' },
-					{ message: 'Use `Object.defineProperty` instead.', property: '__defineSetter__' },
+					{
+						message: 'Use `Object.defineProperty` instead.',
+						property: '__defineGetter__',
+					},
+					{
+						message: 'Use `Object.defineProperty` instead.',
+						property: '__defineSetter__',
+					},
 					{
 						message: 'Use `Object.getOwnPropertyDescriptor` instead.',
 						property: '__lookupGetter__',
@@ -230,7 +236,7 @@ export async function javascript(
 				'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }],
 				'valid-typeof': ['error', { requireStringLiterals: true }],
 				'vars-on-top': 'error',
-				'yoda': ['error', 'never'],
+				yoda: ['error', 'never'],
 
 				...overrides,
 			},

@@ -9,6 +9,7 @@ export * from './jsonc';
 export * from './markdown';
 export * from './node';
 export * from './perfectionist';
+export * from './prettier';
 export * from './react';
 export * from './sort';
 export * from './svelte';

@@ -18,7 +18,7 @@ function getPackagesFromPath(...directoryPaths: string[]) {
 
 	for (const directoryPath of directoryPaths) {
 		const path = nodePath.resolve(process.cwd(), directoryPath);
-		if (!existsSync(path)) { continue; }
+		if (!existsSync(path)) continue;
 		const packages = readdirSync(path);
 		packages.push(...packages);
 	}
@@ -42,7 +42,6 @@ function getScopes() {
  *
  * @example
  *   git branch name = `123-my-branch`  =>  defaultIssues = `#123`
- *
  * @returns The issue number.
  */
 function getIssue() {
@@ -89,7 +88,7 @@ const options: UserConfig = {
 			generatingByAI: 'Generating your AI commit subject...',
 			scope: 'Denote the SCOPE of this change (optional):',
 			subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
-			type: 'Select the type of change that you\'re committing:',
+			type: "Select the type of change that you're committing:",
 		},
 		minSubjectLength: 0,
 		scopeEnumSeparator: ',',
@@ -108,7 +107,7 @@ const options: UserConfig = {
 			{ name: 'perf:     A code change that improves performance', value: 'perf' },
 			{ name: 'test:     Adding missing tests or correcting existing tests', value: 'test' },
 			{ name: 'ci:       Changes to our CI configuration files and scripts', value: 'ci' },
-			{ name: 'chore:    Other changes that don\'t modify src or test files', value: 'chore' },
+			{ name: "chore:    Other changes that don't modify src or test files", value: 'chore' },
 			{ name: 'revert:   Reverts a previous commit', value: 'revert' },
 		],
 		upperCaseSubject: false,

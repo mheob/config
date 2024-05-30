@@ -16,6 +16,7 @@ import {
 	markdown,
 	node,
 	perfectionist,
+	prettier,
 	react,
 	sortPackageJson,
 	sortTsconfig,
@@ -48,9 +49,9 @@ export const defaultPluginRenaming = {
 
 	'@typescript-eslint': 'ts',
 	'import-x': 'import',
-	'n': 'node',
-	'vitest': 'test',
-	'yml': 'yaml',
+	n: 'node',
+	vitest: 'test',
+	yml: 'yaml',
 };
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
@@ -89,11 +90,11 @@ export function mheob(
 		componentExts = [],
 		gitignore: enableGitignore = true,
 		isInEditor = !!(
-			(process.env.VSCODE_PID
-			|| process.env.VSCODE_CWD
-			|| process.env.JETBRAINS_IDE
-			|| process.env.VIM)
-			&& !process.env.CI
+			(process.env.VSCODE_PID ||
+				process.env.VSCODE_CWD ||
+				process.env.JETBRAINS_IDE ||
+				process.env.VIM) &&
+			!process.env.CI
 		),
 		react: enableReact = false,
 		svelte: enableSvelte = false,
@@ -191,6 +192,8 @@ export function mheob(
 			}),
 		);
 	}
+
+	configs.push(prettier({ overrides: getOverrides(options, 'prettier') }));
 
 	// User can optionally pass a flat config item to the first argument
 	// We pick the known keys as ESLint would do schema validation

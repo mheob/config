@@ -30,9 +30,10 @@ export interface OptionsFiles {
 export interface OptionsTypeScriptWithTypes {
 	/**
 	 * When this options is provided, type aware rules will be enabled.
+	 *
 	 * @see https://typescript-eslint.io/linting/typed-linting/
 	 */
-	tsconfigPath?: string | string[];
+	tsconfigPath?: 0 | 1 | 2 | string | string[];
 }
 
 export interface OptionsHasTypeScript {
@@ -42,6 +43,7 @@ export interface OptionsHasTypeScript {
 export interface OptionsTypeScriptParserOptions {
 	/**
 	 * Glob patterns for files that should be type aware.
+	 *
 	 * @default ['**\/*.{ts,tsx}']
 	 */
 	filesTypeAware?: string[];
@@ -105,6 +107,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 
 	/**
 	 * Control to disable some rules in editors.
+	 *
 	 * @default auto-detect based on the process.env
 	 */
 	isInEditor?: boolean;
@@ -139,14 +142,19 @@ export interface OptionsConfig extends OptionsComponentExts {
 		javascript?: TypedFlatConfigItem['rules'];
 		jsonc?: TypedFlatConfigItem['rules'];
 		markdown?: TypedFlatConfigItem['rules'];
+		prettier?: TypedFlatConfigItem['rules'];
 		react?: TypedFlatConfigItem['rules'];
-		stylistic?: TypedFlatConfigItem['rules'];
 		svelte?: TypedFlatConfigItem['rules'];
 		test?: TypedFlatConfigItem['rules'];
 		toml?: TypedFlatConfigItem['rules'];
 		typescript?: TypedFlatConfigItem['rules'];
 		yaml?: TypedFlatConfigItem['rules'];
 	};
+
+	/**
+	 * Core rules for styling. Can't be disabled.
+	 */
+	prettier?: OptionsOverrides;
 
 	/**
 	 * Enable react rules.

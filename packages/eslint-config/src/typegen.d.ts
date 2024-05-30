@@ -2705,6 +2705,10 @@ export interface RuleOptions {
    */
   'prefer-template'?: Linter.RuleEntry<[]>
   /**
+   * @see https://github.com/prettier/eslint-plugin-prettier#options
+   */
+  'prettier/prettier'?: Linter.RuleEntry<PrettierPrettier>
+  /**
    * Require quotes around object literal property names
    * @see https://eslint.org/docs/latest/rules/quote-props
    * @deprecated
@@ -8354,6 +8358,18 @@ type PreferReflect = []|[{
 type PreferRegexLiterals = []|[{
   disallowRedundantWrapping?: boolean
 }]
+// ----- prettier/prettier -----
+type PrettierPrettier = []|[{
+  [k: string]: unknown | undefined
+}]|[{
+  [k: string]: unknown | undefined
+}, {
+  usePrettierrc?: boolean
+  fileInfoOptions?: {
+    [k: string]: unknown | undefined
+  }
+  [k: string]: unknown | undefined
+}]
 // ----- quote-props -----
 type QuoteProps = ([]|[("always" | "as-needed" | "consistent" | "consistent-as-needed")] | []|[("always" | "as-needed" | "consistent" | "consistent-as-needed")]|[("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
   keywords?: boolean
@@ -10801,4 +10817,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'mheob/astro/setup' | 'mheob/astro/rules' | 'mheob/eslint-comments/rules' | 'mheob/imports/rules' | 'mheob/imports/disables/bin' | 'mheob/javascript/rules' | 'mheob/javascript/disables/cli' | 'mheob/jsdoc/rules' | 'mheob/jsonc/setup' | 'mheob/jsonc/rules' | 'mheob/markdown/setup' | 'mheob/markdown/processor' | 'mheob/markdown/parser' | 'mheob/markdown/disables' | 'mheob/node/rules' | 'mheob/perfectionist/setup' | 'mheob/react/setup' | 'mheob/react/rules' | 'mheob/sort/package-json' | 'mheob/svelte/setup' | 'mheob/svelte/rules' | 'mheob/test/setup' | 'mheob/test/rules' | 'mheob/toml/setup' | 'mheob/toml/rules' | 'mheob/typescript/setup' | 'antfu/typescript/parser' | 'mheob/typescript/rules' | 'mheob/typescript/disables/dts' | 'mheob/typescript/disables/test' | 'mheob/typescript/disables/cjs' | 'mheob/unicorn/rules' | 'mheob/yaml/setup' | 'mheob/yaml/rules'
+export type ConfigNames = 'mheob/astro/setup' | 'mheob/astro/rules' | 'mheob/eslint-comments/rules' | 'mheob/imports/rules' | 'mheob/imports/disables/bin' | 'mheob/javascript/rules' | 'mheob/javascript/disables/cli' | 'mheob/jsdoc/rules' | 'mheob/jsonc/setup' | 'mheob/jsonc/rules' | 'mheob/markdown/setup' | 'mheob/markdown/processor' | 'mheob/markdown/parser' | 'mheob/markdown/disables' | 'mheob/node/rules' | 'mheob/perfectionist/setup' | 'mheob/prettier/setup' | 'mheob/prettier/rules' | 'mheob/react/setup' | 'mheob/react/rules' | 'mheob/sort/package-json' | 'mheob/svelte/setup' | 'mheob/svelte/rules' | 'mheob/test/setup' | 'mheob/test/rules' | 'mheob/toml/setup' | 'mheob/toml/rules' | 'mheob/typescript/setup' | 'antfu/typescript/parser' | 'mheob/typescript/rules' | 'mheob/typescript/disables/dts' | 'mheob/typescript/disables/test' | 'mheob/typescript/disables/cjs' | 'mheob/unicorn/rules' | 'mheob/yaml/setup' | 'mheob/yaml/rules'

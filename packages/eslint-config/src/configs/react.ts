@@ -33,9 +33,7 @@ export async function react(
 		interopDefault(import('@typescript-eslint/parser')),
 	] as const);
 
-	const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(i =>
-		existsPackage(i),
-	);
+	const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(i => existsPackage(i));
 	const isUsingRemix = RemixPackages.some(i => existsPackage(i));
 	const isUsingNext = NextJsPackages.some(i => existsPackage(i));
 
@@ -45,7 +43,7 @@ export async function react(
 		{
 			name: 'mheob/react/setup',
 			plugins: {
-				'react': plugins['@eslint-react'],
+				react: plugins['@eslint-react'],
 				'react-dom': plugins['@eslint-react/dom'],
 				'react-hooks': pluginReactHooks,
 				'react-hooks-extra': plugins['@eslint-react/hooks-extra'],
