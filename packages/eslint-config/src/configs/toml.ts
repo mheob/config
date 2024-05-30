@@ -1,18 +1,11 @@
 import { GLOB_TOML } from '../globs';
-import type {
-	OptionsFiles,
-	OptionsOverrides,
-	OptionsStylistic,
-	TypedFlatConfigItem,
-} from '../types';
+import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 import { interopDefault } from '../utils';
 
 export async function toml(
-	options: OptionsFiles & OptionsOverrides & OptionsStylistic = {},
+	options: OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
-	const { files = [GLOB_TOML], overrides = {}, stylistic = true } = options;
-
-	const { indent = 'tab' } = typeof stylistic === 'boolean' ? {} : stylistic;
+	const { files = [GLOB_TOML], overrides = {} } = options;
 
 	const [pluginToml, parserToml] = await Promise.all([
 		interopDefault(import('eslint-plugin-toml')),
@@ -33,8 +26,6 @@ export async function toml(
 			},
 			name: 'mheob/toml/rules',
 			rules: {
-				'style/spaced-comment': 'off',
-
 				'toml/comma-style': 'error',
 				'toml/keys-order': 'error',
 				'toml/no-space-dots': 'error',
@@ -44,22 +35,6 @@ export async function toml(
 				'toml/tables-order': 'error',
 
 				'toml/vue-custom-block/no-parsing-error': 'error',
-
-				...(stylistic
-					? {
-							'toml/array-bracket-newline': 'error',
-							'toml/array-bracket-spacing': 'error',
-							'toml/array-element-newline': 'error',
-							'toml/indent': ['error', indent === 'tab' ? 2 : indent],
-							'toml/inline-table-curly-spacing': 'error',
-							'toml/key-spacing': 'error',
-							'toml/padding-line-between-pairs': 'error',
-							'toml/padding-line-between-tables': 'error',
-							'toml/quoted-keys': 'error',
-							'toml/spaced-comment': 'error',
-							'toml/table-bracket-spacing': 'error',
-						}
-					: {}),
 
 				...overrides,
 			},

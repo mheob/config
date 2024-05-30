@@ -5,6 +5,10 @@ import type { TypedFlatConfigItem } from '../types';
  * Rename plugin prefixes in a rule object.
  * Accepts a map of prefixes to rename.
  *
+ * @param rules Rules object
+ * @param map Map of prefixes to rename
+ * @returns Renamed rules object
+ *
  * @example
  * ```ts
  * import { renameRules } from '@antfu/eslint-config'
@@ -36,6 +40,10 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
 /**
  * Rename plugin names a flat configs array
  *
+ * @param configs Configs to rename
+ * @param map Map of prefixes to rename
+ * @returns Renamed configs
+ *
  * @example
  * ```ts
  * import { renamePluginInConfigs } from '@antfu/eslint-config'
@@ -51,15 +59,19 @@ export function renamePluginInConfigs(
 	configs: TypedFlatConfigItem[],
 	map: Record<string, string>,
 ): TypedFlatConfigItem[] {
-	return configs.map((i) => {
+	return configs.map(i => {
 		const clone = { ...i };
 
-		if (clone.rules) { clone.rules = renameRules(clone.rules, map); }
+		if (clone.rules) {
+			clone.rules = renameRules(clone.rules, map);
+		}
 
 		if (clone.plugins) {
 			clone.plugins = Object.fromEntries(
 				Object.entries(clone.plugins).map(([key, value]) => {
-					if (key in map) { return [map[key], value]; }
+					if (key in map) {
+						return [map[key], value];
+					}
 					return [key, value];
 				}),
 			);

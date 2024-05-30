@@ -35,9 +35,7 @@
 		"nextjs.json",
 		"react.json"
 	],
-	"scripts": {
-		"sort-package-json": "bunx sort-package-json"
-	},
+	"scripts": {},
 	"publishConfig": {
 		"access": "public"
 	}

@@ -1,10 +1,8 @@
 import { GLOB_SRC_EXT } from '../globs';
 import { pluginAntfu, pluginImport } from '../plugins';
-import type { OptionsStylistic, TypedFlatConfigItem } from '../types';
+import type { TypedFlatConfigItem } from '../types';
 
-export async function imports(options: OptionsStylistic = {}): Promise<TypedFlatConfigItem[]> {
-	const { stylistic = true } = options;
-
+export async function imports(): Promise<TypedFlatConfigItem[]> {
 	return [
 		{
 			name: 'mheob/imports/rules',
@@ -24,12 +22,6 @@ export async function imports(options: OptionsStylistic = {}): Promise<TypedFlat
 				'import/no-self-import': 'error',
 				'import/no-webpack-loader-syntax': 'error',
 				'import/order': 'error',
-
-				...(stylistic
-					? {
-							'import/newline-after-import': ['error', { count: 1 }],
-						}
-					: {}),
 			},
 		},
 		{

@@ -15,10 +15,10 @@ import { interopDefault, renameRules, toArray } from '../utils';
 
 export async function typescript(
 	options: OptionsComponentExts &
-	OptionsFiles &
-	OptionsOverrides &
-	OptionsTypeScriptParserOptions &
-	OptionsTypeScriptWithTypes = {},
+		OptionsFiles &
+		OptionsOverrides &
+		OptionsTypeScriptParserOptions &
+		OptionsTypeScriptWithTypes = {},
 ): Promise<TypedFlatConfigItem[]> {
 	const { componentExts = [], overrides = {}, parserOptions = {} } = options;
 
@@ -99,12 +99,18 @@ export async function typescript(
 			files,
 			name: 'mheob/typescript/rules',
 			rules: {
+				...renameRules(
+					// eslint-disable-next-line ts/no-non-null-assertion
+					pluginTs.configs['eslint-recommended'].overrides![0].rules!,
+
+					{
+						'@typescript-eslint': 'ts',
+					},
+				),
 				// eslint-disable-next-line ts/no-non-null-assertion
-				...renameRules(pluginTs.configs['eslint-recommended'].overrides![0].rules!, {
+				...renameRules(pluginTs.configs.strict.rules!, {
 					'@typescript-eslint': 'ts',
 				}),
-				// eslint-disable-next-line ts/no-non-null-assertion
-				...renameRules(pluginTs.configs.strict.rules!, { '@typescript-eslint': 'ts' }),
 				'no-dupe-class-members': 'off',
 				'no-loss-of-precision': 'off',
 				'no-redeclare': 'off',

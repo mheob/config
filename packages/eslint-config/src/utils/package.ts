@@ -59,10 +59,14 @@ export async function interopDefault<T>(
 }
 
 export async function ensurePackages(packages: (string | undefined)[]) {
-	if (process.env.CI || process.stdout.isTTY === false) { return; }
+	if (process.env.CI || process.stdout.isTTY === false) {
+		return;
+	}
 
 	const nonExistingPackages = packages.filter(i => i && !existsPackage(i)) as string[];
-	if (nonExistingPackages.length === 0) { return; }
+	if (nonExistingPackages.length === 0) {
+		return;
+	}
 
 	const p = await import('@clack/prompts');
 	const result = await p.confirm({

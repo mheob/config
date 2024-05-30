@@ -3,17 +3,14 @@ import type {
 	OptionsFiles,
 	OptionsHasTypeScript,
 	OptionsOverrides,
-	OptionsStylistic,
 	TypedFlatConfigItem,
 } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
 export async function svelte(
-	options: OptionsFiles & OptionsHasTypeScript & OptionsOverrides & OptionsStylistic = {},
+	options: OptionsFiles & OptionsHasTypeScript & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
-	const { files = [GLOB_SVELTE], overrides = {}, stylistic = true } = options;
-
-	const { indent = 'tab', quotes = 'single' } = typeof stylistic === 'boolean' ? {} : stylistic;
+	const { files = [GLOB_SVELTE], overrides = {} } = options;
 
 	await ensurePackages(['eslint-plugin-svelte']);
 
@@ -36,7 +33,7 @@ export async function svelte(
 				parserOptions: {
 					extraFileExtensions: ['.svelte'],
 					parser: options.typescript
-						? ((await interopDefault(import('@typescript-eslint/parser'))))
+						? await interopDefault(import('@typescript-eslint/parser'))
 						: null,
 				},
 			},
@@ -87,21 +84,6 @@ export async function svelte(
 						varsIgnorePattern: '^(_|\\$\\$Props$|\\$\\$Events$|\\$\\$Slots$)',
 					},
 				],
-
-				...(stylistic
-					? {
-							'style/indent': 'off', // superseded by svelte/indent
-							'style/no-trailing-spaces': 'off', // superseded by svelte/no-trailing-spaces
-							'svelte/derived-has-same-inputs-outputs': 'error',
-							'svelte/html-closing-bracket-spacing': 'error',
-							'svelte/html-quotes': ['error', { prefer: quotes }],
-							'svelte/indent': ['error', { alignAttributesVertically: true, indent }],
-							'svelte/mustache-spacing': 'error',
-							'svelte/no-spaces-around-equal-signs-in-attribute': 'error',
-							'svelte/no-trailing-spaces': 'error',
-							'svelte/spaced-html-comment': 'error',
-						}
-					: {}),
 
 				...overrides,
 			},

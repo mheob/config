@@ -1,11 +1,9 @@
 /* eslint-disable ts/no-explicit-any */
-import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin';
 import type { ParserOptions } from '@typescript-eslint/parser';
 import type { Linter } from 'eslint';
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 
 import type { ConfigNames, RuleOptions } from './typegen';
-import type { VendoredPrettierOptions } from './vendor/prettier-types';
 
 export type Awaitable<T> = Promise<T> | T;
 
@@ -13,7 +11,6 @@ export type Rules = RuleOptions;
 
 export type { ConfigNames };
 
-// eslint-disable style/max-len
 export type TypedFlatConfigItem = {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
 	/**
@@ -24,7 +21,6 @@ export type TypedFlatConfigItem = {
 	 */
 	plugins?: Record<string, any>;
 } & Omit<Linter.FlatConfig<Linter.RulesRecord & Rules>, 'plugins'>;
-// eslint-enable style/max-len
 
 export interface OptionsFiles {
 	/** Override the `files` option to provide custom globs. */
@@ -34,9 +30,10 @@ export interface OptionsFiles {
 export interface OptionsTypeScriptWithTypes {
 	/**
 	 * When this options is provided, type aware rules will be enabled.
+	 *
 	 * @see https://typescript-eslint.io/linting/typed-linting/
 	 */
-	tsconfigPath?: string | string[];
+	tsconfigPath?: 0 | 1 | 2 | string | string[];
 }
 
 export interface OptionsHasTypeScript {
@@ -46,6 +43,7 @@ export interface OptionsHasTypeScript {
 export interface OptionsTypeScriptParserOptions {
 	/**
 	 * Glob patterns for files that should be type aware.
+	 *
 	 * @default ['**\/*.{ts,tsx}']
 	 */
 	filesTypeAware?: string[];
@@ -76,55 +74,6 @@ export interface OptionsComponentExts {
 	componentExts?: string[];
 }
 
-export interface StylisticConfig
-	extends Pick<StylisticCustomizeOptions, 'indent' | 'jsx' | 'quotes' | 'semi'> {}
-
-export interface OptionsStylistic {
-	stylistic?: StylisticConfig | boolean;
-}
-
-export interface OptionsFormatters {
-	/**
-	 * Enable formatting support for Astro.
-	 *
-	 * Currently only support Prettier.
-	 */
-	astro?: 'prettier' | boolean;
-
-	/**
-	 * Enable formatting support for CSS, Less, Sass, and SCSS.
-	 *
-	 * Currently only support Prettier.
-	 */
-	css?: 'prettier' | boolean;
-
-	/**
-	 * Enable formatting support for GraphQL.
-	 */
-	graphql?: 'prettier' | boolean;
-
-	/**
-	 * Enable formatting support for HTML.
-	 *
-	 * Currently only support Prettier.
-	 */
-	html?: 'prettier' | boolean;
-
-	/**
-	 * Enable formatting support for Markdown.
-	 *
-	 * Currently only support Prettier.
-	 */
-	markdown?: 'prettier' | boolean;
-
-	/**
-	 * Custom options for Prettier.
-	 *
-	 * By default it's controlled by our own config.
-	 */
-	prettierOptions?: VendoredPrettierOptions;
-}
-
 export interface OptionsConfig extends OptionsComponentExts {
 	/**
 	 * Enable ASTRO support.
@@ -147,18 +96,6 @@ export interface OptionsConfig extends OptionsComponentExts {
 	autoRenamePlugins?: boolean;
 
 	/**
-	 * Use external formatters to format files.
-	 *
-	 * Requires installing:
-	 * - `eslint-plugin-format`
-	 *
-	 * When set to `true`, it will enable all formatters.
-	 *
-	 * @default false
-	 */
-	formatters?: OptionsFormatters | boolean;
-
-	/**
 	 * Enable gitignore support.
 	 *
 	 * Passing an object to configure the options.
@@ -170,6 +107,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 
 	/**
 	 * Control to disable some rules in editors.
+	 *
 	 * @default auto-detect based on the process.env
 	 */
 	isInEditor?: boolean;
@@ -185,15 +123,6 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 * @default true
 	 */
 	jsonc?: OptionsOverrides | boolean;
-
-	/**
-	 * Enable JSX related rules.
-	 *
-	 * Currently only stylistic rules are included.
-	 *
-	 * @default true
-	 */
-	jsx?: boolean;
 
 	/**
 	 * Enable linting for **code snippets** in Markdown.
@@ -213,14 +142,19 @@ export interface OptionsConfig extends OptionsComponentExts {
 		javascript?: TypedFlatConfigItem['rules'];
 		jsonc?: TypedFlatConfigItem['rules'];
 		markdown?: TypedFlatConfigItem['rules'];
+		prettier?: TypedFlatConfigItem['rules'];
 		react?: TypedFlatConfigItem['rules'];
-		stylistic?: TypedFlatConfigItem['rules'];
 		svelte?: TypedFlatConfigItem['rules'];
 		test?: TypedFlatConfigItem['rules'];
 		toml?: TypedFlatConfigItem['rules'];
 		typescript?: TypedFlatConfigItem['rules'];
 		yaml?: TypedFlatConfigItem['rules'];
 	};
+
+	/**
+	 * Core rules for styling. Can't be disabled.
+	 */
+	prettier?: OptionsOverrides;
 
 	/**
 	 * Enable react rules.
@@ -243,12 +177,6 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 * @default false
 	 */
 	solid?: OptionsOverrides | boolean;
-	/**
-	 * Enable stylistic rules.
-	 *
-	 * @default true
-	 */
-	stylistic?: (OptionsOverrides & StylisticConfig) | boolean;
 
 	/**
 	 * Enable svelte rules.

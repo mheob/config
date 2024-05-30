@@ -23,15 +23,14 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint src/**/*.ts --fix",
-		"sort-package-json": "pnpm dlx sort-package-json"
+		"lint": "eslint src/**/*.ts --fix"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.3.0",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.9.1",
+		"cz-git": "^1.9.2",
 		"eslint": "^9.3.0",
 		"typescript": "^5.4.5"
 	},

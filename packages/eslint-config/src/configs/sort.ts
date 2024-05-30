@@ -2,8 +2,9 @@ import type { TypedFlatConfigItem } from '../types';
 
 /**
  * Sort package.json
- *
  * Requires `jsonc` config
+ *
+ * @returns Configs.
  */
 export async function sortPackageJson(): Promise<TypedFlatConfigItem[]> {
 	return [
@@ -126,8 +127,9 @@ export async function sortPackageJson(): Promise<TypedFlatConfigItem[]> {
 
 /**
  * Sort tsconfig.json
- *
  * Requires `jsonc` config
+ *
+ * @returns Configs.
  */
 export function sortTsconfig(): TypedFlatConfigItem[] {
 	return [

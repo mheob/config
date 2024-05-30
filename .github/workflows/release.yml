@@ -3,8 +3,8 @@ name: Release
 on:
   push:
     paths:
-      - '.changeset/**'
-      - 'packages/**'
+      - ".changeset/**"
+      - "packages/**"
     branches:
       - main
 
@@ -47,8 +47,8 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: 'chore(release): bump version and deploy packages'
-          title: 'chore(release): bump version and deploy packages'
+          commit: "chore(release): bump version and deploy packages"
+          title: "chore(release): bump version and deploy packages"
           setupGitUser: false
           publish: bun run release
           version: bun run version-packages

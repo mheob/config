@@ -2,17 +2,16 @@
 	"$schema": "https://turbo.build/schema.json",
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["typegen", "^build"],
 			"outputs": []
 		},
 		"clean": {
 			"outputs": []
 		},
 		"lint": {
-			"dependsOn": ["^build"],
 			"outputs": []
 		},
-		"sort-package-json": {
+		"typegen": {
 			"outputs": []
 		}
 	}
