@@ -2,7 +2,7 @@ import { existsSync, readdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import defaultConfig, { type UserConfig } from '@mheob/commitlint-config';
+import defaultConfig from '@mheob/commitlint-config';
 
 const currentPath = dirname(fileURLToPath(import.meta.url));
 
@@ -15,12 +15,13 @@ function getScopes() {
 	return [...defaultScopes, ...packages];
 }
 
+/** @type {import('@mheob/commitlint-config').UserConfig} */
 const config = {
 	...defaultConfig,
 	prompt: {
 		...defaultConfig.prompt,
 		scopes: getScopes(),
 	},
-} satisfies UserConfig;
+};
 
 export default config;
