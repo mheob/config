@@ -2,12 +2,10 @@
 	"npm.packageManager": "bun",
 	"markdownlint.config": {
 		"MD010": false,
-		"MD024": false
+		"MD024": false,
+		"MD033": { "allowed_elements": ["details", "summary"] }
 	},
 	"typescript.tsdk": "node_modules/typescript/lib",
-
-	// Enable the ESlint flat config support
-	"eslint.experimental.useFlatConfig": true,
 
 	// Disable the default formatter, use eslint instead
 	"prettier.enable": false,
@@ -25,11 +23,21 @@
 		"javascriptreact",
 		"typescript",
 		"typescriptreact",
+		"vue",
 		"html",
 		"markdown",
 		"json",
 		"jsonc",
 		"yaml",
-		"toml"
+		"toml",
+		"xml",
+		"gql",
+		"graphql",
+		"astro",
+		"css",
+		"less",
+		"scss",
+		"pcss",
+		"postcss"
 	]
 }
