@@ -30,7 +30,7 @@
 		"build": "tsup --format esm,cjs --clean --dts",
 		"build:inspector": "bun run typegen && bun run build && npx @eslint/config-inspector build",
 		"clean": "rimraf .turbo node_modules dist",
-		"dev": "npx @eslint/config-inspector --config eslint.config.ts",
+		"dev": "npx @eslint/config-inspector --config ../../eslint.config.js",
 		"lint": "eslint src/**/* --fix",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
 		"watch": "tsup --format esm,cjs --watch"
