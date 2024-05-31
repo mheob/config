@@ -1,4 +1,4 @@
-import { perfectionistNatural, pluginPerfectionist } from '../plugins';
+import { pluginPerfectionist } from '../plugins';
 import type { TypedFlatConfigItem } from '../types';
 
 /**
@@ -10,12 +10,14 @@ import type { TypedFlatConfigItem } from '../types';
  */
 export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 	return [
-		perfectionistNatural,
 		{
 			name: 'mheob/perfectionist/setup',
 			plugins: {
 				perfectionist: pluginPerfectionist,
 			},
+		},
+		{
+			name: 'mheob/perfectionist/rules',
 			rules: {
 				'perfectionist/sort-array-includes': ['error', { 'spread-last': true, type: 'natural' }],
 				'perfectionist/sort-astro-attributes': [

@@ -5,6 +5,8 @@ To make my configurations a bit easier I share my [ESLint](https://eslint.org/) 
 > [!IMPORTANT]\
 > Since v6.0.0, this config is rewritten to the new [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new).
 
+You can find all used rules in my deployed [ESLint Config Inspector](https://eslint-config.mheob.dev/configs).
+
 ## Install
 
 ### With NPM
