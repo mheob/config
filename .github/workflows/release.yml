@@ -27,7 +27,7 @@ jobs:
           token: ${{ secrets.MACHINE_USER_TOKEN }}
 
       - name: Setup BUN
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
 
       - name: Install Dependencies
         run: bun install --frozen-lockfile
