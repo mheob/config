@@ -45,7 +45,7 @@
 		"lint-staged": "^15.2.5",
 		"prettier": "^3.2.5",
 		"ts-node": "^10.9.2",
-		"turbo": "^1.13.3",
+		"turbo": "^2.0.11",
 		"typescript": "^5.4.5"
 	},
 	"packageManager": "bun@1.1.10"
