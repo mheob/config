@@ -3,13 +3,13 @@ import type { ParserOptions } from '@typescript-eslint/parser';
 import type { Linter } from 'eslint';
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 
-import type { ConfigNames, RuleOptions } from './typegen';
+import type { RuleOptions } from './typegen';
+
+export type { ConfigNames } from './typegen';
 
 export type Awaitable<T> = Promise<T> | T;
 
 export type Rules = RuleOptions;
-
-export type { ConfigNames };
 
 export type TypedFlatConfigItem = {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
@@ -20,7 +20,7 @@ export type TypedFlatConfigItem = {
 	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
 	 */
 	plugins?: Record<string, any>;
-} & Omit<Linter.FlatConfig<Linter.RulesRecord & Rules>, 'plugins'>;
+} & Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins'>;
 
 export interface OptionsFiles {
 	/** Override the `files` option to provide custom globs. */
@@ -64,7 +64,7 @@ export type OptionsTypescript =
 	| (OptionsOverrides & OptionsTypeScriptParserOptions)
 	| (OptionsOverrides & OptionsTypeScriptWithTypes);
 
-export interface OptionsComponentExts {
+export interface OptionsComponentExtensions {
 	/**
 	 * Additional extensions for components.
 	 *
@@ -74,7 +74,7 @@ export interface OptionsComponentExts {
 	componentExts?: string[];
 }
 
-export interface OptionsConfig extends OptionsComponentExts {
+export interface OptionsConfig extends OptionsComponentExtensions {
 	/**
 	 * Enable ASTRO support.
 	 *
@@ -86,7 +86,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default false
 	 */
-	astro?: OptionsOverrides | boolean;
+	astro?: boolean | OptionsOverrides;
 
 	/**
 	 * Automatically rename plugins in the config.
@@ -103,7 +103,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 * @see https://github.com/antfu/eslint-config-flat-gitignore
 	 * @default true
 	 */
-	gitignore?: FlatGitignoreOptions | boolean;
+	gitignore?: boolean | FlatGitignoreOptions;
 
 	/**
 	 * Control to disable some rules in editors.
@@ -122,7 +122,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default true
 	 */
-	jsonc?: OptionsOverrides | boolean;
+	jsonc?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable linting for **code snippets** in Markdown.
@@ -131,7 +131,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default true
 	 */
-	markdown?: OptionsOverrides | boolean;
+	markdown?: boolean | OptionsOverrides;
 
 	/**
 	 * Provide overrides for rules for each integration.
@@ -166,7 +166,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default false
 	 */
-	react?: OptionsOverrides | boolean;
+	react?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable solid rules.
@@ -176,7 +176,7 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default false
 	 */
-	solid?: OptionsOverrides | boolean;
+	solid?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable svelte rules.
@@ -193,14 +193,14 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default true
 	 */
-	test?: OptionsOverrides | boolean;
+	test?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable TOML support.
 	 *
 	 * @default true
 	 */
-	toml?: OptionsOverrides | boolean;
+	toml?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable TypeScript support.
@@ -209,12 +209,22 @@ export interface OptionsConfig extends OptionsComponentExts {
 	 *
 	 * @default auto-detect based on the dependencies
 	 */
-	typescript?: OptionsTypescript | boolean;
+	typescript?: boolean | OptionsTypescript;
+
+	/**
+	 * Enable unicorn support.
+	 *
+	 * Requires installing:
+	 * - `eslint-plugin-unicorn`
+	 *
+	 * @default true
+	 */
+	unicorn?: boolean | OptionsTypescript;
 
 	/**
 	 * Enable YAML support.
 	 *
 	 * @default true
 	 */
-	yaml?: OptionsOverrides | boolean;
+	yaml?: boolean | OptionsOverrides;
 }

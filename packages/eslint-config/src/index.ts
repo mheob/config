@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-export-from */
 import { mheob } from './factory';
 
 export * from './configs';

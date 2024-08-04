@@ -78,6 +78,7 @@ export async function javascript(
 				'no-fallthrough': 'error',
 				'no-func-assign': 'error',
 				'no-global-assign': 'error',
+				'no-implicit-coercion': ['error', { allow: ['+', '~'] }],
 				'no-implied-eval': 'error',
 				'no-import-assign': 'error',
 				'no-invalid-regexp': 'error',

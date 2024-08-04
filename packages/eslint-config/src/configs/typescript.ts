@@ -4,7 +4,7 @@ import process from 'node:process';
 import { GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs';
 import { pluginAntfu } from '../plugins';
 import type {
-	OptionsComponentExts,
+	OptionsComponentExtensions,
 	OptionsFiles,
 	OptionsOverrides,
 	OptionsTypeScriptParserOptions,
@@ -14,19 +14,22 @@ import type {
 import { interopDefault, renameRules, toArray } from '../utils';
 
 export async function typescript(
-	options: OptionsComponentExts &
+	options: OptionsComponentExtensions &
 		OptionsFiles &
 		OptionsOverrides &
 		OptionsTypeScriptParserOptions &
 		OptionsTypeScriptWithTypes = {},
 ): Promise<TypedFlatConfigItem[]> {
-	const { componentExts = [], overrides = {}, parserOptions = {} } = options;
+	const { componentExts: componentExtensions = [], overrides = {}, parserOptions = {} } = options;
 
-	const files = options.files ?? [GLOB_SRC, ...componentExts.map(ext => `**/*.${ext}`)];
+	const files = options.files ?? [
+		GLOB_SRC,
+		...componentExtensions.map(extension => `**/*.${extension}`),
+	];
 
 	const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX];
 	const tsconfigPath = options?.tsconfigPath ? toArray(options.tsconfigPath) : undefined;
-	const isTypeAware = !!tsconfigPath;
+	const isTypeAware = Boolean(tsconfigPath);
 
 	const typeAwareRules: TypedFlatConfigItem['rules'] = {
 		'dot-notation': 'off',
@@ -67,7 +70,7 @@ export async function typescript(
 			languageOptions: {
 				parser: parserTs,
 				parserOptions: {
-					extraFileExtensions: componentExts.map(ext => `.${ext}`),
+					extraFileExtensions: componentExtensions.map(extension => `.${extension}`),
 					sourceType: 'module',
 					...(typeAware
 						? {
@@ -117,7 +120,6 @@ export async function typescript(
 				'no-use-before-define': 'off',
 				'no-useless-constructor': 'off',
 				'ts/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
-				'ts/ban-types': ['error', { types: { Function: false } }],
 				'ts/consistent-type-definitions': ['error', 'interface'],
 				'ts/consistent-type-imports': [
 					'error',
@@ -134,6 +136,7 @@ export async function typescript(
 				'ts/no-non-null-assertion': 'warn',
 				'ts/no-redeclare': 'error',
 				'ts/no-require-imports': 'error',
+				'ts/no-restricted-types': 'error',
 				'ts/no-unused-vars': 'off',
 				'ts/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
 				'ts/no-useless-constructor': 'off',
