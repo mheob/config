@@ -2,7 +2,7 @@ import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors';
 
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../globs';
 import type {
-	OptionsComponentExts,
+	OptionsComponentExtensions,
 	OptionsFiles,
 	OptionsOverrides,
 	TypedFlatConfigItem,
@@ -10,9 +10,13 @@ import type {
 import { interopDefault, parserPlain } from '../utils';
 
 export async function markdown(
-	options: OptionsComponentExts & OptionsFiles & OptionsOverrides = {},
+	options: OptionsComponentExtensions & OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
-	const { componentExts = [], files = [GLOB_MARKDOWN], overrides = {} } = options;
+	const {
+		componentExts: componentExtensions = [],
+		files = [GLOB_MARKDOWN],
+		overrides = {},
+	} = options;
 
 	// @ts-expect-error missing types
 	const markdown = await interopDefault(import('eslint-plugin-markdown'));
@@ -41,7 +45,10 @@ export async function markdown(
 			name: 'mheob/markdown/parser',
 		},
 		{
-			files: [GLOB_MARKDOWN_CODE, ...componentExts.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)],
+			files: [
+				GLOB_MARKDOWN_CODE,
+				...componentExtensions.map(extension => `${GLOB_MARKDOWN}/**/*.${extension}`),
+			],
 			languageOptions: {
 				parserOptions: {
 					ecmaFeatures: {
@@ -65,37 +72,36 @@ export async function markdown(
 
 				'node/prefer-global/process': 'off',
 
+				'ts/await-thenable': 'off',
 				'ts/consistent-type-imports': 'off',
+				'ts/dot-notation': 'off',
+				'ts/no-floating-promises': 'off',
+				'ts/no-for-in-array': 'off',
+				'ts/no-implied-eval': 'off',
+				'ts/no-misused-promises': 'off',
+
 				'ts/no-namespace': 'off',
 				'ts/no-redeclare': 'off',
 				'ts/no-require-imports': 'off',
+
+				// Type aware rules
+
+				'ts/no-throw-literal': 'off',
+				'ts/no-unnecessary-type-assertion': 'off',
+				'ts/no-unsafe-argument': 'off',
+				'ts/no-unsafe-assignment': 'off',
+				'ts/no-unsafe-call': 'off',
+				'ts/no-unsafe-member-access': 'off',
+				'ts/no-unsafe-return': 'off',
 				'ts/no-unused-vars': 'off',
 				'ts/no-use-before-define': 'off',
 				'ts/no-var-requires': 'off',
-
+				'ts/restrict-plus-operands': 'off',
+				'ts/restrict-template-expressions': 'off',
+				'ts/unbound-method': 'off',
 				'unicode-bom': 'off',
 				'unused-imports/no-unused-imports': 'off',
 				'unused-imports/no-unused-vars': 'off',
-
-				// Type aware rules
-				...{
-					'ts/await-thenable': 'off',
-					'ts/dot-notation': 'off',
-					'ts/no-floating-promises': 'off',
-					'ts/no-for-in-array': 'off',
-					'ts/no-implied-eval': 'off',
-					'ts/no-misused-promises': 'off',
-					'ts/no-throw-literal': 'off',
-					'ts/no-unnecessary-type-assertion': 'off',
-					'ts/no-unsafe-argument': 'off',
-					'ts/no-unsafe-assignment': 'off',
-					'ts/no-unsafe-call': 'off',
-					'ts/no-unsafe-member-access': 'off',
-					'ts/no-unsafe-return': 'off',
-					'ts/restrict-plus-operands': 'off',
-					'ts/restrict-template-expressions': 'off',
-					'ts/unbound-method': 'off',
-				},
 
 				...overrides,
 			},

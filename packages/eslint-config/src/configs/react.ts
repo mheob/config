@@ -24,7 +24,7 @@ export async function react(
 	]);
 
 	const tsconfigPath = options?.tsconfigPath ? toArray(options.tsconfigPath) : undefined;
-	const isTypeAware = !!tsconfigPath;
+	const isTypeAware = Boolean(tsconfigPath);
 
 	const [pluginReact, pluginReactHooks, pluginReactRefresh, parserTs] = await Promise.all([
 		interopDefault(import('@eslint-react/eslint-plugin')),

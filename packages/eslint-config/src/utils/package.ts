@@ -1,11 +1,14 @@
 /* eslint-disable node/prefer-global/process, ts/no-explicit-any */
-import { win32 } from 'node:path';
+import nodePath from 'node:path';
 
 import { resolvePathSync } from 'mlly';
 
 import type { Awaitable } from '../types';
 
 interface PackageResolvingOptions {
+	/**
+	 * An optional array of paths to search for the package.
+	 */
 	paths?: string[];
 
 	/**
@@ -24,7 +27,7 @@ function resolve(path: string, options: PackageResolvingOptions = {}) {
 	const modulePath = resolvePathSync(path, { url: options.paths });
 
 	if (options.platform === 'win32') {
-		return win32.normalize(modulePath);
+		return nodePath.win32.normalize(modulePath);
 	}
 
 	return modulePath;
@@ -47,10 +50,26 @@ function resolvePackage(name: string, options: PackageResolvingOptions = {}) {
 	}
 }
 
+/**
+ * Checks if a package with the given name exists.
+ *
+ * @param name - The name of the package to check.
+ * @param options - Optional options for resolving the package.
+ * @returns `true` if the package exists, `false` otherwise.
+ */
 export function existsPackage(name: string, options: PackageResolvingOptions = {}) {
-	return !!resolvePackage(name, options);
+	return Boolean(resolvePackage(name, options));
 }
 
+/**
+ * Interop default export from a module.
+ *
+ * This function takes a module that may have a default export, and returns the default export if
+ * it exists, or the module itself if there is no default export.
+ *
+ * @param m - The module to interop the default export from.
+ * @returns The default export of the module, or the module itself if there is no default export.
+ */
 export async function interopDefault<T>(
 	m: Awaitable<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
@@ -58,6 +77,16 @@ export async function interopDefault<T>(
 	return (resolved as any).default || resolved;
 }
 
+/**
+ * Ensures that the specified packages are installed. If any of the packages are not installed,
+ * it prompts the user to install them.
+ *
+ * This function is only executed if the process is not running in a CI environment or if the
+ * stdout is not a TTY.
+ *
+ * @param packages - An array of package names. Undefined values in the array will be ignored.
+ * @returns A Promise that resolves when the packages have been installed (if necessary).
+ */
 export async function ensurePackages(packages: (string | undefined)[]) {
 	if (process.env.CI || process.stdout.isTTY === false) {
 		return;

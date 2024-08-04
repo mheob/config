@@ -24,6 +24,7 @@ import {
 	test,
 	toml,
 	typescript,
+	unicorn,
 	yaml,
 } from './configs';
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types';
@@ -81,24 +82,25 @@ export function getOverrides<K extends keyof OptionsConfig>(options: OptionsConf
 export function mheob(
 	options: OptionsConfig & TypedFlatConfigItem = {},
 	...userConfigs: Awaitable<
-		FlatConfigComposer<any, any> | Linter.FlatConfig[] | TypedFlatConfigItem | TypedFlatConfigItem[]
+		FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]
 	>[]
 ): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
 	const {
 		astro: enableAstro = false,
 		autoRenamePlugins = true,
-		componentExts = [],
+		componentExts: componentExtensions = [],
 		gitignore: enableGitignore = true,
-		isInEditor = !!(
+		isInEditor = Boolean(
 			(process.env.VSCODE_PID ||
 				process.env.VSCODE_CWD ||
 				process.env.JETBRAINS_IDE ||
 				process.env.VIM) &&
-			!process.env.CI
+				!process.env.CI,
 		),
 		react: enableReact = false,
 		svelte: enableSvelte = false,
 		typescript: enableTypeScript = existsPackage('typescript'),
+		unicorn: enableUnicorn = true,
 	} = options;
 
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
@@ -131,10 +133,14 @@ export function mheob(
 		configs.push(
 			typescript({
 				...resolveSubOptions(options, 'typescript'),
-				componentExts,
+				componentExts: componentExtensions,
 				overrides: getOverrides(options, 'typescript'),
 			}),
 		);
+	}
+
+	if (enableUnicorn) {
+		configs.push(unicorn({ overrides: getOverrides(options, 'unicorn') }));
 	}
 
 	if (options.test ?? true) {
@@ -159,7 +165,7 @@ export function mheob(
 		configs.push(
 			svelte({
 				overrides: getOverrides(options, 'svelte'),
-				typescript: !!enableTypeScript,
+				typescript: Boolean(enableTypeScript),
 			}),
 		);
 	}
@@ -187,7 +193,7 @@ export function mheob(
 	if (options.markdown ?? true) {
 		configs.push(
 			markdown({
-				componentExts,
+				componentExts: componentExtensions,
 				overrides: getOverrides(options, 'markdown'),
 			}),
 		);
@@ -197,14 +203,14 @@ export function mheob(
 
 	// User can optionally pass a flat config item to the first argument
 	// We pick the known keys as ESLint would do schema validation
-	const fusedConfig = flatConfigProps.reduce((acc, key) => {
+	const fusedConfig = flatConfigProps.reduce((accumulator, key) => {
 		if (key in options) {
-			acc[key] = options[key] as any;
+			accumulator[key] = options[key] as any;
 		}
-		return acc;
+		return accumulator;
 	}, {} as TypedFlatConfigItem);
 
-	if (Object.keys(fusedConfig).length) {
+	if (Object.keys(fusedConfig).length > 0) {
 		configs.push([fusedConfig]);
 	}
 

@@ -19,7 +19,10 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 		{
 			name: 'mheob/perfectionist/rules',
 			rules: {
-				'perfectionist/sort-array-includes': ['error', { 'spread-last': true, type: 'natural' }],
+				'perfectionist/sort-array-includes': [
+					'error',
+					{ groupKind: 'literals-first', type: 'natural' },
+				],
 				'perfectionist/sort-astro-attributes': [
 					'error',
 					{
@@ -44,7 +47,7 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 							'object',
 							'unknown',
 						],
-						'internal-pattern': ['@/**'],
+						internalPattern: ['@/**'],
 						type: 'natural',
 					},
 				],

@@ -1,27 +1,51 @@
 import { pluginUnicorn } from '../plugins';
-import type { TypedFlatConfigItem } from '../types';
+import type { OptionsOverrides, TypedFlatConfigItem } from '../types';
 
-export async function unicorn(): Promise<TypedFlatConfigItem[]> {
+export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
+	const { overrides = {} } = options;
+
 	return [
 		{
+			...pluginUnicorn.configs['flat/recommended'],
 			name: 'mheob/unicorn/rules',
-			plugins: {
-				unicorn: pluginUnicorn,
-			},
 			rules: {
-				'unicorn/error-message': 'error',
-				'unicorn/escape-case': 'error',
-				'unicorn/no-instanceof-array': 'error',
-				'unicorn/no-new-array': 'error',
-				'unicorn/no-new-buffer': 'error',
-				'unicorn/number-literal-case': 'error',
-				'unicorn/prefer-dom-node-text-content': 'error',
-				'unicorn/prefer-includes': 'error',
-				'unicorn/prefer-node-protocol': 'error',
-				'unicorn/prefer-number-properties': 'error',
-				'unicorn/prefer-string-starts-ends-with': 'error',
-				'unicorn/prefer-type-error': 'error',
-				'unicorn/throw-new-error': 'error',
+				...pluginUnicorn.configs['flat/recommended'].rules,
+
+				'unicorn/no-array-reduce': 'off',
+				'unicorn/no-negated-condition': 'off',
+				'unicorn/no-null': 'off',
+				'unicorn/prevent-abbreviations': [
+					'warn',
+					{
+						replacements: {
+							args: false,
+							doc: false,
+							env: false,
+							i: false,
+							params: false,
+							props: false,
+							temp: false,
+							tmp: false,
+						},
+					},
+				],
+
+				...overrides,
+			},
+		},
+		{
+			files: ['**/*.jsx', '**/*.tsx'],
+			name: 'mheob/unicorn/rules/react',
+			rules: {
+				'unicorn/filename-case': [
+					'error',
+					{
+						cases: {
+							kebabCase: true,
+							pascalCase: true,
+						},
+					},
+				],
 			},
 		},
 	];
