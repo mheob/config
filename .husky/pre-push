@@ -1,4 +1,4 @@
 [ -n "$CI" ] && exit 0
 
-bunx changeset status --since main
-bunx use-correct-pm bun
+pnpm exec changeset status --since main
+pnpm exec use-correct-pm pnpm
