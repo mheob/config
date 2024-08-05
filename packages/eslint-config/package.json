@@ -28,9 +28,9 @@
 	],
 	"scripts": {
 		"build": "tsup --clean",
-		"build:inspector": "bun run typegen && bun run build && bunx @eslint/config-inspector build",
+		"build:inspector": "pnpm typegen && pnpm build && pnpm exec config-inspector build",
 		"clean": "rimraf .turbo node_modules dist",
-		"dev": "bunx @eslint/config-inspector --config ../../eslint.config.js",
+		"dev": "pnpm exec config-inspector --config ../../eslint.config.js",
 		"lint": "eslint src/**/* --fix",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
 		"watch": "tsup --watch"
