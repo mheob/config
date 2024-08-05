@@ -6,7 +6,6 @@
 	"type": "module",
 	"scripts": {
 		"build": "turbo run build",
-		"changeset": "changeset",
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
 		"cspell": "cspell .",
@@ -15,7 +14,7 @@
 		"prepare": "husky",
 		"release": "changeset publish",
 		"typegen": "turbo run typegen",
-		"version-packages": "changeset version && bun run lint"
+		"version-packages": "changeset version && pnpm lint"
 	},
 	"lint-staged": {
 		"*": "eslint --fix"

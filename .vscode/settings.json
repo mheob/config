@@ -1,5 +1,5 @@
 {
-	"npm.packageManager": "bun",
+	"npm.packageManager": "pnpm",
 	"markdownlint.config": {
 		"MD010": false,
 		"MD024": false,
