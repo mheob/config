@@ -27,13 +27,13 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsup --format esm,cjs --clean --dts",
-		"build:inspector": "bun run typegen && bun run build && npx @eslint/config-inspector build",
+		"build": "tsup --clean",
+		"build:inspector": "pnpm typegen && pnpm build && pnpm exec config-inspector build",
 		"clean": "rimraf .turbo node_modules dist",
-		"dev": "npx @eslint/config-inspector --config ../../eslint.config.js",
+		"dev": "pnpm exec config-inspector --config ../../eslint.config.js",
 		"lint": "eslint src/**/* --fix",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
-		"watch": "tsup --format esm,cjs --watch"
+		"watch": "tsup --watch"
 	},
 	"dependencies": {
 		"@antfu/install-pkg": "^0.3.3",

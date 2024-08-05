@@ -4,4 +4,4 @@ changedFiles="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
 
 hasChanged() { echo "$changedFiles" | grep -q "$1"; }
 
-hasChanged bun.lockb && bun install
+hasChanged pnpm-lock.yaml && pnpm install

@@ -494,16 +494,16 @@ You can add the trigger comment one line above the code you want to transform, f
 
 ```ts
 /// to-function
-const foo = async (msg: string): void => {
-	console.log(msg);
+const foo = async (message: string): void => {
+	console.log(message);
 };
 ```
 
 Will be transformed to this when you hit save with your editor or run `eslint . --fix`:
 
 ```ts
-async function foo(msg: string): void {
-	console.log(msg);
+async function foo(message: string): void {
+	console.log(message);
 }
 ```
 

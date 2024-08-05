@@ -1,6 +1,8 @@
 import { defineConfig } from 'tsup';
 
-export default defineConfig({
-	entry: ['src/index.ts', 'src/cli.ts'],
-	shims: true,
-});
+export default defineConfig(options => ({
+	dts: true,
+	entry: ['src/index.ts'],
+	format: ['cjs', 'esm'],
+	minify: !options.watch,
+}));

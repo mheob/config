@@ -11,6 +11,15 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 			rules: {
 				...pluginUnicorn.configs['flat/recommended'].rules,
 
+				'unicorn/filename-case': [
+					'error',
+					{
+						cases: {
+							kebabCase: true,
+						},
+						ignore: [/readme\.md$/i],
+					},
+				],
 				'unicorn/no-array-reduce': 'off',
 				'unicorn/no-negated-condition': 'off',
 				'unicorn/no-null': 'off',
