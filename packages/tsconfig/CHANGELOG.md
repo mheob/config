@@ -1,5 +1,11 @@
 # @mheob/tsconfig
 
+## 2.2.0
+
+### Minor Changes
+
+- [#195](https://github.com/mheob/config/pull/195) ([@mheob](https://github.com/mheob)): Sync astro with the latest official docs.
+
 ## 2.0.0
 
 ### Major Changes
