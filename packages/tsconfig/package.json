@@ -1,6 +1,6 @@
 {
 	"name": "@mheob/tsconfig",
-	"version": "2.2.0",
+	"version": "2.1.0",
 	"description": "My personal configurations for typescript.",
 	"keywords": [
 		"tsconfig",
@@ -18,11 +18,21 @@
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@boehm.work>",
 	"exports": {
-		".": "./configs/commonjs.json",
-		"./*": "./configs/*.json"
+		".": "./commonjs.json",
+		"./astro": "./astro.json",
+		"./base": "./base.json",
+		"./commonjs": "./commonjs.json",
+		"./esm": "./esm.json",
+		"./nextjs": "./nextjs.json",
+		"./react": "./react.json"
 	},
 	"files": [
-		"configs"
+		"astro.json",
+		"base.json",
+		"commonjs.json",
+		"esm.json",
+		"nextjs.json",
+		"react.json"
 	],
 	"scripts": {},
 	"publishConfig": {
