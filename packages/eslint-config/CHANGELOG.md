@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 6.1.2
+
+### Patch Changes
+
+- [#197](https://github.com/mheob/config/pull/197) ([@mheob](https://github.com/mheob)): Update all dependencies
+
 ## 6.1.1
 
 ### Patch Changes
