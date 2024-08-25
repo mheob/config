@@ -1,5 +1,11 @@
 # @mheob/tsconfig
 
+## 2.1.1
+
+### Patch Changes
+
+- [#198](https://github.com/mheob/config/pull/198) ([@mheob](https://github.com/mheob)): Fix the path to the `tsconfig.json` files.
+
 ## 2.2.0
 
 ### Minor Changes
