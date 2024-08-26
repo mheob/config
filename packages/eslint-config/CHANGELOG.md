@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 6.1.3
+
+### Patch Changes
+
+- [#200](https://github.com/mheob/config/pull/200) ([@mheob](https://github.com/mheob)): Ensure all needed packages are installed at using Astro.
+
 ## 6.1.2
 
 ### Patch Changes
