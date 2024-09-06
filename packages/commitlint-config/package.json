@@ -26,7 +26,7 @@
 		"lint": "eslint src/**/*.ts --fix"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.4.0",
+		"@commitlint/cli": "^19.4.1",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.0",
