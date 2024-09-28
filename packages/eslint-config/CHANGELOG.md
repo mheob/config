@@ -1,5 +1,13 @@
 # @mheob/eslint-config
 
+## 6.1.4
+
+### Patch Changes
+
+- [#205](https://github.com/mheob/config/pull/205) ([@renovate](https://github.com/apps/renovate)): update all non-major dependencies
+
+- [#202](https://github.com/mheob/config/pull/202) ([@renovate](https://github.com/apps/renovate)): update all non-major dependencies
+
 ## 6.1.3
 
 ### Patch Changes
