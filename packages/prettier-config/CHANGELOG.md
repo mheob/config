@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.3.2
+
+### Patch Changes
+
+- [#210](https://github.com/mheob/config/pull/210) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 3.3.1
 
 ### Patch Changes

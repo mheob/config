@@ -1,5 +1,15 @@
 # @mheob/commitlint-config
 
+## 1.2.0
+
+### Minor Changes
+
+- [#209](https://github.com/mheob/config/pull/209) ([@mheob](https://github.com/mheob)): ignore "wip" messages in commitlint
+
+### Patch Changes
+
+- [#210](https://github.com/mheob/config/pull/210) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 1.1.2
 
 ### Patch Changes
