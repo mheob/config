@@ -51,6 +51,7 @@ function getIssue() {
 }
 
 const options: UserConfig = {
+	ignores: [message => /wip/i.test(message)],
 	prompt: {
 		allowBreakingChanges: ['feat', 'fix'],
 		allowCustomIssuePrefix: true,
