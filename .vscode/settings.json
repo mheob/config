@@ -39,5 +39,11 @@
 		"scss",
 		"pcss",
 		"postcss"
-	]
+	],
+
+	// SonarLint
+	"sonarlint.connectedMode.project": {
+		"connectionId": "mheob",
+		"projectKey": "mheob_config"
+	}
 }
