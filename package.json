@@ -33,7 +33,7 @@
 		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
-		"@types/node": "^22.10.1",
+		"@types/node": "^22.10.2",
 		"commitizen": "^4.3.1",
 		"cspell": "^8.16.1",
 		"cz-git": "^1.11.0",
