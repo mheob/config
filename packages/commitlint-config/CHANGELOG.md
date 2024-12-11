@@ -1,5 +1,11 @@
 # @mheob/commitlint-config
 
+## 1.2.1
+
+### Patch Changes
+
+- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): update dependencies and use the newest ESLint rules
+
 ## 1.2.0
 
 ### Minor Changes

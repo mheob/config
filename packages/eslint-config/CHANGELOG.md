@@ -1,5 +1,17 @@
 # @mheob/eslint-config
 
+## 7.0.0
+
+### Major Changes
+
+- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): add the newest rules, espacially a new sorting system which has breaking changes
+
+### Patch Changes
+
+- [#206](https://github.com/mheob/config/pull/206) ([@renovate](https://github.com/apps/renovate)): switch from `eslint-plugin-vitest` to `@vitest/eslint-plugin`
+
+- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): update dependencies and use the newest ESLint rules
+
 ## 6.2.0
 
 ### Minor Changes
