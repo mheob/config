@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.3.3
+
+### Patch Changes
+
+- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): update dependencies and use the newest ESLint rules
+
 ## 3.3.2
 
 ### Patch Changes
