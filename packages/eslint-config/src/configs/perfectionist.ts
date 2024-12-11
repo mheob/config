@@ -23,13 +23,6 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 					'error',
 					{ groupKind: 'literals-first', type: 'natural' },
 				],
-				'perfectionist/sort-astro-attributes': [
-					'error',
-					{
-						groups: ['multiline', 'unknown', ['shorthand', 'astro-shorthand']],
-						type: 'natural',
-					},
-				],
 				'perfectionist/sort-classes': ['error', { type: 'natural' }],
 				'perfectionist/sort-enums': ['error', { type: 'natural' }],
 				'perfectionist/sort-exports': ['error', { type: 'natural' }],
@@ -47,7 +40,7 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 							'object',
 							'unknown',
 						],
-						internalPattern: ['@/**'],
+						internalPattern: ['^@/.*'],
 						type: 'natural',
 					},
 				],
@@ -62,18 +55,7 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 				'perfectionist/sort-named-imports': ['error', { type: 'natural' }],
 				'perfectionist/sort-object-types': ['error', { type: 'natural' }],
 				'perfectionist/sort-objects': ['error', { type: 'natural' }],
-				'perfectionist/sort-svelte-attributes': [
-					'error',
-					{
-						groups: ['multiline', 'unknown', ['shorthand', 'svelte-shorthand']],
-						type: 'natural',
-					},
-				],
 				'perfectionist/sort-union-types': ['error', { type: 'natural' }],
-				'perfectionist/sort-vue-attributes': [
-					'error',
-					{ groups: ['multiline', 'unknown', 'shorthand'], type: 'natural' },
-				],
 			},
 		},
 	];

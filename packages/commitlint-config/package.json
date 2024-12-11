@@ -26,18 +26,18 @@
 		"lint": "eslint src/**/*.ts --fix"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.5.0",
+		"@commitlint/cli": "^19.6.0",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.1",
-		"cz-git": "^1.10.1",
-		"eslint": "^9.12.0",
+		"cz-git": "^1.11.0",
+		"eslint": "catalog:",
 		"typescript": "catalog:"
 	},
 	"peerDependencies": {
-		"@commitlint/cli": "^19.5.0",
+		"@commitlint/cli": "^19.6.0",
 		"commitizen": "^4.3.0",
-		"cz-git": "^1.10.0"
+		"cz-git": "^1.11.0"
 	},
 	"publishConfig": {
 		"access": "public"
