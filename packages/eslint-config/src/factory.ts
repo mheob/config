@@ -72,23 +72,8 @@ export function getOverrides<K extends keyof OptionsConfig>(options: OptionsConf
 	};
 }
 
-/**
- * Construct an array of ESLint flat config items.
- *
- * @param options The options for generating the ESLint configurations.
- * @param userConfigs The user configurations to be merged with the generated configurations.
- * @returns The merged ESLint configurations.
- */
-export function mheob(
-	options: OptionsConfig & TypedFlatConfigItem = {},
-	...userConfigs: Awaitable<
-		FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]
-	>[]
-): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
+function iniConfig(options: OptionsConfig & TypedFlatConfigItem = {}) {
 	const {
-		astro: enableAstro = false,
-		autoRenamePlugins = true,
-		componentExts: componentExtensions = [],
 		gitignore: enableGitignore = true,
 		isInEditor = Boolean(
 			(process.env.VSCODE_PID ||
@@ -97,10 +82,6 @@ export function mheob(
 				process.env.VIM) &&
 				!process.env.CI,
 		),
-		react: enableReact = false,
-		svelte: enableSvelte = false,
-		typescript: enableTypeScript = existsPackage('typescript'),
-		unicorn: enableUnicorn = true,
 	} = options;
 
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
@@ -128,6 +109,41 @@ export function mheob(
 		// Optional plugins (installed but not enabled by default)
 		perfectionist(),
 	);
+
+	return configs;
+}
+
+/**
+ * Construct an array of ESLint flat config items.
+ *
+ * @param options The options for generating the ESLint configurations.
+ * @param userConfigs The user configurations to be merged with the generated configurations.
+ * @returns The merged ESLint configurations.
+ */
+export function mheob(
+	options: OptionsConfig & TypedFlatConfigItem = {},
+	...userConfigs: Awaitable<
+		FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]
+	>[]
+): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
+	const {
+		astro: enableAstro = false,
+		autoRenamePlugins = true,
+		componentExts: componentExtensions = [],
+		isInEditor = Boolean(
+			(process.env.VSCODE_PID ||
+				process.env.VSCODE_CWD ||
+				process.env.JETBRAINS_IDE ||
+				process.env.VIM) &&
+				!process.env.CI,
+		),
+		react: enableReact = false,
+		svelte: enableSvelte = false,
+		typescript: enableTypeScript = existsPackage('typescript'),
+		unicorn: enableUnicorn = true,
+	} = options;
+
+	const configs = iniConfig(options);
 
 	if (enableTypeScript) {
 		configs.push(

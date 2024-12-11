@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 import type { Config } from 'prettier';
 
 const options: Config = {
@@ -10,7 +11,6 @@ const options: Config = {
 	trailingComma: 'all',
 	useTabs: true,
 
-	// eslint-disable-next-line perfectionist/sort-objects
 	overrides: [
 		{
 			files: '**/*.{yaml,yml}',
