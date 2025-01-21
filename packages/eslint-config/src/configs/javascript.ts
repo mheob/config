@@ -1,7 +1,7 @@
 import globals from 'globals';
 
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs';
-import { pluginAntfu, pluginUnusedImports } from '../plugins';
+import { pluginUnusedImports } from '../plugins';
 import type { OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types';
 
 export async function javascript(
@@ -35,12 +35,10 @@ export async function javascript(
 			},
 			name: 'mheob/javascript/rules',
 			plugins: {
-				antfu: pluginAntfu,
 				'unused-imports': pluginUnusedImports,
 			},
 			rules: {
 				'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
-
 				'array-callback-return': 'error',
 				'block-scoped-var': 'error',
 				'constructor-super': 'error',
@@ -197,13 +195,15 @@ export async function javascript(
 						allowUnboundThis: true,
 					},
 				],
-				'prefer-const': [
-					'error',
-					{
-						destructuring: 'all',
-						ignoreReadBeforeAssign: true,
-					},
-				],
+				'prefer-const': isInEditor
+					? 'off'
+					: [
+							'error',
+							{
+								destructuring: 'all',
+								ignoreReadBeforeAssign: true,
+							},
+						],
 				'prefer-exponentiation-operator': 'error',
 				'prefer-promise-reject-errors': 'error',
 				'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
