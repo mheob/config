@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 7.1.0
+
+### Minor Changes
+
+- [#223](https://github.com/mheob/config/pull/223) ([@mheob](https://github.com/mheob)): turn off `prefer-const` rule in editor
+
+### Patch Changes
+
+- [#219](https://github.com/mheob/config/pull/219) ([@renovate](https://github.com/apps/renovate)): fix(deps): update all non-major dependencies
+
 ## 7.0.0
 
 ### Major Changes
