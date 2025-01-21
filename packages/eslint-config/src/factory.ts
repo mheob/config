@@ -27,6 +27,8 @@ import {
 	unicorn,
 	yaml,
 } from './configs';
+import { disables } from './configs/disables';
+import type { RuleOptions } from './typegen';
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types';
 import { existsPackage, interopDefault } from './utils/package';
 
@@ -64,7 +66,10 @@ export function resolveSubOptions<K extends keyof OptionsConfig>(
 	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {};
 }
 
-export function getOverrides<K extends keyof OptionsConfig>(options: OptionsConfig, key: K) {
+export function getOverrides<K extends keyof OptionsConfig>(
+	options: OptionsConfig,
+	key: K,
+): Partial<Linter.RulesRecord & RuleOptions> {
 	const sub = resolveSubOptions(options, key);
 	return {
 		...(options.overrides as any)?.[key],
@@ -98,7 +103,7 @@ function iniConfig(options: OptionsConfig & TypedFlatConfigItem = {}) {
 
 	// Base configs
 	configs.push(
-		ignores(),
+		ignores(options.ignores),
 		javascript({ isInEditor, overrides: getOverrides(options, 'javascript') }),
 		comments(),
 		node(),
@@ -215,7 +220,7 @@ export function mheob(
 		);
 	}
 
-	configs.push(prettier({ overrides: getOverrides(options, 'prettier') }));
+	configs.push(disables(), prettier({ overrides: getOverrides(options, 'prettier') }));
 
 	// User can optionally pass a flat config item to the first argument
 	// We pick the known keys as ESLint would do schema validation
