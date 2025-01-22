@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 7.2.0
+
+### Minor Changes
+
+- [#224](https://github.com/mheob/config/pull/224) ([@mheob](https://github.com/mheob)): change editor rules from disable to non-fixable
+
 ## 7.1.0
 
 ### Minor Changes
