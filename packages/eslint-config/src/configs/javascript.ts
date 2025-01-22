@@ -195,15 +195,13 @@ export async function javascript(
 						allowUnboundThis: true,
 					},
 				],
-				'prefer-const': isInEditor
-					? 'off'
-					: [
-							'error',
-							{
-								destructuring: 'all',
-								ignoreReadBeforeAssign: true,
-							},
-						],
+				'prefer-const': [
+					isInEditor ? 'warn' : 'error',
+					{
+						destructuring: 'all',
+						ignoreReadBeforeAssign: true,
+					},
+				],
 				'prefer-exponentiation-operator': 'error',
 				'prefer-promise-reject-errors': 'error',
 				'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
@@ -223,7 +221,7 @@ export async function javascript(
 
 				'symbol-description': 'error',
 				'unicode-bom': ['error', 'never'],
-				'unused-imports/no-unused-imports': isInEditor ? 'off' : 'error',
+				'unused-imports/no-unused-imports': isInEditor ? 'warn' : 'error',
 				'unused-imports/no-unused-vars': [
 					'error',
 					{
