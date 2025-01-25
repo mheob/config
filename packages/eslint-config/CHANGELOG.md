@@ -1,5 +1,17 @@
 # @mheob/eslint-config
 
+## 8.0.0
+
+### Major Changes
+
+- [#226](https://github.com/mheob/config/pull/226) ([@mheob](https://github.com/mheob)): drop CJS build
+
+  BREAKING CHANGE: use `eslint.config.mjs` instead of `eslint.config.cjs`
+
+### Patch Changes
+
+- [#227](https://github.com/mheob/config/pull/227) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 7.2.0
 
 ### Minor Changes
