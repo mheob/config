@@ -1,6 +1,6 @@
 packages:
   - packages/*
 catalog:
-  eslint: ^9.18.0
+  eslint: ^9.19.0
   prettier: ^3.4.2
   typescript: ^5.7.3
