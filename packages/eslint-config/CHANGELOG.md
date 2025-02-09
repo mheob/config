@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.1.0
+
+### Minor Changes
+
+- [#229](https://github.com/mheob/config/pull/229) ([@mheob](https://github.com/mheob)): disable `import/order` and `sort-imports` rules because they conflicts with `perfectionist/sort-imports`
+
+### Patch Changes
+
+- [#229](https://github.com/mheob/config/pull/229) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 8.0.0
 
 ### Major Changes
