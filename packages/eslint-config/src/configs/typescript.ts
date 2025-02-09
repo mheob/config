@@ -172,13 +172,5 @@ export async function typescript(
 				'no-unused-expressions': 'off',
 			},
 		},
-		{
-			files: ['**/*.js', '**/*.cjs'],
-			name: 'mheob/typescript/disables/cjs',
-			rules: {
-				'ts/no-require-imports': 'off',
-				'ts/no-var-requires': 'off',
-			},
-		},
 	];
 }

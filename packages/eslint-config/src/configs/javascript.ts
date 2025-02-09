@@ -1,6 +1,5 @@
 import globals from 'globals';
 
-import { GLOB_SRC, GLOB_SRC_EXT } from '../globs';
 import { pluginUnusedImports } from '../plugins';
 import type { OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types';
 
@@ -208,16 +207,6 @@ export async function javascript(
 				'prefer-rest-params': 'error',
 				'prefer-spread': 'error',
 				'prefer-template': 'error',
-				'sort-imports': [
-					'error',
-					{
-						allowSeparatedGroups: false,
-						ignoreCase: false,
-						ignoreDeclarationSort: true,
-						ignoreMemberSort: false,
-						memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-					},
-				],
 
 				'symbol-description': 'error',
 				'unicode-bom': ['error', 'never'],
@@ -238,13 +227,6 @@ export async function javascript(
 				yoda: ['error', 'never'],
 
 				...overrides,
-			},
-		},
-		{
-			files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
-			name: 'mheob/javascript/disables/cli',
-			rules: {
-				'no-console': 'off',
 			},
 		},
 	];

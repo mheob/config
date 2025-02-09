@@ -21,7 +21,6 @@ export async function imports(): Promise<TypedFlatConfigItem[]> {
 				'import/no-named-default': 'error',
 				'import/no-self-import': 'error',
 				'import/no-webpack-loader-syntax': 'error',
-				'import/order': 'off', // Disabled because it conflicts with `perfectionist/sort-imports`
 			},
 		},
 		{
