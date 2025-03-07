@@ -6,10 +6,10 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 
 	return [
 		{
-			...pluginUnicorn.configs['flat/recommended'],
+			...pluginUnicorn.configs.recommended,
 			name: 'mheob/unicorn/rules',
 			rules: {
-				...pluginUnicorn.configs['flat/recommended'].rules,
+				...pluginUnicorn.configs.recommended.rules,
 
 				'unicorn/filename-case': [
 					'error',

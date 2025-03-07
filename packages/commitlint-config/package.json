@@ -26,11 +26,11 @@
 		"lint": "eslint src/**/*.ts --fix"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.7.1",
+		"@commitlint/cli": "^19.8.0",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
 		"commitizen": "^4.3.1",
-		"cz-git": "^1.11.0",
+		"cz-git": "^1.11.1",
 		"eslint": "catalog:",
 		"typescript": "catalog:"
 	},
