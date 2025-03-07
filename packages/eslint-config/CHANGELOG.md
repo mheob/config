@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.1.1
+
+### Patch Changes
+
+- [#234](https://github.com/mheob/config/pull/234) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 8.1.0
 
 ### Minor Changes
