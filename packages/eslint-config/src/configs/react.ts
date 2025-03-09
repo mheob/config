@@ -5,7 +5,7 @@ import type {
 	OptionsTypeScriptWithTypes,
 	TypedFlatConfigItem,
 } from '../types';
-import { ensurePackages, existsPackage, interopDefault, toArray } from '../utils';
+import { ensurePackages, existsPackage, interopDefault } from '../utils';
 
 // react refresh
 const ReactRefreshAllowConstantExportPackages = ['vite'];
@@ -23,7 +23,7 @@ export async function react(
 		'eslint-plugin-react-refresh',
 	]);
 
-	const tsconfigPath = options?.tsconfigPath ? toArray(options.tsconfigPath) : undefined;
+	const tsconfigPath = options?.tsconfigPath ?? undefined;
 	const isTypeAware = Boolean(tsconfigPath);
 
 	const [pluginReact, pluginReactHooks, pluginReactRefresh, parserTs] = await Promise.all([
