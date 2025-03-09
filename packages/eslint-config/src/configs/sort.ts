@@ -126,6 +126,49 @@ export async function sortPackageJson(): Promise<TypedFlatConfigItem[]> {
 }
 
 /**
+ * Sort package.json
+ * Requires `yaml` config
+ *
+ * @returns Configs.
+ */
+export async function sortPnpmWorkspaceYaml(): Promise<TypedFlatConfigItem[]> {
+	return [
+		{
+			files: ['pnpm-workspace.yaml'],
+			name: 'mheob/sort/pnpm-workspace',
+			rules: {
+				'yaml/sort-keys': [
+					'error',
+					{
+						order: [
+							'packages',
+							'overrides',
+							'patchedDependencies',
+							'hoistPattern',
+							'catalog',
+							'catalogs',
+
+							'allowedDeprecatedVersions',
+							'allowNonAppliedPatches',
+							'configDependencies',
+							'ignoredBuiltDependencies',
+							'ignoredOptionalDependencies',
+							'neverBuiltDependencies',
+							'onlyBuiltDependencies',
+							'onlyBuiltDependenciesFile',
+							'packageExtensions',
+							'peerDependencyRules',
+							'supportedArchitectures',
+						],
+						pathPattern: '^$',
+					},
+				],
+			},
+		},
+	];
+}
+
+/**
  * Sort tsconfig.json
  * Requires `jsonc` config
  *

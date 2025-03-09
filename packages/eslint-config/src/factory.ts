@@ -19,6 +19,7 @@ import {
 	prettier,
 	react,
 	sortPackageJson,
+	sortPnpmWorkspaceYaml,
 	sortTsconfig,
 	svelte,
 	test,
@@ -204,7 +205,7 @@ export function mheob(
 	}
 
 	if (options.yaml ?? true) {
-		configs.push(yaml({ overrides: getOverrides(options, 'yaml') }));
+		configs.push(yaml({ overrides: getOverrides(options, 'yaml') }), sortPnpmWorkspaceYaml());
 	}
 
 	if (options.toml ?? true) {
