@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.2.0
+
+### Minor Changes
+
+- [#236](https://github.com/mheob/config/pull/236) ([@mheob](https://github.com/mheob)): add sorting for `pnpm-workspace.yaml` file
+
+### Patch Changes
+
+- [#234](https://github.com/mheob/config/pull/234) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 8.1.0
 
 ### Minor Changes
