@@ -28,13 +28,16 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 					{
 						replacements: {
 							args: false,
+							db: false,
 							doc: false,
 							env: false,
 							i: false,
+							idx: false,
 							params: false,
 							props: false,
 							temp: false,
 							tmp: false,
+							utils: false,
 						},
 					},
 				],

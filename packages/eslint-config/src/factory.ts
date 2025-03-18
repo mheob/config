@@ -3,11 +3,13 @@ import fs from 'node:fs';
 
 import type { Linter } from 'eslint';
 import { FlatConfigComposer } from 'eslint-flat-config-utils';
+import { isPackageExists } from 'local-pkg';
 
 import {
 	astro,
 	command,
 	comments,
+	disables,
 	ignores,
 	imports,
 	javascript,
@@ -18,6 +20,7 @@ import {
 	perfectionist,
 	prettier,
 	react,
+	regexp,
 	sortPackageJson,
 	sortPnpmWorkspaceYaml,
 	sortTsconfig,
@@ -26,9 +29,9 @@ import {
 	toml,
 	typescript,
 	unicorn,
+	vue,
 	yaml,
 } from './configs';
-import { disables } from './configs/disables';
 import type { RuleOptions } from './typegen';
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types';
 import { existsPackage, interopDefault } from './utils/package';
@@ -44,6 +47,8 @@ const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
 	'rules',
 	'settings',
 ];
+
+const VuePackages = ['vue', 'nuxt', 'vitepress'];
 
 export const defaultPluginRenaming = {
 	'@eslint-react': 'react',
@@ -144,9 +149,11 @@ export function mheob(
 				!process.env.CI,
 		),
 		react: enableReact = false,
+		regexp: enableRegexp = true,
 		svelte: enableSvelte = false,
 		typescript: enableTypeScript = existsPackage('typescript'),
 		unicorn: enableUnicorn = true,
+		vue: enableVue = VuePackages.some(i => isPackageExists(i)),
 	} = options;
 
 	const configs = iniConfig(options);
@@ -183,10 +190,25 @@ export function mheob(
 		);
 	}
 
+	if (enableRegexp) {
+		configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp));
+	}
+
 	if (enableSvelte) {
 		configs.push(
 			svelte({
 				overrides: getOverrides(options, 'svelte'),
+				typescript: Boolean(enableTypeScript),
+			}),
+		);
+	}
+
+	if (enableVue) {
+		componentExtensions.push('vue');
+		configs.push(
+			vue({
+				...resolveSubOptions(options, 'vue'),
+				overrides: getOverrides(options, 'vue'),
 				typescript: Boolean(enableTypeScript),
 			}),
 		);

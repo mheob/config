@@ -162,6 +162,10 @@ export async function sortPnpmWorkspaceYaml(): Promise<TypedFlatConfigItem[]> {
 						],
 						pathPattern: '^$',
 					},
+					{
+						order: { type: 'asc' },
+						pathPattern: '.*',
+					},
 				],
 			},
 		},

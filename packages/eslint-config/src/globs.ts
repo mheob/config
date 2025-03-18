@@ -20,6 +20,7 @@ export const GLOB_JSONC = '**/*.jsonc';
 export const GLOB_MARKDOWN = '**/*.md';
 export const GLOB_MARKDOWN_IN_MARKDOWN = '**/*.md/*.md';
 export const GLOB_SVELTE = '**/*.svelte';
+export const GLOB_VUE = '**/*.vue';
 export const GLOB_YAML = '**/*.y?(a)ml';
 export const GLOB_TOML = '**/*.toml';
 export const GLOB_HTML = '**/*.htm?(l)';
@@ -43,6 +44,7 @@ export const GLOB_ALL_SRC = [
 	GLOB_JSON5,
 	GLOB_MARKDOWN,
 	GLOB_SVELTE,
+	GLOB_VUE,
 	GLOB_YAML,
 	GLOB_HTML,
 ];
