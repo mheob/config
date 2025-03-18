@@ -56,6 +56,13 @@ export interface OptionsOverrides {
 	overrides?: TypedFlatConfigItem['rules'];
 }
 
+export interface OptionsRegExp {
+	/**
+	 * Override rulelevels
+	 */
+	level?: 'error' | 'warn';
+}
+
 export interface OptionsIsInEditor {
 	isInEditor?: boolean;
 }
@@ -169,6 +176,14 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	react?: boolean | OptionsOverrides;
 
 	/**
+	 * Enable regexp rules.
+	 *
+	 * @see https://ota-meshi.github.io/eslint-plugin-regexp/
+	 * @default true
+	 */
+	regexp?: boolean | (OptionsOverrides & OptionsRegExp);
+
+	/**
 	 * Enable solid rules.
 	 *
 	 * Requires installing:
@@ -220,6 +235,13 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	 * @default true
 	 */
 	unicorn?: boolean | OptionsTypescript;
+
+	/**
+	 * Enable Vue support.
+	 *
+	 * @default auto-detect based on the dependencies
+	 */
+	vue?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable YAML support.
