@@ -54,7 +54,7 @@ export async function vue(
 					},
 					extraFileExtensions: ['.vue'],
 					parser: options.typescript
-						? ((await interopDefault(import('@typescript-eslint/parser'))) as any)
+						? await interopDefault(import('@typescript-eslint/parser'))
 						: null,
 					sourceType: 'module',
 				},
@@ -62,17 +62,17 @@ export async function vue(
 			name: 'mheob/vue/rules',
 			processor: pluginVue.processors['.vue'],
 			rules: {
-				...(pluginVue.configs.base.rules as any),
+				...pluginVue.configs.base.rules,
 
-				...(pluginVue.configs['flat/essential']
+				...pluginVue.configs['flat/essential']
 					.map(c => c.rules)
-					.reduce((accumulator, c) => ({ ...accumulator, ...c }), {}) as any),
-				...(pluginVue.configs['flat/strongly-recommended']
+					.reduce((accumulator, c) => ({ ...accumulator, ...c }), {}),
+				...pluginVue.configs['flat/strongly-recommended']
 					.map(c => c.rules)
-					.reduce((accumulator, c) => ({ ...accumulator, ...c }), {}) as any),
-				...(pluginVue.configs['flat/recommended']
+					.reduce((accumulator, c) => ({ ...accumulator, ...c }), {}),
+				...pluginVue.configs['flat/recommended']
 					.map(c => c.rules)
-					.reduce((accumulator, c) => ({ ...accumulator, ...c }), {}) as any),
+					.reduce((accumulator, c) => ({ ...accumulator, ...c }), {}),
 				'antfu/no-top-level-await': 'off',
 				'node/prefer-global/process': 'off',
 				'ts/explicit-function-return-type': 'off',
@@ -85,7 +85,6 @@ export async function vue(
 				],
 				'vue/component-name-in-template-casing': ['error', 'PascalCase'],
 				'vue/component-options-name-casing': ['error', 'PascalCase'],
-				// this is deprecated
 				'vue/component-tags-order': 'off',
 				'vue/custom-event-name-casing': ['error', 'camelCase'],
 				'vue/define-macros-order': [
