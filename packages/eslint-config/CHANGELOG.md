@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.3.0
+
+### Minor Changes
+
+- [#238](https://github.com/mheob/config/pull/238) ([@mheob](https://github.com/mheob)): add `regexp` and `vue` rules
+
 ## 8.2.0
 
 ### Minor Changes
