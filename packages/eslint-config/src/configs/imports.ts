@@ -1,4 +1,3 @@
-import { GLOB_SRC_EXT } from '../globs';
 import { pluginAntfu, pluginImport } from '../plugins';
 import type { TypedFlatConfigItem } from '../types';
 
@@ -21,14 +20,6 @@ export async function imports(): Promise<TypedFlatConfigItem[]> {
 				'import/no-named-default': 'error',
 				'import/no-self-import': 'error',
 				'import/no-webpack-loader-syntax': 'error',
-			},
-		},
-		{
-			files: ['**/bin/**/*', `**/bin.${GLOB_SRC_EXT}`],
-			name: 'mheob/imports/disables/bin',
-			rules: {
-				'antfu/no-import-dist': 'off',
-				'antfu/no-import-node-modules-by-path': 'off',
 			},
 		},
 	];

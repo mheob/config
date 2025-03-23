@@ -111,7 +111,6 @@ export function mheob(
 			console.log('[@mheob/eslint-config] Detected running in editor, some rules are disabled.');
 	}
 
-	// const configs = iniConfig(options);
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
 	if (options.gitignore ?? Boolean(enableGitignore)) {
