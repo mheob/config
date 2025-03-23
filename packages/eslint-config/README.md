@@ -355,23 +355,6 @@ export default mheob({
 });
 ```
 
-#### Vue 2
-
-We have limited support for Vue 2 (as it's already [reached EOL](https://v2.vuejs.org/eol/)). If you are still using Vue 2, you can configure it manually by setting `vueVersion` to `2`:
-
-```js
-// eslint.config.js
-import mheob from '@mheob/eslint-config';
-
-export default mheob({
-	vue: {
-		vueVersion: 2,
-	},
-});
-```
-
-As it's in maintenance mode, we only accept bug fixes for Vue 2. It might also be removed in the future when `eslint-plugin-vue` drops support for Vue 2. We recommend upgrading to Vue 3 if possible.
-
 ### Optional Configs
 
 We provide some optional configs for specific use cases, that we don't include their dependencies by default.
@@ -389,10 +372,10 @@ export default mheob({
 });
 ```
 
-Running `bunx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+Running `pnpm dlx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
 
 ```bash
-bun add -d @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh
+pnpm add -d @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh
 ```
 
 #### Svelte
@@ -408,10 +391,10 @@ export default mheob({
 });
 ```
 
-Running `bunx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+Running `pnpm dlx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
 
 ```bash
-bun add -d eslint-plugin-svelte
+pnpm add -d eslint-plugin-svelte
 ```
 
 #### Astro
@@ -427,10 +410,10 @@ export default mheob({
 });
 ```
 
-Running `bunx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+Running `pnpm dlx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
 
 ```bash
-bun add -d eslint-plugin-astro
+pnpm add -d eslint-plugin-astro
 ```
 
 #### Solid
@@ -446,10 +429,10 @@ export default mheob({
 });
 ```
 
-Running `bunx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+Running `pnpm dlx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
 
 ```bash
-bun add -d eslint-plugin-solid
+pnpm add -d eslint-plugin-solid
 ```
 
 #### UnoCSS
@@ -465,10 +448,10 @@ export default mheob({
 });
 ```
 
-Running `bunx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+Running `pnpm dlx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
 
 ```bash
-bun add -d @unocss/eslint-plugin
+pnpm add -d @unocss/eslint-plugin
 ```
 
 ### Optional Rules
@@ -563,10 +546,10 @@ If you want to apply lint and auto-fix before every commit, you can add the foll
 and then
 
 ```bash
-bun add -d lint-staged simple-git-hooks
+pnpm add -D lint-staged simple-git-hooks
 
 // to active the hooks
-npx simple-git-hooks
+pnpm dlx simple-git-hooks
 ```
 
 ## View what rules are enabled
@@ -576,7 +559,7 @@ I built a visual tool to help you view what rules are enabled in your project an
 Go to your project root that contains `eslint.config.js` and run:
 
 ```bash
-npx @eslint/config-inspector
+pnpm dlx @eslint/config-inspector
 ```
 
 ## Versioning Policy

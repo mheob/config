@@ -31,7 +31,7 @@ export async function interopDefault<T>(
  * @param packages - An array of package names. Undefined values in the array will be ignored.
  * @returns A Promise that resolves when the packages have been installed (if necessary).
  */
-export async function ensurePackages(packages: (string | undefined)[]) {
+export async function ensurePackages(packages: (string | undefined)[]): Promise<void> {
 	if (process.env.CI || process.stdout.isTTY === false) {
 		return;
 	}

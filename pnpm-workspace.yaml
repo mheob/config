@@ -3,4 +3,4 @@ packages:
 catalog:
   eslint: ^9.23.0
   prettier: ^3.5.3
-  typescript: ~5.7.3
+  typescript: ^5.8.2
