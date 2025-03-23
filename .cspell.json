@@ -30,7 +30,6 @@
 		"linebreak",
 		"lockb",
 		"mheob",
-		"mlly",
 		"nocheck",
 		"nonconstructor",
 		"nonwords",
@@ -46,6 +45,7 @@
 		"tsup",
 		"unocss",
 		"vitepress",
+		"vuejs",
 		"yoda"
 	]
 }

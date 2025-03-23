@@ -9,7 +9,8 @@ export type { ConfigNames } from './typegen';
 
 export type Awaitable<T> = Promise<T> | T;
 
-export type Rules = RuleOptions;
+// eslint-disable-next-line ts/no-empty-object-type
+export interface Rules extends RuleOptions {} // (interface is required for extending the Rules type)
 
 export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins'> & {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.

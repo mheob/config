@@ -1,65 +1,8 @@
-/* eslint-disable node/prefer-global/process, ts/no-explicit-any */
-import nodePath from 'node:path';
+import process from 'node:process';
 
-import { resolvePathSync } from 'mlly';
+import { isPackageExists } from 'local-pkg';
 
 import type { Awaitable } from '../types';
-
-interface PackageResolvingOptions {
-	/**
-	 * An optional array of paths to search for the package.
-	 */
-	paths?: string[];
-
-	/**
-	 * Resolve path as posix or win32
-	 *
-	 * @default 'auto'
-	 */
-	platform?: 'auto' | 'posix' | 'win32';
-}
-
-function resolve(path: string, options: PackageResolvingOptions = {}) {
-	if (options.platform === 'auto' || !options.platform) {
-		options.platform = process.platform === 'win32' ? 'win32' : 'posix';
-	}
-
-	const modulePath = resolvePathSync(path, { url: options.paths });
-
-	if (options.platform === 'win32') {
-		return nodePath.win32.normalize(modulePath);
-	}
-
-	return modulePath;
-}
-
-function resolvePackage(name: string, options: PackageResolvingOptions = {}) {
-	try {
-		return resolve(`${name}/package.json`, options);
-	} catch {}
-
-	try {
-		return resolve(name, options);
-	} catch (error: any) {
-		// compatible with nodejs and mlly error
-		if (error.code !== 'MODULE_NOT_FOUND' && error.code !== 'ERR_MODULE_NOT_FOUND') {
-			console.error(error);
-		}
-
-		return false;
-	}
-}
-
-/**
- * Checks if a package with the given name exists.
- *
- * @param name - The name of the package to check.
- * @param options - Optional options for resolving the package.
- * @returns `true` if the package exists, `false` otherwise.
- */
-export function existsPackage(name: string, options: PackageResolvingOptions = {}) {
-	return Boolean(resolvePackage(name, options));
-}
 
 /**
  * Interop default export from a module.
@@ -74,6 +17,7 @@ export async function interopDefault<T>(
 	m: Awaitable<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
 	const resolved = await m;
+	// eslint-disable-next-line ts/no-explicit-any
 	return (resolved as any).default || resolved;
 }
 
@@ -92,7 +36,7 @@ export async function ensurePackages(packages: (string | undefined)[]) {
 		return;
 	}
 
-	const nonExistingPackages = packages.filter(i => i && !existsPackage(i)) as string[];
+	const nonExistingPackages = packages.filter(i => i && !isPackageExists(i)) as string[];
 	if (nonExistingPackages.length === 0) {
 		return;
 	}

@@ -1,5 +1,6 @@
-/* eslint-disable node/prefer-global/process, ts/no-explicit-any */
+/* eslint-disable ts/no-explicit-any */
 import fs from 'node:fs';
+import process from 'node:process';
 
 import type { Linter } from 'eslint';
 import { FlatConfigComposer } from 'eslint-flat-config-utils';
@@ -34,7 +35,7 @@ import {
 } from './configs';
 import type { RuleOptions } from './typegen';
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types';
-import { existsPackage, interopDefault } from './utils/package';
+import { interopDefault } from './utils/package';
 
 const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
 	'name',
@@ -151,7 +152,7 @@ export function mheob(
 		react: enableReact = false,
 		regexp: enableRegexp = true,
 		svelte: enableSvelte = false,
-		typescript: enableTypeScript = existsPackage('typescript'),
+		typescript: enableTypeScript = isPackageExists('typescript'),
 		unicorn: enableUnicorn = true,
 		vue: enableVue = VuePackages.some(i => isPackageExists(i)),
 	} = options;
