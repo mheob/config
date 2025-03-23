@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.4.0
+
+### Minor Changes
+
+- [#240](https://github.com/mheob/config/pull/240) ([@mheob](https://github.com/mheob)): add vue-a11y rules, synchronize react recommand rules
+
+### Patch Changes
+
+- [#242](https://github.com/mheob/config/pull/242) ([@mheob](https://github.com/mheob)): update dependencies, espacially `typescript` and fix new issues
+
 ## 8.3.0
 
 ### Minor Changes
