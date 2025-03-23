@@ -12,23 +12,6 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 			},
 		},
 		{
-			files: [`**/*.${GLOB_SRC_EXT}`],
-			name: 'mheob/disables/conflicts',
-			rules: {
-				'import/order': 'off', // conflicts with `perfectionist/sort-imports`
-				'sort-imports': 'off', // conflicts with `perfectionist/sort-imports`
-			},
-		},
-		{
-			files: [`**/*.config.${GLOB_SRC_EXT}`, `**/*.config.*.${GLOB_SRC_EXT}`],
-			name: 'mheob/disables/config-files',
-			rules: {
-				'antfu/no-top-level-await': 'off',
-				'no-console': 'off',
-				'ts/explicit-function-return-type': 'off',
-			},
-		},
-		{
 			files: [`**/cli/${GLOB_SRC}`, `**/cli.${GLOB_SRC_EXT}`],
 			name: 'mheob/disables/cli',
 			rules: {
@@ -41,6 +24,23 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 			name: 'mheob/disables/cjs',
 			rules: {
 				'ts/no-require-imports': 'off',
+			},
+		},
+		{
+			files: [`**/*.config.${GLOB_SRC_EXT}`, `**/*.config.*.${GLOB_SRC_EXT}`],
+			name: 'mheob/disables/config-files',
+			rules: {
+				'antfu/no-top-level-await': 'off',
+				'no-console': 'off',
+				'ts/explicit-function-return-type': 'off',
+			},
+		},
+		{
+			files: [`**/*.${GLOB_SRC_EXT}`],
+			name: 'mheob/disables/conflicts',
+			rules: {
+				'import/order': 'off', // conflicts with `perfectionist/sort-imports`
+				'sort-imports': 'off', // conflicts with `perfectionist/sort-imports`
 			},
 		},
 		{
@@ -60,6 +60,13 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 				'antfu/no-top-level-await': 'off',
 				'no-console': 'off',
 				'ts/explicit-function-return-type': 'off',
+			},
+		},
+		{
+			files: ['**/*.{test,spec}.ts?(x)'],
+			name: 'mheob/disables/test',
+			rules: {
+				'no-unused-expressions': 'off',
 			},
 		},
 	];

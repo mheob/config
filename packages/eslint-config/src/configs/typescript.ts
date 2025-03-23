@@ -81,7 +81,7 @@ export async function typescript(
 					...(parserOptions as any),
 				},
 			},
-			name: `antfu/typescript/${typeAware ? 'type-aware-parser' : 'parser'}`,
+			name: `mheob/typescript/${typeAware ? 'type-aware-parser' : 'parser'}`,
 		};
 	}
 
@@ -155,22 +155,5 @@ export async function typescript(
 					},
 				]
 			: []),
-		{
-			files: ['**/*.d.ts'],
-			name: 'mheob/typescript/disables/dts',
-			rules: {
-				'eslint-comments/no-unlimited-disable': 'off',
-				'import/no-duplicates': 'off',
-				'no-restricted-syntax': 'off',
-				'unused-imports/no-unused-vars': 'off',
-			},
-		},
-		{
-			files: ['**/*.{test,spec}.ts?(x)'],
-			name: 'mheob/typescript/disables/test',
-			rules: {
-				'no-unused-expressions': 'off',
-			},
-		},
 	];
 }
