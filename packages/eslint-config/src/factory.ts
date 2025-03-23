@@ -1,7 +1,4 @@
 /* eslint-disable ts/no-explicit-any */
-import fs from 'node:fs';
-import process from 'node:process';
-
 import type { Linter } from 'eslint';
 import { FlatConfigComposer } from 'eslint-flat-config-utils';
 import { isPackageExists } from 'local-pkg';
@@ -16,6 +13,7 @@ import {
 	javascript,
 	jsdoc,
 	jsonc,
+	jsx,
 	markdown,
 	node,
 	perfectionist,
@@ -35,7 +33,7 @@ import {
 } from './configs';
 import type { RuleOptions } from './typegen';
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types';
-import { interopDefault } from './utils/package';
+import { interopDefault, isInEditorEnv } from './utils';
 
 const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
 	'name',
@@ -70,7 +68,7 @@ export function resolveSubOptions<K extends keyof OptionsConfig>(
 	options: OptionsConfig,
 	key: K,
 ): ResolvedOptions<OptionsConfig[K]> {
-	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {};
+	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || ({} as any);
 }
 
 export function getOverrides<K extends keyof OptionsConfig>(
@@ -82,47 +80,6 @@ export function getOverrides<K extends keyof OptionsConfig>(
 		...(options.overrides as any)?.[key],
 		...('overrides' in sub ? sub.overrides : {}),
 	};
-}
-
-function iniConfig(options: OptionsConfig & TypedFlatConfigItem = {}) {
-	const {
-		gitignore: enableGitignore = true,
-		isInEditor = Boolean(
-			(process.env.VSCODE_PID ||
-				process.env.VSCODE_CWD ||
-				process.env.JETBRAINS_IDE ||
-				process.env.VIM) &&
-				!process.env.CI,
-		),
-	} = options;
-
-	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
-
-	if (enableGitignore) {
-		if (typeof enableGitignore !== 'boolean') {
-			configs.push(
-				interopDefault(import('eslint-config-flat-gitignore')).then(r => [r(enableGitignore)]),
-			);
-		} else if (fs.existsSync('.gitignore')) {
-			configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r()]));
-		}
-	}
-
-	// Base configs
-	configs.push(
-		ignores(options.ignores),
-		javascript({ isInEditor, overrides: getOverrides(options, 'javascript') }),
-		comments(),
-		node(),
-		jsdoc(),
-		imports(),
-		command(),
-
-		// Optional plugins (installed but not enabled by default)
-		perfectionist(),
-	);
-
-	return configs;
 }
 
 /**
@@ -139,83 +96,66 @@ export function mheob(
 	>[]
 ): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
 	const {
-		astro: enableAstro = false,
 		autoRenamePlugins = true,
-		componentExts: componentExtensions = [],
-		isInEditor = Boolean(
-			(process.env.VSCODE_PID ||
-				process.env.VSCODE_CWD ||
-				process.env.JETBRAINS_IDE ||
-				process.env.VIM) &&
-				!process.env.CI,
-		),
-		react: enableReact = false,
+		componentExtensions = [],
+		gitignore: enableGitignore = true,
 		regexp: enableRegexp = true,
-		svelte: enableSvelte = false,
 		typescript: enableTypeScript = isPackageExists('typescript'),
-		unicorn: enableUnicorn = true,
-		vue: enableVue = VuePackages.some(i => isPackageExists(i)),
 	} = options;
 
-	const configs = iniConfig(options);
-
-	if (enableTypeScript) {
-		configs.push(
-			typescript({
-				...resolveSubOptions(options, 'typescript'),
-				componentExts: componentExtensions,
-				overrides: getOverrides(options, 'typescript'),
-			}),
-		);
+	let isInEditor = options.isInEditor;
+	if (isInEditor == null) {
+		isInEditor = isInEditorEnv();
+		if (isInEditor)
+			// eslint-disable-next-line no-console
+			console.log('[@mheob/eslint-config] Detected running in editor, some rules are disabled.');
 	}
 
-	if (enableUnicorn) {
-		configs.push(unicorn({ overrides: getOverrides(options, 'unicorn') }));
+	// const configs = iniConfig(options);
+	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
+
+	if (options.gitignore ?? Boolean(enableGitignore)) {
+		if (typeof enableGitignore !== 'boolean') {
+			configs.push(
+				interopDefault(import('eslint-config-flat-gitignore')).then(rule => [
+					rule({
+						name: 'mheob/gitignore',
+						...enableGitignore,
+					}),
+				]),
+			);
+		} else {
+			configs.push(
+				interopDefault(import('eslint-config-flat-gitignore')).then(r => [
+					r({
+						name: 'mheob/gitignore',
+						strict: false,
+					}),
+				]),
+			);
+		}
 	}
 
-	if (options.test ?? true) {
-		configs.push(
-			test({
-				isInEditor,
-				overrides: getOverrides(options, 'test'),
-			}),
-		);
-	}
+	const typescriptOptions = resolveSubOptions(options, 'typescript');
+	const tsconfigPath =
+		'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined;
 
-	if (enableReact) {
-		configs.push(
-			react({
-				overrides: getOverrides(options, 'react'),
-				tsconfigPath: getOverrides(options, 'typescript').tsconfigPath,
-			}),
-		);
-	}
+	// Base configs
+	configs.push(
+		ignores(options.ignores),
+		javascript({
+			isInEditor,
+			overrides: getOverrides(options, 'javascript'),
+		}),
+		comments(),
+		node(),
+		jsdoc(),
+		imports(),
+		command(),
+		perfectionist(),
+	);
 
-	if (enableRegexp) {
-		configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp));
-	}
-
-	if (enableSvelte) {
-		configs.push(
-			svelte({
-				overrides: getOverrides(options, 'svelte'),
-				typescript: Boolean(enableTypeScript),
-			}),
-		);
-	}
-
-	if (enableVue) {
-		componentExtensions.push('vue');
-		configs.push(
-			vue({
-				...resolveSubOptions(options, 'vue'),
-				overrides: getOverrides(options, 'vue'),
-				typescript: Boolean(enableTypeScript),
-			}),
-		);
-	}
-
-	if (enableAstro) {
+	if (options.astro ?? false) {
 		configs.push(astro({ overrides: getOverrides(options, 'astro') }));
 	}
 
@@ -227,24 +167,84 @@ export function mheob(
 		);
 	}
 
-	if (options.yaml ?? true) {
-		configs.push(yaml({ overrides: getOverrides(options, 'yaml') }), sortPnpmWorkspaceYaml());
+	if ((options.jsx || Boolean(enableTypeScript)) ?? false) {
+		configs.push(jsx());
+	}
+
+	if (options.markdown ?? true) {
+		configs.push(
+			markdown({
+				componentExtensions,
+				overrides: getOverrides(options, 'markdown'),
+			}),
+		);
+	}
+
+	if (options.react ?? false) {
+		configs.push(
+			react({
+				overrides: getOverrides(options, 'react'),
+				tsconfigPath,
+			}),
+		);
+	}
+
+	if (options.regexp ?? Boolean(enableRegexp)) {
+		configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp));
+	}
+
+	if (options.svelte ?? false) {
+		configs.push(
+			svelte({
+				overrides: getOverrides(options, 'svelte'),
+				typescript: Boolean(enableTypeScript),
+			}),
+		);
+	}
+
+	if (options.test ?? true) {
+		configs.push(
+			test({
+				isInEditor,
+				overrides: getOverrides(options, 'test'),
+			}),
+		);
 	}
 
 	if (options.toml ?? true) {
 		configs.push(toml({ overrides: getOverrides(options, 'toml') }));
 	}
 
-	if (options.markdown ?? true) {
+	if (options.typescript ?? Boolean(enableTypeScript)) {
 		configs.push(
-			markdown({
-				componentExts: componentExtensions,
-				overrides: getOverrides(options, 'markdown'),
+			typescript({
+				...typescriptOptions,
+				componentExtensions,
+				overrides: getOverrides(options, 'typescript'),
 			}),
 		);
 	}
 
-	configs.push(disables(), prettier({ overrides: getOverrides(options, 'prettier') }));
+	if (options.unicorn ?? true) {
+		configs.push(unicorn({ overrides: getOverrides(options, 'unicorn') }));
+	}
+
+	if (options.vue ?? VuePackages.some(i => isPackageExists(i))) {
+		componentExtensions.push('vue');
+		configs.push(
+			vue({
+				...resolveSubOptions(options, 'vue'),
+				overrides: getOverrides(options, 'vue'),
+				typescript: Boolean(enableTypeScript),
+			}),
+		);
+	}
+
+	if (options.yaml ?? true) {
+		configs.push(yaml({ overrides: getOverrides(options, 'yaml') }), sortPnpmWorkspaceYaml());
+	}
+
+	configs.push(prettier({ overrides: getOverrides(options, 'prettier') }), disables());
 
 	// User can optionally pass a flat config item to the first argument
 	// We pick the known keys as ESLint would do schema validation
@@ -261,7 +261,7 @@ export function mheob(
 
 	let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
-	composer = composer.append(...configs, ...(userConfigs as any));
+	composer = composer.append(...configs, ...(userConfigs as TypedFlatConfigItem[]));
 
 	if (autoRenamePlugins) {
 		composer = composer.renamePlugins(defaultPluginRenaming);

@@ -23,7 +23,10 @@ import type { TypedFlatConfigItem } from '../types';
  * }]
  * ```
  */
-export function renameRules(rules: Record<string, any>, map: Record<string, string>) {
+export function renameRules(
+	rules: Record<string, any>,
+	map: Record<string, string>,
+): Record<string, any> {
 	return Object.fromEntries(
 		Object.entries(rules).map(([key, value]) => {
 			for (const [from, to] of Object.entries(map)) {

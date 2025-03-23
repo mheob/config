@@ -79,7 +79,7 @@ export interface OptionsComponentExtensions {
 	 * @example ['vue']
 	 * @default []
 	 */
-	componentExts?: string[];
+	componentExtensions?: string[];
 }
 
 export interface OptionsConfig extends OptionsComponentExtensions {
@@ -131,6 +131,15 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	 * @default true
 	 */
 	jsonc?: boolean | OptionsOverrides;
+
+	/**
+	 * Enable JSX related rules.
+	 *
+	 * Currently only stylistic rules are included.
+	 *
+	 * @default false
+	 */
+	jsx?: boolean;
 
 	/**
 	 * Enable linting for **code snippets** in Markdown.

@@ -20,7 +20,7 @@ export async function typescript(
 		OptionsTypeScriptParserOptions &
 		OptionsTypeScriptWithTypes = {},
 ): Promise<TypedFlatConfigItem[]> {
-	const { componentExts: componentExtensions = [], overrides = {}, parserOptions = {} } = options;
+	const { componentExtensions = [], overrides = {}, parserOptions = {} } = options;
 
 	const files = options.files ?? [
 		GLOB_SRC,
