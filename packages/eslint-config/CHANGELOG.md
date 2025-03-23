@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.4.1
+
+### Patch Changes
+
+- [#243](https://github.com/mheob/config/pull/243) ([@mheob](https://github.com/mheob)): refactor(eslint): store disables only in one place
+
 ## 8.4.0
 
 ### Minor Changes
