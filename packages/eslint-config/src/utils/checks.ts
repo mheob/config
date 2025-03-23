@@ -17,8 +17,7 @@ export function isInEditorEnv(): boolean {
 	if (process.env.CI) return false;
 	if (isInGitHooksOrLintStaged()) return false;
 	return Boolean(
-		false ||
-			process.env.VSCODE_PID ||
+		process.env.VSCODE_PID ||
 			process.env.VSCODE_CWD ||
 			process.env.JETBRAINS_IDE ||
 			process.env.VIM ||
@@ -39,8 +38,7 @@ export function isInEditorEnv(): boolean {
  */
 export function isInGitHooksOrLintStaged(): boolean {
 	return Boolean(
-		false ||
-			process.env.GIT_PARAMS ||
+		process.env.GIT_PARAMS ||
 			process.env.VSCODE_GIT_COMMAND ||
 			process.env.npm_lifecycle_script?.startsWith('lint-staged'),
 	);
