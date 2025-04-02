@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.5.0
+
+### Minor Changes
+
+- [#245](https://github.com/mheob/config/pull/245) ([@mheob](https://github.com/mheob)): add `~/` as internal pattern for import sorting
+
+### Patch Changes
+
+- [#245](https://github.com/mheob/config/pull/245) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 8.4.1
 
 ### Patch Changes
