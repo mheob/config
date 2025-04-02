@@ -22,6 +22,7 @@ import {
 	toml,
 	typescript,
 	unicorn,
+	vue,
 	yaml,
 } from '../src';
 import { combine } from '../src/utils/array';
@@ -52,6 +53,7 @@ const configs = await combine(
 	toml(),
 	typescript(),
 	unicorn(),
+	vue(),
 	yaml(),
 );
 
