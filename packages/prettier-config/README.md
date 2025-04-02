@@ -30,16 +30,32 @@ bun add -D @mheob/prettier-config
 
 ## Usage
 
-If you need to override some settings you can do it this way:
+Add the following to your `prettier.config.js`:
 
 ```js
-// .prettierrc.cjs
+// prettier.config.mjs
+import defaultConfig from '@mheob/prettier-config';
+
 /** @type {import('prettier').Config} */
-module.exports = {
-	...require('@mheob/prettier-config'),
+const config = { ...defaultConfig };
+
+export default config;
+```
+
+You can override any of the default configuration options in the `config` object.
+
+```js
+// prettier.config.mjs
+import defaultConfig from '@mheob/prettier-config';
+
+/** @type {import('prettier').Config} */
+const config = {
+	...defaultConfig,
+	printWidth: 130,
 	semi: false,
-	useTabs: false,
 };
+
+export default config;
 ```
 
 ## Ruleset
@@ -48,7 +64,8 @@ This configuration uses these styles:
 
 ```js
 /** @type {import('prettier').Config} */
-module.exports = {
+/* eslint-disable perfectionist/sort-objects */
+export default {
 	arrowParens: 'avoid',
 	endOfLine: 'lf',
 	printWidth: 100,
@@ -58,20 +75,20 @@ module.exports = {
 	trailingComma: 'all',
 	useTabs: true,
 
-	// eslint-disable-next-line perfectionist/sort-objects
 	overrides: [
+		{
+			files: '*.md',
+			options: {
+				parser: 'markdown',
+				printWidth: 130,
+			},
+		},
 		{
 			files: '*.{yaml,yml}',
 			options: {
 				printWidth: 130,
 				singleQuote: false,
 				useTabs: false,
-			},
-		},
-		{
-			files: '*.md',
-			options: {
-				printWidth: 130,
 			},
 		},
 	],
