@@ -134,23 +134,17 @@ And that's it! Or you can configure each integration individually, for example:
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
-	// Enable stylistic formatting rules
-	// stylistic: true,
-
 	// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
 	ignores: [
 		'**/fixtures',
 		// ...globs
 	],
 
-	// Disable jsonc and yaml support
+	// Disable jsonc support
 	jsonc: false,
 
-	// TypeScript and Vue are auto-detected, you can also explicitly enable them:
+	// TypeScript is auto-detected, but you can also explicitly enable it:
 	typescript: true,
-	vue: true,
-
-	yaml: false,
 });
 ```
 
