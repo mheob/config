@@ -13,7 +13,7 @@ export type { UserConfig } from 'cz-git';
  * @param directoryPaths The directory paths with the containing the packages.
  * @returns An array of package names.
  */
-function getPackagesFromPath(...directoryPaths: string[]) {
+function getPackagesFromPath(...directoryPaths: string[]): string[] {
 	const packages: string[] = [];
 
 	for (const directoryPath of directoryPaths) {
@@ -31,7 +31,7 @@ function getPackagesFromPath(...directoryPaths: string[]) {
  *
  * @returns An array of scopes.
  */
-function getScopes() {
+function getScopes(): string[] {
 	const defaultScopes = ['deps', 'release', 'repo'];
 	const packages = getPackagesFromPath('apps', 'packages');
 	return [...defaultScopes, ...packages];
@@ -44,7 +44,7 @@ function getScopes() {
  *   git branch name = `123-my-branch`  =>  defaultIssues = `#123`
  * @returns The issue number.
  */
-function getIssue() {
+function getIssue(): string | undefined {
 	const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 	const firstNamePart = branchName.split('-')[0];
 	return firstNamePart && Number.parseInt(firstNamePart) ? `#${firstNamePart}` : undefined;

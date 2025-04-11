@@ -105,7 +105,6 @@ export async function typescript(
 				...renameRules(
 					// eslint-disable-next-line ts/no-non-null-assertion
 					pluginTs.configs['eslint-recommended'].overrides![0].rules!,
-
 					{
 						'@typescript-eslint': 'ts',
 					},
@@ -124,6 +123,7 @@ export async function typescript(
 					'error',
 					{ disallowTypeAnnotations: false, prefer: 'type-imports' },
 				],
+				'ts/explicit-function-return-type': ['error', { allowExpressions: true }],
 				'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
 				'ts/no-dupe-class-members': 'error',
 				'ts/no-dynamic-delete': 'off',

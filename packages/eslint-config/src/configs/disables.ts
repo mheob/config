@@ -1,4 +1,4 @@
-import { GLOB_SRC, GLOB_SRC_EXT } from '../globs';
+import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TSX } from '../globs';
 import type { TypedFlatConfigItem } from '../types';
 
 export async function disables(): Promise<TypedFlatConfigItem[]> {
@@ -51,6 +51,13 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 				'import/no-duplicates': 'off',
 				'no-restricted-syntax': 'off',
 				'unused-imports/no-unused-vars': 'off',
+			},
+		},
+		{
+			files: [GLOB_TSX],
+			name: 'mheob/disables/jsx',
+			rules: {
+				'ts/explicit-function-return-type': 'off',
 			},
 		},
 		{
