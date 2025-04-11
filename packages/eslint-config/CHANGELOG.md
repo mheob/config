@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.6.0
+
+### Minor Changes
+
+- [#247](https://github.com/mheob/config/pull/247) ([@mheob](https://github.com/mheob)): enforce explicit return type
+
+### Patch Changes
+
+- [#247](https://github.com/mheob/config/pull/247) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 8.5.0
 
 ### Minor Changes
