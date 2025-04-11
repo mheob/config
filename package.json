@@ -33,7 +33,7 @@
 		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/prettier-config": "workspace:*",
-		"@types/node": "^22.13.17",
+		"@types/node": "^22.14.0",
 		"commitizen": "^4.3.1",
 		"cspell": "^8.18.1",
 		"cz-git": "^1.11.1",
@@ -42,8 +42,8 @@
 		"lint-staged": "^15.5.0",
 		"prettier": "catalog:",
 		"ts-node": "^10.9.2",
-		"turbo": "^2.4.4",
+		"turbo": "^2.5.0",
 		"typescript": "catalog:"
 	},
-	"packageManager": "pnpm@10.7.1"
+	"packageManager": "pnpm@10.8.0"
 }
