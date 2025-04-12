@@ -7,31 +7,35 @@ To make my configurations a bit easier I share my [ESLint](https://eslint.org/) 
 
 You can find all used rules in my deployed [ESLint Config Inspector](https://eslint-config.mheob.dev/configs).
 
-## Install
+## Starter Wizard
 
-### With NPM
-
-```sh
-npm install -D @mheob/eslint-config
-```
-
-### With YARN
+I provide a CLI tool to help you set up your project, or migrate from the legacy config to the new flat config with one command.
 
 ```sh
-yarn add -D @mheob/eslint-config
+pnpm dlx @mheob/eslint-config@latest
 ```
 
-### With PNPM
+or
+
+```sh
+bunx @mheob/eslint-config@latest
+```
+
+or use your package manager of choice.
+
+## Manual Install
 
 ```sh
 pnpm add -D @mheob/eslint-config
 ```
 
-### With BUN
+or
 
 ```sh
 bun add -d @mheob/eslint-config
 ```
+
+or use your package manager of choice.
 
 ## Usage
 
