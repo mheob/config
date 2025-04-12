@@ -7,12 +7,14 @@ import { cac } from 'cac';
 import { version } from '../../package.json';
 import { run } from './run';
 
+const PACKAGE_NAME = '@mheob/eslint-config';
+
 function header(): void {
 	console.log('\n');
-	p.intro(`${c.green`@mheob/eslint-config `}${c.dim`v${version}`}`);
+	p.intro(c.green`${PACKAGE_NAME} ` + c.dim`v${version}`);
 }
 
-const cli = cac('@mheob/eslint-config');
+const cli = cac(PACKAGE_NAME);
 
 cli
 	.command('', 'Run the initialization or migration')

@@ -13,9 +13,6 @@ import { updateVscodeSettings } from './stages/update-vscode-settings';
 import type { FrameworkOption, PromptResult } from './types';
 import { isGitClean } from './utils';
 
-/**
- * CLI options for `@mheob/eslint-config`
- */
 export interface CliRunOptions {
 	/**
 	 * Use the framework template for optimal customization: vue / react / svelte / astro
@@ -52,7 +49,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 		result = (await p.group(
 			{
 				uncommittedConfirmed: () => {
-					if (argumentSkipPrompt || isGitClean()) return Promise.resolve(true);
+					if (isGitClean()) return Promise.resolve(true);
 
 					return p.confirm({
 						initialValue: false,
@@ -60,6 +57,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 							'There are uncommitted changes in the current repository, are you sure to continue?',
 					});
 				},
+
 				frameworks: ({ results }) => {
 					const isArgumentTemplateValid =
 						typeof argumentTemplate === 'string' &&
