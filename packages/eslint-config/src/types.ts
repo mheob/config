@@ -211,7 +211,7 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	 *
 	 * @default false
 	 */
-	svelte?: boolean;
+	svelte?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable test support.
