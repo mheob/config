@@ -17,6 +17,7 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 			rules: {
 				'antfu/no-top-level-await': 'off',
 				'no-console': 'off',
+				'unicorn/no-process-exit': 'off',
 			},
 		},
 		{

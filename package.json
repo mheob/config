@@ -11,11 +11,13 @@
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
 		"cspell": "cspell .",
 		"format": "prettier --write \"**/*.{cjs,js,mjs,ts,json,md,mdx,yaml,yml}\"",
+		"gen": "turbo run gen",
 		"lint": "turbo run lint",
 		"prepare": "husky",
 		"release": "changeset publish",
 		"typegen": "turbo run typegen",
-		"version-packages": "changeset version && pnpm lint"
+		"version-packages": "changeset version && pnpm lint",
+		"versiongen": "turbo run versiongen"
 	},
 	"lint-staged": {
 		"*": "eslint --fix"

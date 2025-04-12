@@ -4,6 +4,7 @@
 	"description": "My personal configuration for eslint.",
 	"keywords": [
 		"eslint",
+		"eslint-config",
 		"config"
 	],
 	"homepage": "https://github.com/mheob/config/tree/main/packages/eslint-config",
@@ -18,9 +19,11 @@
 	"exports": {
 		".": "./dist/index.js"
 	},
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"bin": "./bin/index.js",
 	"files": [
+		"bin",
 		"dist"
 	],
 	"scripts": {
@@ -30,6 +33,7 @@
 		"dev": "pnpm exec config-inspector --config ../../eslint.config.js",
 		"lint": "eslint src/**/* --fix",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
+		"versiongen": "node --import tsx/esm scripts/versiongen.ts",
 		"watch": "tsup --watch"
 	},
 	"dependencies": {
@@ -39,6 +43,8 @@
 		"@typescript-eslint/eslint-plugin": "^8.29.1",
 		"@typescript-eslint/parser": "^8.29.1",
 		"@vitest/eslint-plugin": "^1.1.42",
+		"ansis": "^3.17.0",
+		"cac": "^6.7.14",
 		"eslint-config-flat-gitignore": "^2.1.0",
 		"eslint-config-next": "^15.3.0",
 		"eslint-config-prettier": "^10.1.2",

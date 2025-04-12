@@ -34,6 +34,7 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 							i: false,
 							idx: false,
 							params: false,
+							pkg: false,
 							props: false,
 							temp: false,
 							tmp: false,
