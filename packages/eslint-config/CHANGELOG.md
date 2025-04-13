@@ -1,5 +1,19 @@
 # @mheob/eslint-config
 
+## 8.7.0
+
+### Minor Changes
+
+- [#253](https://github.com/mheob/config/pull/253) ([@mheob](https://github.com/mheob)): add cli for initial configuration
+
+- [#249](https://github.com/mheob/config/pull/249) ([@mheob](https://github.com/mheob)): sync recommended rules of [react plugins](https://eslint-react.xyz/)
+
+- [#251](https://github.com/mheob/config/pull/251) ([@mheob](https://github.com/mheob)): allow `svelte` to overrides rules
+
+### Patch Changes
+
+- [#254](https://github.com/mheob/config/pull/254) ([@mheob](https://github.com/mheob)): update dependencies
+
 ## 8.6.0
 
 ### Minor Changes
