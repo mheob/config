@@ -15,14 +15,14 @@ export async function updatePackageJson(result: PromptResult): Promise<void> {
 
 	const pathPackageJSON = path.join(cwd, 'package.json');
 
-	p.log.step(c.cyan`Bumping @antfu/eslint-config to v${version}`);
+	p.log.step(c.cyan`Bumping @mheob/eslint-config to v${version}`);
 
 	const pkgContent = await fsp.readFile(pathPackageJSON, 'utf8');
 	// eslint-disable-next-line ts/no-explicit-any
 	const pkg: Record<string, any> = JSON.parse(pkgContent);
 
 	pkg.devDependencies ??= {};
-	pkg.devDependencies['@antfu/eslint-config'] = `^${version}`;
+	pkg.devDependencies['@mheob/eslint-config'] = `^${version}`;
 	pkg.devDependencies.eslint ??= versionsMap.eslint;
 
 	const addedPackages: string[] = [];
