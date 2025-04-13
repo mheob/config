@@ -16,7 +16,7 @@ If Kodiak cannot find configuration in the repository, Kodiak will use the globa
 
 ### Renovate
 
-Inside of the `@mheob` scope I can use a shared Renovate configuration.\
+Inside of the `@mheob` scope I can use a shared Renovate configuration which is defined in the [mheob/renovate-config](https://github.com/mheob/renovate-config) repo.\
 For further information see the [Renovate Docs](https://docs.renovatebot.com/config-presets).
 
 Please overwrite the schedule in the used Renovate config stored at `.github/renovate.json`.
@@ -24,7 +24,7 @@ Please overwrite the schedule in the used Renovate config stored at `.github/ren
 ```json
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["local>mheob/.github:renovate-config"],
+	"extends": ["github>mheob/renovate-config"],
 	"schedule": ["before 4am on Wednesday"]
 }
 ```
