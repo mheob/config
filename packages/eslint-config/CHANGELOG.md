@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.8.0
+
+### Minor Changes
+
+- [#257](https://github.com/mheob/config/pull/257) ([@mheob](https://github.com/mheob)): use the official sorting of `tsconfig.json`
+
 ## 8.7.0
 
 ### Minor Changes
