@@ -10,7 +10,6 @@
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
 		"cspell": "cspell .",
-		"format": "prettier --write \"**/*.{cjs,js,mjs,ts,json,md,mdx,yaml,yml}\"",
 		"gen": "turbo run gen",
 		"lint": "turbo run lint",
 		"prepare": "husky",

@@ -2,24 +2,14 @@
 	"$schema": "https://turbo.build/schema.json",
 	"tasks": {
 		"build": {
-			"dependsOn": ["gen", "^build"],
-			"outputs": []
+			"dependsOn": ["gen", "^build"]
 		},
-		"clean": {
-			"outputs": []
-		},
-		"lint": {
-			"outputs": []
-		},
+		"clean": {},
 		"gen": {
-			"dependsOn": ["typegen", "versiongen"],
-			"outputs": []
+			"dependsOn": ["typegen", "versiongen"]
 		},
-		"typegen": {
-			"outputs": []
-		},
-		"versiongen": {
-			"outputs": []
-		}
+		"lint": {},
+		"typegen": {},
+		"versiongen": {}
 	}
 }
