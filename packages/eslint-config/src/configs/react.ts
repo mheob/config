@@ -71,7 +71,13 @@ export async function react(
 					ecmaFeatures: {
 						jsx: true,
 					},
-					...(isTypeAware ? { project: tsconfigPath } : {}),
+					...(isTypeAware
+						? {
+								project: tsconfigPath,
+								projectService: true,
+								tsconfigRootDir: import.meta.dirname,
+							}
+						: {}),
 				},
 				sourceType: 'module',
 			},
