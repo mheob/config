@@ -1,6 +1,4 @@
 /* eslint-disable ts/no-explicit-any */
-import process from 'node:process';
-
 import { GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs';
 import { pluginAntfu } from '../plugins';
 import type {
@@ -75,7 +73,8 @@ export async function typescript(
 					...(typeAware
 						? {
 								project: tsconfigPath,
-								tsconfigRootDir: process.cwd(),
+								projectService: true,
+								tsconfigRootDir: import.meta.dirname,
 							}
 						: {}),
 					...(parserOptions as any),
