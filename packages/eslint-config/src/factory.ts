@@ -107,8 +107,7 @@ export function mheob(
 	if (isInEditor == null) {
 		isInEditor = isInEditorEnv();
 		if (isInEditor)
-			// eslint-disable-next-line no-console
-			console.log('[@mheob/eslint-config] Detected running in editor, some rules are disabled.');
+			console.info('[@mheob/eslint-config] Detected running in editor, some rules are disabled.');
 	}
 
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
@@ -182,6 +181,7 @@ export function mheob(
 	if (options.react ?? false) {
 		configs.push(
 			react({
+				...typescriptOptions,
 				overrides: getOverrides(options, 'react'),
 				tsconfigPath,
 			}),

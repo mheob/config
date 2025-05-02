@@ -169,7 +169,7 @@ export async function react(
 				'react/no-duplicate-key': 'warn',
 				'react/no-forward-ref': 'warn',
 				'react/no-implicit-key': 'warn',
-				'react/no-leaked-conditional-rendering': 'warn',
+				// 'react/no-leaked-conditional-rendering': 'warn', // deactivated because it is not working (parserOptions issue)
 				'react/no-missing-key': 'error',
 				'react/no-misused-capture-owner-stack': 'error',
 				'react/no-nested-component-definitions': 'error',

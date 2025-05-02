@@ -54,7 +54,7 @@ export async function javascript(
 				'no-class-assign': 'error',
 				'no-compare-neg-zero': 'error',
 				'no-cond-assign': ['error', 'always'],
-				'no-console': ['warn', { allow: ['warn', 'error'] }],
+				'no-console': ['warn', { allow: ['info', 'warn', 'error'] }],
 				'no-const-assign': 'error',
 				'no-control-regex': 'error',
 				'no-debugger': 'error',
