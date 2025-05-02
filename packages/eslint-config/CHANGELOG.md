@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#263](https://github.com/mheob/config/pull/263) ([@mheob](https://github.com/mheob)): deactivate `react/no-leaked-conditional-rendering` rule for now; should be added again after the `parserOptions` issue is done
+- [#263](https://github.com/mheob/config/pull/263) ([@mheob](https://github.com/mheob)): deactivate `react/no-leaked-conditional-rendering` rule for now; should be added again after the `parserOptions` issue is resolved
 
 ## 8.8.0
 
