@@ -43,6 +43,7 @@ export async function sortPackageJson(): Promise<TypedFlatConfigItem[]> {
 							'contributors',
 							'sideEffects',
 							'type',
+							'imports',
 							'exports',
 							'main',
 							'unpkg',
@@ -218,6 +219,7 @@ export function sortTsconfig(): TypedFlatConfigItem[] {
 							'moduleDetection',
 
 							/* Modules */
+							'module',
 							'rootDir',
 							'moduleResolution',
 							'baseUrl',
