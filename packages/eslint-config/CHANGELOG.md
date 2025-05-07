@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.8.2
+
+### Patch Changes
+
+- [#268](https://github.com/mheob/config/pull/268) ([@mheob](https://github.com/mheob)): add `module` to `tsconfig.json` sort and `imports` to `package.json` sort
+
 ## 8.8.1
 
 ### Patch Changes
