@@ -137,5 +137,8 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"engines": {
+		"node": "22.16.0"
 	}
 }
