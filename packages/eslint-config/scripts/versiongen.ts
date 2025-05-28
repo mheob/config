@@ -1,4 +1,6 @@
+import { exec } from 'node:child_process';
 import fs from 'node:fs/promises';
+import path from 'node:path';
 
 import { dependencies, devDependencies } from '../package.json';
 import { dependenciesMap } from '../src/cli/constants';
@@ -18,9 +20,21 @@ const versions = Object.fromEntries(
 		.sort((a, b) => a[0].localeCompare(b[0])),
 );
 
-const targetFile = '../src/cli/versions-map.generated.ts';
+for (const [key, value] of Object.entries(versions)) {
+	if (value === 'catalog:') {
+		versions[key] = 'latest';
+	}
+}
+
+const targetFile = path.join(import.meta.dirname, '..', 'src', 'cli', 'versions-map.generated.ts');
 
 await fs.writeFile(
 	new URL(targetFile, import.meta.url),
 	`export const versionsMap = ${JSON.stringify(versions, null, '\t')}`,
 );
+
+exec(`pnpm exec eslint ${targetFile} --fix`, (error, stdout, stderr) => {
+	if (error) console.error(error);
+	if (stderr) console.error(stderr);
+	console.log(stdout);
+});
