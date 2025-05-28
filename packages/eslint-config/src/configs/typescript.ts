@@ -101,15 +101,10 @@ export async function typescript(
 			files,
 			name: 'mheob/typescript/rules',
 			rules: {
-				...renameRules(
-					// eslint-disable-next-line ts/no-non-null-assertion
-					pluginTs.configs['eslint-recommended'].overrides![0].rules!,
-					{
-						'@typescript-eslint': 'ts',
-					},
-				),
-				// eslint-disable-next-line ts/no-non-null-assertion
-				...renameRules(pluginTs.configs.strict.rules!, {
+				...renameRules(pluginTs.configs['eslint-recommended'].overrides?.[0].rules ?? {}, {
+					'@typescript-eslint': 'ts',
+				}),
+				...renameRules(pluginTs.configs.strict.rules ?? {}, {
 					'@typescript-eslint': 'ts',
 				}),
 				'no-dupe-class-members': 'off',
