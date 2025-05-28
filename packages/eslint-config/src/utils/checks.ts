@@ -17,12 +17,12 @@ export function isInEditorEnv(): boolean {
 	if (process.env.CI) return false;
 	if (isInGitHooksOrLintStaged()) return false;
 	return Boolean(
-		process.env.VSCODE_PID ??
-			process.env.VSCODE_CWD ??
-			process.env.JETBRAINS_IDE ??
-			process.env.VIM ??
-			process.env.NVIM,
-	);
+        process.env.VSCODE_PID ||
+            process.env.VSCODE_CWD ||
+            process.env.JETBRAINS_IDE ||
+            process.env.VIM ||
+            process.env.NVIM,
+);
 }
 
 /**
