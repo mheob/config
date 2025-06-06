@@ -54,8 +54,6 @@ export async function markdown(
 			},
 			name: 'mheob/markdown/disables',
 			rules: {
-				'import/newline-after-import': 'off',
-
 				'no-alert': 'off',
 				'no-console': 'off',
 				'no-labels': 'off',
@@ -81,7 +79,6 @@ export async function markdown(
 				'ts/no-require-imports': 'off',
 
 				// Type aware rules
-
 				'ts/no-throw-literal': 'off',
 				'ts/no-unnecessary-type-assertion': 'off',
 				'ts/no-unsafe-argument': 'off',

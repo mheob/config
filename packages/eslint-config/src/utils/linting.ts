@@ -54,7 +54,6 @@ export function renameRules(
  *
  * export default renamePluginInConfigs(someConfigs, {
  *   '@typescript-eslint': 'ts',
- *   'import-x': 'import',
  * })
  * ```
  */

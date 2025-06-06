@@ -40,7 +40,6 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 			files: [`**/*.${GLOB_SRC_EXT}`],
 			name: 'mheob/disables/conflicts',
 			rules: {
-				'import/order': 'off', // conflicts with `perfectionist/sort-imports`
 				'sort-imports': 'off', // conflicts with `perfectionist/sort-imports`
 			},
 		},
@@ -49,7 +48,6 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
 			name: 'mheob/disables/dts',
 			rules: {
 				'eslint-comments/no-unlimited-disable': 'off',
-				'import/no-duplicates': 'off',
 				'no-restricted-syntax': 'off',
 				'unused-imports/no-unused-vars': 'off',
 			},
