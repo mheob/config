@@ -234,7 +234,6 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 
 | New Prefix | Original Prefix | Source Plugin |
 | --- | --- | --- |
-| `import/*` | `import-x/*` | [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x) |
 | `node/*` | `n/*` | [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n) |
 | `yaml/*` | `yml/*` | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml) |
 | `ts/*` | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
@@ -248,15 +247,6 @@ When you want to override rules, or disable them inline, you need to update to t
 +// eslint-disable-next-line ts/consistent-type-definitions
 type foo = { bar: 2 }
 ```
-
-> [!NOTE]\
-> About plugin renaming - it is actually rather a dangerous move that might leading to potential naming collisions, pointed out [here](https://github.com/eslint/eslint/discussions/17766) and [here](https://github.com/prettier/eslint-config-prettier#eslintconfigjs-flat-config-plugin-caveat). As this config also very **personal** and **opinionated**, I ambitiously position this config as the only **"top-level"** config per project, that might pivots the taste of how rules are named.
->
-> This config cares more about the user-facings DX, and try to ease out the implementation details. For example, users could keep using the semantic `import/order` without ever knowing the underlying plugin has migrated twice to `eslint-plugin-i` and then to `eslint-plugin-import-x`. User are also not forced to migrate to the implicit `i/order` halfway only because we swapped the implementation to a fork.
->
-> That said, it's probably still not a good idea. You might not want to doing this if you are maintaining your own eslint config.
->
-> Feel free to open issues if you want to combine this config with some other config presets but faced naming collisions. I am happy to figure out a way to make them work. But at this moment I have no plan to revert the renaming.
 
 This preset will automatically rename the plugins also for your custom configs. You can use the original prefix to override the rules directly.
 
@@ -455,21 +445,6 @@ pnpm add -d @unocss/eslint-plugin
 ### Optional Rules
 
 This config also provides some optional plugins/rules for extended usage.
-
-#### `command`
-
-Powered by [`eslint-plugin-command`](https://github.com/antfu/eslint-plugin-command). It is not a typical rule for linting, but an on-demand micro-codemod tool that triggers by specific comments.
-
-For a few triggers, for example:
-
-- `/// to-function` - converts an arrow function to a normal function
-- `/// to-arrow` - converts a normal function to an arrow function
-- `/// to-for-each` - converts a for-in/for-of loop to `.forEach()`
-- `/// to-for-of` - converts a `.forEach()` to a for-of loop
-- `/// keep-sorted` - sorts an object/array/interface
-- ... etc. - refer to the [documentation](https://github.com/antfu/eslint-plugin-command#built-in-commands)
-
-You can add the trigger comment one line above the code you want to transform, for example (note the triple slash):
 
 <!-- eslint-skip -->
 
