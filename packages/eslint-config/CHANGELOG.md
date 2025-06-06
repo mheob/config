@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.9.0
+
+### Minor Changes
+
+- [#273](https://github.com/mheob/config/pull/273) ([@mheob](https://github.com/mheob)): remove unecessarry `eslint-plugin-import-x` plugin
+
+### Patch Changes
+
+- [#274](https://github.com/mheob/config/pull/274) ([@mheob](https://github.com/mheob)): update npm non-major dependencies
+
 ## 8.8.3
 
 ### Patch Changes
