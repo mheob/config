@@ -2216,6 +2216,11 @@ export interface RuleOptions {
    */
   'node/no-sync'?: Linter.RuleEntry<NodeNoSync>
   /**
+   * disallow top-level `await` in published modules
+   * @see https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-top-level-await.md
+   */
+  'node/no-top-level-await'?: Linter.RuleEntry<NodeNoTopLevelAwait>
+  /**
    * disallow `bin` files that npm ignores
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-bin.md
    */
@@ -2782,6 +2787,11 @@ export interface RuleOptions {
    * @see https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props
    */
   'react/jsx-no-duplicate-props'?: Linter.RuleEntry<[]>
+  /**
+   * Disallows 'IIFE' in JSX elements.
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-iife
+   */
+  'react/jsx-no-iife'?: Linter.RuleEntry<[]>
   /**
    * Disallow undefined variables in JSX.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-undef
@@ -3381,7 +3391,7 @@ export interface RuleOptions {
    * enforce using quantifier
    * @see https://ota-meshi.github.io/eslint-plugin-regexp/rules/prefer-quantifier.html
    */
-  'regexp/prefer-quantifier'?: Linter.RuleEntry<[]>
+  'regexp/prefer-quantifier'?: Linter.RuleEntry<RegexpPreferQuantifier>
   /**
    * enforce using `?` quantifier
    * @see https://ota-meshi.github.io/eslint-plugin-regexp/rules/prefer-question-quantifier.html
@@ -7020,99 +7030,6 @@ export interface RuleOptions {
    */
   'vue/valid-v-text'?: Linter.RuleEntry<[]>
   /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/alt-text.html
-   */
-  'vueA11y/alt-text'?: Linter.RuleEntry<VueA11YAltText>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/anchor-has-content.html
-   */
-  'vueA11y/anchor-has-content'?: Linter.RuleEntry<VueA11YAnchorHasContent>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-props.html
-   */
-  'vueA11y/aria-props'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-role.html
-   */
-  'vueA11y/aria-role'?: Linter.RuleEntry<VueA11YAriaRole>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-unsupported-elements.html
-   */
-  'vueA11y/aria-unsupported-elements'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/click-events-have-key-events.html
-   */
-  'vueA11y/click-events-have-key-events'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/form-control-has-label.html
-   */
-  'vueA11y/form-control-has-label'?: Linter.RuleEntry<VueA11YFormControlHasLabel>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/heading-has-content.html
-   */
-  'vueA11y/heading-has-content'?: Linter.RuleEntry<VueA11YHeadingHasContent>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/iframe-has-title.html
-   */
-  'vueA11y/iframe-has-title'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/interactive-supports-focus.html
-   */
-  'vueA11y/interactive-supports-focus'?: Linter.RuleEntry<VueA11YInteractiveSupportsFocus>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/label-has-for.html
-   */
-  'vueA11y/label-has-for'?: Linter.RuleEntry<VueA11YLabelHasFor>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/media-has-caption.html
-   */
-  'vueA11y/media-has-caption'?: Linter.RuleEntry<VueA11YMediaHasCaption>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/mouse-events-have-key-events.html
-   */
-  'vueA11y/mouse-events-have-key-events'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-access-key.html
-   */
-  'vueA11y/no-access-key'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-aria-hidden-on-focusable.html
-   */
-  'vueA11y/no-aria-hidden-on-focusable'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-autofocus.html
-   */
-  'vueA11y/no-autofocus'?: Linter.RuleEntry<VueA11YNoAutofocus>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-distracting-elements.html
-   */
-  'vueA11y/no-distracting-elements'?: Linter.RuleEntry<VueA11YNoDistractingElements>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-onchange.html
-   * @deprecated
-   */
-  'vueA11y/no-onchange'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-redundant-roles.html
-   */
-  'vueA11y/no-redundant-roles'?: Linter.RuleEntry<VueA11YNoRedundantRoles>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-role-presentation-on-focusable.html
-   */
-  'vueA11y/no-role-presentation-on-focusable'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-static-element-interactions.html
-   */
-  'vueA11y/no-static-element-interactions'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/role-has-required-aria-props.html
-   */
-  'vueA11y/role-has-required-aria-props'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/tabindex-no-positive.html
-   */
-  'vueA11y/tabindex-no-positive'?: Linter.RuleEntry<[]>
-  /**
    * Require parentheses around immediate `function` invocations
    * @see https://eslint.org/docs/latest/rules/wrap-iife
    * @deprecated
@@ -7504,6 +7421,7 @@ type _FuncNamesValue = ("always" | "as-needed" | "never")
 // ----- func-style -----
 type FuncStyle = []|[("declaration" | "expression")]|[("declaration" | "expression"), {
   allowArrowFunctions?: boolean
+  allowTypeAnnotation?: boolean
   overrides?: {
     namedExports?: ("declaration" | "expression" | "ignore")
   }
@@ -7659,10 +7577,10 @@ type JsdocCheckLineAlignment = []|[("always" | "never" | "any")]|[("always" | "n
     postTag?: number
     postType?: number
   }
+  disableWrapIndent?: boolean
   preserveMainDescriptionPostDelimiter?: boolean
   tags?: string[]
   wrapIndent?: string
-  disableWrapIndent?: boolean
 }]
 // ----- jsdoc/check-param-names -----
 type JsdocCheckParamNames = []|[{
@@ -9006,6 +8924,10 @@ type NoMagicNumbers = []|[{
   ignoreArrayIndexes?: boolean
   ignoreDefaultValues?: boolean
   ignoreClassFieldInitialValues?: boolean
+  ignoreEnums?: boolean
+  ignoreNumericLiteralTypes?: boolean
+  ignoreReadonlyClassProperties?: boolean
+  ignoreTypeIndexes?: boolean
 }]
 // ----- no-misleading-character-class -----
 type NoMisleadingCharacterClass = []|[{
@@ -9138,9 +9060,11 @@ type NoSequences = []|[{
 // ----- no-shadow -----
 type NoShadow = []|[{
   builtinGlobals?: boolean
-  hoist?: ("all" | "functions" | "never")
+  hoist?: ("all" | "functions" | "never" | "types" | "functions-and-types")
   allow?: string[]
   ignoreOnInitialization?: boolean
+  ignoreTypeValueShadow?: boolean
+  ignoreFunctionTypeParameterNameValueShadow?: boolean
 }]
 // ----- no-shadow-restricted-names -----
 type NoShadowRestrictedNames = []|[{
@@ -9218,6 +9142,9 @@ type NoUseBeforeDefine = []|[("nofunc" | {
   classes?: boolean
   variables?: boolean
   allowNamedExports?: boolean
+  enums?: boolean
+  typedefs?: boolean
+  ignoreTypeReferences?: boolean
 })]
 // ----- no-useless-computed-key -----
 type NoUselessComputedKey = []|[{
@@ -9387,7 +9314,38 @@ type NodeNoRestrictedRequire = []|[(string | {
 // ----- node/no-sync -----
 type NodeNoSync = []|[{
   allowAtRootLevel?: boolean
-  ignores?: string[]
+  ignores?: (string | {
+    from?: "file"
+    path?: string
+    name?: string[]
+  } | {
+    from?: "lib"
+    name?: string[]
+  } | {
+    from?: "package"
+    package?: string
+    name?: string[]
+  })[]
+}]
+// ----- node/no-top-level-await -----
+type NodeNoTopLevelAwait = []|[{
+  ignoreBin?: boolean
+  convertPath?: ({
+    
+    [k: string]: [string, string]
+  } | [{
+    
+    include: [string, ...(string)[]]
+    exclude?: string[]
+    
+    replace: [string, string]
+  }, ...({
+    
+    include: [string, ...(string)[]]
+    exclude?: string[]
+    
+    replace: [string, string]
+  })[]])
 }]
 // ----- node/no-unpublished-bin -----
 type NodeNoUnpublishedBin = []|[{
@@ -9762,7 +9720,9 @@ type PerfectionistSortArrayIncludes = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-classes -----
@@ -9958,7 +9918,9 @@ type PerfectionistSortClasses = []|[{
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-decorators -----
@@ -10036,7 +9998,9 @@ type PerfectionistSortDecorators = []|[{
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-enums -----
@@ -10193,7 +10157,9 @@ type PerfectionistSortEnums = []|[{
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-exports -----
@@ -10331,7 +10297,9 @@ type PerfectionistSortExports = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-heritage-clauses -----
@@ -10362,7 +10330,9 @@ type PerfectionistSortHeritageClauses = []|[{
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-imports -----
@@ -10486,6 +10456,12 @@ type PerfectionistSortImports = {
       flags?: string
     } | string))
   })[])
+  tsconfig?: {
+    
+    rootDir: string
+    
+    filename?: string
+  }
   
   maxLineLength?: number
   
@@ -10550,7 +10526,9 @@ type PerfectionistSortImports = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-interfaces -----
@@ -10758,7 +10736,9 @@ type PerfectionistSortInterfaces = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-intersection-types -----
@@ -10890,7 +10870,9 @@ type PerfectionistSortIntersectionTypes = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-jsx-props -----
@@ -11053,7 +11035,9 @@ type PerfectionistSortJsxProps = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-maps -----
@@ -11196,7 +11180,9 @@ type PerfectionistSortMaps = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-modules -----
@@ -11356,7 +11342,9 @@ type PerfectionistSortModules = []|[{
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-named-exports -----
@@ -11496,7 +11484,9 @@ type PerfectionistSortNamedExports = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-named-imports -----
@@ -11636,7 +11626,9 @@ type PerfectionistSortNamedImports = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-object-types -----
@@ -11844,7 +11836,9 @@ type PerfectionistSortObjectTypes = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-objects -----
@@ -12055,7 +12049,9 @@ type PerfectionistSortObjects = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-sets -----
@@ -12204,7 +12200,9 @@ type PerfectionistSortSets = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-switch-case -----
@@ -12358,7 +12356,9 @@ type PerfectionistSortUnionTypes = {
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-variable-declarations -----
@@ -12490,7 +12490,9 @@ type PerfectionistSortVariableDeclarations = []|[{
   
   groups?: (string | string[] | {
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    newlinesBetween?: ("ignore" | "always" | "never")
+    
+    commentAbove?: string
   })[]
 }]
 // ----- prefer-arrow-callback -----
@@ -12703,6 +12705,10 @@ type RegexpPreferLookaround = []|[{
 // ----- regexp/prefer-named-replacement -----
 type RegexpPreferNamedReplacement = []|[{
   strictTypes?: boolean
+}]
+// ----- regexp/prefer-quantifier -----
+type RegexpPreferQuantifier = []|[{
+  allows?: string[]
 }]
 // ----- regexp/prefer-range -----
 type RegexpPreferRange = []|[{
@@ -12986,6 +12992,7 @@ type SveltePreferConst = []|[{
   destructuring?: ("any" | "all")
   ignoreReadBeforeAssign?: boolean
   excludedRunes?: string[]
+  [k: string]: unknown | undefined
 }]
 // ----- svelte/require-event-prefix -----
 type SvelteRequireEventPrefix = []|[{
@@ -15573,7 +15580,7 @@ type VueNoRestrictedCustomEvent = (string | {
 })[]
 // ----- vue/no-restricted-html-elements -----
 type VueNoRestrictedHtmlElements = (string | {
-  element: string
+  element: (string | string[])
   message?: string
 })[]
 // ----- vue/no-restricted-props -----
@@ -15872,77 +15879,6 @@ type VueValidVOn = []|[{
 // ----- vue/valid-v-slot -----
 type VueValidVSlot = []|[{
   allowModifiers?: boolean
-}]
-// ----- vueA11y/alt-text -----
-type VueA11YAltText = []|[{
-  elements?: string[]
-  img?: string[]
-  object?: string[]
-  area?: string[]
-  "input[type=\"image\"]"?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/anchor-has-content -----
-type VueA11YAnchorHasContent = []|[{
-  components?: string[]
-  accessibleChildren?: string[]
-  accessibleDirectives?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/aria-role -----
-type VueA11YAriaRole = []|[{
-  ignoreNonDOM?: boolean
-}]
-// ----- vueA11y/form-control-has-label -----
-type VueA11YFormControlHasLabel = []|[{
-  labelComponents?: string[]
-  controlComponents?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/heading-has-content -----
-type VueA11YHeadingHasContent = []|[{
-  components?: string[]
-  accessibleChildren?: string[]
-  accessibleDirectives?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/interactive-supports-focus -----
-type VueA11YInteractiveSupportsFocus = []|[{
-  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[]
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/label-has-for -----
-type VueA11YLabelHasFor = []|[{
-  components?: string[]
-  controlComponents?: string[]
-  required?: (("nesting" | "id") | {
-    some: ("nesting" | "id")[]
-    [k: string]: unknown | undefined
-  } | {
-    every: ("nesting" | "id")[]
-    [k: string]: unknown | undefined
-  })
-  allowChildren?: boolean
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/media-has-caption -----
-type VueA11YMediaHasCaption = []|[{
-  audio?: string[]
-  track?: string[]
-  video?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/no-autofocus -----
-type VueA11YNoAutofocus = []|[{
-  ignoreNonDOM?: boolean
-}]
-// ----- vueA11y/no-distracting-elements -----
-type VueA11YNoDistractingElements = []|[{
-  [k: string]: unknown | undefined
-}]
-// ----- vueA11y/no-redundant-roles -----
-type VueA11YNoRedundantRoles = []|[{
-  [k: string]: string[] | undefined
 }]
 // ----- wrap-iife -----
 type WrapIife = []|[("outside" | "inside" | "any")]|[("outside" | "inside" | "any"), {
