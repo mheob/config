@@ -64,7 +64,6 @@
 		"eslint-plugin-unicorn": "catalog:",
 		"eslint-plugin-unused-imports": "catalog:",
 		"eslint-plugin-vue": "catalog:",
-		"eslint-plugin-vuejs-accessibility": "catalog:",
 		"eslint-plugin-yml": "catalog:",
 		"globals": "catalog:",
 		"jsonc-eslint-parser": "catalog:",

@@ -4,8 +4,22 @@ import process from 'node:process';
 
 import { parseDocument } from 'yaml';
 
+function findWorkspaceRoot(startDirectory: string = process.cwd()): string {
+	let currentDirectory = path.resolve(startDirectory);
+	const root = path.parse(currentDirectory).root;
+
+	while (currentDirectory !== root) {
+		const workspaceFilePath = path.join(currentDirectory, 'pnpm-workspace.yaml');
+		if (fs.existsSync(workspaceFilePath)) return currentDirectory;
+		currentDirectory = path.dirname(currentDirectory);
+	}
+
+	throw new Error(`pnpm-workspace.yaml not found in any parent directory of ${startDirectory}`);
+}
+
 function getPnpmWorkspaceYamlContent(): string {
-	const workspacePath = path.join(process.cwd(), '..', '..', 'pnpm-workspace.yaml');
+	const workspaceRoot = findWorkspaceRoot();
+	const workspacePath = path.join(workspaceRoot, 'pnpm-workspace.yaml');
 	const content = fs.readFileSync(workspacePath, 'utf8');
 	return content;
 }

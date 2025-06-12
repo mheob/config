@@ -22,7 +22,7 @@ const versions: Record<string, string> = Object.fromEntries(
 
 for (const [key, value] of Object.entries(versions)) {
 	if (value === 'catalog:' || value.startsWith('catalog:')) {
-		const catalogName = value.split(':')[1] || undefined;
+		const catalogName = value.slice('catalog:'.length) || undefined;
 		versions[key] = getPackageVersionFromPnpmWorkspaceYaml(key, catalogName);
 	}
 }
