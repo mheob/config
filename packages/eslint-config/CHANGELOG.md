@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.10.0
+
+### Minor Changes
+
+- [#276](https://github.com/mheob/config/pull/276) ([@mheob](https://github.com/mheob)): use pnpm catalog and resort `pnpm-workspace.yaml`
+
 ## 8.9.0
 
 ### Minor Changes
