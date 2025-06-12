@@ -26,11 +26,11 @@
 		"lint": "eslint src/**/*.ts --fix"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.1",
+		"@commitlint/cli": "catalog:",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
-		"commitizen": "^4.3.1",
-		"cz-git": "^1.11.1",
+		"commitizen": "catalog:",
+		"cz-git": "catalog:",
 		"eslint": "catalog:",
 		"typescript": "catalog:"
 	},
@@ -38,6 +38,9 @@
 		"@commitlint/cli": "^19.8.1",
 		"commitizen": "^4.3.1",
 		"cz-git": "^1.11.1"
+	},
+	"engines": {
+		"node": ">=22.12.0"
 	},
 	"publishConfig": {
 		"access": "public"

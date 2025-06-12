@@ -3,11 +3,12 @@ import path from 'node:path';
 
 import { dependencies, devDependencies } from '../package.json';
 import { dependenciesMap } from '../src/cli/constants';
+import { getPackageVersionFromPnpmWorkspaceYaml } from './utils/pnpm-workspace';
 
 const names = [...new Set(['eslint', ...Object.values(dependenciesMap).flat()])];
 const allDependencies = { ...dependencies, ...devDependencies };
 
-const versions = Object.fromEntries(
+const versions: Record<string, string> = Object.fromEntries(
 	names
 		.map(name => {
 			const version = allDependencies[name];
@@ -20,8 +21,9 @@ const versions = Object.fromEntries(
 );
 
 for (const [key, value] of Object.entries(versions)) {
-	if (value === 'catalog:') {
-		versions[key] = 'latest';
+	if (value === 'catalog:' || value.startsWith('catalog:')) {
+		const catalogName = value.slice('catalog:'.length) || undefined;
+		versions[key] = getPackageVersionFromPnpmWorkspaceYaml(key, catalogName);
 	}
 }
 
