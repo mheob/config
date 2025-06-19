@@ -4009,6 +4009,11 @@ export interface RuleOptions {
    */
   'test/consistent-test-it'?: Linter.RuleEntry<TestConsistentTestIt>
   /**
+   * enforce using vitest or vi but not both
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-vitest-vi.md
+   */
+  'test/consistent-vitest-vi'?: Linter.RuleEntry<TestConsistentVitestVi>
+  /**
    * enforce having expectation in test body
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
    */
@@ -4085,6 +4090,11 @@ export interface RuleOptions {
    */
   'test/no-import-node-test'?: Linter.RuleEntry<[]>
   /**
+   * disallow importing Vitest globals
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-importing-vitest-globals.md
+   */
+  'test/no-importing-vitest-globals'?: Linter.RuleEntry<[]>
+  /**
    * disallow string interpolation in snapshots
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md
    */
@@ -4120,7 +4130,7 @@ export interface RuleOptions {
    */
   'test/no-standalone-expect'?: Linter.RuleEntry<TestNoStandaloneExpect>
   /**
-   * Disallow using the `f` and `x` prefixes in favour of `.only` and `.skip`
+   * disallow using the `f` and `x` prefixes in favour of `.only` and `.skip`
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-prefixes.md
    */
   'test/no-test-prefixes'?: Linter.RuleEntry<[]>
@@ -4214,6 +4224,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-on-top.md
    */
   'test/prefer-hooks-on-top'?: Linter.RuleEntry<[]>
+  /**
+   * enforce importing Vitest globals
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-importing-vitest-globals.md
+   */
+  'test/prefer-importing-vitest-globals'?: Linter.RuleEntry<[]>
   /**
    * enforce lowercase titles
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-lowercase-title.md
@@ -9599,8 +9614,7 @@ type PerfectionistSortArrayIncludes = {
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -9631,8 +9645,7 @@ type PerfectionistSortArrayIncludes = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -9715,12 +9728,10 @@ type PerfectionistSortArrayIncludes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -9748,8 +9759,7 @@ type PerfectionistSortClasses = []|[{
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -9806,8 +9816,7 @@ type PerfectionistSortClasses = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -9913,12 +9922,10 @@ type PerfectionistSortClasses = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -9997,8 +10004,7 @@ type PerfectionistSortDecorators = []|[{
   }
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10027,8 +10033,7 @@ type PerfectionistSortEnums = []|[{
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10069,8 +10074,7 @@ type PerfectionistSortEnums = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10152,12 +10156,10 @@ type PerfectionistSortEnums = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10187,8 +10189,7 @@ type PerfectionistSortExports = {
   groupKind?: ("mixed" | "values-first" | "types-first")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10221,8 +10222,7 @@ type PerfectionistSortExports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10292,12 +10292,10 @@ type PerfectionistSortExports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10329,8 +10327,7 @@ type PerfectionistSortHeritageClauses = []|[{
   }
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10366,8 +10363,7 @@ type PerfectionistSortImports = {
       [k: string]: (string | string[]) | undefined
     }
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10412,8 +10408,7 @@ type PerfectionistSortImports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10509,8 +10504,7 @@ type PerfectionistSortImports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   internalPattern?: (({
     
@@ -10525,8 +10519,7 @@ type PerfectionistSortImports = {
   } | string))
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10556,8 +10549,7 @@ type PerfectionistSortInterfaces = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10604,8 +10596,7 @@ type PerfectionistSortInterfaces = {
       sortBy?: ("name" | "value")
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10718,8 +10709,7 @@ type PerfectionistSortInterfaces = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -10735,8 +10725,7 @@ type PerfectionistSortInterfaces = {
   sortBy?: ("name" | "value")
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10764,8 +10753,7 @@ type PerfectionistSortIntersectionTypes = {
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10796,8 +10784,7 @@ type PerfectionistSortIntersectionTypes = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10865,12 +10852,10 @@ type PerfectionistSortIntersectionTypes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -10899,8 +10884,7 @@ type PerfectionistSortJsxProps = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10945,8 +10929,7 @@ type PerfectionistSortJsxProps = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11018,8 +11001,7 @@ type PerfectionistSortJsxProps = {
   }
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -11034,8 +11016,7 @@ type PerfectionistSortJsxProps = {
   } | string))
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -11063,8 +11044,7 @@ type PerfectionistSortMaps = {
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11093,8 +11073,7 @@ type PerfectionistSortMaps = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11175,12 +11154,10 @@ type PerfectionistSortMaps = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -11208,8 +11185,7 @@ type PerfectionistSortModules = []|[{
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11254,8 +11230,7 @@ type PerfectionistSortModules = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11337,12 +11312,10 @@ type PerfectionistSortModules = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -11374,8 +11347,7 @@ type PerfectionistSortNamedExports = {
   ignoreAlias?: boolean
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11408,8 +11380,7 @@ type PerfectionistSortNamedExports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11479,12 +11450,10 @@ type PerfectionistSortNamedExports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -11516,8 +11485,7 @@ type PerfectionistSortNamedImports = {
   ignoreAlias?: boolean
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11550,8 +11518,7 @@ type PerfectionistSortNamedImports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11621,12 +11588,10 @@ type PerfectionistSortNamedImports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -11656,8 +11621,7 @@ type PerfectionistSortObjectTypes = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11704,8 +11668,7 @@ type PerfectionistSortObjectTypes = {
       sortBy?: ("name" | "value")
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11818,8 +11781,7 @@ type PerfectionistSortObjectTypes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -11835,8 +11797,7 @@ type PerfectionistSortObjectTypes = {
   sortBy?: ("name" | "value")
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -11870,8 +11831,7 @@ type PerfectionistSortObjects = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11916,8 +11876,7 @@ type PerfectionistSortObjects = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12032,8 +11991,7 @@ type PerfectionistSortObjects = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -12048,8 +12006,7 @@ type PerfectionistSortObjects = {
   } | string))
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -12079,8 +12036,7 @@ type PerfectionistSortSets = {
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12111,8 +12067,7 @@ type PerfectionistSortSets = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12195,12 +12150,10 @@ type PerfectionistSortSets = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -12250,8 +12203,7 @@ type PerfectionistSortUnionTypes = {
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12282,8 +12234,7 @@ type PerfectionistSortUnionTypes = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12351,12 +12302,10 @@ type PerfectionistSortUnionTypes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -12384,8 +12333,7 @@ type PerfectionistSortVariableDeclarations = []|[{
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12416,8 +12364,7 @@ type PerfectionistSortVariableDeclarations = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12485,12 +12432,10 @@ type PerfectionistSortVariableDeclarations = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
-    
-    newlinesBetween?: ("ignore" | "always" | "never")
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
     commentAbove?: string
   })[]
@@ -13038,6 +12983,10 @@ type TestConsistentTestFilename = []|[{
 type TestConsistentTestIt = []|[{
   fn?: ("test" | "it")
   withinDescribe?: ("test" | "it")
+}]
+// ----- test/consistent-vitest-vi -----
+type TestConsistentVitestVi = []|[{
+  fn?: ("vi" | "vitest")
 }]
 // ----- test/expect-expect -----
 type TestExpectExpect = []|[{

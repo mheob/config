@@ -37,7 +37,7 @@
 	"peerDependencies": {
 		"@commitlint/cli": "^19.8.1",
 		"commitizen": "^4.3.1",
-		"cz-git": "^1.11.1"
+		"cz-git": "^1.11.2"
 	},
 	"engines": {
 		"node": ">=22.12.0"
