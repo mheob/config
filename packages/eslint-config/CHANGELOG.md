@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.11.0
+
+### Minor Changes
+
+- [#278](https://github.com/mheob/config/pull/278) ([@mheob](https://github.com/mheob)): add custom sort (id on top)
+
+### Patch Changes
+
+- [#280](https://github.com/mheob/config/pull/280) ([@mheob](https://github.com/mheob)): update all non-major dependencies
+
 ## 8.10.0
 
 ### Minor Changes
