@@ -1,5 +1,11 @@
 # @mheob/commitlint-config
 
+## 1.2.3
+
+### Patch Changes
+
+- [#280](https://github.com/mheob/config/pull/280) ([@mheob](https://github.com/mheob)): update all non-major dependencies
+
 ## 1.2.2
 
 ### Patch Changes
