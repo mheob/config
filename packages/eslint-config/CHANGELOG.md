@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.12.0
+
+### Minor Changes
+
+- [#281](https://github.com/mheob/config/pull/281) ([@mheob](https://github.com/mheob)): update allowed exports for `react-router`
+
 ## 8.11.0
 
 ### Minor Changes
