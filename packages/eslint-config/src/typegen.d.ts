@@ -1476,7 +1476,7 @@ export interface RuleOptions {
    */
   'no-console'?: Linter.RuleEntry<NoConsole>
   /**
-   * Disallow reassigning `const` variables
+   * Disallow reassigning `const`, `using`, and `await using` variables
    * @see https://eslint.org/docs/latest/rules/no-const-assign
    */
   'no-const-assign'?: Linter.RuleEntry<[]>
@@ -3995,6 +3995,11 @@ export interface RuleOptions {
    */
   'svelte/prefer-style-directive'?: Linter.RuleEntry<[]>
   /**
+   * disallow using mutable instances of built-in classes where a reactive alternative is provided by svelte/reactivity
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-svelte-reactivity/
+   */
+  'svelte/prefer-svelte-reactivity'?: Linter.RuleEntry<[]>
+  /**
    * Prefer using writable $derived instead of $state and $effect
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-writable-derived/
    */
@@ -4284,6 +4289,16 @@ export interface RuleOptions {
    */
   'test/padding-around-test-blocks'?: Linter.RuleEntry<[]>
   /**
+   * enforce using `toBeCalledOnce()` or `toHaveBeenCalledOnce()`
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-once.md
+   */
+  'test/prefer-called-once'?: Linter.RuleEntry<[]>
+  /**
+   * enforce using `toBeCalledTimes(1)` or `toHaveBeenCalledTimes(1)`
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-times.md
+   */
+  'test/prefer-called-times'?: Linter.RuleEntry<[]>
+  /**
    * enforce using `toBeCalledWith()` or `toHaveBeenCalledWith()`
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-with.md
    */
@@ -4448,6 +4463,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-title.md
    */
   'test/valid-title'?: Linter.RuleEntry<TestValidTitle>
+  /**
+   * disallow `.todo` usage
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/warn-todo.md
+   */
+  'test/warn-todo'?: Linter.RuleEntry<[]>
   /**
    * enforce linebreaks after opening and before closing array brackets
    * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/array-bracket-newline.html
@@ -6525,7 +6545,7 @@ export interface RuleOptions {
    */
   'vue/no-restricted-custom-event'?: Linter.RuleEntry<VueNoRestrictedCustomEvent>
   /**
-   * disallow specific HTML elements
+   * disallow specific elements
    * @see https://eslint.vuejs.org/rules/no-restricted-html-elements.html
    */
   'vue/no-restricted-html-elements'?: Linter.RuleEntry<VueNoRestrictedHtmlElements>
@@ -8942,6 +8962,7 @@ type NoConstantCondition = []|[{
 // ----- no-duplicate-imports -----
 type NoDuplicateImports = []|[{
   includeExports?: boolean
+  allowSeparateTypeImports?: boolean
 }]
 // ----- no-else-return -----
 type NoElseReturn = []|[{
@@ -13809,6 +13830,8 @@ interface _TsNamingConvention_MatchRegexConfig {
 // ----- ts/no-base-to-string -----
 type TsNoBaseToString = []|[{
   
+  checkUnknown?: boolean
+  
   ignoredTypeNames?: string[]
 }]
 // ----- ts/no-confusing-void-expression -----
@@ -14239,7 +14262,6 @@ type TsPreferDestructuring = []|[({
   enforceForDeclarationWithTypeAnnotation?: boolean
   
   enforceForRenamedProperties?: boolean
-  [k: string]: unknown | undefined
 }]
 // ----- ts/prefer-literal-enum-member -----
 type TsPreferLiteralEnumMember = []|[{
@@ -14268,7 +14290,6 @@ type TsPreferNullishCoalescing = []|[{
     number?: boolean
     
     string?: boolean
-    [k: string]: unknown | undefined
   } | true)
   
   ignoreTernaryTests?: boolean
