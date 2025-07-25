@@ -49,6 +49,19 @@ export async function jsonc(
 				'jsonc/no-undefined-value': 'error',
 				'jsonc/no-unicode-codepoint-escapes': 'error',
 				'jsonc/no-useless-escape': 'error',
+				'jsonc/sort-keys': [
+					'error',
+					{
+						minKeys: 2,
+						order: { natural: true, type: 'asc' },
+						pathPattern: '^$',
+					},
+					{
+						minKeys: 2,
+						order: ['id', { order: { natural: true, type: 'asc' } }],
+						pathPattern: '.*',
+					},
+				],
 				'jsonc/space-unary-ops': 'error',
 				'jsonc/valid-json-number': 'error',
 				'jsonc/vue-custom-block/no-parsing-error': 'error',
