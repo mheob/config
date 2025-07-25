@@ -2,6 +2,19 @@
 
 To make my configurations a bit easier I share my [ESLint](https://eslint.org/) config.
 
+- Auto fix for formatting
+- Reasonable defaults, best practices, only one line of config
+- Designed to work with TypeScript, JSX, Vue, JSON, YAML, Toml, Markdown, etc. Out-of-box.
+- Opinionated, but [very customizable](#customization)
+- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Optional [React](#react), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid) support
+- Optional [React](#react), [Next.js](#nextjs), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid) support
+- **Style principle**: Minimal for reading, stable for diff, consistent
+  - Sorted imports, dangling commas
+  - Single quotes, no semi
+- Respects `.gitignore` by default
+- Requires ESLint v9.5.0+
+
 > [!IMPORTANT]\
 > Since v6.0.0, this config is rewritten to the new [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new).
 
@@ -122,8 +135,8 @@ Normally you only need to import the `mheob` preset:
 
 ### Basic Rules only
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob();
@@ -133,8 +146,8 @@ export default mheob();
 
 And that's it! Or you can configure each integration individually, for example:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -154,8 +167,8 @@ export default mheob({
 
 The `mheob` factory function also accepts any number of arbitrary custom config overrides:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob(
@@ -182,8 +195,8 @@ Going more advanced, you can also import fine-grained configs and compose them a
 
 We wouldn't recommend using this style in general unless you know exactly what they are doing, as there are shared options between configs and might need extra care to make them consistent.
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import {
 	combine,
 	comments,
@@ -234,11 +247,12 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 
 | New Prefix | Original Prefix | Source Plugin |
 | --- | --- | --- |
+| `next/*` | `@next/next/*` | [@next/eslint-plugin-next](https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next) |
 | `node/*` | `n/*` | [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n) |
-| `yaml/*` | `yml/*` | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml) |
 | `ts/*` | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
 | `test/*` | `vitest/*` | [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest) |
 | `test/*` | `no-only-tests/*` | [eslint-plugin-no-only-tests](https://github.com/levibuzolic/eslint-plugin-no-only-tests) |
+| `yaml/*` | `yml/*` | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml) |
 
 When you want to override rules, or disable them inline, you need to update to the new prefix:
 
@@ -254,8 +268,8 @@ This preset will automatically rename the plugins also for your custom configs. 
 
 Certain rules would only be enabled in specific files, for example, `ts/*` rules would only be enabled in `.ts` files and `vue/*` rules would only be enabled in `.vue` files. If you want to override the rules, you need to specify the file extension:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob(
@@ -281,8 +295,8 @@ export default mheob(
 
 We also provided the `overrides` options in each integration to make it easier:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -308,8 +322,8 @@ export default mheob({
 
 The factory function `mheob()` returns a [`FlatConfigComposer` object from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer) where you can chain the methods to compose the config even more flexibly.
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob()
@@ -334,8 +348,8 @@ export default mheob()
 
 Vue support is detected automatically by checking if `vue` is installed in your project. You can also explicitly enable/disable it:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -351,8 +365,8 @@ We provide some optional configs for specific use cases, that we don't include t
 
 To enable React support, you need to explicitly turn it on:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -366,12 +380,31 @@ Running `pnpm dlx eslint` should prompt you to install the required dependencies
 pnpm add -d @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh
 ```
 
+#### Next.js
+
+To enable Next.js support, you need to explicitly turn it on:
+
+```ts
+// eslint.config.ts
+import mheob from '@mheob/eslint-config';
+
+export default mheob({
+	nextjs: true,
+});
+```
+
+Running `pnpm dlx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+
+```bash
+npm i -D @next/eslint-plugin-next
+```
+
 #### Svelte
 
 To enable svelte support, you need to explicitly turn it on:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -389,8 +422,8 @@ pnpm add -d eslint-plugin-svelte
 
 To enable astro support, you need to explicitly turn it on:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -408,8 +441,8 @@ pnpm add -d eslint-plugin-astro
 
 To enable Solid support, you need to explicitly turn it on:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -427,8 +460,8 @@ pnpm add -d eslint-plugin-solid
 
 To enable UnoCSS support, you need to explicitly turn it on:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -469,8 +502,8 @@ The command comments are usually one-off and will be removed along with the tran
 
 You can optionally enable the [type aware rules](https://typescript-eslint.io/linting/typed-linting/) by passing the options object to the `typescript` config:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -492,8 +525,8 @@ Since v3.16.0, they are no longer disabled, but made non-fixable using [this hel
 
 This is to prevent unused imports from getting removed by the editor during refactoring to get a better developer experience. Those rules will be applied when you run ESLint in the terminal or [Lint Staged](#lint-staged). If you don't want this behavior, you can disable them:
 
-```js
-// eslint.config.js
+```ts
+// eslint.config.ts
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
@@ -529,7 +562,7 @@ pnpm dlx simple-git-hooks
 
 I built a visual tool to help you view what rules are enabled in your project and apply them to what files, [@eslint/config-inspector](https://github.com/eslint/config-inspector)
 
-Go to your project root that contains `eslint.config.js` and run:
+Go to your project root that contains `eslint.config.ts` and run:
 
 ```bash
 pnpm dlx @eslint/config-inspector
