@@ -1,5 +1,11 @@
 # @mheob/commitlint-config
 
+## 1.2.4
+
+### Patch Changes
+
+- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major deoendencies
+
 ## 1.2.3
 
 ### Patch Changes

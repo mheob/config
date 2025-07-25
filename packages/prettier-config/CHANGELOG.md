@@ -1,5 +1,11 @@
 # @mheob/prettier-config
 
+## 3.3.4
+
+### Patch Changes
+
+- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major deoendencies
+
 ## 3.3.3
 
 ### Patch Changes
