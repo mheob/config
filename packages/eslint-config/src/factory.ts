@@ -15,6 +15,7 @@ import {
 	jsonc,
 	jsx,
 	markdown,
+	nextjs,
 	node,
 	perfectionist,
 	prettier,
@@ -55,6 +56,7 @@ export const defaultPluginRenaming = {
 	'@eslint-react/hooks-extra': 'react-hooks-extra',
 	'@eslint-react/naming-convention': 'react-naming-convention',
 
+	'@next/next': 'next',
 	'@typescript-eslint': 'ts',
 	n: 'node',
 	vitest: 'test',
@@ -173,6 +175,14 @@ export function mheob(
 			markdown({
 				componentExtensions,
 				overrides: getOverrides(options, 'markdown'),
+			}),
+		);
+	}
+
+	if (options.nextjs ?? false) {
+		configs.push(
+			nextjs({
+				overrides: getOverrides(options, 'nextjs'),
 			}),
 		);
 	}

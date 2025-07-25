@@ -56,8 +56,8 @@ export const vscodeSettingsString = `
 
 export const frameworkOptions: PromptItem<FrameworkOption>[] = [
 	{
-		label: c.green('Vue'),
-		value: 'vue',
+		label: c.magenta('Astro'),
+		value: 'astro',
 	},
 	{
 		label: c.cyan('React'),
@@ -68,8 +68,8 @@ export const frameworkOptions: PromptItem<FrameworkOption>[] = [
 		value: 'svelte',
 	},
 	{
-		label: c.magenta('Astro'),
-		value: 'astro',
+		label: c.green('Vue'),
+		value: 'vue',
 	},
 ];
 
@@ -78,6 +78,7 @@ export const frameworks: FrameworkOption[] = frameworkOptions.map(({ value }) =>
 export const dependenciesMap = {
 	astro: ['eslint-plugin-astro', 'astro-eslint-parser'],
 	formatterAstro: ['prettier-plugin-astro'],
+	nextjs: ['@next/eslint-plugin-next'],
 	react: [
 		'@eslint-react/eslint-plugin',
 		'eslint-plugin-react-hooks',
