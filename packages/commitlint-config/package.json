@@ -1,6 +1,6 @@
 {
 	"name": "@mheob/commitlint-config",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"description": "My personal configuration for commitlint.",
 	"keywords": [
 		"commitlint",

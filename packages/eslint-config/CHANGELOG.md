@@ -1,5 +1,19 @@
 # @mheob/eslint-config
 
+## 8.12.0
+
+### Minor Changes
+
+- [#286](https://github.com/mheob/config/pull/286) ([@mheob](https://github.com/mheob)): sorts `id` to the top of objects in JSON files
+
+- [#285](https://github.com/mheob/config/pull/285) ([@mheob](https://github.com/mheob)): add nextjs config
+
+- [#281](https://github.com/mheob/config/pull/281) ([@mheob](https://github.com/mheob)): update allowed exports for `react-router`
+
+### Patch Changes
+
+- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major deoendencies
+
 ## 8.11.0
 
 ### Minor Changes
