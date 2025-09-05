@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.13.0
+
+### Minor Changes
+
+- [#295](https://github.com/mheob/config/pull/295) ([@mheob](https://github.com/mheob)): add sort support of Bun catalogs
+
 ## 8.12.0
 
 ### Minor Changes
