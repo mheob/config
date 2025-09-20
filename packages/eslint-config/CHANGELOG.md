@@ -1,5 +1,13 @@
 # @mheob/eslint-config
 
+## 8.13.1
+
+### Patch Changes
+
+- [#301](https://github.com/mheob/config/pull/301) ([@renovate](https://github.com/apps/renovate)): update dependency eslint-plugin-jsdoc to v57
+
+- [#299](https://github.com/mheob/config/pull/299) ([@renovate](https://github.com/apps/renovate)): update dependency eslint-plugin-unicorn to v61
+
 ## 8.13.0
 
 ### Minor Changes
