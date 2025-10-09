@@ -48,13 +48,6 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 			},
 		},
 		{
-			files: [GLOB_MARKDOWN, `${GLOB_MARKDOWN}/**/*`],
-			name: 'mheob/unicorn/rules/markdown',
-			rules: {
-				'unicorn/filename-case': 'off',
-			},
-		},
-		{
 			files: [GLOB_REACT],
 			name: 'mheob/unicorn/rules/react',
 			rules: {
@@ -67,6 +60,13 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 						},
 					},
 				],
+			},
+		},
+		{
+			files: [GLOB_MARKDOWN, `${GLOB_MARKDOWN}/**/*`],
+			name: 'mheob/unicorn/rules/markdown',
+			rules: {
+				'unicorn/filename-case': 'off',
 			},
 		},
 	];
