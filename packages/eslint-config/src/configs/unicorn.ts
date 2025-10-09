@@ -49,14 +49,14 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 		},
 		{
 			files: [GLOB_MARKDOWN, `${GLOB_MARKDOWN}/**/*`],
-			name: 'nbp/unicorn/rules/markdown',
+			name: 'mheob/unicorn/rules/markdown',
 			rules: {
 				'unicorn/filename-case': 'off',
 			},
 		},
 		{
 			files: [GLOB_REACT],
-			name: 'nbp/unicorn/rules/react',
+			name: 'mheob/unicorn/rules/react',
 			rules: {
 				'unicorn/filename-case': [
 					'error',

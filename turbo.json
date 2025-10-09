@@ -1,15 +1,26 @@
 {
 	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": [".nvmrc", "pnpm-lock.yaml"],
+	"globalEnv": ["NODE_ENV"],
 	"tasks": {
 		"build": {
-			"dependsOn": ["gen", "^build"]
+			"dependsOn": ["gen", "^build"],
+			"outputs": ["dist/**", ".turbo/**"]
 		},
-		"clean": {},
 		"gen": {
-			"dependsOn": ["typegen", "versiongen"]
+			"dependsOn": ["typegen", "versiongen"],
+			"outputs": ["src/typegen.d.ts", "src/cli/versions-map.generated.ts"]
 		},
-		"lint": {},
-		"typegen": {},
-		"versiongen": {}
+		"lint": {
+			"cache": true
+		},
+		"typegen": {
+			"cache": true,
+			"outputs": ["src/typegen.d.ts"]
+		},
+		"versiongen": {
+			"cache": true,
+			"outputs": ["src/cli/versions-map.generated.ts"]
+		}
 	}
 }
