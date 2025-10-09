@@ -19,7 +19,7 @@
 		"versiongen": "turbo run versiongen"
 	},
 	"lint-staged": {
-		"*": "eslint --fix"
+		"*.{js,mjs,cjs,ts,tsx,jsx,json,yaml,yml,toml,md,mdx}": "eslint --fix"
 	},
 	"config": {
 		"commitizen": {
@@ -46,8 +46,8 @@
 		"turbo": "catalog:",
 		"typescript": "catalog:"
 	},
-	"packageManager": "pnpm@10.15.1",
+	"packageManager": "pnpm@10.18.1",
 	"engines": {
-		"node": ">=22.12.0"
+		"node": ">=22.20.0"
 	}
 }

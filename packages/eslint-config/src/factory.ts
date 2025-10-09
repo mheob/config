@@ -114,25 +114,14 @@ export function mheob(
 	const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
 	if (options.gitignore ?? Boolean(enableGitignore)) {
-		if (typeof enableGitignore !== 'boolean') {
-			configs.push(
-				interopDefault(import('eslint-config-flat-gitignore')).then(rule => [
-					rule({
-						name: 'mheob/gitignore',
-						...enableGitignore,
-					}),
-				]),
-			);
-		} else {
-			configs.push(
-				interopDefault(import('eslint-config-flat-gitignore')).then(r => [
-					r({
-						name: 'mheob/gitignore',
-						strict: false,
-					}),
-				]),
-			);
-		}
+		configs.push(
+			interopDefault(import('eslint-config-flat-gitignore')).then(rule => [
+				rule({
+					name: 'mheob/gitignore',
+					...(typeof enableGitignore !== 'boolean' ? enableGitignore : { strict: false }),
+				}),
+			]),
+		);
 	}
 
 	const typescriptOptions = resolveSubOptions(options, 'typescript');
