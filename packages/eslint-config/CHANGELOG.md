@@ -1,5 +1,23 @@
 # @mheob/eslint-config
 
+## 8.14.0
+
+### Minor Changes
+
+- [#306](https://github.com/mheob/config/pull/306) ([@mheob](https://github.com/mheob)): Exclude markdown files from unicorn/filename-case rule and add Claude Code Review workflow
+
+### Patch Changes
+
+- [#303](https://github.com/mheob/config/pull/303) ([@mheob](https://github.com/mheob)): Use ecmaVersion 'latest'. It is ESLint's docs recommendation and fixes support for import attributes.
+
+- [#301](https://github.com/mheob/config/pull/301) ([@renovate](https://github.com/apps/renovate)): update dependency eslint-plugin-jsdoc to v57
+
+- [#299](https://github.com/mheob/config/pull/299) ([@renovate](https://github.com/apps/renovate)): update dependency eslint-plugin-unicorn to v61
+
+- [#308](https://github.com/mheob/config/pull/308) ([@mheob](https://github.com/mheob)): Update peer dependencies to latest versions
+
+- [#307](https://github.com/mheob/config/pull/307) ([@mheob](https://github.com/mheob)): Update dependencies and improve configuration structure
+
 ## 8.13.0
 
 ### Minor Changes
