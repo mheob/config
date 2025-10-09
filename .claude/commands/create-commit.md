@@ -12,7 +12,7 @@ description: Create a git commit
 
 ## Your task
 
-Create changeset if needed and create a single git commit based on the above changes.
+Create changeset if needed (at least an empty changeset) and create a single git commit based on the above changes.
 
 Use conventional commits with a title length of max 50 characters. See @commitlint.config.js for more details.
 
