@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.14.1
+
+### Patch Changes
+
+- [#309](https://github.com/mheob/config/pull/309) ([@mheob](https://github.com/mheob)): Move `unicorn/filename-case` rule for Markdown files to end of config array to prioritize highest.
+
 ## 8.14.0
 
 ### Minor Changes
