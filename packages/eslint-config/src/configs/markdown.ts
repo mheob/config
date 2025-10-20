@@ -9,6 +9,10 @@ import type {
 } from '../types';
 import { interopDefault, parserPlain } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function markdown(
 	options: OptionsComponentExtensions & OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

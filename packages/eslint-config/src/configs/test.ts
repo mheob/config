@@ -11,6 +11,10 @@ import { interopDefault } from '../utils';
 // Hold the reference so we don't redeclare the plugin on each call
 let _pluginTest: any;
 
+/**
+ *
+ * @param options
+ */
 export async function test(
 	options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

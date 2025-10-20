@@ -7,6 +7,10 @@ import type {
 } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function svelte(
 	options: OptionsFiles & OptionsHasTypeScript & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

@@ -24,6 +24,10 @@ export interface CliRunOptions {
 	yes?: boolean;
 }
 
+/**
+ *
+ * @param options
+ */
 export async function run(options: CliRunOptions = {}): Promise<void> {
 	const argumentSkipPrompt = Boolean(process.env.SKIP_PROMPT) || options.yes;
 	const argumentTemplate = <FrameworkOption[]>(

@@ -9,6 +9,10 @@ import { green } from 'ansis';
 import { vscodeSettingsString } from '../constants';
 import type { PromptResult } from '../types';
 
+/**
+ *
+ * @param result
+ */
 export async function updateVscodeSettings(result: PromptResult): Promise<void> {
 	const cwd = process.cwd();
 

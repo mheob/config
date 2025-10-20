@@ -2,6 +2,10 @@ import { GLOB_TOML } from '../globs';
 import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 import { interopDefault } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function toml(
 	options: OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
