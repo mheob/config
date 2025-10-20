@@ -20,6 +20,10 @@ const ReactRouterPackages = [
 ];
 const NextJsPackages = ['next'];
 
+/**
+ *
+ * @param options
+ */
 export async function react(
 	options: OptionsFiles & OptionsOverrides & OptionsTypeScriptWithTypes = {},
 ): Promise<TypedFlatConfigItem[]> {

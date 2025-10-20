@@ -2,6 +2,10 @@ import { GLOB_ALL_SRC } from '../globs';
 import { pluginPrettier } from '../plugins';
 import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 
+/**
+ *
+ * @param options
+ */
 export async function prettier(
 	options: OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

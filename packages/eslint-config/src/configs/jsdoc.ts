@@ -1,6 +1,9 @@
 import type { TypedFlatConfigItem } from '../types';
 import { interopDefault } from '../utils';
 
+/**
+ *
+ */
 export async function jsdoc(): Promise<TypedFlatConfigItem[]> {
 	const jsdocPlugin = await interopDefault(import('eslint-plugin-jsdoc'));
 	const recommendedRules = jsdocPlugin.configs['flat/recommended'].rules;

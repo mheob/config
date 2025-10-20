@@ -11,6 +11,10 @@ import parse from 'parse-gitignore';
 import type { PromptResult } from '../types';
 import { getEslintConfigContent } from '../utils';
 
+/**
+ *
+ * @param result
+ */
 export async function updateEslintFiles(result: PromptResult): Promise<void> {
 	const cwd = process.cwd();
 	const pathESLintIgnore = path.join(cwd, '.eslintignore');

@@ -2,6 +2,10 @@ import { GLOB_YAML } from '../globs';
 import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 import { interopDefault } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function yaml(
 	options: OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.14.2
+
+### Patch Changes
+
+- [#311](https://github.com/mheob/config/pull/311) ([@mheob](https://github.com/mheob)): update jsdoc handling and bump deps
+
 ## 8.14.1
 
 ### Patch Changes

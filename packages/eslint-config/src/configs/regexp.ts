@@ -4,6 +4,10 @@ import { configs } from 'eslint-plugin-regexp';
 
 import type { OptionsOverrides, OptionsRegExp, TypedFlatConfigItem } from '../types';
 
+/**
+ *
+ * @param options
+ */
 export async function regexp(
 	options: OptionsOverrides & OptionsRegExp = {},
 ): Promise<TypedFlatConfigItem[]> {

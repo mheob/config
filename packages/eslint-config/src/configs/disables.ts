@@ -1,6 +1,9 @@
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TSX } from '../globs';
 import type { TypedFlatConfigItem } from '../types';
 
+/**
+ *
+ */
 export async function disables(): Promise<TypedFlatConfigItem[]> {
 	return [
 		{

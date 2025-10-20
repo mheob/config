@@ -3,6 +3,10 @@ import globals from 'globals';
 import { pluginUnusedImports } from '../plugins';
 import type { OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types';
 
+/**
+ *
+ * @param options
+ */
 export async function javascript(
 	options: OptionsIsInEditor & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

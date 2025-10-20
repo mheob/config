@@ -11,6 +11,10 @@ import type {
 } from '../types';
 import { interopDefault, renameRules, toArray } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function typescript(
 	options: OptionsComponentExtensions &
 		OptionsFiles &
@@ -57,6 +61,12 @@ export async function typescript(
 		interopDefault(import('@typescript-eslint/parser')),
 	] as const);
 
+	/**
+	 *
+	 * @param typeAware
+	 * @param files
+	 * @param ignores
+	 */
 	function makeParser(
 		typeAware: boolean,
 		files: string[],

@@ -9,6 +9,9 @@ import { run } from './run';
 
 const PACKAGE_NAME = '@mheob/eslint-config';
 
+/**
+ *
+ */
 function header(): void {
 	console.log('\n');
 	p.intro(c.green`${PACKAGE_NAME} ` + c.dim`v${version}`);

@@ -2,6 +2,10 @@ import { GLOB_MARKDOWN, GLOB_REACT } from '../globs';
 import { pluginUnicorn } from '../plugins';
 import type { OptionsOverrides, TypedFlatConfigItem } from '../types';
 
+/**
+ *
+ * @param options
+ */
 export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
 	const { overrides = {} } = options;
 

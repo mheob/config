@@ -7,6 +7,10 @@ import type {
 } from '../types';
 import { interopDefault } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function vue(
 	options: OptionsFiles & OptionsHasTypeScript & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

@@ -2,6 +2,10 @@ import { GLOB_ASTRO } from '../globs';
 import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
+/**
+ *
+ * @param options
+ */
 export async function astro(
 	options: OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {

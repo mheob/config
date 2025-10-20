@@ -10,6 +10,10 @@ import { dependenciesMap } from '../constants';
 import type { PromptResult } from '../types';
 import { versionsMap } from '../versions-map.generated';
 
+/**
+ *
+ * @param result
+ */
 export async function updatePackageJson(result: PromptResult): Promise<void> {
 	const cwd = process.cwd();
 
