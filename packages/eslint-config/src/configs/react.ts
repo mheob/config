@@ -48,7 +48,8 @@ export async function react(
 	const isUsingReactRouter = ReactRouterPackages.some(i => isPackageExists(i));
 	const isUsingNext = NextJsPackages.some(i => isPackageExists(i));
 
-	const plugins = pluginReact.configs.all.plugins;
+	// eslint-disable-next-line ts/no-explicit-any
+	const plugins = (pluginReact.configs.all as any).plugins;
 
 	return [
 		{
