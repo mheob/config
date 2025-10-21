@@ -3,8 +3,15 @@ import { pluginUnicorn } from '../plugins';
 import type { OptionsOverrides, TypedFlatConfigItem } from '../types';
 
 /**
+ * Configures the ESLint rules for Unicorn.
  *
- * @param options
+ * This function sets up the necessary ESLint plugin for Unicorn,
+ * including the `eslint-plugin-unicorn`. It also configures the rules for Unicorn,
+ * including the recommended rules, filename-case, no-array-reduce, no-negated-condition,
+ * no-null, prevent-abbreviations, and the overrides.
+ *
+ * @param options - The options for configuring the Unicorn ESLint rules.
+ * @returns Promise that resolves once the Unicorn ESLint rules are configured.
  */
 export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
 	const { overrides = {} } = options;

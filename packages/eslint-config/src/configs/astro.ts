@@ -3,8 +3,14 @@ import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../typ
 import { ensurePackages, interopDefault } from '../utils';
 
 /**
+ * Configures the ESLint rules for Astro projects.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for Astro projects,
+ * including the `eslint-plugin-astro` and `astro-eslint-parser`. It also configures
+ * the language options for the Astro files, including the globals, parser, and parser options.
+ *
+ * @param options - The options for configuring the Astro ESLint rules.
+ * @returns Promise that resolves once the Astro ESLint rules are configured.
  */
 export async function astro(
 	options: OptionsFiles & OptionsOverrides = {},

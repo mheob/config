@@ -93,6 +93,24 @@ export interface OptionsComponentExtensions {
 
 export interface OptionsConfig extends OptionsComponentExtensions {
 	/**
+	 * Provide overrides for rules for each integration.
+	 *
+	 * @deprecated use `overrides` option in each integration key instead
+	 */
+	overrides?: {
+		javascript?: TypedFlatConfigItem['rules'];
+		jsonc?: TypedFlatConfigItem['rules'];
+		markdown?: TypedFlatConfigItem['rules'];
+		prettier?: TypedFlatConfigItem['rules'];
+		react?: TypedFlatConfigItem['rules'];
+		svelte?: TypedFlatConfigItem['rules'];
+		test?: TypedFlatConfigItem['rules'];
+		toml?: TypedFlatConfigItem['rules'];
+		typescript?: TypedFlatConfigItem['rules'];
+		yaml?: TypedFlatConfigItem['rules'];
+	};
+
+	/**
 	 * Enable ASTRO support.
 	 *
 	 * Requires installing:
@@ -168,24 +186,6 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	 * @default false
 	 */
 	nextjs?: boolean | OptionsOverrides;
-
-	/**
-	 * Provide overrides for rules for each integration.
-	 *
-	 * @deprecated use `overrides` option in each integration key instead
-	 */
-	overrides?: {
-		javascript?: TypedFlatConfigItem['rules'];
-		jsonc?: TypedFlatConfigItem['rules'];
-		markdown?: TypedFlatConfigItem['rules'];
-		prettier?: TypedFlatConfigItem['rules'];
-		react?: TypedFlatConfigItem['rules'];
-		svelte?: TypedFlatConfigItem['rules'];
-		test?: TypedFlatConfigItem['rules'];
-		toml?: TypedFlatConfigItem['rules'];
-		typescript?: TypedFlatConfigItem['rules'];
-		yaml?: TypedFlatConfigItem['rules'];
-	};
 
 	/**
 	 * Core rules for styling. Can't be disabled.

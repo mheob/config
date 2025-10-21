@@ -12,8 +12,15 @@ import type {
 import { interopDefault, renameRules, toArray } from '../utils';
 
 /**
+ * Configures the ESLint rules for TypeScript.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for TypeScript projects,
+ * including the `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser`.
+ * It also configures the language options for the TypeScript files, including the parser,
+ * parser options, and source type.
+ *
+ * @param options - The options for configuring the TypeScript ESLint rules.
+ * @returns Promise that resolves once the TypeScript ESLint rules are configured.
  */
 export async function typescript(
 	options: OptionsComponentExtensions &
@@ -61,12 +68,6 @@ export async function typescript(
 		interopDefault(import('@typescript-eslint/parser')),
 	] as const);
 
-	/**
-	 *
-	 * @param typeAware
-	 * @param files
-	 * @param ignores
-	 */
 	function makeParser(
 		typeAware: boolean,
 		files: string[],

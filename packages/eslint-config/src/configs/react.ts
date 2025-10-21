@@ -21,8 +21,16 @@ const ReactRouterPackages = [
 const NextJsPackages = ['next'];
 
 /**
+ * Configures the ESLint rules for React.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for React projects,
+ * including the `@eslint-react/eslint-plugin`, `eslint-plugin-react-hooks`,
+ * `eslint-plugin-react-refresh`, and `@typescript-eslint/parser`. It also configures
+ * the language options for the React files, including the parser, parser options,
+ * and source type.
+ *
+ * @param options - The options for configuring the React ESLint rules.
+ * @returns Promise that resolves once the React ESLint rules are configured.
  */
 export async function react(
 	options: OptionsFiles & OptionsOverrides & OptionsTypeScriptWithTypes = {},
@@ -107,8 +115,6 @@ export async function react(
 
 				// recommended rules from eslint-plugin-react-hooks-extra https://eslint-react.xyz/docs/rules/overview#hooks-extra-rules
 				'react-hooks-extra/no-direct-set-state-in-use-effect': 'warn',
-				'react-hooks-extra/no-unnecessary-use-prefix': 'warn',
-				'react-hooks-extra/prefer-use-state-lazy-initialization': 'warn',
 
 				// recommended rules eslint-plugin-react-hooks https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks/src/rules
 				'react-hooks/exhaustive-deps': 'warn',
@@ -195,6 +201,7 @@ export async function react(
 				'react/no-set-state-in-component-did-update': 'warn',
 				'react/no-set-state-in-component-will-update': 'warn',
 				'react/no-string-refs': 'error',
+				'react/no-unnecessary-use-prefix': 'warn',
 				'react/no-unsafe-component-will-mount': 'warn',
 				'react/no-unsafe-component-will-receive-props': 'warn',
 				'react/no-unsafe-component-will-update': 'warn',
@@ -204,6 +211,7 @@ export async function react(
 				'react/no-unused-state': 'warn',
 				'react/no-use-context': 'warn',
 				'react/no-useless-forward-ref': 'warn',
+				'react/prefer-use-state-lazy-initialization': 'warn',
 
 				...overrides,
 			},

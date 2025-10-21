@@ -1,10 +1,13 @@
 import type { TypedFlatConfigItem } from '../types';
 
 /**
- * Sort package.json
- * Requires `jsonc` config
+ * Configures the ESLint rules for sorting package.json.
  *
- * @returns Configs.
+ * This function sets up the necessary ESLint rules for sorting package.json,
+ * including the rules for sorting package.json, including the jsonc/sort-array-values,
+ * jsonc/sort-keys, and the pathPattern.
+ *
+ * @returns Promise that resolves once the sorting package.json ESLint rules are configured.
  */
 export async function sortPackageJson(): Promise<TypedFlatConfigItem[]> {
 	return [

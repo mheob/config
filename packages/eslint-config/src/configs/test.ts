@@ -12,8 +12,17 @@ import { interopDefault } from '../utils';
 let _pluginTest: any;
 
 /**
+ * Configures the ESLint rules for testing.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins for testing,
+ * including the `@vitest/eslint-plugin` and `eslint-plugin-no-only-tests`.
+ * It also configures the rules for testing, including the node/prefer-global/process,
+ * test/consistent-test-it, test/no-identical-title, test/no-import-node-test,
+ * test/no-only-tests, test/prefer-hooks-in-order, test/prefer-lowercase-title,
+ * and the overrides.
+ *
+ * @param options - The options for configuring the testing ESLint rules.
+ * @returns Promise that resolves once the testing ESLint rules are configured.
  */
 export async function test(
 	options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {},

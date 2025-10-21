@@ -3,8 +3,20 @@ import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../typ
 import { interopDefault } from '../utils';
 
 /**
+ * Configures the ESLint rules for JSONC.
  *
- * @param options
+ * This function sets up the necessary ESLint plugin for JSONC,
+ * including the `eslint-plugin-jsonc`. It also configures the rules for JSONC,
+ * including the no-bigint-literals, no-binary-expression, no-binary-numeric-literals,
+ * no-dupe-keys, no-escape-sequence-in-identifier, no-floating-decimal,
+ * no-hexadecimal-numeric-literals, no-infinity, no-multi-str, no-nan,
+ * no-number-props, no-numeric-separators, no-octal, no-octal-escape,
+ * no-octal-numeric-literals, no-parenthesized, no-plus-sign, no-regexp-literals,
+ * no-sparse-arrays, no-template-literals, no-undefined-value, no-unicode-codepoint-escapes,
+ * no-useless-escape, sort-keys, space-unary-ops, and valid-json-number rules.
+ *
+ * @param options - The options for configuring the JSONC ESLint rules.
+ * @returns Promise that resolves once the JSONC ESLint rules are configured.
  */
 export async function jsonc(
 	options: OptionsFiles & OptionsOverrides = {},

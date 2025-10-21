@@ -8,8 +8,14 @@ import type {
 import { interopDefault } from '../utils';
 
 /**
+ * Configures the ESLint rules for Vue.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for Vue projects,
+ * including the `eslint-plugin-vue` and `vue-eslint-parser`. It also configures
+ * the language options for the Vue files, including the globals, parser, and parser options.
+ *
+ * @param options - The options for configuring the Vue ESLint rules.
+ * @returns Promise that resolves once the Vue ESLint rules are configured.
  */
 export async function vue(
 	options: OptionsFiles & OptionsHasTypeScript & OptionsOverrides = {},

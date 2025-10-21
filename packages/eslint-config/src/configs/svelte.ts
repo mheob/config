@@ -8,8 +8,15 @@ import type {
 import { ensurePackages, interopDefault } from '../utils';
 
 /**
+ * Configures the ESLint rules for Svelte.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for Svelte projects,
+ * including the `eslint-plugin-svelte` and `svelte-eslint-parser`. It also configures
+ * the language options for the Svelte files, including the parser, parser options,
+ * and source type.
+ *
+ * @param options - The options for configuring the Svelte ESLint rules.
+ * @returns Promise that resolves once the Svelte ESLint rules are configured.
  */
 export async function svelte(
 	options: OptionsFiles & OptionsHasTypeScript & OptionsOverrides = {},

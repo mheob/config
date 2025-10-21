@@ -4,8 +4,14 @@ import { pluginUnusedImports } from '../plugins';
 import type { OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types';
 
 /**
+ * Configures the ESLint rules for JavaScript.
  *
- * @param options
+ * This function sets up the necessary ESLint rules for JavaScript,
+ * including the rules for JavaScript, including the globals, parser,
+ * parser options, and source type.
+ *
+ * @param options - The options for configuring the JavaScript ESLint rules.
+ * @returns Promise that resolves once the JavaScript ESLint rules are configured.
  */
 export async function javascript(
 	options: OptionsIsInEditor & OptionsOverrides = {},

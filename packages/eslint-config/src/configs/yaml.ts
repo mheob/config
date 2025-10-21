@@ -3,8 +3,14 @@ import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../typ
 import { interopDefault } from '../utils';
 
 /**
+ * Configures the ESLint rules for YAML.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for YAML projects,
+ * including the `eslint-plugin-yml` and `yaml-eslint-parser`. It also configures
+ * the language options for the YAML files, including the parser.
+ *
+ * @param options - The options for configuring the YAML ESLint rules.
+ * @returns Promise that resolves once the YAML ESLint rules are configured.
  */
 export async function yaml(
 	options: OptionsFiles & OptionsOverrides = {},
