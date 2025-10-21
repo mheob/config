@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.14.4
+
+### Patch Changes
+
+- [#315](https://github.com/mheob/config/pull/315) ([@mheob](https://github.com/mheob)): Update React ESLint rules configuration.
+
 ## 8.14.3
 
 ### Patch Changes
