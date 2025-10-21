@@ -166,11 +166,11 @@ export async function react(
 				'react-web-api/no-leaked-resize-observer': 'warn',
 				'react-web-api/no-leaked-timeout': 'warn',
 
-				// recommended rules from eslint-plugin-react https://eslint-react.xyz/docs/rules/overview#core-rules
-				'react/jsx-no-duplicate-props': 'off',
-				'react/jsx-no-undef': 'off',
-				'react/jsx-uses-react': 'off',
-				'react/jsx-uses-vars': 'off',
+				// recommended rules from eslint-plugin-react-x https://eslint-react.xyz/docs/rules/overview#core-rules
+				'react/jsx-no-comment-textnodes': 'warn',
+				'react/jsx-no-duplicate-props': 'warn',
+				'react/jsx-uses-react': 'warn',
+				'react/jsx-uses-vars': 'warn',
 				'react/no-access-state-in-setstate': 'error',
 				'react/no-array-index-key': 'warn',
 				'react/no-children-count': 'warn',
@@ -179,7 +179,6 @@ export async function react(
 				'react/no-children-only': 'warn',
 				'react/no-children-to-array': 'warn',
 				'react/no-clone-element': 'warn',
-				'react/no-comment-textnodes': 'warn',
 				'react/no-component-will-mount': 'error',
 				'react/no-component-will-receive-props': 'error',
 				'react/no-component-will-update': 'error',
@@ -190,9 +189,7 @@ export async function react(
 				'react/no-duplicate-key': 'warn',
 				'react/no-forward-ref': 'warn',
 				'react/no-implicit-key': 'warn',
-				// 'react/no-leaked-conditional-rendering': 'warn', // deactivated because it is not working (parserOptions issue)
 				'react/no-missing-key': 'error',
-				'react/no-misused-capture-owner-stack': 'error',
 				'react/no-nested-component-definitions': 'error',
 				'react/no-nested-lazy-component-declarations': 'warn',
 				'react/no-prop-types': 'error',
