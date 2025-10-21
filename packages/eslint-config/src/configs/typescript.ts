@@ -68,6 +68,12 @@ export async function typescript(
 		interopDefault(import('@typescript-eslint/parser')),
 	] as const);
 
+	/**
+	 *
+	 * @param typeAware
+	 * @param files
+	 * @param ignores
+	 */
 	function makeParser(
 		typeAware: boolean,
 		files: string[],

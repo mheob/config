@@ -1,5 +1,11 @@
 # @mheob/commitlint-config
 
+## 1.2.5
+
+### Patch Changes
+
+- [#313](https://github.com/mheob/config/pull/313) ([@mheob](https://github.com/mheob)): fix issues after upgrade
+
 ## 1.2.4
 
 ### Patch Changes
