@@ -10,9 +10,10 @@ description: Create a git commit
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -10`
 
-## Your task
+## Your tasks
 
-Create changeset if needed (at least an empty changeset) and create a single git commit based on the above changes.
+- create changeset if needed (at least an empty changeset); write the change message in a full sentence
+- create a single git commit based on the above changes
 
 Use conventional commits with a title length of max 50 characters. See @commitlint.config.js for more details.
 
