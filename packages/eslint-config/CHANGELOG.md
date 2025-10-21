@@ -1,5 +1,11 @@
 # @mheob/eslint-config
 
+## 8.14.3
+
+### Patch Changes
+
+- [#313](https://github.com/mheob/config/pull/313) ([@mheob](https://github.com/mheob)): fix issues after upgrade
+
 ## 8.14.2
 
 ### Patch Changes

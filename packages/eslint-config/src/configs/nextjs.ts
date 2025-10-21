@@ -2,7 +2,10 @@ import { GLOB_SRC } from '../globs';
 import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
-// eslint-disable-next-line ts/no-explicit-any
+/**
+ *
+ * @param rules
+ */
 function normalizeRules(rules: Record<string, any>): Record<string, any> {
 	return Object.fromEntries(
 		Object.entries(rules).map(([key, value]) => [key, typeof value === 'string' ? [value] : value]),
