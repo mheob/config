@@ -32,11 +32,17 @@ const customSort = {
 } satisfies PerfectionistSortCustom;
 
 /**
- * Optional perfectionist plugin for props and items sorting.
+ * Configures the ESLint rules for perfectionist.
+ *
+ * This function sets up the necessary ESLint plugin for perfectionist,
+ * including the `eslint-plugin-perfectionist`. It also configures the rules for perfectionist,
+ * including the sort-array-includes, sort-classes, sort-enums, sort-exports, sort-imports,
+ * sort-interfaces, sort-intersection-types, sort-jsx-props, sort-maps, sort-named-exports,
+ * sort-named-imports, sort-object-types, sort-objects, and sort-union-types rules.
  *
  * @see https://github.com/azat-io/eslint-plugin-perfectionist
  *
- * @returns Perfectionist plugin
+ * @returns Promise that resolves once the perfectionist ESLint rules are configured.
  */
 export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 	return [

@@ -50,7 +50,7 @@ const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
 
 const VuePackages = ['vue', 'nuxt', 'vitepress'];
 
-export const defaultPluginRenaming = {
+const defaultPluginRenaming = {
 	'@eslint-react': 'react',
 	'@eslint-react/dom': 'react-dom',
 	'@eslint-react/hooks-extra': 'react-hooks-extra',
@@ -63,16 +63,16 @@ export const defaultPluginRenaming = {
 	yml: 'yaml',
 };
 
-export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
+type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
-export function resolveSubOptions<K extends keyof OptionsConfig>(
+function resolveSubOptions<K extends keyof OptionsConfig>(
 	options: OptionsConfig,
 	key: K,
 ): ResolvedOptions<OptionsConfig[K]> {
 	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || ({} as any);
 }
 
-export function getOverrides<K extends keyof OptionsConfig>(
+function getOverrides<K extends keyof OptionsConfig>(
 	options: OptionsConfig,
 	key: K,
 ): Partial<Linter.RulesRecord & RuleOptions> {

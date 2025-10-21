@@ -11,8 +11,13 @@ import type { PromptResult } from '../types';
 import { versionsMap } from '../versions-map.generated';
 
 /**
+ * Updates the package.json file to include the required dependencies for the selected frameworks.
  *
- * @param result
+ * This function reads the existing package.json file, updates the @mheob/eslint-config
+ * dependency version, and adds any additional dependencies required by the selected frameworks.
+ *
+ * @param result - The user's choices from the CLI prompt.
+ * @returns Promise that resolves once the package.json file is updated.
  */
 export async function updatePackageJson(result: PromptResult): Promise<void> {
 	const cwd = process.cwd();

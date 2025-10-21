@@ -25,8 +25,24 @@ export interface CliRunOptions {
 }
 
 /**
+ * Executes the CLI migration/setup wizard for eslint configuration.
  *
- * @param options
+ * This function guides the user through the setup or migration of ESLint config files,
+ * supporting various frameworks. It checks whether an `eslint.config.js` or `eslint.config.mjs`
+ * already exists in the current working directory and aborts if so. Optionally, it can skip prompts
+ * if `options.yes` or the `SKIP_PROMPT` environment variable is set.
+ *
+ * The flow offers the following stages:
+ *   1. Warn the user and abort if ESLint config already exists.
+ *   2. Prompt (or programmatically resolve, if `yes` is set) for:
+ *      - Whether to continue if there are uncommitted git changes.
+ *      - Which frameworks to include in the setup.
+ *      - Whether to update VSCode settings for recommended integration.
+ *   3. Applies updates by calling helper update stages for `package.json`, ESLint files, and VSCode settings.
+ *   4. Displays a success message describing next steps.
+ *
+ * @param options - CLI run options to control wizard behavior.
+ * @returns Promise that resolves once setup is complete.
  */
 export async function run(options: CliRunOptions = {}): Promise<void> {
 	const argumentSkipPrompt = Boolean(process.env.SKIP_PROMPT) || options.yes;

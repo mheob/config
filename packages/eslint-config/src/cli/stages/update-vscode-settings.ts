@@ -10,8 +10,13 @@ import { vscodeSettingsString } from '../constants';
 import type { PromptResult } from '../types';
 
 /**
+ * Updates the VSCode settings file to include the recommended ESLint configuration.
  *
- * @param result
+ * This function creates or updates the .vscode/settings.json file with the recommended
+ * ESLint configuration based on the user's choices.
+ *
+ * @param result - The user's choices from the CLI prompt.
+ * @returns Promise that resolves once the settings file is updated.
  */
 export async function updateVscodeSettings(result: PromptResult): Promise<void> {
 	const cwd = process.cwd();

@@ -10,8 +10,22 @@ import type {
 import { interopDefault, parserPlain } from '../utils';
 
 /**
+ * Configures the ESLint rules for Markdown.
  *
- * @param options
+ * This function sets up the necessary ESLint plugin for Markdown,
+ * including the `eslint-plugin-markdown`. It also configures the rules for Markdown,
+ * including the no-alert, no-console, no-labels, no-lone-blocks, no-restricted-syntax,
+ * no-undef, no-unused-expressions, no-unused-labels, no-unused-vars, node/prefer-global/process,
+ * ts/await-thenable, ts/consistent-type-imports, ts/dot-notation, ts/no-floating-promises,
+ * ts/no-for-in-array, ts/no-implied-eval, ts/no-misused-promises, ts/no-namespace,
+ * ts/no-redeclare, ts/no-require-imports, ts/no-throw-literal, ts/no-unnecessary-type-assertion,
+ * ts/no-unsafe-argument, ts/no-unsafe-assignment, ts/no-unsafe-call, ts/no-unsafe-member-access,
+ * ts/no-unsafe-return, ts/no-unused-vars, ts/no-use-before-define, ts/no-var-requires,
+ * ts/restrict-plus-operands, ts/restrict-template-expressions, ts/unbound-method, unicode-bom,
+ * unused-imports/no-unused-imports, and unused-imports/no-unused-vars rules.
+ *
+ * @param options - The options for configuring the Markdown ESLint rules.
+ * @returns Promise that resolves once the Markdown ESLint rules are configured.
  */
 export async function markdown(
 	options: OptionsComponentExtensions & OptionsFiles & OptionsOverrides = {},

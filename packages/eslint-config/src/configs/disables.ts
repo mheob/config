@@ -2,7 +2,17 @@ import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TSX } from '../globs';
 import type { TypedFlatConfigItem } from '../types';
 
 /**
+ * Configures the ESLint rules for disables.
  *
+ * This function sets up the necessary ESLint rules for disables,
+ * including the rules for disables, including the no-import-dist,
+ * no-import-node-modules-by-path, no-top-level-await, no-console,
+ * unicorn/no-process-exit, no-require-imports, antfu/no-top-level-await,
+ * no-console, ts/explicit-function-return-type, sort-imports,
+ * eslint-comments/no-unlimited-disable, no-restricted-syntax,
+ * unused-imports/no-unused-vars.
+ *
+ * @returns Promise that resolves once the disables ESLint rules are configured.
  */
 export async function disables(): Promise<TypedFlatConfigItem[]> {
 	return [

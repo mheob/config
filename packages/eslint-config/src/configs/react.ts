@@ -21,8 +21,16 @@ const ReactRouterPackages = [
 const NextJsPackages = ['next'];
 
 /**
+ * Configures the ESLint rules for React.
  *
- * @param options
+ * This function sets up the necessary ESLint plugins and parsers for React projects,
+ * including the `@eslint-react/eslint-plugin`, `eslint-plugin-react-hooks`,
+ * `eslint-plugin-react-refresh`, and `@typescript-eslint/parser`. It also configures
+ * the language options for the React files, including the parser, parser options,
+ * and source type.
+ *
+ * @param options - The options for configuring the React ESLint rules.
+ * @returns Promise that resolves once the React ESLint rules are configured.
  */
 export async function react(
 	options: OptionsFiles & OptionsOverrides & OptionsTypeScriptWithTypes = {},

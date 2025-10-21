@@ -12,8 +12,14 @@ import type { PromptResult } from '../types';
 import { getEslintConfigContent } from '../utils';
 
 /**
+ * Updates the ESLint configuration files based on the user's choices.
  *
- * @param result
+ * This function reads the existing .eslintignore file (if it exists),
+ * processes it to extract ignored patterns, and generates a new ESLint
+ * configuration file based on the selected frameworks.
+ *
+ * @param result - The user's choices from the CLI prompt.
+ * @returns Promise that resolves once the configuration files are updated.
  */
 export async function updateEslintFiles(result: PromptResult): Promise<void> {
 	const cwd = process.cwd();
