@@ -1,5 +1,15 @@
 # @mheob/eslint-config
 
+## 8.14.5
+
+### Patch Changes
+
+- [#317](https://github.com/mheob/config/pull/317) ([@mheob](https://github.com/mheob)): Updated JSDoc rules:
+  - Added explicit file targeting with GLOB_JS and GLOB_TS
+  - Switched from flat/recommended to flat/recommended-typescript config
+  - Removed jsdoc/no-restricted-syntax rule
+  - Updated jsdoc/require-jsdoc to not require JSDoc on ArrowFunctionExpression or FunctionDeclaration
+
 ## 8.14.4
 
 ### Patch Changes
