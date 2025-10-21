@@ -12,7 +12,7 @@ description: Create a git commit
 
 ## Your tasks
 
-- create changeset if needed (at least an empty changeset); write the change message in a full sentence
+- create changeset if needed (at least an empty changeset); don't write the change message too short
 - create a single git commit based on the above changes
 
 Use conventional commits with a title length of max 50 characters. See @commitlint.config.js for more details.
