@@ -17,6 +17,7 @@ const versions: Record<string, string> = Object.fromEntries(
 			}
 			return [name, version];
 		})
+		// eslint-disable-next-line unicorn/no-array-sort
 		.sort((a, b) => a[0].localeCompare(b[0])),
 );
 

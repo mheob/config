@@ -5,8 +5,8 @@ This is a monorepo containing shareable configuration packages for various devel
 ## Project Structure
 
 - **Monorepo Manager**: Turborepo with pnpm workspaces
-- **Package Manager**: pnpm@10.18.1
-- **Node Version**: >=22.20.0
+- **Package Manager**: pnpm@10.22.0
+- **Node Version**: ^22.12.0 || ^24.0.0
 - **License**: MIT
 
 ## Available Packages
