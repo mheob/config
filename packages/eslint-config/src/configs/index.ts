@@ -16,6 +16,7 @@ export * from './prettier';
 export * from './react';
 export * from './regexp';
 export * from './sort';
+export * from './stylistic';
 export * from './svelte';
 export * from './test';
 export * from './toml';

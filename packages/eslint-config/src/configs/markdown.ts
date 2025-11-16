@@ -27,6 +27,7 @@ export async function markdown(
 	if (!markdown.processors?.markdown) {
 		throw new Error('@eslint/markdown processors.markdown is not available');
 	}
+
 	const mergedProcessors = mergeProcessors([markdown.processors.markdown, processorPassThrough]);
 
 	return [

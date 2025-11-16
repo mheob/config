@@ -18,9 +18,11 @@ function getPackagesFromPath(...directoryPaths: string[]): string[] {
 
 	for (const directoryPath of directoryPaths) {
 		const path = nodePath.resolve(process.cwd(), directoryPath);
+
 		if (!existsSync(path)) continue;
-		const packages = readdirSync(path);
-		packages.push(...packages);
+		const packagesInPath = readdirSync(path);
+
+		packages.push(...packagesInPath);
 	}
 
 	return packages;
@@ -34,6 +36,7 @@ function getPackagesFromPath(...directoryPaths: string[]): string[] {
 function getScopes(): string[] {
 	const defaultScopes = ['deps', 'release', 'repo'];
 	const packages = getPackagesFromPath('apps', 'packages');
+
 	return [...defaultScopes, ...packages];
 }
 
@@ -47,6 +50,7 @@ function getScopes(): string[] {
 function getIssue(): string | undefined {
 	const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 	const firstNamePart = branchName.split('-')[0];
+
 	return firstNamePart && Number.parseInt(firstNamePart) ? `#${firstNamePart}` : undefined;
 }
 

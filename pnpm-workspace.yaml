@@ -18,6 +18,7 @@ catalog:
   "@eslint/markdown": ^7.5.1
   "@mheob/changeset-changelog": ^3.0.2
   "@next/eslint-plugin-next": ^16.0.3
+  "@stylistic/eslint-plugin": ^5.5.0
   "@types/node": ^24.10.1
   "@types/yargs": ^17.0.35
   "@typescript-eslint/eslint-plugin": ^8.46.4

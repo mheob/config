@@ -223,6 +223,13 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	solid?: boolean | OptionsOverrides;
 
 	/**
+	 * Enable stylistic rules.
+	 *
+	 * @default true
+	 */
+	stylistic?: boolean | OptionsOverrides;
+
+	/**
 	 * Enable svelte rules.
 	 *
 	 * Requires installing:
