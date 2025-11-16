@@ -1,5 +1,40 @@
 # @mheob/eslint-config
 
+## 9.0.0
+
+### Major Changes
+
+- [#327](https://github.com/mheob/config/pull/327) ([@mheob](https://github.com/mheob)): Add `@stylistic/eslint-plugin` for enhanced code formatting rules
+  - Added `@stylistic/eslint-plugin` dependency for comprehensive formatting and style rules
+  - Created new stylistic configuration module with opinionated formatting defaults
+  - Integrated stylistic config into the factory (enabled by default)
+  - Added stylistic option to factory configuration for opt-out control
+  - Updated type definitions with complete @stylistic rule types
+  - Improved code style consistency across JavaScript, TypeScript, and JSX/TSX files
+
+  BREAKING CHANGE: Will adds empty lines in the codebase
+
+### Minor Changes
+
+- [#324](https://github.com/mheob/config/pull/324) ([@mheob](https://github.com/mheob)): Add TOML formatting support and migrate to @eslint/markdown plugin
+  - Added prettier-plugin-toml for TOML file formatting support
+  - Migrated from eslint-plugin-markdown to @eslint/markdown for improved markdown linting
+  - Updated markdown config to support JSON code blocks in markdown files
+  - Improved markdown glob patterns and rule configurations
+  - Fixed unicorn/filename-case rule conflicts with markdown files
+  - Updated dependencies and version map for latest plugin versions
+
+### Patch Changes
+
+- [#326](https://github.com/mheob/config/pull/326) ([@mheob](https://github.com/mheob)): Update dependencies and improve configuration
+  - Update pnpm to 10.22.0
+  - Add Node.js 24 support (^22.12.0 || ^24.0.0)
+  - Change package exports to use .mjs extension for better ESM compatibility
+  - Update dependency versions (eslint-plugin-astro, @eslint-react, @next/eslint-plugin-next, etc.)
+  - Fix JSDoc comments by removing empty comment blocks
+  - Improve unicorn/filename-case rule to ignore markdown files
+  - Update type definitions for latest plugin versions
+
 ## 8.14.5
 
 ### Patch Changes
