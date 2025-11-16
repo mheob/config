@@ -1,5 +1,5 @@
 ---
-allowed-tools: ash(cat*), Bash(git add:*), Bash(git commit:*), Bash(git log:*), Bash(git status:*), Bash(pnpm changeset:*)
+allowed-tools: Bash(cat*), Bash(git add:*), Bash(git commit:*), Bash(git log:*), Bash(git status:*), Bash(pnpm changeset:*)
 description: Create a git commit
 ---
 

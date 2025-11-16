@@ -7,6 +7,7 @@
 			"dependsOn": ["gen", "^build"],
 			"outputs": ["dist/**", ".turbo/**"]
 		},
+		"clean": {},
 		"gen": {
 			"dependsOn": ["typegen", "versiongen"],
 			"outputs": ["src/typegen.d.ts", "src/cli/versions-map.generated.ts"]

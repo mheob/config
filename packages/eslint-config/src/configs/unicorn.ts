@@ -1,4 +1,4 @@
-import { GLOB_MARKDOWN, GLOB_REACT } from '../globs';
+import { GLOB_REACT } from '../globs';
 import { pluginUnicorn } from '../plugins';
 import type { OptionsOverrides, TypedFlatConfigItem } from '../types';
 
@@ -23,15 +23,7 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 			rules: {
 				...pluginUnicorn.configs.recommended.rules,
 
-				'unicorn/filename-case': [
-					'error',
-					{
-						cases: {
-							kebabCase: true,
-						},
-						ignore: [/readme\.md$/i],
-					},
-				],
+				'unicorn/filename-case': ['error', { cases: { kebabCase: true } }],
 				'unicorn/no-array-reduce': 'off',
 				'unicorn/no-negated-condition': 'off',
 				'unicorn/no-null': 'off',
@@ -71,13 +63,6 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 						},
 					},
 				],
-			},
-		},
-		{
-			files: [GLOB_MARKDOWN, `${GLOB_MARKDOWN}/**/*`],
-			name: 'mheob/unicorn/rules/markdown',
-			rules: {
-				'unicorn/filename-case': 'off',
 			},
 		},
 	];

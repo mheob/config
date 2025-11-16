@@ -1,6 +1,11 @@
 import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors';
 
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../globs';
+import {
+	GLOB_MARKDOWN,
+	GLOB_MARKDOWN_CODE,
+	GLOB_MARKDOWN_IN_MARKDOWN,
+	GLOB_MARKDOWN_JSON,
+} from '../globs';
 import type {
 	OptionsComponentExtensions,
 	OptionsFiles,
@@ -9,31 +14,20 @@ import type {
 } from '../types';
 import { interopDefault, parserPlain } from '../utils';
 
-/**
- * Configures the ESLint rules for Markdown.
- *
- * This function sets up the necessary ESLint plugin for Markdown,
- * including the `eslint-plugin-markdown`. It also configures the rules for Markdown,
- * including the no-alert, no-console, no-labels, no-lone-blocks, no-restricted-syntax,
- * no-undef, no-unused-expressions, no-unused-labels, no-unused-vars, node/prefer-global/process,
- * ts/await-thenable, ts/consistent-type-imports, ts/dot-notation, ts/no-floating-promises,
- * ts/no-for-in-array, ts/no-implied-eval, ts/no-misused-promises, ts/no-namespace,
- * ts/no-redeclare, ts/no-require-imports, ts/no-throw-literal, ts/no-unnecessary-type-assertion,
- * ts/no-unsafe-argument, ts/no-unsafe-assignment, ts/no-unsafe-call, ts/no-unsafe-member-access,
- * ts/no-unsafe-return, ts/no-unused-vars, ts/no-use-before-define, ts/no-var-requires,
- * ts/restrict-plus-operands, ts/restrict-template-expressions, ts/unbound-method, unicode-bom,
- * unused-imports/no-unused-imports, and unused-imports/no-unused-vars rules.
- *
- * @param options - The options for configuring the Markdown ESLint rules.
- * @returns Promise that resolves once the Markdown ESLint rules are configured.
- */
 export async function markdown(
 	options: OptionsComponentExtensions & OptionsFiles & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
 	const { componentExtensions = [], files = [GLOB_MARKDOWN], overrides = {} } = options;
 
-	// @ts-expect-error missing types
-	const markdown = await interopDefault(import('eslint-plugin-markdown'));
+	const markdown = await interopDefault(import('@eslint/markdown'));
+
+	// `@eslint/markdown` only creates virtual files for code blocks,
+	// but not the markdown file itself. We use `eslint-merge-processors` to
+	// add a pass-through processor for the markdown file itself.
+	if (!markdown.processors?.markdown) {
+		throw new Error('@eslint/markdown processors.markdown is not available');
+	}
+	const mergedProcessors = mergeProcessors([markdown.processors.markdown, processorPassThrough]);
 
 	return [
 		{
@@ -46,10 +40,7 @@ export async function markdown(
 			files,
 			ignores: [GLOB_MARKDOWN_IN_MARKDOWN],
 			name: 'mheob/markdown/processor',
-			// `eslint-plugin-markdown` only creates virtual files for code blocks,
-			// but not the markdown file itself. We use `eslint-merge-processors` to
-			// add a pass-through processor for the markdown file itself.
-			processor: mergeProcessors([markdown.processors.markdown, processorPassThrough]),
+			processor: mergedProcessors,
 		},
 		{
 			files,
@@ -61,6 +52,7 @@ export async function markdown(
 		{
 			files: [
 				GLOB_MARKDOWN_CODE,
+				GLOB_MARKDOWN_JSON,
 				...componentExtensions.map(extension => `${GLOB_MARKDOWN}/**/*.${extension}`),
 			],
 			languageOptions: {
@@ -72,6 +64,7 @@ export async function markdown(
 			},
 			name: 'mheob/markdown/disables',
 			rules: {
+				'jsonc/sort-keys': 'off',
 				'no-alert': 'off',
 				'no-console': 'off',
 				'no-labels': 'off',
@@ -81,9 +74,7 @@ export async function markdown(
 				'no-unused-expressions': 'off',
 				'no-unused-labels': 'off',
 				'no-unused-vars': 'off',
-
 				'node/prefer-global/process': 'off',
-
 				'ts/await-thenable': 'off',
 				'ts/consistent-type-imports': 'off',
 				'ts/dot-notation': 'off',
@@ -91,12 +82,9 @@ export async function markdown(
 				'ts/no-for-in-array': 'off',
 				'ts/no-implied-eval': 'off',
 				'ts/no-misused-promises': 'off',
-
 				'ts/no-namespace': 'off',
 				'ts/no-redeclare': 'off',
 				'ts/no-require-imports': 'off',
-
-				// Type aware rules
 				'ts/no-throw-literal': 'off',
 				'ts/no-unnecessary-type-assertion': 'off',
 				'ts/no-unsafe-argument': 'off',
@@ -111,6 +99,7 @@ export async function markdown(
 				'ts/restrict-template-expressions': 'off',
 				'ts/unbound-method': 'off',
 				'unicode-bom': 'off',
+				'unicorn/filename-case': 'off',
 				'unused-imports/no-unused-imports': 'off',
 				'unused-imports/no-unused-vars': 'off',
 

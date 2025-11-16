@@ -2,6 +2,8 @@
 import type { Config } from 'prettier';
 
 const options: Config = {
+	plugins: ['prettier-plugin-toml'],
+
 	arrowParens: 'avoid',
 	endOfLine: 'lf',
 	printWidth: 100,
@@ -13,11 +15,9 @@ const options: Config = {
 
 	overrides: [
 		{
-			files: '**/*.{yaml,yml}',
+			files: '{.cspell,tsconfig}*.json',
 			options: {
-				printWidth: 130,
-				singleQuote: false,
-				useTabs: false,
+				parser: 'jsonc',
 			},
 		},
 		{
@@ -25,6 +25,14 @@ const options: Config = {
 			options: {
 				parser: 'markdown',
 				printWidth: 130,
+			},
+		},
+		{
+			files: '*.{yaml,yml}',
+			options: {
+				printWidth: 130,
+				singleQuote: false,
+				useTabs: false,
 			},
 		},
 	],
