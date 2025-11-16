@@ -17,6 +17,7 @@ export async function interopDefault<T>(
 	m: Awaitable<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
 	const resolved = await m;
+
 	// eslint-disable-next-line ts/no-explicit-any
 	return (resolved as any).default ?? resolved;
 }
@@ -37,6 +38,7 @@ export async function ensurePackages(packages: (string | undefined)[]): Promise<
 	}
 
 	const nonExistingPackages = packages.filter(i => i && !isPackageExists(i)) as string[];
+
 	if (nonExistingPackages.length === 0) {
 		return;
 	}

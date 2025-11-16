@@ -55,6 +55,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 
 	if (configFileExists(['eslint.config.js', 'eslint.config.mjs'])) {
 		p.log.warn(c.yellow`eslint.config.js already exists, migration wizard exited.`);
+
 		return process.exit(1);
 	}
 

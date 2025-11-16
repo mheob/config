@@ -24,6 +24,7 @@ import {
 	sortPackageJson,
 	sortPnpmWorkspaceYaml,
 	sortTsconfig,
+	stylistic,
 	svelte,
 	test,
 	toml,
@@ -77,6 +78,7 @@ function getOverrides<K extends keyof OptionsConfig>(
 	key: K,
 ): Partial<Linter.RulesRecord & RuleOptions> {
 	const sub = resolveSubOptions(options, key);
+
 	return {
 		...(options.overrides as any)?.[key],
 		...('overrides' in sub ? sub.overrides : {}),
@@ -105,6 +107,7 @@ export function mheob(
 	} = options;
 
 	let isInEditor = options.isInEditor;
+
 	if (isInEditor == null) {
 		isInEditor = isInEditorEnv();
 		if (isInEditor)
@@ -181,6 +184,10 @@ export function mheob(
 		configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp));
 	}
 
+	if (options.stylistic ?? true) {
+		configs.push(stylistic({ overrides: getOverrides(options, 'stylistic') }));
+	}
+
 	if (options.svelte ?? false) {
 		configs.push(
 			svelte({
@@ -250,6 +257,7 @@ export function mheob(
 		if (key in options) {
 			accumulator[key] = options[key] as any;
 		}
+
 		return accumulator;
 	}, {} as TypedFlatConfigItem);
 

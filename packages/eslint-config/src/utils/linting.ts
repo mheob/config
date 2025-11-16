@@ -74,6 +74,7 @@ export function renamePluginInConfigs(
 					if (key in map) {
 						return [map[key], value];
 					}
+
 					return [key, value];
 				}),
 			);

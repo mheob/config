@@ -41,6 +41,7 @@
 		"@clack/prompts": "catalog:",
 		"@eslint-community/eslint-plugin-eslint-comments": "catalog:",
 		"@eslint/markdown": "catalog:",
+		"@stylistic/eslint-plugin": "catalog:",
 		"@typescript-eslint/eslint-plugin": "catalog:",
 		"@typescript-eslint/parser": "catalog:",
 		"@vitest/eslint-plugin": "catalog:",

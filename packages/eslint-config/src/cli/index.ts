@@ -29,6 +29,7 @@ cli
 	)
 	.action(async args => {
 		header();
+
 		try {
 			await run(args);
 		} catch (error) {

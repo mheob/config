@@ -29,6 +29,7 @@ export async function updateEslintFiles(result: PromptResult): Promise<void> {
 	const pathFlatConfig = path.join(cwd, configFileName);
 
 	const eslintIgnores: string[] = [];
+
 	if (fs.existsSync(pathESLintIgnore)) {
 		p.log.step(c.cyan`Migrating existing .eslintignore`);
 		const content = await fsp.readFile(pathESLintIgnore, 'utf8');
@@ -58,6 +59,7 @@ export async function updateEslintFiles(result: PromptResult): Promise<void> {
 
 	const files = fs.readdirSync(cwd);
 	const legacyConfig: string[] = [];
+
 	for (const file of files) {
 		if (/eslint|prettier/.test(file) && !/eslint\.config\./.test(file)) legacyConfig.push(file);
 	}
