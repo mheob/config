@@ -13,7 +13,7 @@ import { versionsMap } from '../versions-map.generated';
 /**
  * Updates the package.json file to include the required dependencies for the selected frameworks.
  *
- * This function reads the existing package.json file, updates the @mheob/eslint-config
+ * This function reads the existing package.json file, updates the `@mheob/eslint-config`
  * dependency version, and adds any additional dependencies required by the selected frameworks.
  *
  * @param result - The user's choices from the CLI prompt.

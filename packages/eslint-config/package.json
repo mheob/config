@@ -17,11 +17,11 @@
 	"author": "Alexander Böhm <tools@boehm.work>",
 	"type": "module",
 	"exports": {
-		".": "./dist/index.js"
+		".": "./dist/index.mjs"
 	},
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"bin": "./bin/index.js",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"bin": "./bin/index.mjs",
 	"files": [
 		"bin",
 		"dist"
@@ -141,7 +141,7 @@
 		}
 	},
 	"engines": {
-		"node": ">=22.12.0"
+		"node": "^22.12.0 || ^24.0.0"
 	},
 	"publishConfig": {
 		"access": "public"

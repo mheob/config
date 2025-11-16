@@ -23,7 +23,7 @@ export async function unicorn(options: OptionsOverrides = {}): Promise<TypedFlat
 			rules: {
 				...pluginUnicorn.configs.recommended.rules,
 
-				'unicorn/filename-case': ['error', { cases: { kebabCase: true } }],
+				'unicorn/filename-case': ['error', { cases: { kebabCase: true }, ignore: [/.md$/i] }],
 				'unicorn/no-array-reduce': 'off',
 				'unicorn/no-negated-condition': 'off',
 				'unicorn/no-null': 'off',
