@@ -25,6 +25,9 @@
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
 		"lint": "eslint src/**/* --fix"
 	},
+	"dependencies": {
+		"prettier-plugin-toml": "catalog:"
+	},
 	"devDependencies": {
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",

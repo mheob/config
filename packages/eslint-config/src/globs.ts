@@ -29,6 +29,7 @@ export const GLOB_YAML = '**/*.y?(a)ml';
 
 export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`;
 export const GLOB_MARKDOWN_IN_MARKDOWN = '**/*.md/*.md';
+export const GLOB_MARKDOWN_JSON = `${GLOB_MARKDOWN}/**/*.{json,json5,jsonc}`;
 
 export const GLOB_TESTS = [
 	`**/__tests__/**/*.${GLOB_SRC_EXT}`,

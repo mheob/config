@@ -17,9 +17,10 @@ export async function toml(
 ): Promise<TypedFlatConfigItem[]> {
 	const { files = [GLOB_TOML], overrides = {} } = options;
 
-	const [pluginToml, parserToml] = await Promise.all([
+	const [pluginToml, parserToml, _prettierParser] = await Promise.all([
 		interopDefault(import('eslint-plugin-toml')),
 		interopDefault(import('toml-eslint-parser')),
+		interopDefault(import('prettier-plugin-toml')),
 	] as const);
 
 	return [

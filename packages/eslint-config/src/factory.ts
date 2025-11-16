@@ -159,15 +159,6 @@ export function mheob(
 		configs.push(jsx());
 	}
 
-	if (options.markdown ?? true) {
-		configs.push(
-			markdown({
-				componentExtensions,
-				overrides: getOverrides(options, 'markdown'),
-			}),
-		);
-	}
-
 	if (options.nextjs ?? false) {
 		configs.push(
 			nextjs({
@@ -239,6 +230,16 @@ export function mheob(
 
 	if (options.yaml ?? true) {
 		configs.push(yaml({ overrides: getOverrides(options, 'yaml') }), sortPnpmWorkspaceYaml());
+	}
+
+	// Markdown should be last to avoid conflicts with other configs
+	if (options.markdown ?? true) {
+		configs.push(
+			markdown({
+				componentExtensions,
+				overrides: getOverrides(options, 'markdown'),
+			}),
+		);
 	}
 
 	configs.push(prettier({ overrides: getOverrides(options, 'prettier') }), disables());

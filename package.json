@@ -42,12 +42,13 @@
 		"husky": "catalog:",
 		"lint-staged": "catalog:",
 		"prettier": "catalog:",
+		"prettier-plugin-toml": "catalog:",
 		"ts-node": "catalog:",
 		"turbo": "catalog:",
 		"typescript": "catalog:"
 	},
 	"packageManager": "pnpm@10.21.0",
 	"engines": {
-		"node": ">=22.20.0"
+		"node": ">=22.21.1"
 	}
 }

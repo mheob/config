@@ -530,6 +530,7 @@ This is to prevent unused imports from getting removed by the editor during refa
 import mheob from '@mheob/eslint-config';
 
 export default mheob({
+	ignore: false,
 	isInEditor: false,
 });
 ```
@@ -540,11 +541,11 @@ If you want to apply lint and auto-fix before every commit, you can add the foll
 
 ```json
 {
-	"simple-git-hooks": {
-		"pre-commit": "pnpm lint-staged"
-	},
 	"lint-staged": {
 		"*": "eslint --fix"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm lint-staged"
 	}
 }
 ```
