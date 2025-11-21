@@ -1,5 +1,18 @@
 # @mheob/eslint-config
 
+## 9.0.1
+
+### Patch Changes
+
+- [#328](https://github.com/mheob/config/pull/328) ([@mheob](https://github.com/mheob)): Refactor stylistic padding rules to reduce empty lines
+  - Remove padding rules for variable declarations (const, let, var)
+  - Remove padding rules for block-like statements and return statements
+  - Add padding rules for export statements (blank lines between exports)
+  - Add padding rules for function declarations (blank lines around functions)
+  - Add `@stylistic/lines-between-class-members` rule requiring blank lines between class members
+
+- [#330](https://github.com/mheob/config/pull/330) ([@mheob](https://github.com/mheob)): Remove redundant padding line rules for exports and between consecutive functions. The existing rules for padding before/after functions already ensure proper spacing, making the removed rules unnecessary and potentially conflicting.
+
 ## 9.0.0
 
 ### Major Changes
