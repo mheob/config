@@ -26,11 +26,6 @@ export async function stylistic(
 					{ blankLine: 'always', next: '*', prev: 'directive' },
 					{ blankLine: 'any', next: 'directive', prev: 'directive' },
 
-					{ blankLine: 'always', next: 'export', prev: 'export' },
-					{ blankLine: 'always', next: '*', prev: 'export' },
-					{ blankLine: 'always', next: 'export', prev: '*' },
-
-					{ blankLine: 'always', next: 'function', prev: 'function' },
 					{ blankLine: 'always', next: '*', prev: 'function' },
 					{ blankLine: 'always', next: 'function', prev: '*' },
 				],
