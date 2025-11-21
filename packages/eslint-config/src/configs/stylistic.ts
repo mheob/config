@@ -20,18 +20,19 @@ export async function stylistic(
 			files,
 			name: 'mheob/stylistic/rules',
 			rules: {
+				'@stylistic/lines-between-class-members': ['error', 'always'],
 				'@stylistic/padding-line-between-statements': [
 					'warn',
 					{ blankLine: 'always', next: '*', prev: 'directive' },
 					{ blankLine: 'any', next: 'directive', prev: 'directive' },
 
-					{ blankLine: 'always', next: '*', prev: ['const', 'let', 'var'] },
-					{ blankLine: 'any', next: ['const', 'let', 'var'], prev: ['const', 'let', 'var'] },
+					{ blankLine: 'always', next: 'export', prev: 'export' },
+					{ blankLine: 'always', next: '*', prev: 'export' },
+					{ blankLine: 'always', next: 'export', prev: '*' },
 
-					{ blankLine: 'always', next: '*', prev: 'block-like' },
-					{ blankLine: 'always', next: 'block-like', prev: '*' },
-
-					{ blankLine: 'always', next: 'return', prev: '*' },
+					{ blankLine: 'always', next: 'function', prev: 'function' },
+					{ blankLine: 'always', next: '*', prev: 'function' },
+					{ blankLine: 'always', next: 'function', prev: '*' },
 				],
 
 				...overrides,
