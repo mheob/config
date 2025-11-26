@@ -60,4 +60,3 @@ jobs:
           version: pnpm run version-packages
         env:
           GITHUB_TOKEN: ${{ secrets.MACHINE_USER_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
