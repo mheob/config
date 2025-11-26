@@ -12,10 +12,9 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
+  id-token: write # Required for OIDC
   contents: write
-  issues: write
   pull-requests: write
-  packages: write
 
 jobs:
   release:
@@ -23,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
         with:
           token: ${{ secrets.MACHINE_USER_TOKEN }}
 
