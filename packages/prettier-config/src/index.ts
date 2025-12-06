@@ -1,8 +1,9 @@
 /* eslint-disable perfectionist/sort-objects */
 import type { Config } from 'prettier';
+import pluginToml from 'prettier-plugin-toml';
 
 const options: Config = {
-	plugins: ['prettier-plugin-toml'],
+	plugins: [pluginToml],
 
 	arrowParens: 'avoid',
 	endOfLine: 'lf',
@@ -15,7 +16,7 @@ const options: Config = {
 
 	overrides: [
 		{
-			files: '{.cspell,tsconfig}*.json',
+			files: '**/{.cspell,tsconfig}*.json',
 			options: {
 				parser: 'jsonc',
 			},
@@ -28,7 +29,7 @@ const options: Config = {
 			},
 		},
 		{
-			files: '*.{yaml,yml}',
+			files: '**/*.{yaml,yml}',
 			options: {
 				printWidth: 130,
 				singleQuote: false,
