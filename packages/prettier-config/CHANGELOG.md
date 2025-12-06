@@ -1,5 +1,17 @@
 # @mheob/prettier-config
 
+## 3.5.0
+
+### Minor Changes
+
+- [#332](https://github.com/mheob/config/pull/332) ([@mheob](https://github.com/mheob)): Improve Prettier configuration
+  - Import prettier-plugin-toml directly instead of using a string reference for better type safety and explicit dependency resolution
+  - Fix markdown files glob pattern from `**/*.md` to `*.md` to match files correctly
+
+### Patch Changes
+
+- [#334](https://github.com/mheob/config/pull/334) ([@mheob](https://github.com/mheob)): Update all dependencies to their latest versions for improved compatibility and bug fixes.
+
 ## 3.4.0
 
 ### Minor Changes
