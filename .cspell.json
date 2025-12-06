@@ -1,9 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-	"version": "0.2",
-	"import": ["@cspell/dict-de-de/cspell-ext.json"],
 	"enabled": true,
-	"language": "en,de,lorem",
 	"ignorePaths": [
 		".git",
 		"**/bun.lockb",
@@ -12,9 +9,14 @@
 		"**/logs",
 		"**/node_modules",
 		"**/package.json",
+		"**/pnpm-lock.yaml",
+		"**/pnpm-workspace.yaml",
 		"**/turbo.json",
-		"packages/eslint-config/src/typegen.d.ts"
+		"packages/eslint-config/src/typegen.d.ts",
 	],
+	"import": ["@cspell/dict-de-de/cspell-ext.json"],
+	"language": "en,de,lorem",
+	"version": "0.2",
 	"words": [
 		"antfu",
 		"astro",
@@ -23,6 +25,7 @@
 		"bunx",
 		"codebases",
 		"codemod",
+		"ecma",
 		"ependencies",
 		"github",
 		"innerhtml",
@@ -35,6 +38,7 @@
 		"nonconstructor",
 		"nonwords",
 		"nuxt",
+		"NVIM",
 		"Parens",
 		"pcss",
 		"preconfigured",
@@ -45,9 +49,10 @@
 		"textnodes",
 		"trivago",
 		"tsup",
+		"turborepo",
 		"unocss",
 		"vitepress",
 		"vuejs",
-		"yoda"
-	]
+		"yoda",
+	],
 }

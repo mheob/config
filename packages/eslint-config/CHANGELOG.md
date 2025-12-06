@@ -90,7 +90,7 @@
 
 ### Patch Changes
 
-- [#303](https://github.com/mheob/config/pull/303) ([@mheob](https://github.com/mheob)): Use ecmaVersion 'latest'. It is ESLint's docs recommendation and fixes support for import attributes.
+- [#303](https://github.com/mheob/config/pull/303) ([@mheob](https://github.com/mheob)): Use `ecmaVersion` 'latest'. It is ESLint's docs recommendation and fixes support for import attributes.
 
 - [#301](https://github.com/mheob/config/pull/301) ([@renovate](https://github.com/apps/renovate)): update dependency eslint-plugin-jsdoc to v57
 
@@ -118,7 +118,7 @@
 
 ### Patch Changes
 
-- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major deoendencies
+- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major dependencies
 
 ## 8.11.0
 
@@ -140,7 +140,7 @@
 
 ### Minor Changes
 
-- [#273](https://github.com/mheob/config/pull/273) ([@mheob](https://github.com/mheob)): remove unecessarry `eslint-plugin-import-x` plugin
+- [#273](https://github.com/mheob/config/pull/273) ([@mheob](https://github.com/mheob)): remove unnecessary `eslint-plugin-import-x` plugin
 
 ### Patch Changes
 
@@ -220,11 +220,11 @@
 
 ### Minor Changes
 
-- [#240](https://github.com/mheob/config/pull/240) ([@mheob](https://github.com/mheob)): add vue-a11y rules, synchronize react recommand rules
+- [#240](https://github.com/mheob/config/pull/240) ([@mheob](https://github.com/mheob)): add vue-a11y rules, synchronize react recommend rules
 
 ### Patch Changes
 
-- [#242](https://github.com/mheob/config/pull/242) ([@mheob](https://github.com/mheob)): update dependencies, espacially `typescript` and fix new issues
+- [#242](https://github.com/mheob/config/pull/242) ([@mheob](https://github.com/mheob)): update dependencies, especially `typescript` and fix new issues
 
 ## 8.3.0
 
@@ -284,7 +284,7 @@
 
 ### Major Changes
 
-- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): add the newest rules, espacially a new sorting system which has breaking changes
+- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): add the newest rules, especially a new sorting system which has breaking changes
 
 ### Patch Changes
 

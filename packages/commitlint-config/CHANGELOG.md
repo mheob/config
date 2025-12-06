@@ -10,7 +10,7 @@
 
 ### Patch Changes
 
-- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major deoendencies
+- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major dependencies
 
 ## 1.2.3
 

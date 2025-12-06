@@ -1,3 +1,5 @@
+// cspell:words canonicalurl, fetchcontent, getentrybyslug
+
 import { GLOB_ASTRO } from '../globs';
 import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
