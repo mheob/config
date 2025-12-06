@@ -1,5 +1,17 @@
 # @mheob/eslint-config
 
+## 9.1.0
+
+### Minor Changes
+
+- [#334](https://github.com/mheob/config/pull/334) ([@mheob](https://github.com/mheob)): Improve pnpm-workspace.yaml sorting
+
+  Reorder `pnpm-workspace.yaml` sort keys to place catalog-related fields (`catalogMode`, `catalog`, `catalogs`) in a more logical position alongside other dependency management fields.
+
+### Patch Changes
+
+- [#334](https://github.com/mheob/config/pull/334) ([@mheob](https://github.com/mheob)): Update all dependencies to their latest versions for improved compatibility and bug fixes.
+
 ## 9.0.1
 
 ### Patch Changes
