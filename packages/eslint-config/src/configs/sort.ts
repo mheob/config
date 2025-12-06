@@ -157,6 +157,9 @@ export async function sortPnpmWorkspaceYaml(): Promise<TypedFlatConfigItem[]> {
 							'overrides',
 							'patchedDependencies',
 							'hoistPattern',
+							'catalogMode',
+							'catalog',
+							'catalogs',
 
 							'allowedDeprecatedVersions',
 							'allowNonAppliedPatches',
@@ -169,10 +172,6 @@ export async function sortPnpmWorkspaceYaml(): Promise<TypedFlatConfigItem[]> {
 							'packageExtensions',
 							'peerDependencyRules',
 							'supportedArchitectures',
-
-							'catalogMode',
-							'catalog',
-							'catalogs',
 						],
 						pathPattern: '^$',
 					},

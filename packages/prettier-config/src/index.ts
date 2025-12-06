@@ -1,8 +1,9 @@
 /* eslint-disable perfectionist/sort-objects */
 import type { Config } from 'prettier';
+import pluginToml from 'prettier-plugin-toml';
 
 const options: Config = {
-	plugins: ['prettier-plugin-toml'],
+	plugins: [pluginToml],
 
 	arrowParens: 'avoid',
 	endOfLine: 'lf',
@@ -21,7 +22,7 @@ const options: Config = {
 			},
 		},
 		{
-			files: '**/*.md',
+			files: '*.md',
 			options: {
 				parser: 'markdown',
 				printWidth: 130,
