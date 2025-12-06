@@ -16,20 +16,20 @@ const options: Config = {
 
 	overrides: [
 		{
-			files: '{.cspell,tsconfig}*.json',
+			files: '**/{.cspell,tsconfig}*.json',
 			options: {
 				parser: 'jsonc',
 			},
 		},
 		{
-			files: '*.md',
+			files: '**/*.md',
 			options: {
 				parser: 'markdown',
 				printWidth: 130,
 			},
 		},
 		{
-			files: '*.{yaml,yml}',
+			files: '**/*.{yaml,yml}',
 			options: {
 				printWidth: 130,
 				singleQuote: false,
