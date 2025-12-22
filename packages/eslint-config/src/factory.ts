@@ -139,8 +139,6 @@ export function mheob(
 			overrides: getOverrides(options, 'javascript'),
 		}),
 		comments(),
-		node(),
-		jsdoc(),
 		imports(),
 		command(),
 		perfectionist(),
@@ -148,6 +146,10 @@ export function mheob(
 
 	if (options.astro ?? false) {
 		configs.push(astro({ overrides: getOverrides(options, 'astro') }));
+	}
+
+	if (options.jsdoc ?? true) {
+		configs.push(jsdoc());
 	}
 
 	if (options.jsonc ?? true) {
@@ -170,10 +172,15 @@ export function mheob(
 		);
 	}
 
+	if (options.node ?? true) {
+		configs.push(node());
+	}
+
 	if (options.react ?? false) {
 		configs.push(
 			react({
 				...typescriptOptions,
+				...resolveSubOptions(options, 'react'),
 				overrides: getOverrides(options, 'react'),
 				tsconfigPath,
 			}),

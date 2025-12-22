@@ -91,6 +91,24 @@ export interface OptionsComponentExtensions {
 	componentExtensions?: string[];
 }
 
+/**
+ * Options for configuring React integration.
+ *
+ * Allows you to enable rules for React Compiler, and provide rule overrides.
+ *
+ * @see https://eslint-react.xyz/
+ */
+export interface OptionsReact extends OptionsOverrides {
+	/**
+	 * Enable rules for React Compiler.
+	 *
+	 * If true, turns on recommended rules for React Compiler.
+	 *
+	 * @default false
+	 */
+	reactCompiler?: boolean;
+}
+
 export interface OptionsConfig extends OptionsComponentExtensions {
 	/**
 	 * Provide overrides for rules for each integration.
@@ -153,6 +171,13 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	javascript?: OptionsOverrides;
 
 	/**
+	 * Enable JSDoc rules
+	 *
+	 * @default true
+	 */
+	jsdoc?: boolean;
+
+	/**
 	 * Enable JSONC support.
 	 *
 	 * @default true
@@ -188,6 +213,13 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	nextjs?: boolean | OptionsOverrides;
 
 	/**
+	 * Enable Node.js rules
+	 *
+	 * @default true
+	 */
+	node?: boolean;
+
+	/**
 	 * Core rules for styling. Can't be disabled.
 	 */
 	prettier?: OptionsOverrides;
@@ -202,7 +234,7 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	 *
 	 * @default false
 	 */
-	react?: boolean | OptionsOverrides;
+	react?: boolean | OptionsReact;
 
 	/**
 	 * Enable regexp rules.

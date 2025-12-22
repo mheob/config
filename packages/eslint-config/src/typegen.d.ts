@@ -912,6 +912,11 @@ export interface RuleOptions {
    */
   'comma-style'?: Linter.RuleEntry<CommaStyle>
   /**
+   * Comment-as-command for one-off codemod with ESLint
+   * @see https://github.com/antfu/eslint-plugin-command
+   */
+  'command/command'?: Linter.RuleEntry<[]>
+  /**
    * Enforce a maximum cyclomatic complexity allowed in a program
    * @see https://eslint.org/docs/latest/rules/complexity
    */
@@ -1991,7 +1996,7 @@ export interface RuleOptions {
    */
   'next/inline-script-id'?: Linter.RuleEntry<[]>
   /**
-   * Prefer `next/script` component when using the inline script for Google Analytics.
+   * Prefer `@next/third-parties/google` when using the inline script for Google Analytics and Tag Manager.
    * @see https://nextjs.org/docs/messages/next-script-for-ga
    */
   'next/next-script-for-ga'?: Linter.RuleEntry<[]>
@@ -5011,6 +5016,11 @@ export interface RuleOptions {
    */
   'test/no-test-return-statement'?: Linter.RuleEntry<[]>
   /**
+   * Disallow unnecessary async function wrapper for expected promises
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-unneeded-async-expect-function.md
+   */
+  'test/no-unneeded-async-expect-function'?: Linter.RuleEntry<[]>
+  /**
    * Enforce padding around `afterAll` blocks
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-after-all-blocks.md
    */
@@ -5181,6 +5191,11 @@ export interface RuleOptions {
    */
   'test/prefer-to-contain'?: Linter.RuleEntry<[]>
   /**
+   * Suggest using `toHaveBeenCalledTimes()`
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-have-been-called-times.md
+   */
+  'test/prefer-to-have-been-called-times'?: Linter.RuleEntry<[]>
+  /**
    * enforce using toHaveLength()
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-have-length.md
    */
@@ -5205,11 +5220,6 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-hook.md
    */
   'test/require-hook'?: Linter.RuleEntry<TestRequireHook>
-  /**
-   * require usage of import in vi.mock()
-   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-import-vi-mock.md
-   */
-  'test/require-import-vi-mock'?: Linter.RuleEntry<[]>
   /**
    * require local Test Context for concurrent snapshot tests
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-local-test-context-for-concurrent-snapshots.md
@@ -5829,6 +5839,11 @@ export interface RuleOptions {
    * @see https://typescript-eslint.io/rules/no-useless-constructor
    */
   'ts/no-useless-constructor'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow default values that will never be used
+   * @see https://typescript-eslint.io/rules/no-useless-default-assignment
+   */
+  'ts/no-useless-default-assignment'?: Linter.RuleEntry<[]>
   /**
    * Disallow empty exports that don't change anything in a module file
    * @see https://typescript-eslint.io/rules/no-useless-empty-export
@@ -19084,4 +19099,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'mheob/astro/setup' | 'mheob/astro/rules' | 'mheob/eslint-comments/rules' | 'mheob/imports/rules' | 'mheob/javascript/rules' | 'mheob/jsdoc/rules' | 'mheob/jsonc/setup' | 'mheob/jsonc/rules' | 'mheob/markdown/setup' | 'mheob/markdown/processor' | 'mheob/markdown/parser' | 'mheob/markdown/disables' | 'mheob/nextjs/setup' | 'mheob/nextjs/rules' | 'mheob/node/rules' | 'mheob/perfectionist/setup' | 'mheob/perfectionist/rules' | 'mheob/prettier/setup' | 'mheob/prettier/rules' | 'mheob/react/setup' | 'mheob/react/rules' | 'mheob/regexp/rules' | 'mheob/sort/package-json' | 'mheob/stylistic/setup' | 'mheob/stylistic/rules' | 'mheob/svelte/setup' | 'mheob/svelte/rules' | 'mheob/test/setup' | 'mheob/test/rules' | 'mheob/toml/setup' | 'mheob/toml/rules' | 'mheob/typescript/setup' | 'mheob/typescript/parser' | 'mheob/typescript/rules' | 'mheob/unicorn/rules' | 'mheob/unicorn/rules/react' | 'mheob/vue/setup' | 'mheob/vue/rules' | 'mheob/yaml/setup' | 'mheob/yaml/rules'
+export type ConfigNames = 'mheob/gitignore' | 'mheob/ignores' | 'mheob/javascript/rules' | 'mheob/eslint-comments/rules' | 'mheob/imports/rules' | 'mheob/command/rules' | 'mheob/perfectionist/setup' | 'mheob/perfectionist/rules' | 'mheob/astro/setup' | 'mheob/astro/rules' | 'mheob/jsdoc/rules' | 'mheob/jsonc/setup' | 'mheob/jsonc/rules' | 'mheob/sort/package-json' | 'mheob/sort/tsconfig-json' | 'mheob/jsx/setup' | 'mheob/nextjs/setup' | 'mheob/nextjs/rules' | 'mheob/node/rules' | 'mheob/react/setup' | 'mheob/react/rules' | 'mheob/regexp/rules' | 'mheob/stylistic/setup' | 'mheob/stylistic/rules' | 'mheob/svelte/setup' | 'mheob/svelte/rules' | 'mheob/test/setup' | 'mheob/test/rules' | 'mheob/toml/setup' | 'mheob/toml/rules' | 'mheob/typescript/setup' | 'mheob/typescript/type-aware-parser' | 'mheob/typescript/parser' | 'mheob/typescript/rules' | 'mheob/typescript/rules-type-aware' | 'mheob/unicorn/rules' | 'mheob/unicorn/rules/react' | 'mheob/vue/setup' | 'mheob/vue/rules' | 'mheob/yaml/setup' | 'mheob/yaml/rules' | 'mheob/sort/pnpm-workspace' | 'mheob/markdown/setup' | 'mheob/markdown/processor' | 'mheob/markdown/parser' | 'mheob/markdown/disables' | 'mheob/prettier/setup' | 'mheob/prettier/rules' | 'mheob/disables/bin' | 'mheob/disables/cli' | 'mheob/disables/cjs' | 'mheob/disables/config-files' | 'mheob/disables/conflicts' | 'mheob/disables/dts' | 'mheob/disables/jsx' | 'mheob/disables/scripts' | 'mheob/disables/test'
