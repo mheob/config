@@ -19,10 +19,10 @@ export function isInEditorEnv(): boolean {
 
 	return Boolean(
 		process.env.VSCODE_PID ||
-			process.env.VSCODE_CWD ||
-			process.env.JETBRAINS_IDE ||
-			process.env.VIM ||
-			process.env.NVIM,
+		process.env.VSCODE_CWD ||
+		process.env.JETBRAINS_IDE ||
+		process.env.VIM ||
+		process.env.NVIM,
 	);
 }
 
@@ -40,7 +40,7 @@ export function isInEditorEnv(): boolean {
 export function isInGitHooksOrLintStaged(): boolean {
 	return Boolean(
 		process.env.GIT_PARAMS ||
-			process.env.VSCODE_GIT_COMMAND ||
-			process.env.npm_lifecycle_script?.startsWith('lint-staged'),
+		process.env.VSCODE_GIT_COMMAND ||
+		process.env.npm_lifecycle_script?.startsWith('lint-staged'),
 	);
 }
