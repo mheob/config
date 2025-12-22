@@ -1,5 +1,16 @@
 # @mheob/eslint-config
 
+## 9.2.0
+
+### Minor Changes
+
+- [#336](https://github.com/mheob/config/pull/336) ([@mheob](https://github.com/mheob)): Add React Compiler support and config presets
+  - Add React Compiler rules with conditional activation
+  - Add config presets (CONFIG_PRESET_FULL_ON and CONFIG_PRESET_FULL_OFF)
+  - Make jsdoc and node options optional (default true)
+  - Update React rule severities
+  - Update dependencies
+
 ## 9.1.0
 
 ### Minor Changes
