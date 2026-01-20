@@ -71,7 +71,7 @@
 		"local-pkg": "catalog:",
 		"parse-gitignore": "catalog:",
 		"prettier-plugin-toml": "catalog:",
-		"svelte": "catalog:",
+		"svelte": "5.46.4",
 		"toml-eslint-parser": "catalog:",
 		"vue-eslint-parser": "catalog:",
 		"yaml-eslint-parser": "catalog:",
