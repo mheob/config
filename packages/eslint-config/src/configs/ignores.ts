@@ -1,4 +1,4 @@
-import { GLOB_EXCLUDE } from '../globs';
+import { GLOB_EXCLUDE, GLOB_TS, GLOB_TSX } from '../globs';
 import type { TypedFlatConfigItem } from '../types';
 
 /**
@@ -9,12 +9,22 @@ import type { TypedFlatConfigItem } from '../types';
  * and the userIgnores.
  *
  * @param userIgnores - The user's choices from the CLI prompt.
+ * @param ignoreTypeScript - Whether to ignore TypeScript files.
  * @returns Promise that resolves once the ignores ESLint rules are configured.
  */
-export async function ignores(userIgnores: string[] = []): Promise<TypedFlatConfigItem[]> {
+export async function ignores(
+	userIgnores: ((originals: string[]) => string[]) | string[] = [],
+	ignoreTypeScript = false,
+): Promise<TypedFlatConfigItem[]> {
+	let ignores = [...GLOB_EXCLUDE];
+
+	if (ignoreTypeScript) ignores.push(GLOB_TS, GLOB_TSX);
+
+	ignores = typeof userIgnores === 'function' ? userIgnores(ignores) : [...ignores, ...userIgnores];
+
 	return [
 		{
-			ignores: [...GLOB_EXCLUDE, ...userIgnores],
+			ignores,
 			name: 'mheob/ignores',
 		},
 	];
