@@ -74,6 +74,11 @@ export interface RuleOptions {
    */
   '@stylistic/eol-last'?: Linter.RuleEntry<StylisticEolLast>
   /**
+   * Enforce consistent line break styles for JSX props
+   * @see https://eslint.style/rules/jsx-props-style
+   */
+  '@stylistic/exp-jsx-props-style'?: Linter.RuleEntry<StylisticExpJsxPropsStyle>
+  /**
    * Enforce consistent spacing and line break styles inside brackets.
    * @see https://eslint.style/rules/list-style
    */
@@ -208,6 +213,7 @@ export interface RuleOptions {
   /**
    * Enforce props alphabetical sorting
    * @see https://eslint.style/rules/jsx-sort-props
+   * @deprecated
    */
   '@stylistic/jsx-sort-props'?: Linter.RuleEntry<StylisticJsxSortProps>
   /**
@@ -3181,6 +3187,11 @@ export interface RuleOptions {
    */
   'perfectionist/sort-enums'?: Linter.RuleEntry<PerfectionistSortEnums>
   /**
+   * Enforce sorted export attributes.
+   * @see https://perfectionist.dev/rules/sort-export-attributes
+   */
+  'perfectionist/sort-export-attributes'?: Linter.RuleEntry<PerfectionistSortExportAttributes>
+  /**
    * Enforce sorted exports.
    * @see https://perfectionist.dev/rules/sort-exports
    */
@@ -3190,6 +3201,11 @@ export interface RuleOptions {
    * @see https://perfectionist.dev/rules/sort-heritage-clauses
    */
   'perfectionist/sort-heritage-clauses'?: Linter.RuleEntry<PerfectionistSortHeritageClauses>
+  /**
+   * Enforce sorted import attributes.
+   * @see https://perfectionist.dev/rules/sort-import-attributes
+   */
+  'perfectionist/sort-import-attributes'?: Linter.RuleEntry<PerfectionistSortImportAttributes>
   /**
    * Enforce sorted imports.
    * @see https://perfectionist.dev/rules/sort-imports
@@ -3353,102 +3369,102 @@ export interface RuleOptions {
    */
   'quotes'?: Linter.RuleEntry<Quotes>
   /**
-   * Enforce the consistent use of the radix argument when using `parseInt()`
+   * Enforce the use of the radix argument when using `parseInt()`
    * @see https://eslint.org/docs/latest/rules/radix
    */
   'radix'?: Linter.RuleEntry<Radix>
   /**
-   * Disallow `dangerouslySetInnerHTML`.
+   * Disallows DOM elements from using 'dangerouslySetInnerHTML'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-dangerously-set-innerhtml
    */
   'react-dom/no-dangerously-set-innerhtml'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `dangerouslySetInnerHTML` and `children` at the same time.
+   * Disallows DOM elements from using 'dangerouslySetInnerHTML' and 'children' at the same time.
    * @see https://eslint-react.xyz/docs/rules/dom-no-dangerously-set-innerhtml-with-children
    */
   'react-dom/no-dangerously-set-innerhtml-with-children'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `findDOMNode`.
+   * Disallows 'findDOMNode'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-find-dom-node
    */
   'react-dom/no-find-dom-node'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `flushSync`.
+   * Disallows 'flushSync'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-flush-sync
    */
   'react-dom/no-flush-sync'?: Linter.RuleEntry<[]>
   /**
-   * Replaces usages of `ReactDom.hydrate()` with `hydrateRoot()`.
+   * Replaces usage of 'ReactDOM.hydrate()' with 'hydrateRoot()'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-hydrate
    */
   'react-dom/no-hydrate'?: Linter.RuleEntry<[]>
   /**
-   * Enforces explicit `type` attribute for `button` elements.
+   * Enforces an explicit 'type' attribute for 'button' elements.
    * @see https://eslint-react.xyz/docs/rules/dom-no-missing-button-type
    */
   'react-dom/no-missing-button-type'?: Linter.RuleEntry<[]>
   /**
-   * Enforces explicit `sandbox` prop for `iframe` elements.
+   * Enforces an explicit 'sandbox' attribute for 'iframe' elements.
    * @see https://eslint-react.xyz/docs/rules/dom-no-missing-iframe-sandbox
    */
   'react-dom/no-missing-iframe-sandbox'?: Linter.RuleEntry<[]>
   /**
-   * Enforces the absence of a `namespace` in React elements.
+   * Enforces the absence of a 'namespace' in React elements.
    * @see https://eslint-react.xyz/docs/rules/dom-no-namespace
    */
   'react-dom/no-namespace'?: Linter.RuleEntry<[]>
   /**
-   * Replaces usages of `ReactDom.render()` with `createRoot(node).render()`.
+   * Replaces usage of 'ReactDOM.render()' with 'createRoot(node).render()'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-render
    */
   'react-dom/no-render'?: Linter.RuleEntry<[]>
   /**
-   * Disallow the return value of `ReactDOM.render`.
+   * Disallows the return value of 'ReactDOM.render'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-render-return-value
    */
   'react-dom/no-render-return-value'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `javascript:` URLs as attribute values.
+   * Disallows 'javascript:' URLs as attribute values.
    * @see https://eslint-react.xyz/docs/rules/dom-no-script-url
    */
   'react-dom/no-script-url'?: Linter.RuleEntry<[]>
   /**
-   * Disallows the use of string style prop.
+   * Disallows the use of string style prop in JSX. Use an object instead.
    * @see https://eslint-react.xyz/docs/rules/dom-no-string-style-prop
    */
   'react-dom/no-string-style-prop'?: Linter.RuleEntry<[]>
   /**
-   * Disallow unknown `DOM` property.
+   * Disallows unknown 'DOM' properties.
    * @see https://eslint-react.xyz/docs/rules/dom-no-unknown-property
    */
   'react-dom/no-unknown-property'?: Linter.RuleEntry<ReactDomNoUnknownProperty>
   /**
-   * Enforces `sandbox` attribute for `iframe` elements is not set to unsafe combinations.
+   * Enforces that the 'sandbox' attribute for 'iframe' elements is not set to unsafe combinations.
    * @see https://eslint-react.xyz/docs/rules/dom-no-unsafe-iframe-sandbox
    */
   'react-dom/no-unsafe-iframe-sandbox'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `target="_blank"` without `rel="noreferrer noopener"`.
+   * Disallows 'target="_blank"' without 'rel="noreferrer noopener"'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-unsafe-target-blank
    */
   'react-dom/no-unsafe-target-blank'?: Linter.RuleEntry<[]>
   /**
-   * Replaces usages of `useFormState` with `useActionState`.
+   * Replaces usage of 'useFormState' with 'useActionState'.
    * @see https://eslint-react.xyz/docs/rules/dom-no-use-form-state
    */
   'react-dom/no-use-form-state'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `children` in void DOM elements.
+   * Disallows 'children' in void DOM elements.
    * @see https://eslint-react.xyz/docs/rules/dom-no-void-elements-with-children
    */
   'react-dom/no-void-elements-with-children'?: Linter.RuleEntry<[]>
   /**
-   * Enforces React Dom is imported via a namespace import.
+   * Enforces importing React DOM via a namespace import.
    * @see https://eslint-react.xyz/docs/rules/dom-prefer-namespace-import
    */
   'react-dom/prefer-namespace-import'?: Linter.RuleEntry<[]>
   /**
-   * Disallow direct calls to the `set` function of `useState` in `useEffect`.
+   * Disallows direct calls to the ['set' function](https://react.dev/reference/react/useState#setstate) of 'useState' in 'useEffect'.
    * @see https://eslint-react.xyz/docs/rules/hooks-extra-no-direct-set-state-in-use-effect
    */
   'react-hooks-extra/no-direct-set-state-in-use-effect'?: Linter.RuleEntry<[]>
@@ -3576,199 +3592,209 @@ export interface RuleOptions {
    */
   'react-naming-convention/component-name'?: Linter.RuleEntry<ReactNamingConventionComponentName>
   /**
-   * Enforces context name to be a valid component name with the suffix `Context`.
+   * Enforces the context name to be a valid component name with the suffix 'Context'.
    * @see https://eslint-react.xyz/docs/rules/naming-convention-context-name
    */
   'react-naming-convention/context-name'?: Linter.RuleEntry<[]>
   /**
-   * Enforces consistent file naming conventions.
+   * Enforces consistent file-naming conventions.
    * @see https://eslint-react.xyz/docs/rules/naming-convention-filename
    */
   'react-naming-convention/filename'?: Linter.RuleEntry<ReactNamingConventionFilename>
   /**
-   * Enforces consistent file naming conventions.
+   * Enforces consistent use of the JSX file extension.
    * @see https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
    */
   'react-naming-convention/filename-extension'?: Linter.RuleEntry<ReactNamingConventionFilenameExtension>
   /**
-   * Enforces destructuring and symmetric naming of `useState` hook value and setter.
+   * Enforces identifier names assigned from 'useRef' calls to be either 'ref' or end with 'Ref'.
+   * @see https://eslint-react.xyz/docs/rules/naming-convention-ref-name
+   */
+  'react-naming-convention/ref-name'?: Linter.RuleEntry<[]>
+  /**
+   * Enforces destructuring and symmetric naming of the 'useState' hook value and setter.
    * @see https://eslint-react.xyz/docs/rules/naming-convention-use-state
    */
-  'react-naming-convention/use-state'?: Linter.RuleEntry<[]>
+  'react-naming-convention/use-state'?: Linter.RuleEntry<ReactNamingConventionUseState>
   'react-refresh/only-export-components'?: Linter.RuleEntry<ReactRefreshOnlyExportComponents>
   /**
-   * Prevents leaked `addEventListener` in a component or custom Hook.
+   * Validate and transform React Client/Server Function definitions.
+   * @see https://eslint-react.xyz/docs/rules/function-definition
+   */
+  'react-rsc/function-definition'?: Linter.RuleEntry<[]>
+  /**
+   * Enforces that every 'addEventListener' in a component or custom hook has a corresponding 'removeEventListener'.
    * @see https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
    */
   'react-web-api/no-leaked-event-listener'?: Linter.RuleEntry<[]>
   /**
-   * Prevents leaked `setInterval` in a component or custom Hook.
+   * Enforces that every 'setInterval' in a component or custom hook has a corresponding 'clearInterval'.
    * @see https://eslint-react.xyz/docs/rules/web-api-no-leaked-interval
    */
   'react-web-api/no-leaked-interval'?: Linter.RuleEntry<[]>
   /**
-   * Prevents leaked `ResizeObserver` in a component or custom Hook.
+   * Enforces that every 'ResizeObserver' created in a component or custom hook has a corresponding 'ResizeObserver.disconnect()'.
    * @see https://eslint-react.xyz/docs/rules/web-api-no-leaked-resize-observer
    */
   'react-web-api/no-leaked-resize-observer'?: Linter.RuleEntry<[]>
   /**
-   * Prevents leaked `setTimeout` in a component or custom Hook.
+   * Enforces that every 'setTimeout' in a component or custom hook has a corresponding 'clearTimeout'.
    * @see https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
    */
   'react-web-api/no-leaked-timeout'?: Linter.RuleEntry<[]>
   /**
-   * Prevents dollar signs from being inserted as text nodes before expressions.
+   * Prevents unnecessary '$' symbols before JSX expressions.
    * @see https://eslint-react.xyz/docs/rules/jsx-dollar
    */
   'react/jsx-dollar'?: Linter.RuleEntry<[]>
   /**
-   * Enforces that the 'key' prop is placed before the spread prop in JSX elements.
+   * Enforces 'key' prop placement before spread props.
    * @see https://eslint-react.xyz/docs/rules/jsx-key-before-spread
    */
   'react/jsx-key-before-spread'?: Linter.RuleEntry<[]>
   /**
-   * Prevents comments from being inserted as text nodes.
+   * Prevents comment strings (e.g., beginning with '//' or '/*') from being accidentally inserted into a JSX element's text nodes.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-comment-textnodes
    */
   'react/jsx-no-comment-textnodes'?: Linter.RuleEntry<[]>
   /**
-   * Disallow duplicate props in JSX elements.
+   * Disallows duplicate props in JSX elements.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props
    */
   'react/jsx-no-duplicate-props'?: Linter.RuleEntry<[]>
   /**
-   * Disallows 'IIFE' in JSX elements.
+   * Disallows immediately-invoked function expressions in JSX.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-iife
    */
   'react/jsx-no-iife'?: Linter.RuleEntry<[]>
   /**
-   * Disallow undefined variables in JSX.
+   * Prevents using variables in JSX that are not defined in the scope.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-undef
    */
   'react/jsx-no-undef'?: Linter.RuleEntry<[]>
   /**
-   * Enforces shorthand syntax for boolean attributes.
+   * Enforces shorthand syntax for boolean props.
    * @see https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean
    */
   'react/jsx-shorthand-boolean'?: Linter.RuleEntry<ReactJsxShorthandBoolean>
   /**
-   * Enforces shorthand syntax for fragments.
+   * Enforces shorthand syntax for fragment elements.
    * @see https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment
    */
   'react/jsx-shorthand-fragment'?: Linter.RuleEntry<ReactJsxShorthandFragment>
   /**
-   * Marks React variables as used when JSX is used.
+   * Marks React variables as used when JSX is present.
    * @see https://eslint-react.xyz/docs/rules/jsx-uses-react
    */
   'react/jsx-uses-react'?: Linter.RuleEntry<[]>
   /**
-   * Marks variables used in JSX elements as used.
+   * Marks JSX element variables as used.
    * @see https://eslint-react.xyz/docs/rules/jsx-uses-vars
    */
   'react/jsx-uses-vars'?: Linter.RuleEntry<[]>
   /**
-   * Disallow accessing `this.state` inside `setState` calls.
+   * Disallows accessing 'this.state' inside 'setState' calls.
    * @see https://eslint-react.xyz/docs/rules/no-access-state-in-setstate
    */
   'react/no-access-state-in-setstate'?: Linter.RuleEntry<[]>
   /**
-   * Disallow an item's index in the array as its key.
+   * Disallows using an item's index in the array as its key.
    * @see https://eslint-react.xyz/docs/rules/no-array-index-key
    */
   'react/no-array-index-key'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `Children.count`.
+   * Disallows the use of 'Children.count' from the 'react' package.
    * @see https://eslint-react.xyz/docs/rules/no-children-count
    */
   'react/no-children-count'?: Linter.RuleEntry<[]>
   /**
-   * Disallow 'Children.forEach'.
+   * Disallows the use of 'Children.forEach' from the 'react' package.
    * @see https://eslint-react.xyz/docs/rules/no-children-for-each
    */
   'react/no-children-for-each'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `Children.map`.
+   * Disallows the use of 'Children.map' from the 'react' package.
    * @see https://eslint-react.xyz/docs/rules/no-children-map
    */
   'react/no-children-map'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `Children.only`.
+   * Disallows the use of 'Children.only' from the 'react' package.
    * @see https://eslint-react.xyz/docs/rules/no-children-only
    */
   'react/no-children-only'?: Linter.RuleEntry<[]>
   /**
-   * Disallow passing `children` as a prop.
+   * Disallows passing 'children' as a prop.
    * @see https://eslint-react.xyz/docs/rules/no-children-prop
    */
   'react/no-children-prop'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `Children.toArray`.
+   * Disallows the use of 'Children.toArray' from the 'react' package.
    * @see https://eslint-react.xyz/docs/rules/no-children-to-array
    */
   'react/no-children-to-array'?: Linter.RuleEntry<[]>
   /**
-   * Disallow class components except for error boundaries.
+   * Disallows class components except for error boundaries.
    * @see https://eslint-react.xyz/docs/rules/no-class-component
    */
   'react/no-class-component'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `cloneElement`.
+   * Disallows 'cloneElement'.
    * @see https://eslint-react.xyz/docs/rules/no-clone-element
    */
   'react/no-clone-element'?: Linter.RuleEntry<[]>
   /**
-   * Replace usages of `componentWillMount` with `UNSAFE_componentWillMount`.
+   * Replaces usage of 'componentWillMount' with 'UNSAFE_componentWillMount'.
    * @see https://eslint-react.xyz/docs/rules/no-component-will-mount
    */
   'react/no-component-will-mount'?: Linter.RuleEntry<[]>
   /**
-   * Replace usages of `componentWillReceiveProps` with `UNSAFE_componentWillReceiveProps`.
+   * Replaces usage of 'componentWillReceiveProps' with 'UNSAFE_componentWillReceiveProps'.
    * @see https://eslint-react.xyz/docs/rules/no-component-will-receive-props
    */
   'react/no-component-will-receive-props'?: Linter.RuleEntry<[]>
   /**
-   * Replace usages of `componentWillUpdate` with `UNSAFE_componentWillUpdate`.
+   * Replaces usage of 'componentWillUpdate' with 'UNSAFE_componentWillUpdate'.
    * @see https://eslint-react.xyz/docs/rules/no-component-will-update
    */
   'react/no-component-will-update'?: Linter.RuleEntry<[]>
   /**
-   * Replace usages of `<Context.Provider>` with `<Context>`.
+   * Replaces usage of '<Context.Provider>' with '<Context>'.
    * @see https://eslint-react.xyz/docs/rules/no-context-provider
    */
   'react/no-context-provider'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `createRef` in function components.
+   * Disallows 'createRef' in function components.
    * @see https://eslint-react.xyz/docs/rules/no-create-ref
    */
   'react/no-create-ref'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `defaultProps` property in favor of ES6 default parameters.
+   * Disallows the 'defaultProps' property in favor of ES6 default parameters.
    * @see https://eslint-react.xyz/docs/rules/no-default-props
    */
   'react/no-default-props'?: Linter.RuleEntry<[]>
   /**
-   * Disallow direct mutation of `this.state`.
+   * Disallows direct mutation of 'this.state'.
    * @see https://eslint-react.xyz/docs/rules/no-direct-mutation-state
    */
   'react/no-direct-mutation-state'?: Linter.RuleEntry<[]>
   /**
-   * Disallow duplicate `key` on elements in the same array or a list of `children`.
+   * Prevents duplicate 'key' props on sibling elements when rendering lists.
    * @see https://eslint-react.xyz/docs/rules/no-duplicate-key
    */
   'react/no-duplicate-key'?: Linter.RuleEntry<[]>
   /**
-   * Disallow certain props on components.
+   * Disallows certain props on components.
    * @see https://eslint-react.xyz/docs/rules/no-forbidden-props
    * @deprecated
    */
   'react/no-forbidden-props'?: Linter.RuleEntry<ReactNoForbiddenProps>
   /**
-   * Replaces usages of `forwardRef` with passing `ref` as a prop.
+   * Replaces usage of 'forwardRef' with passing 'ref' as a prop.
    * @see https://eslint-react.xyz/docs/rules/no-forward-ref
    */
   'react/no-forward-ref'?: Linter.RuleEntry<[]>
   /**
-   * Prevents `key` from not being explicitly specified (e.g. spreading `key` from objects).
+   * Prevents implicitly passing the 'key' prop to components.
    * @see https://eslint-react.xyz/docs/rules/no-implicit-key
    */
   'react/no-implicit-key'?: Linter.RuleEntry<[]>
@@ -3778,57 +3804,57 @@ export interface RuleOptions {
    */
   'react/no-leaked-conditional-rendering'?: Linter.RuleEntry<[]>
   /**
-   * Enforces that all components have a `displayName` which can be used in devtools.
+   * Enforces that all components have a 'displayName' that can be used in DevTools.
    * @see https://eslint-react.xyz/docs/rules/no-missing-component-display-name
    */
   'react/no-missing-component-display-name'?: Linter.RuleEntry<[]>
   /**
-   * Enforces that all contexts have a `displayName` which can be used in devtools.
+   * Enforces that all contexts have a 'displayName' that can be used in DevTools.
    * @see https://eslint-react.xyz/docs/rules/no-missing-context-display-name
    */
   'react/no-missing-context-display-name'?: Linter.RuleEntry<[]>
   /**
-   * Disallow missing `key` on items in list rendering.
+   * Disallows missing 'key' on items in list rendering.
    * @see https://eslint-react.xyz/docs/rules/no-missing-key
    */
   'react/no-missing-key'?: Linter.RuleEntry<[]>
   /**
-   * Prevents incorrect usage of `captureOwnerStack`.
+   * Prevents incorrect usage of 'captureOwnerStack'.
    * @see https://eslint-react.xyz/docs/rules/no-misused-capture-owner-stack
    */
   'react/no-misused-capture-owner-stack'?: Linter.RuleEntry<[]>
   /**
-   * Disallow nesting component definitions inside other components.
+   * Disallows nesting component definitions inside other components.
    * @see https://eslint-react.xyz/docs/rules/no-nested-component-definitions
    */
   'react/no-nested-component-definitions'?: Linter.RuleEntry<[]>
   /**
-   * Disallow nesting lazy component declarations inside other components.
+   * Disallows nesting lazy component declarations inside other components.
    * @see https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations
    */
   'react/no-nested-lazy-component-declarations'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `propTypes` in favor of TypeScript or another type-checking solution.
+   * Disallows 'propTypes' in favor of TypeScript or another type-checking solution.
    * @see https://eslint-react.xyz/docs/rules/no-prop-types
    */
   'react/no-prop-types'?: Linter.RuleEntry<[]>
   /**
-   * Disallow `shouldComponentUpdate` when extending `React.PureComponent`.
+   * Disallows 'shouldComponentUpdate' when extending 'React.PureComponent'.
    * @see https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
    */
   'react/no-redundant-should-component-update'?: Linter.RuleEntry<[]>
   /**
-   * Disallow calling `this.setState` in `componentDidMount` outside of functions, such as callbacks.
+   * Disallows calling 'this.setState' in 'componentDidMount' outside functions such as callbacks.
    * @see https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-mount
    */
   'react/no-set-state-in-component-did-mount'?: Linter.RuleEntry<[]>
   /**
-   * Disallow calling `this.setState` in `componentDidUpdate` outside of functions, such as callbacks.
+   * Disallows calling 'this.setState' in 'componentDidUpdate' outside functions such as callbacks.
    * @see https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-update
    */
   'react/no-set-state-in-component-did-update'?: Linter.RuleEntry<[]>
   /**
-   * Disallow calling `this.setState` in `componentWillUpdate` outside of functions, such as callbacks.
+   * Disallows calling 'this.setState' in 'componentWillUpdate' outside functions such as callbacks.
    * @see https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update
    */
   'react/no-set-state-in-component-will-update'?: Linter.RuleEntry<[]>
@@ -3838,42 +3864,47 @@ export interface RuleOptions {
    */
   'react/no-string-refs'?: Linter.RuleEntry<[]>
   /**
-   * Prevents the use of unnecessary `key` props on JSX elements when rendering lists.
+   * Disallows unnecessary 'key' props on nested child elements when rendering lists.
    * @see https://eslint-react.xyz/docs/rules/no-unnecessary-key
    */
   'react/no-unnecessary-key'?: Linter.RuleEntry<[]>
   /**
-   * Disallow unnecessary usage of `useCallback`.
+   * Disallows unnecessary usage of 'useCallback'.
    * @see https://eslint-react.xyz/docs/rules/no-unnecessary-use-callback
    */
   'react/no-unnecessary-use-callback'?: Linter.RuleEntry<[]>
   /**
-   * Disallow unnecessary usage of `useMemo`.
+   * Disallows unnecessary usage of 'useMemo'.
    * @see https://eslint-react.xyz/docs/rules/no-unnecessary-use-memo
    */
   'react/no-unnecessary-use-memo'?: Linter.RuleEntry<[]>
   /**
-   * Enforces that a function with the `use` prefix should use at least one Hook inside of it.
+   * Enforces that a function with the 'use' prefix uses at least one Hook inside it.
    * @see https://eslint-react.xyz/docs/rules/no-unnecessary-use-prefix
    */
   'react/no-unnecessary-use-prefix'?: Linter.RuleEntry<[]>
   /**
-   * Warns the usage of `UNSAFE_componentWillMount` in class components.
+   * Disallows unnecessary usage of 'useRef'.
+   * @see https://eslint-react.xyz/docs/rules/no-unnecessary-use-ref
+   */
+  'react/no-unnecessary-use-ref'?: Linter.RuleEntry<[]>
+  /**
+   * Warns about the use of 'UNSAFE_componentWillMount' in class components.
    * @see https://eslint-react.xyz/docs/rules/no-unsafe-component-will-mount
    */
   'react/no-unsafe-component-will-mount'?: Linter.RuleEntry<[]>
   /**
-   * Warns the usage of `UNSAFE_componentWillReceiveProps` in class components.
+   * Warns about the use of 'UNSAFE_componentWillReceiveProps' in class components.
    * @see https://eslint-react.xyz/docs/rules/no-unsafe-component-will-receive-props
    */
   'react/no-unsafe-component-will-receive-props'?: Linter.RuleEntry<[]>
   /**
-   * Warns the usage of `UNSAFE_componentWillUpdate` in class components.
+   * Warns about the use of 'UNSAFE_componentWillUpdate' in class components.
    * @see https://eslint-react.xyz/docs/rules/no-unsafe-component-will-update
    */
   'react/no-unsafe-component-will-update'?: Linter.RuleEntry<[]>
   /**
-   * Prevents non-stable values (i.e. object literals) from being used as a value for `Context.Provider`.
+   * Prevents non-stable values (i.e., object literals) from being used as a value for 'Context.Provider'.
    * @see https://eslint-react.xyz/docs/rules/no-unstable-context-value
    */
   'react/no-unstable-context-value'?: Linter.RuleEntry<[]>
@@ -3883,32 +3914,32 @@ export interface RuleOptions {
    */
   'react/no-unstable-default-props'?: Linter.RuleEntry<ReactNoUnstableDefaultProps>
   /**
-   * Warns unused class component methods and properties.
+   * Warns about unused class component methods and properties.
    * @see https://eslint-react.xyz/docs/rules/no-unused-class-component-members
    */
   'react/no-unused-class-component-members'?: Linter.RuleEntry<[]>
   /**
-   * Warns component props that are defined but never used.
+   * Warns about component props that are defined but never used.
    * @see https://eslint-react.xyz/docs/rules/no-unused-props
    */
   'react/no-unused-props'?: Linter.RuleEntry<[]>
   /**
-   * Warns unused class component state.
+   * Warns about unused class component state.
    * @see https://eslint-react.xyz/docs/rules/no-unused-state
    */
   'react/no-unused-state'?: Linter.RuleEntry<[]>
   /**
-   * Replaces usages of `useContext` with `use`.
+   * Replaces usage of 'useContext' with 'use'.
    * @see https://eslint-react.xyz/docs/rules/no-use-context
    */
   'react/no-use-context'?: Linter.RuleEntry<[]>
   /**
-   * Disallow useless `forwardRef` calls on components that don't use `ref`s.
+   * Disallows useless 'forwardRef' calls on components that don't use 'ref's.
    * @see https://eslint-react.xyz/docs/rules/no-useless-forward-ref
    */
   'react/no-useless-forward-ref'?: Linter.RuleEntry<[]>
   /**
-   * Disallow useless fragment elements.
+   * Disallows useless fragment elements.
    * @see https://eslint-react.xyz/docs/rules/no-useless-fragment
    */
   'react/no-useless-fragment'?: Linter.RuleEntry<ReactNoUselessFragment>
@@ -3918,7 +3949,7 @@ export interface RuleOptions {
    */
   'react/prefer-destructuring-assignment'?: Linter.RuleEntry<[]>
   /**
-   * Enforces React is imported via a namespace import.
+   * Enforces importing React via a namespace import.
    * @see https://eslint-react.xyz/docs/rules/prefer-namespace-import
    */
   'react/prefer-namespace-import'?: Linter.RuleEntry<[]>
@@ -3928,7 +3959,7 @@ export interface RuleOptions {
    */
   'react/prefer-read-only-props'?: Linter.RuleEntry<[]>
   /**
-   * Enforces function calls made inside `useState` to be wrapped in an `initializer function`.
+   * Enforces wrapping function calls made inside 'useState' in an 'initializer function'.
    * @see https://eslint-react.xyz/docs/rules/prefer-use-state-lazy-initialization
    */
   'react/prefer-use-state-lazy-initialization'?: Linter.RuleEntry<[]>
@@ -4918,7 +4949,7 @@ export interface RuleOptions {
    * disallow conditional expects
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md
    */
-  'test/no-conditional-expect'?: Linter.RuleEntry<[]>
+  'test/no-conditional-expect'?: Linter.RuleEntry<TestNoConditionalExpect>
   /**
    * disallow conditional tests
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-in-test.md
@@ -5129,7 +5160,7 @@ export interface RuleOptions {
    * prefer dynamic import in mock
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-import-in-mock.md
    */
-  'test/prefer-import-in-mock'?: Linter.RuleEntry<[]>
+  'test/prefer-import-in-mock'?: Linter.RuleEntry<TestPreferImportInMock>
   /**
    * enforce importing Vitest globals
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-importing-vitest-globals.md
@@ -5145,6 +5176,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-promise-shorthand.md
    */
   'test/prefer-mock-promise-shorthand'?: Linter.RuleEntry<[]>
+  /**
+   * Prefer mock return shorthands
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-return-shorthand.md
+   */
+  'test/prefer-mock-return-shorthand'?: Linter.RuleEntry<[]>
   /**
    * enforce including a hint with external snapshots
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-snapshot-hint.md
@@ -5230,6 +5266,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-mock-type-parameters.md
    */
   'test/require-mock-type-parameters'?: Linter.RuleEntry<TestRequireMockTypeParameters>
+  /**
+   * require tests to declare a timeout
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-test-timeout.md
+   */
+  'test/require-test-timeout'?: Linter.RuleEntry<[]>
   /**
    * require toThrow() to be called with an error message
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-to-throw-message.md
@@ -5843,7 +5884,7 @@ export interface RuleOptions {
    * Disallow default values that will never be used
    * @see https://typescript-eslint.io/rules/no-useless-default-assignment
    */
-  'ts/no-useless-default-assignment'?: Linter.RuleEntry<[]>
+  'ts/no-useless-default-assignment'?: Linter.RuleEntry<TsNoUselessDefaultAssignment>
   /**
    * Disallow empty exports that don't change anything in a module file
    * @see https://typescript-eslint.io/rules/no-useless-empty-export
@@ -6018,6 +6059,11 @@ export interface RuleOptions {
    */
   'ts/strict-boolean-expressions'?: Linter.RuleEntry<TsStrictBooleanExpressions>
   /**
+   * Disallow passing a value-returning function in a position accepting a void function
+   * @see https://typescript-eslint.io/rules/strict-void-return
+   */
+  'ts/strict-void-return'?: Linter.RuleEntry<TsStrictVoidReturn>
+  /**
    * Require switch-case statements to be exhaustive
    * @see https://typescript-eslint.io/rules/switch-exhaustiveness-check
    */
@@ -6055,725 +6101,730 @@ export interface RuleOptions {
   'unicode-bom'?: Linter.RuleEntry<UnicodeBom>
   /**
    * Improve regexes by making them shorter, consistent, and safer.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/better-regex.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/better-regex.md
    */
   'unicorn/better-regex'?: Linter.RuleEntry<UnicornBetterRegex>
   /**
    * Enforce a specific parameter name in catch clauses.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/catch-error-name.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/catch-error-name.md
    */
   'unicorn/catch-error-name'?: Linter.RuleEntry<UnicornCatchErrorName>
   /**
    * Enforce consistent assertion style with `node:assert`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/consistent-assert.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/consistent-assert.md
    */
   'unicorn/consistent-assert'?: Linter.RuleEntry<[]>
   /**
    * Prefer passing `Date` directly to the constructor when cloning.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/consistent-date-clone.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/consistent-date-clone.md
    */
   'unicorn/consistent-date-clone'?: Linter.RuleEntry<[]>
   /**
    * Use destructured variables over properties.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/consistent-destructuring.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/consistent-destructuring.md
    */
   'unicorn/consistent-destructuring'?: Linter.RuleEntry<[]>
   /**
    * Prefer consistent types when spreading a ternary in an array literal.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/consistent-empty-array-spread.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/consistent-empty-array-spread.md
    */
   'unicorn/consistent-empty-array-spread'?: Linter.RuleEntry<[]>
   /**
    * Enforce consistent style for element existence checks with `indexOf()`, `lastIndexOf()`, `findIndex()`, and `findLastIndex()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/consistent-existence-index-check.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/consistent-existence-index-check.md
    */
   'unicorn/consistent-existence-index-check'?: Linter.RuleEntry<[]>
   /**
    * Move function definitions to the highest possible scope.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/consistent-function-scoping.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/consistent-function-scoping.md
    */
   'unicorn/consistent-function-scoping'?: Linter.RuleEntry<UnicornConsistentFunctionScoping>
   /**
    * Enforce correct `Error` subclassing.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/custom-error-definition.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/custom-error-definition.md
    */
   'unicorn/custom-error-definition'?: Linter.RuleEntry<[]>
   /**
    * Enforce no spaces between braces.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/empty-brace-spaces.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/empty-brace-spaces.md
    */
   'unicorn/empty-brace-spaces'?: Linter.RuleEntry<[]>
   /**
    * Enforce passing a `message` value when creating a built-in error.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/error-message.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/error-message.md
    */
   'unicorn/error-message'?: Linter.RuleEntry<[]>
   /**
    * Require escape sequences to use uppercase or lowercase values.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/escape-case.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/escape-case.md
    */
   'unicorn/escape-case'?: Linter.RuleEntry<UnicornEscapeCase>
   /**
    * Add expiration conditions to TODO comments.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/expiring-todo-comments.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/expiring-todo-comments.md
    */
   'unicorn/expiring-todo-comments'?: Linter.RuleEntry<UnicornExpiringTodoComments>
   /**
    * Enforce explicitly comparing the `length` or `size` property of a value.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/explicit-length-check.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/explicit-length-check.md
    */
   'unicorn/explicit-length-check'?: Linter.RuleEntry<UnicornExplicitLengthCheck>
   /**
    * Enforce a case style for filenames.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/filename-case.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/filename-case.md
    */
   'unicorn/filename-case'?: Linter.RuleEntry<UnicornFilenameCase>
   /**
    * Enforce specific import styles per module.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/import-style.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/import-style.md
    */
   'unicorn/import-style'?: Linter.RuleEntry<UnicornImportStyle>
   /**
+   * Prevent usage of variables from outside the scope of isolated functions.
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/isolated-functions.md
+   */
+  'unicorn/isolated-functions'?: Linter.RuleEntry<UnicornIsolatedFunctions>
+  /**
    * Enforce the use of `new` for all builtins, except `String`, `Number`, `Boolean`, `Symbol` and `BigInt`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/new-for-builtins.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/new-for-builtins.md
    */
   'unicorn/new-for-builtins'?: Linter.RuleEntry<[]>
   /**
    * Enforce specifying rules to disable in `eslint-disable` comments.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-abusive-eslint-disable.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-abusive-eslint-disable.md
    */
   'unicorn/no-abusive-eslint-disable'?: Linter.RuleEntry<[]>
   /**
    * Disallow recursive access to `this` within getters and setters.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-accessor-recursion.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-accessor-recursion.md
    */
   'unicorn/no-accessor-recursion'?: Linter.RuleEntry<[]>
   /**
    * Disallow anonymous functions and classes as the default export.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-anonymous-default-export.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-anonymous-default-export.md
    */
   'unicorn/no-anonymous-default-export'?: Linter.RuleEntry<[]>
   /**
    * Prevent passing a function reference directly to iterator methods.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-array-callback-reference.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-array-callback-reference.md
    */
   'unicorn/no-array-callback-reference'?: Linter.RuleEntry<[]>
   /**
    * Prefer `for…of` over the `forEach` method.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-array-for-each.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-array-for-each.md
    */
   'unicorn/no-array-for-each'?: Linter.RuleEntry<[]>
   /**
    * Disallow using the `this` argument in array methods.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-array-method-this-argument.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-array-method-this-argument.md
    */
   'unicorn/no-array-method-this-argument'?: Linter.RuleEntry<[]>
   /**
    * Replaced by `unicorn/prefer-single-call` which covers more cases.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/deprecated-rules.md#no-array-push-push
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/deleted-and-deprecated-rules.md#no-array-push-push
    * @deprecated
    */
   'unicorn/no-array-push-push'?: Linter.RuleEntry<[]>
   /**
    * Disallow `Array#reduce()` and `Array#reduceRight()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-array-reduce.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-array-reduce.md
    */
   'unicorn/no-array-reduce'?: Linter.RuleEntry<UnicornNoArrayReduce>
   /**
    * Prefer `Array#toReversed()` over `Array#reverse()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-array-reverse.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-array-reverse.md
    */
   'unicorn/no-array-reverse'?: Linter.RuleEntry<UnicornNoArrayReverse>
   /**
    * Prefer `Array#toSorted()` over `Array#sort()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-array-sort.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-array-sort.md
    */
   'unicorn/no-array-sort'?: Linter.RuleEntry<UnicornNoArraySort>
   /**
    * Disallow member access from await expression.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-await-expression-member.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-await-expression-member.md
    */
   'unicorn/no-await-expression-member'?: Linter.RuleEntry<[]>
   /**
    * Disallow using `await` in `Promise` method parameters.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-await-in-promise-methods.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-await-in-promise-methods.md
    */
   'unicorn/no-await-in-promise-methods'?: Linter.RuleEntry<[]>
   /**
    * Do not use leading/trailing space between `console.log` parameters.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-console-spaces.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-console-spaces.md
    */
   'unicorn/no-console-spaces'?: Linter.RuleEntry<[]>
   /**
    * Do not use `document.cookie` directly.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-document-cookie.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-document-cookie.md
    */
   'unicorn/no-document-cookie'?: Linter.RuleEntry<[]>
   /**
    * Disallow empty files.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-empty-file.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-empty-file.md
    */
   'unicorn/no-empty-file'?: Linter.RuleEntry<[]>
   /**
    * Do not use a `for` loop that can be replaced with a `for-of` loop.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-for-loop.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-for-loop.md
    */
   'unicorn/no-for-loop'?: Linter.RuleEntry<[]>
   /**
    * Enforce the use of Unicode escapes instead of hexadecimal escapes.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-hex-escape.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-hex-escape.md
    */
   'unicorn/no-hex-escape'?: Linter.RuleEntry<[]>
   /**
    * Disallow immediate mutation after variable assignment.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-immediate-mutation.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-immediate-mutation.md
    */
   'unicorn/no-immediate-mutation'?: Linter.RuleEntry<[]>
   /**
    * Replaced by `unicorn/no-instanceof-builtins` which covers more cases.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/deprecated-rules.md#no-instanceof-array
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/deleted-and-deprecated-rules.md#no-instanceof-array
    * @deprecated
    */
   'unicorn/no-instanceof-array'?: Linter.RuleEntry<[]>
   /**
    * Disallow `instanceof` with built-in objects
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-instanceof-builtins.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-instanceof-builtins.md
    */
   'unicorn/no-instanceof-builtins'?: Linter.RuleEntry<UnicornNoInstanceofBuiltins>
   /**
    * Disallow invalid options in `fetch()` and `new Request()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-invalid-fetch-options.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-invalid-fetch-options.md
    */
   'unicorn/no-invalid-fetch-options'?: Linter.RuleEntry<[]>
   /**
    * Prevent calling `EventTarget#removeEventListener()` with the result of an expression.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-invalid-remove-event-listener.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-invalid-remove-event-listener.md
    */
   'unicorn/no-invalid-remove-event-listener'?: Linter.RuleEntry<[]>
   /**
    * Disallow identifiers starting with `new` or `class`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-keyword-prefix.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-keyword-prefix.md
    */
   'unicorn/no-keyword-prefix'?: Linter.RuleEntry<UnicornNoKeywordPrefix>
   /**
    * Replaced by `unicorn/no-unnecessary-slice-end` which covers more cases.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/deprecated-rules.md#no-length-as-slice-end
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/deleted-and-deprecated-rules.md#no-length-as-slice-end
    * @deprecated
    */
   'unicorn/no-length-as-slice-end'?: Linter.RuleEntry<[]>
   /**
    * Disallow `if` statements as the only statement in `if` blocks without `else`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-lonely-if.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-lonely-if.md
    */
   'unicorn/no-lonely-if'?: Linter.RuleEntry<[]>
   /**
    * Disallow a magic number as the `depth` argument in `Array#flat(…).`
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-magic-array-flat-depth.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-magic-array-flat-depth.md
    */
   'unicorn/no-magic-array-flat-depth'?: Linter.RuleEntry<[]>
   /**
    * Disallow named usage of default import and export.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-named-default.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-named-default.md
    */
   'unicorn/no-named-default'?: Linter.RuleEntry<[]>
   /**
    * Disallow negated conditions.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-negated-condition.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-negated-condition.md
    */
   'unicorn/no-negated-condition'?: Linter.RuleEntry<[]>
   /**
    * Disallow negated expression in equality check.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-negation-in-equality-check.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-negation-in-equality-check.md
    */
   'unicorn/no-negation-in-equality-check'?: Linter.RuleEntry<[]>
   /**
    * Disallow nested ternary expressions.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-nested-ternary.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-nested-ternary.md
    */
   'unicorn/no-nested-ternary'?: Linter.RuleEntry<[]>
   /**
    * Disallow `new Array()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-new-array.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-new-array.md
    */
   'unicorn/no-new-array'?: Linter.RuleEntry<[]>
   /**
    * Enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-new-buffer.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-new-buffer.md
    */
   'unicorn/no-new-buffer'?: Linter.RuleEntry<[]>
   /**
    * Disallow the use of the `null` literal.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-null.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-null.md
    */
   'unicorn/no-null'?: Linter.RuleEntry<UnicornNoNull>
   /**
    * Disallow the use of objects as default parameters.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-object-as-default-parameter.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-object-as-default-parameter.md
    */
   'unicorn/no-object-as-default-parameter'?: Linter.RuleEntry<[]>
   /**
    * Disallow `process.exit()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-process-exit.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-process-exit.md
    */
   'unicorn/no-process-exit'?: Linter.RuleEntry<[]>
   /**
    * Disallow passing single-element arrays to `Promise` methods.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-single-promise-in-promise-methods.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-single-promise-in-promise-methods.md
    */
   'unicorn/no-single-promise-in-promise-methods'?: Linter.RuleEntry<[]>
   /**
    * Disallow classes that only have static members.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-static-only-class.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-static-only-class.md
    */
   'unicorn/no-static-only-class'?: Linter.RuleEntry<[]>
   /**
    * Disallow `then` property.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-thenable.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-thenable.md
    */
   'unicorn/no-thenable'?: Linter.RuleEntry<[]>
   /**
    * Disallow assigning `this` to a variable.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-this-assignment.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-this-assignment.md
    */
   'unicorn/no-this-assignment'?: Linter.RuleEntry<[]>
   /**
    * Disallow comparing `undefined` using `typeof`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-typeof-undefined.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-typeof-undefined.md
    */
   'unicorn/no-typeof-undefined'?: Linter.RuleEntry<UnicornNoTypeofUndefined>
   /**
    * Disallow using `1` as the `depth` argument of `Array#flat()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unnecessary-array-flat-depth.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unnecessary-array-flat-depth.md
    */
   'unicorn/no-unnecessary-array-flat-depth'?: Linter.RuleEntry<[]>
   /**
    * Disallow using `.length` or `Infinity` as the `deleteCount` or `skipCount` argument of `Array#{splice,toSpliced}()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unnecessary-array-splice-count.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unnecessary-array-splice-count.md
    */
   'unicorn/no-unnecessary-array-splice-count'?: Linter.RuleEntry<[]>
   /**
    * Disallow awaiting non-promise values.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unnecessary-await.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unnecessary-await.md
    */
   'unicorn/no-unnecessary-await'?: Linter.RuleEntry<[]>
   /**
    * Enforce the use of built-in methods instead of unnecessary polyfills.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unnecessary-polyfills.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unnecessary-polyfills.md
    */
   'unicorn/no-unnecessary-polyfills'?: Linter.RuleEntry<UnicornNoUnnecessaryPolyfills>
   /**
    * Disallow using `.length` or `Infinity` as the `end` argument of `{Array,String,TypedArray}#slice()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unnecessary-slice-end.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unnecessary-slice-end.md
    */
   'unicorn/no-unnecessary-slice-end'?: Linter.RuleEntry<[]>
   /**
    * Disallow unreadable array destructuring.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unreadable-array-destructuring.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unreadable-array-destructuring.md
    */
   'unicorn/no-unreadable-array-destructuring'?: Linter.RuleEntry<[]>
   /**
    * Disallow unreadable IIFEs.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unreadable-iife.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unreadable-iife.md
    */
   'unicorn/no-unreadable-iife'?: Linter.RuleEntry<[]>
   /**
    * Disallow unused object properties.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-unused-properties.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-unused-properties.md
    */
   'unicorn/no-unused-properties'?: Linter.RuleEntry<[]>
   /**
    * Disallow useless values or fallbacks in `Set`, `Map`, `WeakSet`, or `WeakMap`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-collection-argument.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-collection-argument.md
    */
   'unicorn/no-useless-collection-argument'?: Linter.RuleEntry<[]>
   /**
    * Disallow unnecessary `Error.captureStackTrace(…)`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-error-capture-stack-trace.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-error-capture-stack-trace.md
    */
   'unicorn/no-useless-error-capture-stack-trace'?: Linter.RuleEntry<[]>
   /**
    * Disallow useless fallback when spreading in object literals.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-fallback-in-spread.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-fallback-in-spread.md
    */
   'unicorn/no-useless-fallback-in-spread'?: Linter.RuleEntry<[]>
   /**
    * Disallow useless array length check.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-length-check.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-length-check.md
    */
   'unicorn/no-useless-length-check'?: Linter.RuleEntry<[]>
   /**
    * Disallow returning/yielding `Promise.resolve/reject()` in async functions or promise callbacks
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-promise-resolve-reject.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-promise-resolve-reject.md
    */
   'unicorn/no-useless-promise-resolve-reject'?: Linter.RuleEntry<[]>
   /**
    * Disallow unnecessary spread.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-spread.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-spread.md
    */
   'unicorn/no-useless-spread'?: Linter.RuleEntry<[]>
   /**
    * Disallow useless case in switch statements.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-switch-case.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-switch-case.md
    */
   'unicorn/no-useless-switch-case'?: Linter.RuleEntry<[]>
   /**
    * Disallow useless `undefined`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-useless-undefined.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-useless-undefined.md
    */
   'unicorn/no-useless-undefined'?: Linter.RuleEntry<UnicornNoUselessUndefined>
   /**
    * Disallow number literals with zero fractions or dangling dots.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/no-zero-fractions.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/no-zero-fractions.md
    */
   'unicorn/no-zero-fractions'?: Linter.RuleEntry<[]>
   /**
    * Enforce proper case for numeric literals.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/number-literal-case.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/number-literal-case.md
    */
   'unicorn/number-literal-case'?: Linter.RuleEntry<UnicornNumberLiteralCase>
   /**
    * Enforce the style of numeric separators by correctly grouping digits.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/numeric-separators-style.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/numeric-separators-style.md
    */
   'unicorn/numeric-separators-style'?: Linter.RuleEntry<UnicornNumericSeparatorsStyle>
   /**
    * Prefer `.addEventListener()` and `.removeEventListener()` over `on`-functions.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-add-event-listener.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-add-event-listener.md
    */
   'unicorn/prefer-add-event-listener'?: Linter.RuleEntry<UnicornPreferAddEventListener>
   /**
    * Prefer `.find(…)` and `.findLast(…)` over the first or last element from `.filter(…)`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-array-find.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-array-find.md
    */
   'unicorn/prefer-array-find'?: Linter.RuleEntry<UnicornPreferArrayFind>
   /**
    * Prefer `Array#flat()` over legacy techniques to flatten arrays.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-array-flat.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-array-flat.md
    */
   'unicorn/prefer-array-flat'?: Linter.RuleEntry<UnicornPreferArrayFlat>
   /**
    * Prefer `.flatMap(…)` over `.map(…).flat()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-array-flat-map.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-array-flat-map.md
    */
   'unicorn/prefer-array-flat-map'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-array-index-of.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-array-index-of.md
    */
   'unicorn/prefer-array-index-of'?: Linter.RuleEntry<[]>
   /**
    * Prefer `.some(…)` over `.filter(…).length` check and `.{find,findLast,findIndex,findLastIndex}(…)`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-array-some.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-array-some.md
    */
   'unicorn/prefer-array-some'?: Linter.RuleEntry<[]>
   /**
    * Prefer `.at()` method for index access and `String#charAt()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-at.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-at.md
    */
   'unicorn/prefer-at'?: Linter.RuleEntry<UnicornPreferAt>
   /**
    * Prefer `BigInt` literals over the constructor.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-bigint-literals.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-bigint-literals.md
    */
   'unicorn/prefer-bigint-literals'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Blob#arrayBuffer()` over `FileReader#readAsArrayBuffer(…)` and `Blob#text()` over `FileReader#readAsText(…)`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-blob-reading-methods.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-blob-reading-methods.md
    */
   'unicorn/prefer-blob-reading-methods'?: Linter.RuleEntry<[]>
   /**
    * Prefer class field declarations over `this` assignments in constructors.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-class-fields.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-class-fields.md
    */
   'unicorn/prefer-class-fields'?: Linter.RuleEntry<[]>
   /**
    * Prefer using `Element#classList.toggle()` to toggle class names.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-classlist-toggle.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-classlist-toggle.md
    */
   'unicorn/prefer-classlist-toggle'?: Linter.RuleEntry<[]>
   /**
    * Prefer `String#codePointAt(…)` over `String#charCodeAt(…)` and `String.fromCodePoint(…)` over `String.fromCharCode(…)`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-code-point.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-code-point.md
    */
   'unicorn/prefer-code-point'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Date.now()` to get the number of milliseconds since the Unix Epoch.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-date-now.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-date-now.md
    */
   'unicorn/prefer-date-now'?: Linter.RuleEntry<[]>
   /**
    * Prefer default parameters over reassignment.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-default-parameters.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-default-parameters.md
    */
   'unicorn/prefer-default-parameters'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Node#append()` over `Node#appendChild()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-dom-node-append.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-dom-node-append.md
    */
   'unicorn/prefer-dom-node-append'?: Linter.RuleEntry<[]>
   /**
    * Prefer using `.dataset` on DOM elements over calling attribute methods.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-dom-node-dataset.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-dom-node-dataset.md
    */
   'unicorn/prefer-dom-node-dataset'?: Linter.RuleEntry<[]>
   /**
    * Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-dom-node-remove.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-dom-node-remove.md
    */
   'unicorn/prefer-dom-node-remove'?: Linter.RuleEntry<[]>
   /**
    * Prefer `.textContent` over `.innerText`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-dom-node-text-content.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-dom-node-text-content.md
    */
   'unicorn/prefer-dom-node-text-content'?: Linter.RuleEntry<[]>
   /**
    * Prefer `EventTarget` over `EventEmitter`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-event-target.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-event-target.md
    */
   'unicorn/prefer-event-target'?: Linter.RuleEntry<[]>
   /**
    * Prefer `export…from` when re-exporting.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-export-from.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-export-from.md
    */
   'unicorn/prefer-export-from'?: Linter.RuleEntry<UnicornPreferExportFrom>
   /**
    * Prefer `globalThis` over `window`, `self`, and `global`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-global-this.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-global-this.md
    */
   'unicorn/prefer-global-this'?: Linter.RuleEntry<[]>
   /**
    * Prefer `import.meta.{dirname,filename}` over legacy techniques for getting file paths.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-import-meta-properties.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-import-meta-properties.md
    */
   'unicorn/prefer-import-meta-properties'?: Linter.RuleEntry<[]>
   /**
    * Prefer `.includes()` over `.indexOf()`, `.lastIndexOf()`, and `Array#some()` when checking for existence or non-existence.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-includes.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-includes.md
    */
   'unicorn/prefer-includes'?: Linter.RuleEntry<[]>
   /**
    * Prefer reading a JSON file as a buffer.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-json-parse-buffer.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-json-parse-buffer.md
    */
   'unicorn/prefer-json-parse-buffer'?: Linter.RuleEntry<[]>
   /**
    * Prefer `KeyboardEvent#key` over `KeyboardEvent#keyCode`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-keyboard-event-key.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-keyboard-event-key.md
    */
   'unicorn/prefer-keyboard-event-key'?: Linter.RuleEntry<[]>
   /**
    * Prefer using a logical operator over a ternary.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-logical-operator-over-ternary.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-logical-operator-over-ternary.md
    */
   'unicorn/prefer-logical-operator-over-ternary'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Math.min()` and `Math.max()` over ternaries for simple comparisons.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-math-min-max.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-math-min-max.md
    */
   'unicorn/prefer-math-min-max'?: Linter.RuleEntry<[]>
   /**
    * Enforce the use of `Math.trunc` instead of bitwise operators.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-math-trunc.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-math-trunc.md
    */
   'unicorn/prefer-math-trunc'?: Linter.RuleEntry<[]>
   /**
    * Prefer `.before()` over `.insertBefore()`, `.replaceWith()` over `.replaceChild()`, prefer one of `.before()`, `.after()`, `.append()` or `.prepend()` over `insertAdjacentText()` and `insertAdjacentElement()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-modern-dom-apis.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-modern-dom-apis.md
    */
   'unicorn/prefer-modern-dom-apis'?: Linter.RuleEntry<[]>
   /**
    * Prefer modern `Math` APIs over legacy patterns.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-modern-math-apis.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-modern-math-apis.md
    */
   'unicorn/prefer-modern-math-apis'?: Linter.RuleEntry<[]>
   /**
    * Prefer JavaScript modules (ESM) over CommonJS.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-module.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-module.md
    */
   'unicorn/prefer-module'?: Linter.RuleEntry<[]>
   /**
    * Prefer using `String`, `Number`, `BigInt`, `Boolean`, and `Symbol` directly.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-native-coercion-functions.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-native-coercion-functions.md
    */
   'unicorn/prefer-native-coercion-functions'?: Linter.RuleEntry<[]>
   /**
    * Prefer negative index over `.length - index` when possible.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-negative-index.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-negative-index.md
    */
   'unicorn/prefer-negative-index'?: Linter.RuleEntry<[]>
   /**
    * Prefer using the `node:` protocol when importing Node.js builtin modules.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-node-protocol.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-node-protocol.md
    */
   'unicorn/prefer-node-protocol'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Number` static properties over global ones.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-number-properties.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-number-properties.md
    */
   'unicorn/prefer-number-properties'?: Linter.RuleEntry<UnicornPreferNumberProperties>
   /**
    * Prefer using `Object.fromEntries(…)` to transform a list of key-value pairs into an object.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-object-from-entries.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-object-from-entries.md
    */
   'unicorn/prefer-object-from-entries'?: Linter.RuleEntry<UnicornPreferObjectFromEntries>
   /**
    * Prefer omitting the `catch` binding parameter.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-optional-catch-binding.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-optional-catch-binding.md
    */
   'unicorn/prefer-optional-catch-binding'?: Linter.RuleEntry<[]>
   /**
    * Prefer borrowing methods from the prototype instead of the instance.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-prototype-methods.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-prototype-methods.md
    */
   'unicorn/prefer-prototype-methods'?: Linter.RuleEntry<[]>
   /**
    * Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()` and `.getElementsByName()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-query-selector.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-query-selector.md
    */
   'unicorn/prefer-query-selector'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Reflect.apply()` over `Function#apply()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-reflect-apply.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-reflect-apply.md
    */
   'unicorn/prefer-reflect-apply'?: Linter.RuleEntry<[]>
   /**
    * Prefer `RegExp#test()` over `String#match()` and `RegExp#exec()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-regexp-test.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-regexp-test.md
    */
   'unicorn/prefer-regexp-test'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Response.json()` over `new Response(JSON.stringify())`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-response-static-json.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-response-static-json.md
    */
   'unicorn/prefer-response-static-json'?: Linter.RuleEntry<[]>
   /**
    * Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-set-has.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-set-has.md
    */
   'unicorn/prefer-set-has'?: Linter.RuleEntry<[]>
   /**
    * Prefer using `Set#size` instead of `Array#length`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-set-size.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-set-size.md
    */
   'unicorn/prefer-set-size'?: Linter.RuleEntry<[]>
   /**
    * Enforce combining multiple `Array#push()`, `Element#classList.{add,remove}()`, and `importScripts()` into one call.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-single-call.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-single-call.md
    */
   'unicorn/prefer-single-call'?: Linter.RuleEntry<UnicornPreferSingleCall>
   /**
    * Prefer the spread operator over `Array.from(…)`, `Array#concat(…)`, `Array#{slice,toSpliced}()` and `String#split('')`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-spread.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-spread.md
    */
   'unicorn/prefer-spread'?: Linter.RuleEntry<[]>
   /**
    * Prefer using the `String.raw` tag to avoid escaping `\`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-string-raw.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-string-raw.md
    */
   'unicorn/prefer-string-raw'?: Linter.RuleEntry<[]>
   /**
    * Prefer `String#replaceAll()` over regex searches with the global flag.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-string-replace-all.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-string-replace-all.md
    */
   'unicorn/prefer-string-replace-all'?: Linter.RuleEntry<[]>
   /**
    * Prefer `String#slice()` over `String#substr()` and `String#substring()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-string-slice.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-string-slice.md
    */
   'unicorn/prefer-string-slice'?: Linter.RuleEntry<[]>
   /**
    * Prefer `String#startsWith()` & `String#endsWith()` over `RegExp#test()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-string-starts-ends-with.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-string-starts-ends-with.md
    */
   'unicorn/prefer-string-starts-ends-with'?: Linter.RuleEntry<[]>
   /**
    * Prefer `String#trimStart()` / `String#trimEnd()` over `String#trimLeft()` / `String#trimRight()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-string-trim-start-end.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-string-trim-start-end.md
    */
   'unicorn/prefer-string-trim-start-end'?: Linter.RuleEntry<[]>
   /**
    * Prefer using `structuredClone` to create a deep clone.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-structured-clone.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-structured-clone.md
    */
   'unicorn/prefer-structured-clone'?: Linter.RuleEntry<UnicornPreferStructuredClone>
   /**
    * Prefer `switch` over multiple `else-if`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-switch.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-switch.md
    */
   'unicorn/prefer-switch'?: Linter.RuleEntry<UnicornPreferSwitch>
   /**
    * Prefer ternary expressions over simple `if-else` statements.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-ternary.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-ternary.md
    */
   'unicorn/prefer-ternary'?: Linter.RuleEntry<UnicornPreferTernary>
   /**
    * Prefer top-level await over top-level promises and async function calls.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-top-level-await.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-top-level-await.md
    */
   'unicorn/prefer-top-level-await'?: Linter.RuleEntry<[]>
   /**
    * Enforce throwing `TypeError` in type checking conditions.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prefer-type-error.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prefer-type-error.md
    */
   'unicorn/prefer-type-error'?: Linter.RuleEntry<[]>
   /**
    * Prevent abbreviations.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/prevent-abbreviations.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/prevent-abbreviations.md
    */
   'unicorn/prevent-abbreviations'?: Linter.RuleEntry<UnicornPreventAbbreviations>
   /**
    * Enforce consistent relative URL style.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/relative-url-style.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/relative-url-style.md
    */
   'unicorn/relative-url-style'?: Linter.RuleEntry<UnicornRelativeUrlStyle>
   /**
    * Enforce using the separator argument with `Array#join()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/require-array-join-separator.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/require-array-join-separator.md
    */
   'unicorn/require-array-join-separator'?: Linter.RuleEntry<[]>
   /**
    * Require non-empty module attributes for imports and exports
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/require-module-attributes.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/require-module-attributes.md
    */
   'unicorn/require-module-attributes'?: Linter.RuleEntry<[]>
   /**
    * Require non-empty specifier list in import and export statements.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/require-module-specifiers.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/require-module-specifiers.md
    */
   'unicorn/require-module-specifiers'?: Linter.RuleEntry<[]>
   /**
    * Enforce using the digits argument with `Number#toFixed()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/require-number-to-fixed-digits-argument.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/require-number-to-fixed-digits-argument.md
    */
   'unicorn/require-number-to-fixed-digits-argument'?: Linter.RuleEntry<[]>
   /**
    * Enforce using the `targetOrigin` argument with `window.postMessage()`.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/require-post-message-target-origin.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/require-post-message-target-origin.md
    */
   'unicorn/require-post-message-target-origin'?: Linter.RuleEntry<[]>
   /**
    * Enforce better string content.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/string-content.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/string-content.md
    */
   'unicorn/string-content'?: Linter.RuleEntry<UnicornStringContent>
   /**
    * Enforce consistent brace style for `case` clauses.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/switch-case-braces.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/switch-case-braces.md
    */
   'unicorn/switch-case-braces'?: Linter.RuleEntry<UnicornSwitchCaseBraces>
   /**
    * Fix whitespace-insensitive template indentation.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/template-indent.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/template-indent.md
    */
   'unicorn/template-indent'?: Linter.RuleEntry<UnicornTemplateIndent>
   /**
    * Enforce consistent case for text encoding identifiers.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/text-encoding-identifier-case.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/text-encoding-identifier-case.md
    */
   'unicorn/text-encoding-identifier-case'?: Linter.RuleEntry<UnicornTextEncodingIdentifierCase>
   /**
    * Require `new` when creating an error.
-   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v62.0.0/docs/rules/throw-new-error.md
+   * @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v63.0.0/docs/rules/throw-new-error.md
    */
   'unicorn/throw-new-error'?: Linter.RuleEntry<[]>
   /**
@@ -7307,6 +7358,11 @@ export interface RuleOptions {
    */
   'vue/no-lifecycle-after-await'?: Linter.RuleEntry<[]>
   /**
+   * disallow object, array, and function literals in template
+   * @see https://eslint.vuejs.org/rules/no-literals-in-template.html
+   */
+  'vue/no-literals-in-template'?: Linter.RuleEntry<[]>
+  /**
    * disallow unnecessary `<template>`
    * @see https://eslint.vuejs.org/rules/no-lone-template.html
    */
@@ -7516,6 +7572,11 @@ export interface RuleOptions {
    * @see https://eslint.vuejs.org/rules/no-undef-components.html
    */
   'vue/no-undef-components'?: Linter.RuleEntry<VueNoUndefComponents>
+  /**
+   * disallow use of undefined custom directives
+   * @see https://eslint.vuejs.org/rules/no-undef-directives.html
+   */
+  'vue/no-undef-directives'?: Linter.RuleEntry<VueNoUndefDirectives>
   /**
    * disallow undefined properties
    * @see https://eslint.vuejs.org/rules/no-undef-properties.html
@@ -8392,15 +8453,25 @@ type StylisticCurlyNewline = []|[(("always" | "never") | {
 type StylisticDotLocation = []|[("object" | "property")]
 // ----- @stylistic/eol-last -----
 type StylisticEolLast = []|[("always" | "never" | "unix" | "windows")]
+// ----- @stylistic/exp-jsx-props-style -----
+type StylisticExpJsxPropsStyle = []|[{
+  singleLine?: {
+    maxItems?: number
+  }
+  multiLine?: {
+    minItems?: number
+    maxItemsPerLine?: number
+  }
+}]
 // ----- @stylistic/exp-list-style -----
 type StylisticExpListStyle = []|[{
   singleLine?: _StylisticExpListStyle_SingleLineConfig
   multiLine?: _StylisticExpListStyle_MultiLineConfig
   overrides?: {
+    "()"?: _StylisticExpListStyle_BaseConfig
     "[]"?: _StylisticExpListStyle_BaseConfig
     "{}"?: _StylisticExpListStyle_BaseConfig
     "<>"?: _StylisticExpListStyle_BaseConfig
-    "()"?: _StylisticExpListStyle_BaseConfig
     ArrayExpression?: _StylisticExpListStyle_BaseConfig
     ArrayPattern?: _StylisticExpListStyle_BaseConfig
     ArrowFunctionExpression?: _StylisticExpListStyle_BaseConfig
@@ -8408,21 +8479,22 @@ type StylisticExpListStyle = []|[{
     ExportNamedDeclaration?: _StylisticExpListStyle_BaseConfig
     FunctionDeclaration?: _StylisticExpListStyle_BaseConfig
     FunctionExpression?: _StylisticExpListStyle_BaseConfig
-    ImportDeclaration?: _StylisticExpListStyle_BaseConfig
+    IfStatement?: _StylisticExpListStyle_BaseConfig
     ImportAttributes?: _StylisticExpListStyle_BaseConfig
+    ImportDeclaration?: _StylisticExpListStyle_BaseConfig
+    JSONArrayExpression?: _StylisticExpListStyle_BaseConfig
+    JSONObjectExpression?: _StylisticExpListStyle_BaseConfig
     NewExpression?: _StylisticExpListStyle_BaseConfig
     ObjectExpression?: _StylisticExpListStyle_BaseConfig
     ObjectPattern?: _StylisticExpListStyle_BaseConfig
     TSDeclareFunction?: _StylisticExpListStyle_BaseConfig
+    TSEnumBody?: _StylisticExpListStyle_BaseConfig
     TSFunctionType?: _StylisticExpListStyle_BaseConfig
     TSInterfaceBody?: _StylisticExpListStyle_BaseConfig
-    TSEnumBody?: _StylisticExpListStyle_BaseConfig
     TSTupleType?: _StylisticExpListStyle_BaseConfig
     TSTypeLiteral?: _StylisticExpListStyle_BaseConfig
     TSTypeParameterDeclaration?: _StylisticExpListStyle_BaseConfig
     TSTypeParameterInstantiation?: _StylisticExpListStyle_BaseConfig
-    JSONArrayExpression?: _StylisticExpListStyle_BaseConfig
-    JSONObjectExpression?: _StylisticExpListStyle_BaseConfig
   }
 }]
 interface _StylisticExpListStyle_SingleLineConfig {
@@ -9435,7 +9507,7 @@ type StylisticTypeAnnotationSpacing = []|[{
   after?: boolean
   overrides?: {
     colon?: _StylisticTypeAnnotationSpacing_SpacingConfig
-    arrow?: _StylisticTypeAnnotationSpacing_SpacingConfig
+    arrow?: ("ignore" | _StylisticTypeAnnotationSpacing_SpacingConfig)
     variable?: _StylisticTypeAnnotationSpacing_SpacingConfig
     parameter?: _StylisticTypeAnnotationSpacing_SpacingConfig
     property?: _StylisticTypeAnnotationSpacing_SpacingConfig
@@ -9476,6 +9548,7 @@ type AntfuConsistentListNewline = []|[{
   ExportNamedDeclaration?: boolean
   FunctionDeclaration?: boolean
   FunctionExpression?: boolean
+  IfStatement?: boolean
   ImportDeclaration?: boolean
   JSONArrayExpression?: boolean
   JSONObjectExpression?: boolean
@@ -10421,6 +10494,8 @@ type JsdocRequireHyphenBeforeParamDescription = []|[("always" | "never")]|[("alw
 // ----- jsdoc/require-jsdoc -----
 type JsdocRequireJsdoc = []|[{
   
+  checkAllFunctionExpressions?: boolean
+  
   checkConstructors?: boolean
   
   checkGetters?: (boolean | "no-setter")
@@ -10771,6 +10846,8 @@ type JsdocTypeFormatting = []|[{
   
   objectFieldSeparatorTrailingPunctuation?: boolean
   
+  objectTypeBracketSpacing?: string
+  
   parameterDefaultValueSpacing?: string
   
   postMethodNameSpacing?: string
@@ -10780,6 +10857,8 @@ type JsdocTypeFormatting = []|[{
   separatorForSingleObjectField?: boolean
   
   stringQuotes?: ("double" | "single")
+  
+  trailingPunctuationMultilineOnly?: boolean
   
   typeBracketSpacing?: string
   
@@ -11604,6 +11683,8 @@ type MaxParams = []|[(number | {
   max?: number
   
   countVoidThis?: boolean
+  
+  countThis?: ("never" | "except-void" | "always")
 })]
 // ----- max-statements -----
 type MaxStatements = []|[(number | {
@@ -12443,10 +12524,12 @@ type PerfectionistSortArrayIncludes = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -12458,28 +12541,23 @@ type PerfectionistSortArrayIncludes = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  groupKind?: ("mixed" | "literals-first" | "spreads-first")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      selector?: ("literal" | "spread")
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -12492,24 +12570,39 @@ type PerfectionistSortArrayIncludes = {
         
         flags?: string
       } | string))
-    }[]
+      
+      selector?: "literal"
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      selector?: "literal"
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    selector?: ("literal" | "spread")
     
     elementNamePattern?: (({
       
@@ -12522,7 +12615,31 @@ type PerfectionistSortArrayIncludes = {
       
       flags?: string
     } | string))
+    
+    selector?: "literal"
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   useConfigurationIf?: {
     
@@ -12577,23 +12694,18 @@ type PerfectionistSortArrayIncludes = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-classes -----
 type PerfectionistSortClasses = []|[{
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -12605,24 +12717,35 @@ type PerfectionistSortClasses = []|[{
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
       
       modifiers?: ("async" | "protected" | "private" | "public" | "static" | "abstract" | "override" | "readonly" | "decorated" | "declare" | "optional")[]
       
@@ -12651,6 +12774,7 @@ type PerfectionistSortClasses = []|[{
         
         flags?: string
       } | string))
+    }, ...({
       
       elementNamePattern?: (({
         
@@ -12663,22 +12787,62 @@ type PerfectionistSortClasses = []|[{
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("async" | "protected" | "private" | "public" | "static" | "abstract" | "override" | "readonly" | "decorated" | "declare" | "optional")[]
+      
+      selector?: ("accessor-property" | "index-signature" | "constructor" | "static-block" | "get-method" | "set-method" | "function-property" | "property" | "method")
+      
+      decoratorNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
     
     modifiers?: ("async" | "protected" | "private" | "public" | "static" | "abstract" | "override" | "readonly" | "decorated" | "declare" | "optional")[]
     
@@ -12707,19 +12871,31 @@ type PerfectionistSortClasses = []|[{
       
       flags?: string
     } | string))
-    
-    elementNamePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  useExperimentalDependencyDetection?: boolean
   
   ignoreCallbackDependenciesPatterns?: (({
     
@@ -12771,23 +12947,18 @@ type PerfectionistSortClasses = []|[{
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }]
 // ----- perfectionist/sort-decorators -----
-type PerfectionistSortDecorators = []|[{
+type PerfectionistSortDecorators = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -12799,7 +12970,99 @@ type PerfectionistSortDecorators = []|[{
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+  customGroups?: ({
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
+  } | {
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   sortOnParameters?: boolean
   
@@ -12848,25 +13111,19 @@ type PerfectionistSortDecorators = []|[{
     } | string)))
   })
   
-  customGroups?: {
-    [k: string]: (string | string[]) | undefined
-  }
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
-}]
+  partitionByNewLine?: boolean
+}[]
 // ----- perfectionist/sort-enums -----
 type PerfectionistSortEnums = []|[{
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -12878,37 +13135,23 @@ type PerfectionistSortEnums = []|[{
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   customGroups?: ({
-    [k: string]: (string | string[]) | undefined
-  } | ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      elementValuePattern?: (({
-        
-        pattern: string
-        
-        flags?: string
-      } | string)[] | ({
-        
-        pattern: string
-        
-        flags?: string
-      } | string))
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -12921,34 +13164,59 @@ type PerfectionistSortEnums = []|[{
         
         flags?: string
       } | string))
-    }[]
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    elementValuePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
     
     elementNamePattern?: (({
       
@@ -12961,11 +13229,45 @@ type PerfectionistSortEnums = []|[{
       
       flags?: string
     } | string))
-  })[])
+    
+    elementValuePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
   
-  forceNumericSort?: boolean
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
-  sortByValue?: boolean
+  sortByValue?: ("always" | "ifNumericEnum" | "never")
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -13005,23 +13307,173 @@ type PerfectionistSortEnums = []|[{
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
+}]
+// ----- perfectionist/sort-export-attributes -----
+type PerfectionistSortExportAttributes = {
   
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
+  fallbackSort?: {
+    
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    order?: ("asc" | "desc")
+  }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
+  ignoreCase?: boolean
+  
+  alphabet?: string
+  
+  locales?: (string | string[])
+  
+  order?: ("asc" | "desc")
+  
+  customGroups?: ({
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
+  } | {
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
     
     commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
   })[]
-}]
+  newlinesBetween?: ("ignore" | number)
+  
+  partitionByComment?: (boolean | (({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)[] | ({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)) | {
+    
+    block?: (boolean | (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)))
+    
+    line?: (boolean | (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)))
+  })
+  
+  partitionByNewLine?: boolean
+}[]
 // ----- perfectionist/sort-exports -----
 type PerfectionistSortExports = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -13033,30 +13485,23 @@ type PerfectionistSortExports = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  groupKind?: ("mixed" | "values-first" | "types-first")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      modifiers?: ("value" | "type")[]
-      
-      selector?: "export"
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -13069,26 +13514,43 @@ type PerfectionistSortExports = {
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("value" | "type" | "named" | "wildcard" | "multiline" | "singleline")[]
+      
+      selector?: "export"
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      modifiers?: ("value" | "type" | "named" | "wildcard" | "multiline" | "singleline")[]
+      
+      selector?: "export"
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("value" | "type")[]
-    
-    selector?: "export"
     
     elementNamePattern?: (({
       
@@ -13101,7 +13563,33 @@ type PerfectionistSortExports = {
       
       flags?: string
     } | string))
+    
+    modifiers?: ("value" | "type" | "named" | "wildcard" | "multiline" | "singleline")[]
+    
+    selector?: "export"
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   partitionByComment?: (boolean | (({
     
@@ -13141,23 +13629,18 @@ type PerfectionistSortExports = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-heritage-clauses -----
-type PerfectionistSortHeritageClauses = []|[{
+type PerfectionistSortHeritageClauses = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -13169,80 +13652,23 @@ type PerfectionistSortHeritageClauses = []|[{
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  customGroups?: {
-    [k: string]: (string | string[]) | undefined
-  }
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
-}]
-// ----- perfectionist/sort-imports -----
-type PerfectionistSortImports = {
-  
-  fallbackSort?: {
-    
-    order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  }
-  
-  specialCharacters?: ("remove" | "trim" | "keep")
-  
-  ignoreCase?: boolean
-  
-  alphabet?: string
-  
-  locales?: (string | string[])
-  
-  order?: ("asc" | "desc")
-  
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   customGroups?: ({
-    
-    value?: {
-      [k: string]: (string | string[]) | undefined
-    }
-    
-    type?: {
-      [k: string]: (string | string[]) | undefined
-    }
-  } | ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      modifiers?: ("default" | "named" | "require" | "side-effect" | "ts-equals" | "type" | "value" | "wildcard")[]
-      
-      selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type")
-      
-      elementValuePattern?: (({
-        
-        pattern: string
-        
-        flags?: string
-      } | string)[] | ({
-        
-        pattern: string
-        
-        flags?: string
-      } | string))
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -13255,38 +13681,35 @@ type PerfectionistSortImports = {
         
         flags?: string
       } | string))
-    }[]
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("default" | "named" | "require" | "side-effect" | "ts-equals" | "type" | "value" | "wildcard")[]
-    
-    selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type")
-    
-    elementValuePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
     
     elementNamePattern?: (({
       
@@ -13299,7 +13722,359 @@ type PerfectionistSortImports = {
       
       flags?: string
     } | string))
-  })[])
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  partitionByNewLine?: boolean
+  
+  partitionByComment?: (boolean | (({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)[] | ({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)) | {
+    
+    block?: (boolean | (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)))
+    
+    line?: (boolean | (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)))
+  })
+}[]
+// ----- perfectionist/sort-import-attributes -----
+type PerfectionistSortImportAttributes = {
+  
+  fallbackSort?: {
+    
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    order?: ("asc" | "desc")
+  }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
+  ignoreCase?: boolean
+  
+  alphabet?: string
+  
+  locales?: (string | string[])
+  
+  order?: ("asc" | "desc")
+  
+  customGroups?: ({
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
+  } | {
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  partitionByComment?: (boolean | (({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)[] | ({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)) | {
+    
+    block?: (boolean | (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)))
+    
+    line?: (boolean | (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)))
+  })
+  
+  partitionByNewLine?: boolean
+}[]
+// ----- perfectionist/sort-imports -----
+type PerfectionistSortImports = {
+  
+  fallbackSort?: {
+    
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("specifier" | "path")
+  }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
+  ignoreCase?: boolean
+  
+  alphabet?: string
+  
+  locales?: (string | string[])
+  
+  order?: ("asc" | "desc")
+  sortBy?: ("specifier" | "path")
+  
+  customGroups?: ({
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+      
+      order?: ("asc" | "desc")
+      sortBy?: ("specifier" | "path")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("specifier" | "path")
+    
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      modifiers?: ("default" | "multiline" | "named" | "require" | "side-effect" | "singleline" | "ts-equals" | "type" | "value" | "wildcard")[]
+      
+      selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type")
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      modifiers?: ("default" | "multiline" | "named" | "require" | "side-effect" | "singleline" | "ts-equals" | "type" | "value" | "wildcard")[]
+      
+      selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type")
+    })[]]
+  } | {
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+      
+      order?: ("asc" | "desc")
+      sortBy?: ("specifier" | "path")
+    }
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+    
+    groupName: string
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("specifier" | "path")
+    
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+    
+    modifiers?: ("default" | "multiline" | "named" | "require" | "side-effect" | "singleline" | "ts-equals" | "type" | "value" | "wildcard")[]
+    
+    selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type")
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+      
+      order?: ("asc" | "desc")
+      sortBy?: ("specifier" | "path")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("specifier" | "path")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   tsconfig?: {
     
     rootDir: string
@@ -13313,7 +14088,7 @@ type PerfectionistSortImports = {
   
   environment?: ("node" | "bun")
   
-  tsconfigRootDir?: string
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -13353,7 +14128,6 @@ type PerfectionistSortImports = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   internalPattern?: (({
     
@@ -13366,23 +14140,19 @@ type PerfectionistSortImports = {
     
     flags?: string
   } | string))
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-interfaces -----
 type PerfectionistSortInterfaces = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
     sortBy?: ("name" | "value")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -13393,43 +14163,27 @@ type PerfectionistSortInterfaces = {
   locales?: (string | string[])
   
   order?: ("asc" | "desc")
+  sortBy?: ("name" | "value")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   customGroups?: ({
-    [k: string]: (string | string[]) | undefined
-  } | ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
       sortBy?: ("name" | "value")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      modifiers?: ("optional" | "required" | "multiline")[]
-      
-      selector?: ("index-signature" | "member" | "method" | "multiline" | "property")
-      
-      elementValuePattern?: (({
-        
-        pattern: string
-        
-        flags?: string
-      } | string)[] | ({
-        
-        pattern: string
-        
-        flags?: string
-      } | string))
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -13442,40 +14196,69 @@ type PerfectionistSortInterfaces = {
         
         flags?: string
       } | string))
-      sortBy?: ("name" | "value")
-    }[]
+      
+      modifiers?: ("optional" | "required" | "multiline")[]
+      
+      selector?: ("index-signature" | "member" | "method" | "property")
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      modifiers?: ("optional" | "required" | "multiline")[]
+      
+      selector?: ("index-signature" | "member" | "method" | "property")
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
       sortBy?: ("name" | "value")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("optional" | "required" | "multiline")[]
-    
-    selector?: ("index-signature" | "member" | "method" | "multiline" | "property")
-    
-    elementValuePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
+    sortBy?: ("name" | "value")
     
     elementNamePattern?: (({
       
@@ -13488,10 +14271,47 @@ type PerfectionistSortInterfaces = {
       
       flags?: string
     } | string))
-    sortBy?: ("name" | "value")
-  })[])
+    
+    modifiers?: ("optional" | "required" | "multiline")[]
+    
+    selector?: ("index-signature" | "member" | "method" | "property")
+    
+    elementValuePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
   
-  groupKind?: ("mixed" | "required-first" | "optional-first")
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   useConfigurationIf?: {
     
@@ -13507,12 +14327,30 @@ type PerfectionistSortInterfaces = {
       flags?: string
     } | string))
     
-    declarationMatchesPattern?: (({
+    hasNumericKeysOnly?: boolean
+    
+    declarationCommentMatchesPattern?: (({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
       flags?: string
     } | string)[] | ({
+      scope?: ("shallow" | "deep")
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+    
+    declarationMatchesPattern?: (({
+      scope?: ("shallow" | "deep")
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
@@ -13558,36 +14396,18 @@ type PerfectionistSortInterfaces = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  ignorePattern?: (({
-    
-    pattern: string
-    
-    flags?: string
-  } | string)[] | ({
-    
-    pattern: string
-    
-    flags?: string
-  } | string))
-  sortBy?: ("name" | "value")
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-intersection-types -----
 type PerfectionistSortIntersectionTypes = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -13599,26 +14419,23 @@ type PerfectionistSortIntersectionTypes = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -13631,24 +14448,39 @@ type PerfectionistSortIntersectionTypes = {
         
         flags?: string
       } | string))
-    }[]
+      
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
     
     elementNamePattern?: (({
       
@@ -13661,7 +14493,31 @@ type PerfectionistSortIntersectionTypes = {
       
       flags?: string
     } | string))
+    
+    selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   partitionByComment?: (boolean | (({
     
@@ -13701,23 +14557,18 @@ type PerfectionistSortIntersectionTypes = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-jsx-props -----
 type PerfectionistSortJsxProps = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -13729,29 +14580,39 @@ type PerfectionistSortJsxProps = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   customGroups?: ({
-    [k: string]: (string | string[]) | undefined
-  } | ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
       
       modifiers?: ("shorthand" | "multiline")[]
       
-      selector?: ("multiline" | "prop" | "shorthand")
+      selector?: "prop"
       
       elementValuePattern?: (({
         
@@ -13764,6 +14625,7 @@ type PerfectionistSortJsxProps = {
         
         flags?: string
       } | string))
+    }, ...({
       
       elementNamePattern?: (({
         
@@ -13776,38 +14638,38 @@ type PerfectionistSortJsxProps = {
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("shorthand" | "multiline")[]
+      
+      selector?: "prop"
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("shorthand" | "multiline")[]
-    
-    selector?: ("multiline" | "prop" | "shorthand")
-    
-    elementValuePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
     
     elementNamePattern?: (({
       
@@ -13820,7 +14682,45 @@ type PerfectionistSortJsxProps = {
       
       flags?: string
     } | string))
-  })[])
+    
+    modifiers?: ("shorthand" | "multiline")[]
+    
+    selector?: "prop"
+    
+    elementValuePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   useConfigurationIf?: {
     
@@ -13850,35 +14750,18 @@ type PerfectionistSortJsxProps = {
   }
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  ignorePattern?: (({
-    
-    pattern: string
-    
-    flags?: string
-  } | string)[] | ({
-    
-    pattern: string
-    
-    flags?: string
-  } | string))
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-maps -----
 type PerfectionistSortMaps = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -13890,24 +14773,23 @@ type PerfectionistSortMaps = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -13920,22 +14802,35 @@ type PerfectionistSortMaps = {
         
         flags?: string
       } | string))
-    }[]
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
     
     elementNamePattern?: (({
       
@@ -13949,6 +14844,28 @@ type PerfectionistSortMaps = {
       flags?: string
     } | string))
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   useConfigurationIf?: {
     
@@ -14003,23 +14920,18 @@ type PerfectionistSortMaps = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-modules -----
 type PerfectionistSortModules = []|[{
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -14031,24 +14943,35 @@ type PerfectionistSortModules = []|[{
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
       
       modifiers?: ("async" | "declare" | "decorated" | "default" | "export")[]
       
@@ -14065,6 +14988,7 @@ type PerfectionistSortModules = []|[{
         
         flags?: string
       } | string))
+    }, ...({
       
       elementNamePattern?: (({
         
@@ -14077,22 +15001,50 @@ type PerfectionistSortModules = []|[{
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("async" | "declare" | "decorated" | "default" | "export")[]
+      
+      selector?: ("enum" | "function" | "interface" | "type" | "class")
+      
+      decoratorNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
     
     modifiers?: ("async" | "declare" | "decorated" | "default" | "export")[]
     
@@ -14109,19 +15061,31 @@ type PerfectionistSortModules = []|[{
       
       flags?: string
     } | string))
-    
-    elementNamePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -14161,23 +15125,18 @@ type PerfectionistSortModules = []|[{
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }]
 // ----- perfectionist/sort-named-exports -----
 type PerfectionistSortNamedExports = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -14189,32 +15148,23 @@ type PerfectionistSortNamedExports = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  groupKind?: ("mixed" | "values-first" | "types-first")
-  
-  ignoreAlias?: boolean
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      modifiers?: ("value" | "type")[]
-      
-      selector?: "export"
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -14227,26 +15177,43 @@ type PerfectionistSortNamedExports = {
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("value" | "type")[]
+      
+      selector?: "export"
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      modifiers?: ("value" | "type")[]
+      
+      selector?: "export"
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("value" | "type")[]
-    
-    selector?: "export"
     
     elementNamePattern?: (({
       
@@ -14259,7 +15226,35 @@ type PerfectionistSortNamedExports = {
       
       flags?: string
     } | string))
+    
+    modifiers?: ("value" | "type")[]
+    
+    selector?: "export"
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  ignoreAlias?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -14299,23 +15294,18 @@ type PerfectionistSortNamedExports = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-named-imports -----
 type PerfectionistSortNamedImports = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -14327,32 +15317,23 @@ type PerfectionistSortNamedImports = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  groupKind?: ("mixed" | "values-first" | "types-first")
-  
-  ignoreAlias?: boolean
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      modifiers?: ("value" | "type")[]
-      
-      selector?: "import"
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -14365,26 +15346,43 @@ type PerfectionistSortNamedImports = {
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("value" | "type")[]
+      
+      selector?: "import"
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      modifiers?: ("value" | "type")[]
+      
+      selector?: "import"
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("value" | "type")[]
-    
-    selector?: "import"
     
     elementNamePattern?: (({
       
@@ -14397,7 +15395,35 @@ type PerfectionistSortNamedImports = {
       
       flags?: string
     } | string))
+    
+    modifiers?: ("value" | "type")[]
+    
+    selector?: "import"
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  ignoreAlias?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -14437,24 +15463,19 @@ type PerfectionistSortNamedImports = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-object-types -----
 type PerfectionistSortObjectTypes = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
     sortBy?: ("name" | "value")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -14465,31 +15486,43 @@ type PerfectionistSortObjectTypes = {
   locales?: (string | string[])
   
   order?: ("asc" | "desc")
+  sortBy?: ("name" | "value")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   customGroups?: ({
-    [k: string]: (string | string[]) | undefined
-  } | ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
       sortBy?: ("name" | "value")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
+    anyOf: [{
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
       
       modifiers?: ("optional" | "required" | "multiline")[]
       
-      selector?: ("index-signature" | "member" | "method" | "multiline" | "property")
+      selector?: ("index-signature" | "member" | "method" | "property")
       
       elementValuePattern?: (({
         
@@ -14502,6 +15535,7 @@ type PerfectionistSortObjectTypes = {
         
         flags?: string
       } | string))
+    }, ...({
       
       elementNamePattern?: (({
         
@@ -14514,40 +15548,40 @@ type PerfectionistSortObjectTypes = {
         
         flags?: string
       } | string))
-      sortBy?: ("name" | "value")
-    }[]
+      
+      modifiers?: ("optional" | "required" | "multiline")[]
+      
+      selector?: ("index-signature" | "member" | "method" | "property")
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
       sortBy?: ("name" | "value")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    modifiers?: ("optional" | "required" | "multiline")[]
-    
-    selector?: ("index-signature" | "member" | "method" | "multiline" | "property")
-    
-    elementValuePattern?: (({
-      
-      pattern: string
-      
-      flags?: string
-    } | string)[] | ({
-      
-      pattern: string
-      
-      flags?: string
-    } | string))
+    sortBy?: ("name" | "value")
     
     elementNamePattern?: (({
       
@@ -14560,10 +15594,47 @@ type PerfectionistSortObjectTypes = {
       
       flags?: string
     } | string))
-    sortBy?: ("name" | "value")
-  })[])
+    
+    modifiers?: ("optional" | "required" | "multiline")[]
+    
+    selector?: ("index-signature" | "member" | "method" | "property")
+    
+    elementValuePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
   
-  groupKind?: ("mixed" | "required-first" | "optional-first")
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   useConfigurationIf?: {
     
@@ -14573,6 +15644,22 @@ type PerfectionistSortObjectTypes = {
       
       flags?: string
     } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+    
+    hasNumericKeysOnly?: boolean
+    
+    declarationCommentMatchesPattern?: (({
+      scope?: ("shallow" | "deep")
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
@@ -14580,11 +15667,13 @@ type PerfectionistSortObjectTypes = {
     } | string))
     
     declarationMatchesPattern?: (({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
       flags?: string
     } | string)[] | ({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
@@ -14630,36 +15719,19 @@ type PerfectionistSortObjectTypes = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  ignorePattern?: (({
-    
-    pattern: string
-    
-    flags?: string
-  } | string)[] | ({
-    
-    pattern: string
-    
-    flags?: string
-  } | string))
-  sortBy?: ("name" | "value")
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-objects -----
 type PerfectionistSortObjects = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -14670,35 +15742,43 @@ type PerfectionistSortObjects = {
   locales?: (string | string[])
   
   order?: ("asc" | "desc")
+  sortBy?: ("name" | "value")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  destructuredObjects?: (boolean | {
-    
-    groups?: boolean
-  })
   customGroups?: ({
-    [k: string]: (string | string[]) | undefined
-  } | ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
+    anyOf: [{
       
-      modifiers?: ("optional" | "required" | "multiline")[]
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
       
-      selector?: ("member" | "method" | "multiline" | "property")
+      modifiers?: ("multiline")[]
+      
+      selector?: ("member" | "method" | "property")
       
       elementValuePattern?: (({
         
@@ -14711,6 +15791,7 @@ type PerfectionistSortObjects = {
         
         flags?: string
       } | string))
+    }, ...({
       
       elementNamePattern?: (({
         
@@ -14723,26 +15804,56 @@ type PerfectionistSortObjects = {
         
         flags?: string
       } | string))
-    }[]
+      
+      modifiers?: ("multiline")[]
+      
+      selector?: ("member" | "method" | "property")
+      
+      elementValuePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    elementNamePattern?: (({
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
     
-    modifiers?: ("optional" | "required" | "multiline")[]
+    modifiers?: ("multiline")[]
     
-    selector?: ("member" | "method" | "multiline" | "property")
+    selector?: ("member" | "method" | "property")
     
     elementValuePattern?: (({
       
@@ -14755,8 +15866,35 @@ type PerfectionistSortObjects = {
       
       flags?: string
     } | string))
+  })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
     
-    elementNamePattern?: (({
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  useConfigurationIf?: {
+    
+    allNamesMatchPattern?: (({
       
       pattern: string
       
@@ -14767,16 +15905,19 @@ type PerfectionistSortObjects = {
       
       flags?: string
     } | string))
-  })[])
-  
-  useConfigurationIf?: {
     
-    allNamesMatchPattern?: (({
+    objectType?: ("destructured" | "non-destructured")
+    
+    hasNumericKeysOnly?: boolean
+    
+    declarationCommentMatchesPattern?: (({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
       flags?: string
     } | string)[] | ({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
@@ -14784,11 +15925,27 @@ type PerfectionistSortObjects = {
     } | string))
     
     callingFunctionNamePattern?: (({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
       flags?: string
     } | string)[] | ({
+      scope?: ("shallow" | "deep")
+      
+      pattern: string
+      
+      flags?: string
+    } | string))
+    
+    declarationMatchesPattern?: (({
+      scope?: ("shallow" | "deep")
+      
+      pattern: string
+      
+      flags?: string
+    } | string)[] | ({
+      scope?: ("shallow" | "deep")
       
       pattern: string
       
@@ -14796,11 +15953,9 @@ type PerfectionistSortObjects = {
     } | string))
   }
   
-  destructureOnly?: boolean
-  
-  objectDeclarations?: boolean
-  
   styledComponents?: boolean
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -14840,35 +15995,18 @@ type PerfectionistSortObjects = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  ignorePattern?: (({
-    
-    pattern: string
-    
-    flags?: string
-  } | string)[] | ({
-    
-    pattern: string
-    
-    flags?: string
-  } | string))
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-sets -----
 type PerfectionistSortSets = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -14880,28 +16018,23 @@ type PerfectionistSortSets = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
-  groupKind?: ("mixed" | "literals-first" | "spreads-first")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      selector?: ("literal" | "spread")
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -14914,24 +16047,39 @@ type PerfectionistSortSets = {
         
         flags?: string
       } | string))
-    }[]
+      
+      selector?: "literal"
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      selector?: "literal"
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    selector?: ("literal" | "spread")
     
     elementNamePattern?: (({
       
@@ -14944,7 +16092,31 @@ type PerfectionistSortSets = {
       
       flags?: string
     } | string))
+    
+    selector?: "literal"
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   useConfigurationIf?: {
     
@@ -14999,23 +16171,18 @@ type PerfectionistSortSets = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-switch-case -----
 type PerfectionistSortSwitchCase = []|[{
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -15026,18 +16193,18 @@ type PerfectionistSortSwitchCase = []|[{
   locales?: (string | string[])
   
   order?: ("asc" | "desc")
-  
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
 }]
 // ----- perfectionist/sort-union-types -----
 type PerfectionistSortUnionTypes = {
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -15049,26 +16216,23 @@ type PerfectionistSortUnionTypes = {
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -15081,24 +16245,39 @@ type PerfectionistSortUnionTypes = {
         
         flags?: string
       } | string))
-    }[]
+      
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
     
     elementNamePattern?: (({
       
@@ -15111,7 +16290,31 @@ type PerfectionistSortUnionTypes = {
       
       flags?: string
     } | string))
+    
+    selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union")
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
   
   partitionByComment?: (boolean | (({
     
@@ -15151,23 +16354,18 @@ type PerfectionistSortUnionTypes = {
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }[]
 // ----- perfectionist/sort-variable-declarations -----
 type PerfectionistSortVariableDeclarations = []|[{
   
   fallbackSort?: {
     
-    order?: ("asc" | "desc")
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+    order?: ("asc" | "desc")
   }
+  
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
   
   specialCharacters?: ("remove" | "trim" | "keep")
   
@@ -15179,26 +16377,23 @@ type PerfectionistSortVariableDeclarations = []|[{
   
   order?: ("asc" | "desc")
   
-  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-  
   customGroups?: ({
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
     
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    anyOf?: {
-      
-      selector?: ("initialized" | "uninitialized")
+    anyOf: [{
       
       elementNamePattern?: (({
         
@@ -15211,24 +16406,39 @@ type PerfectionistSortVariableDeclarations = []|[{
         
         flags?: string
       } | string))
-    }[]
+      
+      selector?: ("initialized" | "uninitialized")
+    }, ...({
+      
+      elementNamePattern?: (({
+        
+        pattern: string
+        
+        flags?: string
+      } | string)[] | ({
+        
+        pattern: string
+        
+        flags?: string
+      } | string))
+      
+      selector?: ("initialized" | "uninitialized")
+    })[]]
   } | {
-    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
-      order?: ("asc" | "desc")
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
-      type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+      order?: ("asc" | "desc")
     }
     
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    
     groupName: string
+    newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
-    
-    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
-    
-    selector?: ("initialized" | "uninitialized")
     
     elementNamePattern?: (({
       
@@ -15241,7 +16451,33 @@ type PerfectionistSortVariableDeclarations = []|[{
       
       flags?: string
     } | string))
+    
+    selector?: ("initialized" | "uninitialized")
   })[]
+  newlinesInside?: (("ignore" | number) | "newlinesBetween")
+  
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number)
+  } | {
+    group: (string | [string, ...(string)[]])
+    
+    fallbackSort?: {
+      
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+      
+      order?: ("asc" | "desc")
+    }
+    
+    commentAbove?: string
+    
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
+    newlinesInside?: ("ignore" | number)
+    
+    order?: ("asc" | "desc")
+  })[]
+  newlinesBetween?: ("ignore" | number)
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -15281,13 +16517,6 @@ type PerfectionistSortVariableDeclarations = []|[{
   })
   
   partitionByNewLine?: boolean
-  newlinesBetween?: (("ignore" | "always" | "never") | number)
-  
-  groups?: (string | string[] | {
-    newlinesBetween?: (("ignore" | "always" | "never") | number)
-    
-    commentAbove?: string
-  })[]
 }]
 // ----- prefer-arrow-callback -----
 type PreferArrowCallback = []|[{
@@ -15510,11 +16739,16 @@ type ReactNamingConventionFilenameExtension = []|[(("always" | "as-needed") | {
   extensions?: string[]
   ignoreFilesWithoutCode?: boolean
 })]
+// ----- react-naming-convention/use-state -----
+type ReactNamingConventionUseState = []|[{
+  enforceAssignment?: boolean
+  enforceSetterName?: boolean
+}]
 // ----- react-refresh/only-export-components -----
 type ReactRefreshOnlyExportComponents = []|[{
+  extraHOCs?: string[]
   allowExportNames?: string[]
   allowConstantExport?: boolean
-  customHOCs?: string[]
   checkJS?: boolean
 }]
 // ----- react/jsx-shorthand-boolean -----
@@ -16000,6 +17234,11 @@ type TestMaxExpects = []|[{
 type TestMaxNestedDescribe = []|[{
   max?: number
 }]
+// ----- test/no-conditional-expect -----
+type TestNoConditionalExpect = []|[{
+  
+  expectAssertions?: boolean
+}]
 // ----- test/no-focused-tests -----
 type TestNoFocusedTests = []|[{
   fixable?: boolean
@@ -16041,6 +17280,10 @@ type TestPreferExpectAssertions = []|[{
   onlyFunctionsWithAsyncKeyword?: boolean
   onlyFunctionsWithExpectInLoop?: boolean
   onlyFunctionsWithExpectInCallback?: boolean
+}]
+// ----- test/prefer-import-in-mock -----
+type TestPreferImportInMock = []|[{
+  fixable?: boolean
 }]
 // ----- test/prefer-lowercase-title -----
 type TestPreferLowercaseTitle = []|[{
@@ -17063,6 +18306,11 @@ type TsNoUnusedVars = []|[(("all" | "local") | {
   
   destructuredArrayIgnorePattern?: string
   
+  enableAutofixRemoval?: {
+    
+    imports?: boolean
+  }
+  
   ignoreClassWithStaticInitBlock?: boolean
   
   ignoreRestSiblings?: boolean
@@ -17092,6 +18340,11 @@ type TsNoUseBeforeDefine = []|[("nofunc" | {
   
   variables?: boolean
 })]
+// ----- ts/no-useless-default-assignment -----
+type TsNoUselessDefaultAssignment = []|[{
+  
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean
+}]
 // ----- ts/no-var-requires -----
 type TsNoVarRequires = []|[{
   
@@ -17347,6 +18600,11 @@ type TsStrictBooleanExpressions = []|[{
   
   allowString?: boolean
 }]
+// ----- ts/strict-void-return -----
+type TsStrictVoidReturn = []|[{
+  
+  allowReturnAny?: boolean
+}]
 // ----- ts/switch-exhaustiveness-check -----
 type TsSwitchExhaustivenessCheck = []|[{
   
@@ -17458,6 +18716,15 @@ interface _UnicornImportStyle_ModuleStyles {
 interface _UnicornImportStyle_BooleanObject {
   [k: string]: boolean | undefined
 }
+// ----- unicorn/isolated-functions -----
+type UnicornIsolatedFunctions = []|[{
+  overrideGlobals?: {
+    [k: string]: (boolean | ("readonly" | "writable" | "writeable" | "off")) | undefined
+  }
+  functions?: string[]
+  selectors?: string[]
+  comments?: string[]
+}]
 // ----- unicorn/no-array-reduce -----
 type UnicornNoArrayReduce = []|[{
   allowSimpleOperations?: boolean
@@ -17636,6 +18903,11 @@ type UnusedImportsNoUnusedImports = []|[(("all" | "local") | {
   
   destructuredArrayIgnorePattern?: string
   
+  enableAutofixRemoval?: {
+    
+    imports?: boolean
+  }
+  
   ignoreClassWithStaticInitBlock?: boolean
   
   ignoreRestSiblings?: boolean
@@ -17660,6 +18932,11 @@ type UnusedImportsNoUnusedVars = []|[(("all" | "local") | {
   caughtErrorsIgnorePattern?: string
   
   destructuredArrayIgnorePattern?: string
+  
+  enableAutofixRemoval?: {
+    
+    imports?: boolean
+  }
   
   ignoreClassWithStaticInitBlock?: boolean
   
@@ -18465,6 +19742,7 @@ type VueNoLoneTemplate = []|[{
 // ----- vue/no-multi-spaces -----
 type VueNoMultiSpaces = []|[{
   ignoreProperties?: boolean
+  ignoreEOLComments?: boolean
 }]
 // ----- vue/no-multiple-template-root -----
 type VueNoMultipleTemplateRoot = []|[{
@@ -18624,6 +19902,10 @@ type VueNoTemplateTargetBlank = []|[{
 // ----- vue/no-undef-components -----
 type VueNoUndefComponents = []|[{
   ignorePatterns?: unknown[]
+}]
+// ----- vue/no-undef-directives -----
+type VueNoUndefDirectives = []|[{
+  ignore?: string[]
 }]
 // ----- vue/no-undef-properties -----
 type VueNoUndefProperties = []|[{
@@ -19099,4 +20381,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'mheob/gitignore' | 'mheob/ignores' | 'mheob/javascript/rules' | 'mheob/eslint-comments/rules' | 'mheob/imports/rules' | 'mheob/command/rules' | 'mheob/perfectionist/setup' | 'mheob/perfectionist/rules' | 'mheob/astro/setup' | 'mheob/astro/rules' | 'mheob/jsdoc/rules' | 'mheob/jsonc/setup' | 'mheob/jsonc/rules' | 'mheob/sort/package-json' | 'mheob/sort/tsconfig-json' | 'mheob/jsx/setup' | 'mheob/nextjs/setup' | 'mheob/nextjs/rules' | 'mheob/node/rules' | 'mheob/react/setup' | 'mheob/react/rules' | 'mheob/regexp/rules' | 'mheob/stylistic/setup' | 'mheob/stylistic/rules' | 'mheob/svelte/setup' | 'mheob/svelte/rules' | 'mheob/test/setup' | 'mheob/test/rules' | 'mheob/toml/setup' | 'mheob/toml/rules' | 'mheob/typescript/setup' | 'mheob/typescript/type-aware-parser' | 'mheob/typescript/parser' | 'mheob/typescript/rules' | 'mheob/typescript/rules-type-aware' | 'mheob/unicorn/rules' | 'mheob/unicorn/rules/react' | 'mheob/vue/setup' | 'mheob/vue/rules' | 'mheob/yaml/setup' | 'mheob/yaml/rules' | 'mheob/sort/pnpm-workspace' | 'mheob/markdown/setup' | 'mheob/markdown/processor' | 'mheob/markdown/parser' | 'mheob/markdown/disables' | 'mheob/prettier/setup' | 'mheob/prettier/rules' | 'mheob/disables/bin' | 'mheob/disables/cli' | 'mheob/disables/cjs' | 'mheob/disables/config-files' | 'mheob/disables/conflicts' | 'mheob/disables/dts' | 'mheob/disables/jsx' | 'mheob/disables/scripts' | 'mheob/disables/test'
+export type ConfigNames = 'mheob/gitignore' | 'mheob/ignores' | 'mheob/javascript/rules' | 'mheob/eslint-comments/rules' | 'mheob/imports/rules' | 'mheob/command/rules' | 'mheob/perfectionist/setup' | 'mheob/perfectionist/rules' | 'mheob/astro/setup' | 'mheob/astro/rules' | 'mheob/jsdoc/rules' | 'mheob/jsonc/setup' | 'mheob/jsonc/rules' | 'mheob/sort/package-json' | 'mheob/sort/tsconfig-json' | 'mheob/jsx/setup' | 'mheob/nextjs/setup' | 'mheob/nextjs/rules' | 'mheob/node/rules' | 'mheob/react/setup' | 'mheob/react/rules' | 'antfu/react/typescript' | 'antfu/react/type-aware-rules' | 'mheob/regexp/rules' | 'mheob/stylistic/setup' | 'mheob/stylistic/rules' | 'mheob/svelte/setup' | 'mheob/svelte/rules' | 'mheob/test/setup' | 'mheob/test/rules' | 'mheob/toml/setup' | 'mheob/toml/rules' | 'mheob/typescript/setup' | 'mheob/typescript/type-aware-parser' | 'mheob/typescript/parser' | 'mheob/typescript/rules' | 'mheob/typescript/rules-type-aware' | 'mheob/unicorn/rules' | 'mheob/unicorn/rules/react' | 'mheob/vue/setup' | 'mheob/vue/rules' | 'mheob/yaml/setup' | 'mheob/yaml/rules' | 'mheob/sort/pnpm-workspace' | 'mheob/markdown/setup' | 'mheob/markdown/processor' | 'mheob/markdown/parser' | 'mheob/markdown/disables' | 'mheob/prettier/setup' | 'mheob/prettier/rules' | 'mheob/disables/bin' | 'mheob/disables/cli' | 'mheob/disables/cjs' | 'mheob/disables/config-files' | 'mheob/disables/conflicts' | 'mheob/disables/dts' | 'mheob/disables/jsx' | 'mheob/disables/scripts' | 'mheob/disables/test'

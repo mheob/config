@@ -1,10 +1,10 @@
 import { isPackageExists } from 'local-pkg';
 
-import { GLOB_TS, GLOB_TSX } from '../globs';
+import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs';
 import type {
 	OptionsFiles,
-	OptionsOverrides,
 	OptionsReact,
+	OptionsTypeScriptParserOptions,
 	OptionsTypeScriptWithTypes,
 	TypedFlatConfigItem,
 } from '../types';
@@ -35,10 +35,15 @@ const ReactCompilerPackages = ['babel-plugin-react-compiler'];
  * @returns Promise that resolves once the React ESLint rules are configured.
  */
 export async function react(
-	options: OptionsFiles & OptionsOverrides & OptionsReact & OptionsTypeScriptWithTypes = {},
+	options: OptionsFiles &
+		OptionsReact &
+		OptionsTypeScriptParserOptions &
+		OptionsTypeScriptWithTypes = {},
 ): Promise<TypedFlatConfigItem[]> {
 	const {
 		files = [GLOB_TS, GLOB_TSX],
+		filesTypeAware = [GLOB_TS, GLOB_TSX],
+		ignoresTypeAware = [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS],
 		overrides = {},
 		reactCompiler = ReactCompilerPackages.some(i => isPackageExists(i)),
 	} = options;
@@ -51,6 +56,11 @@ export async function react(
 
 	const tsconfigPath = options?.tsconfigPath ?? undefined;
 	const isTypeAware = Boolean(tsconfigPath);
+
+	const typeAwareRules: TypedFlatConfigItem['rules'] = {
+		'react/no-implicit-key': 'error',
+		'react/no-leaked-conditional-rendering': 'warn',
+	};
 
 	const [pluginReact, pluginReactHooks, pluginReactRefresh, parserTs] = await Promise.all([
 		interopDefault(import('@eslint-react/eslint-plugin')),
@@ -79,6 +89,7 @@ export async function react(
 				'react-hooks-extra': plugins['@eslint-react/hooks-extra'],
 				'react-naming-convention': plugins['@eslint-react/naming-convention'],
 				'react-refresh': pluginReactRefresh,
+				'react-rsc': plugins['@eslint-react/rsc'],
 				'react-web-api': plugins['@eslint-react/web-api'],
 			},
 		},
@@ -90,13 +101,6 @@ export async function react(
 					ecmaFeatures: {
 						jsx: true,
 					},
-					...(isTypeAware
-						? {
-								project: tsconfigPath,
-								projectService: true,
-								tsconfigRootDir: import.meta.dirname,
-							}
-						: {}),
 				},
 				sourceType: 'module',
 			},
@@ -144,14 +148,20 @@ export async function react(
 						}
 					: {}),
 
+				// recommended rules from eslint-plugin-react-naming-convention https://eslint-react.xyz/docs/rules/overview#naming-convention-rules
+				'react-naming-convention/context-name': 'warn',
+				'react-naming-convention/ref-name': 'warn',
+				'react-naming-convention/use-state': 'warn',
+
 				// preconfigured rules from eslint-plugin-react-refresh https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/main/src
 				'react-refresh/only-export-components': [
-					'warn',
+					'error',
 					{
 						allowConstantExport: isAllowConstantExport,
 						allowExportNames: [
 							...(isUsingNext
 								? [
+										// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 										'dynamic',
 										'dynamicParams',
 										'revalidate',
@@ -159,12 +169,18 @@ export async function react(
 										'runtime',
 										'preferredRegion',
 										'maxDuration',
-										'config',
+										// https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 										'generateStaticParams',
+										// https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 										'metadata',
 										'generateMetadata',
+										// https://nextjs.org/docs/app/api-reference/functions/generate-viewport
 										'viewport',
 										'generateViewport',
+										// https://nextjs.org/docs/app/api-reference/functions/generate-image-metadata
+										'generateImageMetadata',
+										// https://nextjs.org/docs/app/api-reference/functions/generate-sitemaps
+										'generateSitemaps',
 									]
 								: []),
 							...(isUsingRemix || isUsingReactRouter
@@ -183,6 +199,9 @@ export async function react(
 						],
 					},
 				],
+
+				// recommended rules from eslint-plugin-react-rsc https://eslint-react.xyz/docs/rules/overview#rsc-rules
+				'react-rsc/function-definition': 'error',
 
 				// recommended rules from eslint-plugin-react-web-api https://eslint-react.xyz/docs/rules/overview#web-api-rules
 				'react-web-api/no-leaked-event-listener': 'warn',
@@ -227,6 +246,7 @@ export async function react(
 				'react/no-unsafe-component-will-mount': 'warn',
 				'react/no-unsafe-component-will-receive-props': 'warn',
 				'react/no-unsafe-component-will-update': 'warn',
+				'react/no-unused-class-component-members': 'warn',
 				'react/no-use-context': 'warn',
 				'react/no-useless-forward-ref': 'warn',
 				'react/prefer-use-state-lazy-initialization': 'warn',
@@ -234,5 +254,30 @@ export async function react(
 				...overrides,
 			},
 		},
+		{
+			files: filesTypeAware,
+			name: 'mheob/react/typescript',
+			rules: {
+				// Disables rules that are already handled by TypeScript
+				'react-dom/no-string-style-prop': 'off',
+				'react-dom/no-unknown-property': 'off',
+				'react/jsx-no-duplicate-props': 'off',
+				'react/jsx-no-undef': 'off',
+				'react/jsx-uses-react': 'off',
+				'react/jsx-uses-vars': 'off',
+			},
+		},
+		...(isTypeAware
+			? [
+					{
+						files: filesTypeAware,
+						ignores: ignoresTypeAware,
+						name: 'mheob/react/type-aware-rules',
+						rules: {
+							...typeAwareRules,
+						},
+					},
+				]
+			: []),
 	];
 }
