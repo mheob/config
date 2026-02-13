@@ -1,6 +1,6 @@
 {
 	"name": "@mheob/eslint-config",
-	"version": "9.2.0",
+	"version": "10.0.0",
 	"description": "My personal configuration for eslint.",
 	"keywords": [
 		"eslint",
