@@ -62,7 +62,7 @@ catalog:
   prettier-plugin-astro: ^0.14.1
   prettier-plugin-toml: 2.0.6
   rimraf: ^6.1.2
-  svelte: ^5.50.3
+  svelte: ^5.51.5
   svelte-eslint-parser: ^1.4.1
   toml-eslint-parser: ^1.0.3
   ts-node: ^10.9.2
