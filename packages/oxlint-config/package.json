@@ -1,0 +1,84 @@
+{
+	"name": "@mheob/oxlint-config",
+	"version": "0.0.0",
+	"private": false,
+	"description": "Shared OXLint configuration",
+	"keywords": [
+		"config",
+		"oxlint",
+		"oxlintconfig"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/oxfmt-config",
+	"bugs": "https://github.com/mheob/config/issues",
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@alex-boehm.dev>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config"
+	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"main": "dist/index.mjs",
+	"types": "dist/index.d.mts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsdown --clean",
+		"clean": "rimraf .turbo node_modules dist",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix"
+	},
+	"dependencies": {
+		"eslint-plugin-jsonc": "catalog:",
+		"eslint-plugin-regexp": "catalog:",
+		"eslint-plugin-yml": "catalog:"
+	},
+	"devDependencies": {
+		"@mheob/internal": "workspace:*",
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"rimraf": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
+	},
+	"peerDependencies": {
+		"eslint-plugin-better-tailwindcss": "catalog:",
+		"eslint-plugin-react-dom": "catalog:",
+		"eslint-plugin-react-hooks-extra": "catalog:",
+		"eslint-plugin-react-web-api": "catalog:",
+		"eslint-plugin-react-x": "catalog:",
+		"eslint-plugin-storybook": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"peerDependenciesMeta": {
+		"eslint-plugin-better-tailwindcss": {
+			"optional": true
+		},
+		"eslint-plugin-react-dom": {
+			"optional": true
+		},
+		"eslint-plugin-react-hooks-extra": {
+			"optional": true
+		},
+		"eslint-plugin-react-web-api": {
+			"optional": true
+		},
+		"eslint-plugin-react-x": {
+			"optional": true
+		},
+		"eslint-plugin-storybook": {
+			"optional": true
+		},
+		"oxlint": {
+			"optional": false
+		}
+	},
+	"engines": {
+		"node": ">=24"
+	}
+}
