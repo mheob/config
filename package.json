@@ -10,21 +10,16 @@
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo && rm -rf node_modules",
 		"cspell": "cspell .",
+		"format": "turbo run format",
+		"format:check": "turbo run format:check",
 		"gen": "turbo run gen",
 		"lint": "turbo run lint",
+		"lint:fix": "turbo run lint:fix",
 		"prepare": "husky",
 		"release": "changeset publish",
 		"typegen": "turbo run typegen",
 		"version-packages": "changeset version && pnpm lint",
 		"versiongen": "turbo run versiongen"
-	},
-	"lint-staged": {
-		"*.{js,mjs,cjs,ts,tsx,jsx,json,yaml,yml,toml,md,mdx}": "eslint --fix"
-	},
-	"config": {
-		"commitizen": {
-			"path": "node_modules/cz-git"
-		}
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
@@ -32,23 +27,32 @@
 		"@cspell/dict-de-de": "catalog:",
 		"@mheob/changeset-changelog": "catalog:",
 		"@mheob/commitlint-config": "workspace:*",
-		"@mheob/eslint-config": "workspace:*",
-		"@mheob/prettier-config": "workspace:*",
+		"@mheob/oxfmt-config": "workspace:*",
+		"@mheob/oxlint-config": "workspace:*",
 		"@types/node": "catalog:",
 		"commitizen": "catalog:",
 		"cspell": "catalog:",
 		"cz-git": "catalog:",
-		"eslint": "catalog:",
 		"husky": "catalog:",
 		"lint-staged": "catalog:",
-		"prettier": "catalog:",
-		"prettier-plugin-toml": "catalog:",
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"rimraf": "catalog:",
 		"ts-node": "catalog:",
 		"turbo": "catalog:",
 		"typescript": "catalog:"
 	},
-	"packageManager": "pnpm@10.29.3",
+	"lint-staged": {
+		"*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml,toml}": "oxlint --fix",
+		"!(pnpm-)*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml,toml}": "oxfmt"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	},
 	"engines": {
-		"node": "^22.12.0 || ^24.0.0"
-	}
+		"node": "^24.0.0"
+	},
+	"packageManager": "pnpm@10.33.0"
 }
