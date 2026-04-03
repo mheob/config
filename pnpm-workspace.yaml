@@ -10,7 +10,7 @@ catalog:
   "@commitlint/cli": ^20.4.1
   "@cspell/dict-de-de": ^4.1.2
   "@eslint-community/eslint-plugin-eslint-comments": ^4.6.0
-  "@eslint-react/eslint-plugin": ^2.12.4
+  "@eslint-react/eslint-plugin": ^3.0.0
   "@eslint/config-inspector": ^1.4.2
   "@eslint/markdown": ^7.5.1
   "@mheob/changeset-changelog": ^3.0.2
