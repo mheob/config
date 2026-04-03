@@ -1,65 +1,48 @@
 {
 	"npm.packageManager": "pnpm",
+
+	"typescript.tsdk": "node_modules/typescript/lib",
+
+	// Auto fix
+	"editor.codeActionsOnSave": {
+		"source.fixAll.oxc": "always",
+		"source.organizeImports": "never"
+	},
+	"editor.defaultFormatter": "oxc.oxc-vscode",
+	"editor.formatOnSave": true,
+
+	// Extensions
+	"better-comments.tags": [
+		{ "tag": "!", "color": "#ff2d00" },
+		{ "tag": "?", "color": "#3498db" },
+		{ "tag": "i:", "color": "#15a2b8" },
+		{ "tag": "//", "color": "#474747", "strikethrough": true },
+		{ "tag": "fixme", "color": "#ff4d00" },
+		{ "tag": "todo", "color": "#ff8c00" },
+		{ "tag": "discuss", "color": "#add8e6" }
+	],
+
+	"markdown.extension.toc.levels": "2..3",
+	"markdown.extension.toc.omittedFromToc": { "README.md": ["## Table of Contents"] },
+
 	"markdownlint.config": {
 		"MD010": false,
 		"MD024": false,
 		"MD033": { "allowed_elements": ["details", "summary"] }
 	},
-	"typescript.tsdk": "node_modules/typescript/lib",
 
-	// Disable the default formatter, use eslint instead
-	"prettier.enable": false,
-	"editor.formatOnSave": false,
-
-	// Auto fix
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"source.organizeImports": "never"
-	},
-
-	// Silent the stylistic rules in you IDE, but still auto fix them
-	"eslint.rules.customizations": [
-		{ "rule": "style/*", "severity": "off", "fixable": true },
-		{ "rule": "format/*", "severity": "off", "fixable": true },
-		{ "rule": "*-indent", "severity": "off", "fixable": true },
-		{ "rule": "*-spacing", "severity": "off", "fixable": true },
-		{ "rule": "*-spaces", "severity": "off", "fixable": true },
-		{ "rule": "*-order", "severity": "off", "fixable": true },
-		{ "rule": "*-dangle", "severity": "off", "fixable": true },
-		{ "rule": "*-newline", "severity": "off", "fixable": true },
-		{ "rule": "*quotes", "severity": "off", "fixable": true },
-		{ "rule": "*semi", "severity": "off", "fixable": true }
-	],
-
-	// Enable eslint for all supported languages
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"vue",
-		"html",
-		"markdown",
-		"json",
-		"json5",
-		"jsonc",
-		"yaml",
-		"toml",
-		"xml",
-		"gql",
-		"graphql",
-		"astro",
-		"svelte",
-		"css",
-		"less",
-		"scss",
-		"pcss",
-		"postcss"
-	],
-
-	// SonarLint
 	"sonarlint.connectedMode.project": {
 		"connectionId": "mheob",
 		"projectKey": "mheob_config"
+	},
+
+	"todo-tree.filtering.excludeGlobs": ["**/node_modules/**"],
+	"todo-tree.general.tags": ["BUG", "DISCUSS", "FIXIT", "FIXME", "TODO", "VOTE", "[ ]", "[]"],
+	"todo-tree.general.tagGroups": { "BUG": ["BUG", "FIXIT", "FIXME"] },
+	"todo-tree.highlights.defaultHighlight": { "icon": "check", "type": "none" },
+	"todo-tree.highlights.customHighlight": {
+		"BUG": { "icon": "bug", "iconColour": "#aa0000" },
+		"DISCUSS": { "icon": "organization", "iconColour": "#add8e6" },
+		"TODO": { "icon": "tasklist", "iconColour": "#ffa500" }
 	}
 }
