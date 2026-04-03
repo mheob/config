@@ -1,0 +1,30 @@
+{
+	"name": "@mheob/internal",
+	"version": "0.0.0-dev",
+	"private": true,
+	"description": "Internal Shared configurations",
+	"license": "MIT",
+	"author": "",
+	"type": "module",
+	"types": "dist/index.d.mts",
+	"exports": {
+		"./tsdown-config": "./src/tsdown.config.ts"
+	},
+	"scripts": {
+		"clean": "rimraf .turbo node_modules dist",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix"
+	},
+	"dependencies": {
+		"tsdown": "catalog:"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"rimraf": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
+	}
+}

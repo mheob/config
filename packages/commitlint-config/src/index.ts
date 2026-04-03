@@ -1,7 +1,7 @@
-/* eslint-disable node/prefer-global/process */
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
 import nodePath from 'node:path';
+import process from 'node:process';
 
 import type { UserConfig } from 'cz-git';
 

@@ -1,0 +1,55 @@
+{
+	"name": "@mheob/oxfmt-config",
+	"version": "0.0.0",
+	"private": false,
+	"description": "Shared OXFmt configuration",
+	"keywords": [
+		"config",
+		"oxfmt",
+		"oxfmtconfig"
+	],
+	"homepage": "https://github.com/mheob/config/tree/main/packages/oxlint-config",
+	"bugs": "https://github.com/mheob/config/issues",
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@alex-boehm.dev>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mheob/config"
+	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"main": "dist/index.mjs",
+	"types": "dist/index.d.mts",
+	"publishConfig": {
+		"access": "restricted"
+	},
+	"scripts": {
+		"build": "tsdown --clean",
+		"clean": "rimraf .turbo node_modules dist",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix"
+	},
+	"devDependencies": {
+		"@mheob/internal": "workspace:*",
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"rimraf": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
+	},
+	"peerDependencies": {
+		"oxfmt": "catalog:"
+	},
+	"peerDependenciesMeta": {
+		"oxfmt": {
+			"optional": false
+		}
+	},
+	"engines": {
+		"node": ">=24"
+	}
+}

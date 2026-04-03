@@ -8,27 +8,34 @@
 	],
 	"homepage": "https://github.com/mheob/config/tree/main/packages/commitlint-config",
 	"bugs": "https://github.com/mheob/config/issues",
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@alex-boehm.dev>",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mheob/config"
 	},
-	"license": "MIT",
-	"author": "Alexander Böhm <tools@boehm.work>",
-	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
 	"files": [
 		"dist"
 	],
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"lint": "eslint src/**/*.ts --fix"
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "catalog:",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
+		"@types/node": "catalog:",
 		"commitizen": "catalog:",
 		"cz-git": "catalog:",
 		"eslint": "catalog:",
@@ -41,8 +48,5 @@
 	},
 	"engines": {
 		"node": ">=22.12.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }

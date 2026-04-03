@@ -3,35 +3,41 @@
 	"version": "10.0.0",
 	"description": "My personal configuration for eslint.",
 	"keywords": [
+		"config",
 		"eslint",
-		"eslint-config",
-		"config"
+		"eslint-config"
 	],
 	"homepage": "https://github.com/mheob/config/tree/main/packages/eslint-config",
 	"bugs": "https://github.com/mheob/config/issues",
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@alex-boehm.dev>",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mheob/config"
 	},
-	"license": "MIT",
-	"author": "Alexander Böhm <tools@boehm.work>",
-	"type": "module",
-	"exports": {
-		".": "./dist/index.mjs"
-	},
-	"main": "./dist/index.mjs",
-	"types": "./dist/index.d.mts",
 	"bin": "./bin/index.mjs",
 	"files": [
 		"bin",
 		"dist"
 	],
+	"type": "module",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": "./dist/index.mjs"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "tsdown --clean",
 		"build:inspector": "pnpm typegen && pnpm build && pnpm exec config-inspector build",
 		"clean": "rimraf .turbo node_modules dist",
 		"dev": "pnpm exec config-inspector --config ../../eslint.config.js",
-		"lint": "eslint src/**/* --fix",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix",
 		"typegen": "node --import tsx/esm scripts/typegen.ts",
 		"versiongen": "node --import tsx/esm scripts/versiongen.ts",
 		"watch": "tsdown --watch"
@@ -143,8 +149,5 @@
 	},
 	"engines": {
 		"node": "^22.12.0 || ^24.0.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }

@@ -12,9 +12,10 @@
 			"dependsOn": ["typegen", "versiongen"],
 			"outputs": ["src/typegen.d.ts", "src/cli/versions-map.generated.ts"]
 		},
-		"lint": {
-			"cache": true
-		},
+		"format": { "cache": true },
+		"format:check": { "cache": true },
+		"lint": { "cache": true },
+		"lint:fix": { "cache": true },
 		"typegen": {
 			"cache": true,
 			"outputs": ["src/typegen.d.ts"]

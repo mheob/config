@@ -2,7 +2,8 @@
 
 To make my configurations a bit easier I share my [Commitlint](https://commitlint.js.org/) config.
 
-Another notable tool for using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is [cz-git](https://cz-git.qbb.sh/).
+Another notable tool for using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is
+[cz-git](https://cz-git.qbb.sh/).
 
 ## Install
 

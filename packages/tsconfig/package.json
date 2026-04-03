@@ -3,28 +3,19 @@
 	"version": "2.2.1",
 	"description": "My personal configurations for typescript.",
 	"keywords": [
-		"tsconfig",
-		"typescript",
-		"ts",
 		"config",
-		"configuration"
+		"configuration",
+		"ts",
+		"tsconfig",
+		"typescript"
 	],
 	"homepage": "https://github.com/mheob/config/tree/main/packages/tsconfig",
 	"bugs": "https://github.com/mheob/config/issues",
+	"license": "MIT",
+	"author": "Alexander Böhm <tools@alex-boehm.dev>",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mheob/config"
-	},
-	"license": "MIT",
-	"author": "Alexander Böhm <tools@boehm.work>",
-	"exports": {
-		".": "./commonjs.json",
-		"./astro": "./astro.json",
-		"./base": "./base.json",
-		"./commonjs": "./commonjs.json",
-		"./esm": "./esm.json",
-		"./nextjs": "./nextjs.json",
-		"./react": "./react.json"
 	},
 	"files": [
 		"astro.json",
@@ -34,8 +25,17 @@
 		"nextjs.json",
 		"react.json"
 	],
-	"scripts": {},
+	"exports": {
+		".": "./commonjs.json",
+		"./astro": "./astro.json",
+		"./base": "./base.json",
+		"./commonjs": "./commonjs.json",
+		"./esm": "./esm.json",
+		"./nextjs": "./nextjs.json",
+		"./react": "./react.json"
+	},
 	"publishConfig": {
 		"access": "public"
-	}
+	},
+	"scripts": {}
 }
