@@ -49,7 +49,6 @@
 	"peerDependencies": {
 		"eslint-plugin-better-tailwindcss": "catalog:",
 		"eslint-plugin-react-dom": "catalog:",
-		"eslint-plugin-react-hooks-extra": "catalog:",
 		"eslint-plugin-react-web-api": "catalog:",
 		"eslint-plugin-react-x": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
@@ -60,9 +59,6 @@
 			"optional": true
 		},
 		"eslint-plugin-react-dom": {
-			"optional": true
-		},
-		"eslint-plugin-react-hooks-extra": {
 			"optional": true
 		},
 		"eslint-plugin-react-web-api": {

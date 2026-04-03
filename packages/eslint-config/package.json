@@ -92,7 +92,6 @@
 		"astro-eslint-parser": "catalog:",
 		"eslint": "catalog:",
 		"eslint-plugin-astro": "catalog:",
-		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"eslint-plugin-svelte": "catalog:",
 		"eslint-typegen": "catalog:",
@@ -111,7 +110,6 @@
 		"astro-eslint-parser": "catalog:",
 		"eslint": "catalog:",
 		"eslint-plugin-astro": "catalog:",
-		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"eslint-plugin-svelte": "catalog:",
 		"prettier": "catalog:",
@@ -129,9 +127,6 @@
 			"optional": true
 		},
 		"eslint-plugin-astro": {
-			"optional": true
-		},
-		"eslint-plugin-react-hooks": {
 			"optional": true
 		},
 		"eslint-plugin-react-refresh": {
