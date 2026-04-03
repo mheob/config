@@ -9,9 +9,7 @@ export const CONFIG_PRESET_FULL_ON: OptionsConfig = {
 	markdown: true,
 	nextjs: true,
 	node: true,
-	react: {
-		reactCompiler: true,
-	},
+	react: true,
 	regexp: true,
 	solid: true,
 	svelte: true,

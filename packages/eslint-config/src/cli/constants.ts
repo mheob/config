@@ -79,11 +79,7 @@ export const dependenciesMap = {
 	astro: ['eslint-plugin-astro', 'astro-eslint-parser'],
 	formatterAstro: ['prettier-plugin-astro'],
 	nextjs: ['@next/eslint-plugin-next'],
-	react: [
-		'@eslint-react/eslint-plugin',
-		'eslint-plugin-react-hooks',
-		'eslint-plugin-react-refresh',
-	],
+	react: ['@eslint-react/eslint-plugin', 'eslint-plugin-react-refresh'],
 	svelte: ['eslint-plugin-svelte', 'svelte-eslint-parser'],
 	vue: [],
 } as const;
