@@ -35,6 +35,7 @@
 		"@commitlint/cli": "catalog:",
 		"@mheob/eslint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
+		"@types/node": "catalog:",
 		"commitizen": "catalog:",
 		"cz-git": "catalog:",
 		"eslint": "catalog:",

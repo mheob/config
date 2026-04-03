@@ -10,7 +10,8 @@
 
 ### Patch Changes
 
-- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major dependencies
+- [#287](https://github.com/mheob/config/pull/287) ([@renovate](https://github.com/apps/renovate)): update all non-major
+  dependencies
 
 ## 1.2.3
 
@@ -28,7 +29,8 @@
 
 ### Patch Changes
 
-- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): update dependencies and use the newest ESLint rules
+- [#217](https://github.com/mheob/config/pull/217) ([@mheob](https://github.com/mheob)): update dependencies and use the newest
+  ESLint rules
 
 ## 1.2.0
 
@@ -44,7 +46,8 @@
 
 ### Patch Changes
 
-- [#182](https://github.com/mheob/config/pull/182) ([@mheob](https://github.com/mheob)): Improve `README.md` file and add spell checker.
+- [#182](https://github.com/mheob/config/pull/182) ([@mheob](https://github.com/mheob)): Improve `README.md` file and add spell
+  checker.
 
 ## 1.1.1
 
@@ -56,13 +59,15 @@
 
 ### Minor Changes
 
-- [#128](https://github.com/mheob/config/pull/128) ([@mheob](https://github.com/mheob)): add `@commitlint/cli` to `peerDependencies`
+- [#128](https://github.com/mheob/config/pull/128) ([@mheob](https://github.com/mheob)): add `@commitlint/cli` to
+  `peerDependencies`
 
 ## 1.0.1
 
 ### Patch Changes
 
-- chore(deps): update dependencies --> ([#118](https://github.com/mheob/config/pull/118)) by [@renovate](https://github.com/apps/renovate)
+- chore(deps): update dependencies --> ([#118](https://github.com/mheob/config/pull/118)) by
+  [@renovate](https://github.com/apps/renovate)
 
 ## 1.0.0
 

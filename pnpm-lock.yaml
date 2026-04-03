@@ -314,6 +314,9 @@ importers:
       '@mheob/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.10.13
       commitizen:
         specifier: 'catalog:'
         version: 4.3.1(@types/node@24.10.13)(typescript@6.0.2)
