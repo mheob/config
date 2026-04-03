@@ -8,7 +8,6 @@ export const reactConfig = defineConfig({
 			files: ['**/*.tsx'],
 			jsPlugins: [
 				'eslint-plugin-react-dom',
-				'eslint-plugin-react-hooks-extra',
 				'eslint-plugin-react-web-api',
 				'eslint-plugin-react-x',
 			],
@@ -29,7 +28,6 @@ export const reactConfig = defineConfig({
 				'react-dom/no-unsafe-target-blank': 'warn',
 				'react-dom/no-use-form-state': 'error',
 				'react-dom/no-void-elements-with-children': 'error',
-				'react-hooks-extra/no-direct-set-state-in-use-effect': 'warn',
 				'react-hooks/exhaustive-deps': 'warn',
 				'react-hooks/rules-of-hooks': 'error',
 				'react-web-api/no-leaked-event-listener': 'warn',

@@ -107,16 +107,7 @@ export interface OptionsComponentExtensions {
  *
  * @see https://eslint-react.xyz/
  */
-export interface OptionsReact extends OptionsOverrides {
-	/**
-	 * Enable rules for React Compiler.
-	 *
-	 * If true, turns on recommended rules for React Compiler.
-	 *
-	 * @default false
-	 */
-	reactCompiler?: boolean;
-}
+export type OptionsReact = OptionsOverrides;
 
 export interface OptionsConfig extends OptionsComponentExtensions {
 	/**
@@ -238,7 +229,6 @@ export interface OptionsConfig extends OptionsComponentExtensions {
 	 *
 	 * Requires installing:
 	 * - `@eslint-react/eslint-plugin`
-	 * - `eslint-plugin-react-hooks`
 	 * - `eslint-plugin-react-refresh`
 	 *
 	 * @default false

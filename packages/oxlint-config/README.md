@@ -78,8 +78,6 @@ Extends the base with React-specific rules. Applied to `**/*.tsx` files:
 
 - **`react`** — JSX correctness (no duplicate props, no comment text nodes, etc.)
 - **`react-dom`** — DOM safety (no dangerouslySetInnerHTML, deprecated APIs, missing attributes)
-- **`react-hooks`** — Rules of hooks and exhaustive deps
-- **`react-hooks-extra`** — No direct setState calls in useEffect
 - **`react-web-api`** — Leaked event listeners, intervals, timeouts, and resize observers
 - **`react-perf`** — (plugin loaded, rules can be enabled per project)
 
