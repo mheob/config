@@ -60,7 +60,7 @@ catalog:
   eslint-typegen: ^2.3.0
   globals: ^17.3.0
   husky: ^9.1.7
-  jsonc-eslint-parser: ^2.4.2
+  jsonc-eslint-parser: ^3.0.0
   lint-staged: ^16.2.7
   local-pkg: ^1.1.2
   parse-gitignore: ^2.0.0
