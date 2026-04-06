@@ -38,7 +38,7 @@ bun run release          # Publish packages
 
 ## Configuration Files
 
-- [exlint.config.ts](exlint.config.ts) - Root OXLint config
+- [oxlint.config.ts](oxlint.config.ts) - Root OXLint config
 - [oxfmt.config.mjs](oxfmt.config.mjs) - Root OXFmt config
 - [commitlint.config.js](commitlint.config.js) - Commitlint config
 - [turbo.json](turbo.json) - Turborepo pipeline configuration
