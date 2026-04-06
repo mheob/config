@@ -23,26 +23,26 @@
 	"main": "dist/index.mjs",
 	"types": "dist/index.d.mts",
 	"publishConfig": {
-		"access": "restricted"
+		"access": "public"
 	},
 	"scripts": {
-		"build": "tsdown --clean",
-		"clean": "rimraf .turbo node_modules dist",
-		"format": "oxfmt",
-		"format:check": "oxfmt --check",
-		"lint": "oxlint",
-		"lint:fix": "oxlint --fix"
+		"build": "bun run --bun tsdown --clean",
+		"clean": "bun run --bun rm -rf .turbo node_modules dist",
+		"format": "bun run --bun oxfmt",
+		"format:check": "bun run --bun oxfmt --check",
+		"lint": "bun run --bun oxlint",
+		"lint:fix": "bun run --bun oxlint --fix"
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
-		"oxfmt": "catalog:",
-		"oxlint": "catalog:",
-		"rimraf": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"@mheob/oxlint-config": "workspace:*",
+		"oxfmt": "^0.43.0",
+		"oxlint": "^1.58.0",
+		"tsdown": "^0.21.7",
+		"typescript": "^6.0.2"
 	},
 	"peerDependencies": {
-		"oxfmt": "catalog:"
+		"oxfmt": "^0.43.0"
 	},
 	"peerDependenciesMeta": {
 		"oxfmt": {

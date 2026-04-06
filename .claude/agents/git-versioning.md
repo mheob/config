@@ -29,7 +29,7 @@ best practices. You help developers create clean, meaningful version history tha
 
 ## Commit Message Convention
 
-This project uses **Commitizen** (`nr commit` is available), so follow the **Conventional Commits** specification strictly:
+This project uses **Commitizen** (`bun run commit` is available), so follow the **Conventional Commits** specification strictly:
 
 ```
 <type>(<scope>): <subject>
@@ -107,9 +107,9 @@ When creating branches, use the pattern: `<type>/<short-description>` Examples: 
 
 Before creating commits, consider running relevant checks:
 
-- `nr lint` - Ensure no linting errors
-- `nr typecheck` - Ensure TypeScript compiles
-- `nr test` - Ensure tests pass
+- `bun run lint` - Ensure no linting errors
+- `bun run typecheck` - Ensure TypeScript compiles
+- `bun run test` - Ensure tests pass
 
 If any checks fail, inform the user and suggest fixes before committing.
 

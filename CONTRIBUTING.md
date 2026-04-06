@@ -6,8 +6,8 @@ Thank you for your interest in contributing to this project! This document provi
 
 ### Prerequisites
 
-- Node.js >= 22.20.0
-- pnpm 10.18.1
+- Node.js >= 24.0.0
+- Bun >= 1.3.0
 
 ### Setup
 
@@ -15,13 +15,13 @@ Thank you for your interest in contributing to this project! This document provi
 2. Install dependencies:
 
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. Build all packages:
 
    ```bash
-   pnpm build
+   bun run build
    ```
 
 ## Development Workflow
@@ -39,9 +39,8 @@ Thank you for your interest in contributing to this project! This document provi
 3. Test your changes:
 
    ```bash
-   pnpm build
-   pnpm lint
-   pnpm test
+   bun run build
+   bun run lint
    ```
 
 ### Commit Guidelines
@@ -73,7 +72,7 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/) w
 **Example:**
 
 ```text
-feat(eslint): add new rule for import sorting
+feat(oxlint): add new rule for import sorting
 
 Added eslint-plugin-import-x configuration to enforce
 consistent import ordering across all projects.
@@ -93,7 +92,7 @@ Closes #123
 For any user-facing changes, create a changeset:
 
 ```bash
-pnpm changeset
+bun run changeset
 ```
 
 Follow the prompts to:
@@ -120,10 +119,10 @@ Follow the prompts to:
 
 ### Linting
 
-All code must pass ESLint checks:
+All code must pass OXLint checks:
 
 ```bash
-pnpm lint
+bun run lint
 ```
 
 The pre-commit hook will automatically lint staged files.
@@ -133,7 +132,7 @@ The pre-commit hook will automatically lint staged files.
 Run cspell to check for typos:
 
 ```bash
-pnpm cspell
+bun run cspell
 ```
 
 Add project-specific terms to `.cspell.json` if needed.
@@ -165,9 +164,9 @@ packages/your-package/
 
 Before submitting a PR:
 
-1. Build all packages: `pnpm build`
-2. Run linting: `pnpm lint`
-3. Run spell check: `pnpm cspell`
+1. Build all packages: `bun run build`
+2. Run linting: `bun run lint`
+3. Run spell check: `bun run cspell`
 4. Test in a local project if possible
 
 ## Pull Request Process
@@ -205,14 +204,14 @@ Releases are handled by maintainers:
 
 ## Project-Specific Guidelines
 
-### ESLint Config
+### OXLint Config
 
 - Follow the existing rule structure
 - Group related rules together
 - Add comments for non-obvious configurations
 - Test with various project types
 
-### Prettier Config
+### OXFmt Config
 
 - Maintain consistency with existing style
 - Document any opinionated choices

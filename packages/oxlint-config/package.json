@@ -26,33 +26,32 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsdown --clean",
-		"clean": "rimraf .turbo node_modules dist",
-		"format": "oxfmt",
-		"format:check": "oxfmt --check",
-		"lint": "oxlint",
-		"lint:fix": "oxlint --fix"
+		"build": "bun run --bun tsdown --clean",
+		"clean": "bun run --bun rm -rf .turbo node_modules dist",
+		"format": "bun run --bun oxfmt",
+		"format:check": "bun run --bun oxfmt --check",
+		"lint": "bun run --bun oxlint",
+		"lint:fix": "bun run --bun oxlint --fix"
 	},
 	"dependencies": {
-		"eslint-plugin-jsonc": "catalog:",
-		"eslint-plugin-regexp": "catalog:",
-		"eslint-plugin-yml": "catalog:"
+		"eslint-plugin-jsonc": "^3.1.2",
+		"eslint-plugin-regexp": "^3.1.0",
+		"eslint-plugin-yml": "^3.3.1"
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
-		"oxfmt": "catalog:",
-		"oxlint": "catalog:",
-		"rimraf": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"oxfmt": "^0.43.0",
+		"oxlint": "^1.58.0",
+		"tsdown": "^0.21.7",
+		"typescript": "^6.0.2"
 	},
 	"peerDependencies": {
-		"eslint-plugin-better-tailwindcss": "catalog:",
-		"eslint-plugin-react-dom": "catalog:",
-		"eslint-plugin-react-web-api": "catalog:",
-		"eslint-plugin-react-x": "catalog:",
-		"eslint-plugin-storybook": "catalog:",
-		"oxlint": "catalog:"
+		"eslint-plugin-better-tailwindcss": "^4.3.2",
+		"eslint-plugin-react-dom": "^2.13.0",
+		"eslint-plugin-react-web-api": "^2.13.0",
+		"eslint-plugin-react-x": "^2.13.0",
+		"eslint-plugin-storybook": "^10.3.4",
+		"oxlint": "^1.58.0"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-better-tailwindcss": {

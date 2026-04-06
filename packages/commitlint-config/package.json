@@ -24,27 +24,29 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsc",
-		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-		"format": "oxfmt",
-		"format:check": "oxfmt --check",
-		"lint": "oxlint",
-		"lint:fix": "oxlint --fix"
+		"build": "bun run --bun bun build ./src/index.ts --outdir ./dist --target node --format esm",
+		"clean": "bun run --bun rm -rf .turbo node_modules dist",
+		"format": "bun run --bun oxfmt",
+		"format:check": "bun run --bun oxfmt --check",
+		"lint": "bun run --bun oxlint",
+		"lint:fix": "bun run --bun oxlint --fix"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "catalog:",
-		"@mheob/eslint-config": "workspace:*",
+		"@commitlint/cli": "^20.5.0",
+		"@mheob/oxfmt-config": "workspace:*",
+		"@mheob/oxlint-config": "workspace:*",
 		"@mheob/tsconfig": "workspace:*",
-		"@types/node": "catalog:",
-		"commitizen": "catalog:",
-		"cz-git": "catalog:",
-		"eslint": "catalog:",
-		"typescript": "catalog:"
+		"@types/node": "^25.5.2",
+		"commitizen": "^4.3.1",
+		"cz-git": "^1.12.0",
+		"oxfmt": "^0.43.0",
+		"oxlint": "^1.58.0",
+		"typescript": "^6.0.2"
 	},
 	"peerDependencies": {
-		"@commitlint/cli": "catalog:",
-		"commitizen": "catalog:",
-		"cz-git": "catalog:"
+		"@commitlint/cli": "^20.5.0",
+		"commitizen": "^4.3.1",
+		"cz-git": "^1.12.0"
 	},
 	"engines": {
 		"node": ">=22.12.0"

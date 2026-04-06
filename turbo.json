@@ -1,6 +1,6 @@
 {
 	"$schema": "https://turbo.build/schema.json",
-	"globalDependencies": [".nvmrc", "pnpm-lock.yaml"],
+	"globalDependencies": [".nvmrc", "bun.lock"],
 	"globalEnv": ["NODE_ENV"],
 	"tasks": {
 		"build": {

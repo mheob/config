@@ -3,48 +3,55 @@
 	"version": "0.0.0",
 	"private": true,
 	"license": "MIT",
+	"workspaces": [
+		"packages/*"
+	],
 	"type": "module",
 	"scripts": {
 		"build": "turbo run build",
 		"changeset": "changeset",
 		"clean": "turbo run clean",
-		"clean:root": "rm -rf .turbo && rm -rf node_modules",
+		"clean:root": "rm -rf .turbo node_modules",
 		"cspell": "cspell .",
 		"format": "turbo run format",
 		"format:check": "turbo run format:check",
-		"gen": "turbo run gen",
 		"lint": "turbo run lint",
 		"lint:fix": "turbo run lint:fix",
 		"prepare": "husky",
 		"release": "changeset publish",
 		"typegen": "turbo run typegen",
-		"version-packages": "changeset version && pnpm lint",
+		"version-packages": "changeset version && bun lint",
 		"versiongen": "turbo run versiongen"
 	},
 	"devDependencies": {
-		"@changesets/cli": "catalog:",
-		"@commitlint/cli": "catalog:",
-		"@cspell/dict-de-de": "catalog:",
-		"@mheob/changeset-changelog": "catalog:",
+		"@changesets/cli": "^2.30.0",
+		"@commitlint/cli": "^20.5.0",
+		"@cspell/dict-de-de": "^4.1.2",
+		"@mheob/changeset-changelog": "^3.0.2",
 		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/oxfmt-config": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
-		"@types/node": "catalog:",
-		"commitizen": "catalog:",
-		"cspell": "catalog:",
-		"cz-git": "catalog:",
-		"husky": "catalog:",
-		"lint-staged": "catalog:",
-		"oxfmt": "catalog:",
-		"oxlint": "catalog:",
-		"rimraf": "catalog:",
-		"ts-node": "catalog:",
-		"turbo": "catalog:",
-		"typescript": "catalog:"
+		"@types/node": "^25.5.2",
+		"commitizen": "^4.3.1",
+		"cspell": "^10.0.0",
+		"cz-git": "^1.12.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.4.0",
+		"oxfmt": "^0.43.0",
+		"oxlint": "^1.58.0",
+		"turbo": "^2.9.4",
+		"typescript": "^6.0.2"
+	},
+	"overrides": {
+		"flatted": "^3.4.2",
+		"minimatch": "^10.2.3",
+		"picomatch": "^4.0.4"
 	},
 	"lint-staged": {
-		"*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml,toml}": "oxlint --fix",
-		"!(pnpm-)*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml,toml}": "oxfmt"
+		"*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml,toml}": [
+			"oxlint --fix",
+			"oxfmt"
+		]
 	},
 	"config": {
 		"commitizen": {
@@ -54,13 +61,9 @@
 	"engines": {
 		"node": "^24.0.0"
 	},
-	"packageManager": "pnpm@10.33.0",
-	"pnpm": {
-		"overrides": {
-			"brace-expansion": "^1.1.13 || ^2.0.3 || ^5.0.5",
-			"flatted": "^3.4.2",
-			"minimatch": "^3.1.3 || ^9.0.7 || ^10.2.3",
-			"picomatch": "^2.3.2 || ^4.0.4"
-		}
-	}
+	"packageManager": "bun@1.3.11",
+	"trustedDependencies": [
+		"esbuild",
+		"unrs-resolver"
+	]
 }
