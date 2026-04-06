@@ -16,7 +16,7 @@ agent: git-versioning
 ## Your tasks
 
 - make a feature branch is active
-- create changeset if needed (at least an empty changeset); don't write the change message too short
+- create changeset for each commit (at least an empty one, if no changeset is needed); don't write the change message too short
 - create a single git commit or multiple commits if it makes more sense based on the above changes
 
 ## Structure
@@ -44,9 +44,8 @@ Describe the area of the codebase affected by the change, e.g. `feat(auth): add 
 
 **Package scopes** (one per package):
 
-- `eslint` — `@mheob/eslint-config`
+- `oxfmt` — `@mheob/oxfmt-config`
 - `oxlint` — `@mheob/oxlint-config`
-- `prettier` — `@mheob/prettier-config`
 - `internal` — `@mheob/internal`
 - `tsconfig` — `@mheob/tsconfig`
 

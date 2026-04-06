@@ -4,9 +4,9 @@ This is a monorepo containing shareable configuration packages for various devel
 
 ## Project Structure
 
-- **Monorepo Manager**: Turborepo with pnpm workspaces
-- **Package Manager**: pnpm@10.24.0
-- **Node Version**: ^22.12.0 || ^24.0.0
+- **Monorepo Manager**: Turborepo with Bun workspaces
+- **Package Manager**: bun@1.3.11
+- **Node Version**: ^24.0.0
 - **License**: MIT
 
 ## Available Packages
@@ -14,36 +14,35 @@ This is a monorepo containing shareable configuration packages for various devel
 Located in `packages/`:
 
 - `@mheob/commitlint-config` - Commitlint configuration
-- `@mheob/eslint-config` - ESLint configuration
-- `@mheob/prettier-config` - Prettier configuration
-- `@mheob/changeset-changelog` - Custom changelog configuration
+- `@mheob/oxfmt-config` - OXFmt configuration
+- `@mheob/oxlint-config` - OXLint configuration
 
 ## Key Commands
 
 ```bash
-pnpm build            # Build all packages
-pnpm lint             # Lint all packages
-pnpm clean            # Clean build artifacts
-pnpm cspell           # Run spell checker
-pnpm changeset        # Create a changeset
-pnpm version-packages # Bump versions
-pnpm release          # Publish packages
+bun run build            # Build all packages
+bun run lint             # Lint all packages
+bun run clean            # Clean build artifacts
+bun run cspell           # Run spell checker
+bun run changeset        # Create a changeset
+bun run version-packages # Bump versions
+bun run release          # Publish packages
 ```
 
 ## Development Workflow
 
 1. **Git Hooks**: Husky is configured for pre-commit hooks
-2. **Lint Staged**: All files are automatically linted with ESLint on commit
+2. **Lint Staged**: All files are automatically linted and formatted with OXLint and OXFmt on commit
 3. **Changesets**: Use changesets for version management and changelogs
 4. **Commitizen**: Uses cz-git for interactive commit messages
 
 ## Configuration Files
 
-- [eslint.config.ts](eslint.config.ts) - Root ESLint config
-- [prettier.config.mjs](prettier.config.mjs) - Root Prettier config
+- [exlint.config.ts](exlint.config.ts) - Root OXLint config
+- [oxfmt.config.mjs](oxfmt.config.mjs) - Root OXFmt config
 - [commitlint.config.js](commitlint.config.js) - Commitlint config
 - [turbo.json](turbo.json) - Turborepo pipeline configuration
-- [pnpm-workspace.yaml](pnpm-workspace.yaml) - Workspace configuration
+- [bunfig.toml](bunfig.toml) - Bun configuration
 
 ## External Services
 
