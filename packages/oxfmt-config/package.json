@@ -26,12 +26,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsdown --clean",
-		"clean": "rm -rf .turbo node_modules dist",
-		"format": "oxfmt",
-		"format:check": "oxfmt --check",
-		"lint": "oxlint",
-		"lint:fix": "oxlint --fix"
+		"build": "bun run --bun tsdown --clean",
+		"clean": "bun run --bun rm -rf .turbo node_modules dist",
+		"format": "bun run --bun oxfmt",
+		"format:check": "bun run --bun oxfmt --check",
+		"lint": "bun run --bun oxlint",
+		"lint:fix": "bun run --bun oxlint --fix"
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
