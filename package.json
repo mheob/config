@@ -32,9 +32,8 @@
 		"@mheob/oxfmt-config": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
 		"@types/node": "^25.5.2",
-		"commitizen": "^4.3.1",
 		"cspell": "^10.0.0",
-		"cz-git": "^1.12.0",
+		"czg": "^1.12.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.4.0",
 		"oxfmt": "^0.43.0",
@@ -52,11 +51,6 @@
 			"oxlint --fix",
 			"oxfmt"
 		]
-	},
-	"config": {
-		"commitizen": {
-			"path": "node_modules/cz-git"
-		}
 	},
 	"engines": {
 		"node": "^24.0.0"
