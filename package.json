@@ -33,14 +33,13 @@
 		"@mheob/oxlint-config": "workspace:*",
 		"@types/node": "^25.5.2",
 		"commitizen": "^4.3.1",
-		"cspell": "^9.7.0",
+		"cspell": "^10.0.0",
 		"cz-git": "^1.12.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.4.0",
 		"oxfmt": "^0.43.0",
 		"oxlint": "^1.58.0",
-		"ts-node": "^10.9.2",
-		"turbo": "^2.9.3",
+		"turbo": "^2.9.4",
 		"typescript": "^6.0.2"
 	},
 	"overrides": {
