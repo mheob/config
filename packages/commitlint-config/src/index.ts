@@ -3,9 +3,9 @@ import { existsSync, readdirSync } from 'node:fs';
 import nodePath from 'node:path';
 import process from 'node:process';
 
-import type { UserConfig } from 'cz-git';
+import type { UserConfig } from 'czg';
 
-export type { UserConfig } from 'cz-git';
+export type { UserConfig } from 'czg';
 
 /**
  * Returns all packages inside the given path.
