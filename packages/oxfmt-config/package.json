@@ -23,11 +23,11 @@
 	"main": "dist/index.mjs",
 	"types": "dist/index.d.mts",
 	"publishConfig": {
-		"access": "restricted"
+		"access": "public"
 	},
 	"scripts": {
 		"build": "tsdown --clean",
-		"clean": "rimraf .turbo node_modules dist",
+		"clean": "rm -rf .turbo node_modules dist",
 		"format": "oxfmt",
 		"format:check": "oxfmt --check",
 		"lint": "oxlint",
@@ -35,14 +35,14 @@
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
-		"oxfmt": "catalog:",
-		"oxlint": "catalog:",
-		"rimraf": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"@mheob/oxlint-config": "workspace:*",
+		"oxfmt": "^0.43.0",
+		"oxlint": "^1.58.0",
+		"tsdown": "^0.21.7",
+		"typescript": "^6.0.2"
 	},
 	"peerDependencies": {
-		"oxfmt": "catalog:"
+		"oxfmt": "^0.43.0"
 	},
 	"peerDependenciesMeta": {
 		"oxfmt": {
