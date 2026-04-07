@@ -6,7 +6,7 @@ export const reactConfig = defineConfig({
 	overrides: [
 		{
 			files: ['**/*.tsx'],
-			plugins: ['react', 'typescript'],
+			plugins: ['react', 'react-perf', 'typescript'],
 			rules: {
 				'react/button-has-type': 'error',
 				'react/exhaustive-deps': 'warn',
