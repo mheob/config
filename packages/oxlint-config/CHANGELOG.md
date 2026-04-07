@@ -1,5 +1,11 @@
 # @mheob/oxlint-config
 
+## 2.0.1
+
+### Patch Changes
+
+- [#377](https://github.com/mheob/config/pull/377) ([@mheob](https://github.com/mheob)): fix(react): replace `react/no-target-blank` with the correct rule name `react/jsx-no-target-blank`
+
 ## 2.0.0
 
 ### Major Changes
