@@ -40,30 +40,18 @@
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
-		"oxfmt": "^0.43.0",
-		"oxlint": "^1.58.0",
+		"oxfmt": "^0.44.0",
+		"oxlint": "^1.59.0",
 		"tsdown": "^0.21.7",
 		"typescript": "^6.0.2"
 	},
 	"peerDependencies": {
 		"eslint-plugin-better-tailwindcss": "^4.3.2",
-		"eslint-plugin-react-dom": "^2.13.0",
-		"eslint-plugin-react-web-api": "^2.13.0",
-		"eslint-plugin-react-x": "^2.13.0",
 		"eslint-plugin-storybook": "^10.3.4",
-		"oxlint": "^1.58.0"
+		"oxlint": "^1.59.0"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-better-tailwindcss": {
-			"optional": true
-		},
-		"eslint-plugin-react-dom": {
-			"optional": true
-		},
-		"eslint-plugin-react-web-api": {
-			"optional": true
-		},
-		"eslint-plugin-react-x": {
 			"optional": true
 		},
 		"eslint-plugin-storybook": {
