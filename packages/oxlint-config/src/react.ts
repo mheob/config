@@ -14,6 +14,7 @@ export const reactConfig = defineConfig({
 				'react/jsx-no-comment-textnodes': 'warn',
 				'react/jsx-no-duplicate-props': 'warn',
 				'react/jsx-no-script-url': 'warn',
+				'react/jsx-no-target-blank': 'warn',
 				'react/no-array-index-key': 'warn',
 				'react/no-danger': 'warn',
 				'react/no-danger-with-children': 'warn',
@@ -23,7 +24,6 @@ export const reactConfig = defineConfig({
 				'react/no-redundant-should-component-update': 'error',
 				'react/no-render-return-value': 'error',
 				'react/no-string-refs': 'error',
-				'react/no-target-blank': 'warn',
 				'react/only-export-components': [
 					'warn',
 					{
