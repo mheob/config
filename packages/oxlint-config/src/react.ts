@@ -1,13 +1,15 @@
 import { defineConfig } from 'oxlint';
 
 export const reactConfig = defineConfig({
-	plugins: ['react', 'react-perf'],
-
 	overrides: [
 		{
 			files: ['**/*.tsx'],
 			plugins: ['react', 'react-perf', 'typescript'],
 			rules: {
+				'react-perf/jsx-no-jsx-as-prop': 'error',
+				'react-perf/jsx-no-new-array-as-prop': 'warn',
+				'react-perf/jsx-no-new-function-as-prop': 'warn',
+				'react-perf/jsx-no-new-object-as-prop': 'warn',
 				'react/button-has-type': 'error',
 				'react/exhaustive-deps': 'warn',
 				'react/iframe-missing-sandbox': 'warn',
@@ -33,10 +35,6 @@ export const reactConfig = defineConfig({
 				],
 				'react/rules-of-hooks': 'error',
 				'react/void-dom-elements-no-children': 'error',
-				'react-perf/jsx-no-jsx-as-prop': 'error',
-				'react-perf/jsx-no-new-array-as-prop': 'warn',
-				'react-perf/jsx-no-new-function-as-prop': 'warn',
-				'react-perf/jsx-no-new-object-as-prop': 'warn',
 				'typescript/explicit-function-return-type': 'off',
 			},
 		},

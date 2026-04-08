@@ -38,7 +38,7 @@
 		"lint-staged": "^16.4.0",
 		"oxfmt": "^0.44.0",
 		"oxlint": "^1.59.0",
-		"turbo": "^2.9.4",
+		"turbo": "^2.9.5",
 		"typescript": "^6.0.2"
 	},
 	"overrides": {

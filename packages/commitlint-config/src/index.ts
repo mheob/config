@@ -1,11 +1,10 @@
+// oxlint-disable no-magic-numbers
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
 import nodePath from 'node:path';
 import process from 'node:process';
 
 import type { UserConfig } from 'czg';
-
-export type { UserConfig } from 'czg';
 
 /**
  * Returns all packages inside the given path.
@@ -19,10 +18,11 @@ function getPackagesFromPath(...directoryPaths: string[]): string[] {
 	for (const directoryPath of directoryPaths) {
 		const path = nodePath.resolve(process.cwd(), directoryPath);
 
-		if (!existsSync(path)) continue;
-		const packagesInPath = readdirSync(path);
+		if (existsSync(path)) {
+			const packagesInPath = readdirSync(path);
 
-		packages.push(...packagesInPath);
+			packages.push(...packagesInPath);
+		}
 	}
 
 	return packages;
@@ -51,7 +51,9 @@ function getIssue(): string | undefined {
 	const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 	const firstNamePart = branchName.split('-')[0];
 
-	return firstNamePart && Number.parseInt(firstNamePart) ? `#${firstNamePart}` : undefined;
+	if (firstNamePart && Number.parseInt(firstNamePart, 10)) {
+		return `#${firstNamePart}`;
+	}
 }
 
 const options: UserConfig = {
@@ -137,5 +139,7 @@ const options: UserConfig = {
 		],
 	},
 };
+
+export type { UserConfig } from 'czg';
 
 export default options;
