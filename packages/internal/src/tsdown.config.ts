@@ -1,4 +1,5 @@
-import { defineConfig, type UserConfig, type UserConfigFn } from 'tsdown';
+import type { UserConfig, UserConfigFn } from 'tsdown';
+import { defineConfig } from 'tsdown';
 
 export const defaultTSDownConfig = (overrides?: UserConfig): UserConfigFn =>
 	defineConfig(options => ({

@@ -1,8 +1,6 @@
 import { defineConfig } from 'oxlint';
 
 export const baseConfig = defineConfig({
-	plugins: ['eslint', 'node', 'jsdoc', 'import', 'oxc', 'typescript', 'unicorn'],
-
 	categories: {
 		correctness: 'error',
 		nursery: 'warn',
@@ -14,8 +12,8 @@ export const baseConfig = defineConfig({
 	},
 
 	env: {
-		builtin: true,
 		browser: true,
+		builtin: true,
 		es2026: true,
 		node: true,
 	},
@@ -23,12 +21,114 @@ export const baseConfig = defineConfig({
 	globals: {
 		AudioWorkletGlobalScope: 'readonly',
 		AudioWorkletProcessor: 'readonly',
+		WorkletGlobalScope: 'readonly',
 		currentFrame: 'readonly',
 		currentTime: 'readonly',
 		registerProcessor: 'readonly',
 		sampleRate: 'readonly',
-		WorkletGlobalScope: 'readonly',
 	},
+
+	overrides: [
+		// CLI
+		{
+			files: ['**/cli.ts', '**/cli/**/*.ts'],
+			rules: {
+				'eslint/no-console': 'off',
+				'unicorn/no-process-exit': 'off',
+			},
+		},
+
+		// Config
+		{
+			files: ['**/.config.ts', '**/.config.*.ts'],
+			rules: {
+				'eslint/no-console': 'off',
+				'typescript/explicit-function-return-type': 'off',
+			},
+		},
+
+		// Markdown
+		{
+			files: [
+				'**/*.md/**/*.ts',
+				'**/*.md/**/*.js',
+				'**/*.md/**/*.json',
+				'**/*.md/**/*.json5',
+				'**/*.md/**/*.jsonc',
+			],
+			rules: {
+				'eslint/no-alert': 'off',
+				'eslint/no-console': 'off',
+				'eslint/no-labels': 'off',
+				'eslint/no-lone-blocks': 'off',
+				'eslint/no-redeclare': 'off',
+				'eslint/no-unused-expressions': 'off',
+				'eslint/no-unused-labels': 'off',
+				'eslint/no-unused-vars': 'off',
+				'eslint/unicode-bom': 'off',
+				'typescript/await-thenable': 'off',
+				'typescript/consistent-type-imports': 'off',
+				'typescript/no-floating-promises': 'off',
+				'typescript/no-for-in-array': 'off',
+				'typescript/no-implied-eval': 'off',
+				'typescript/no-misused-promises': 'off',
+				'typescript/no-namespace': 'off',
+				'typescript/no-require-imports': 'off',
+				'typescript/no-unnecessary-type-assertion': 'off',
+				'typescript/no-unsafe-argument': 'off',
+				'typescript/no-unsafe-assignment': 'off',
+				'typescript/no-unsafe-call': 'off',
+				'typescript/no-unsafe-member-access': 'off',
+				'typescript/no-unsafe-return': 'off',
+				'typescript/no-var-requires': 'off',
+				'typescript/restrict-plus-operands': 'off',
+				'typescript/restrict-template-expressions': 'off',
+				'typescript/unbound-method': 'off',
+			},
+		},
+
+		// Scripts
+		{
+			files: ['**/scripts/**/*.ts'],
+			rules: {
+				'eslint/no-console': 'off',
+				'typescript/explicit-function-return-type': 'off',
+				'unicorn/no-process-exit': 'off',
+			},
+		},
+
+		// Vitest rules
+		{
+			files: [
+				'**/__tests__/**/*.ts',
+				'**/__tests__/**/*.tsx',
+				'**/*.spec.ts',
+				'**/*.spec.tsx',
+				'**/*.test.ts',
+				'**/*.test.tsx',
+				'**/*.bench.ts',
+				'**/*.bench.tsx',
+				'**/*.benchmark.ts',
+				'**/*.benchmark.tsx',
+			],
+			plugins: ['vitest'],
+			rules: {
+				'vitest/consistent-each-for': 'error',
+				'vitest/consistent-test-it': ['error', { fn: 'it', withinDescribe: 'it' }],
+				'vitest/consistent-vitest-vi': 'error',
+				'vitest/hoisted-apis-on-top': 'error',
+				'vitest/no-conditional-tests': 'error',
+				'vitest/no-identical-title': 'error',
+				'vitest/no-import-node-test': 'error',
+				'vitest/prefer-hooks-in-order': 'error',
+				'vitest/prefer-lowercase-title': 'error',
+				'vitest/require-local-test-context-for-concurrent-snapshots': 'error',
+				'vitest/warn-todo': 'error',
+			},
+		},
+	],
+
+	plugins: ['eslint', 'node', 'jsdoc', 'import', 'oxc', 'typescript', 'unicorn'],
 
 	rules: {
 		// ESLint rules
@@ -37,11 +137,13 @@ export const baseConfig = defineConfig({
 		'eslint/block-scoped-var': 'error',
 		'eslint/default-case-last': 'error',
 		'eslint/eqeqeq': ['error', 'smart'],
+		'eslint/func-style': ['warn', 'declaration', { allowArrowFunctions: true }],
 		'eslint/new-cap': ['error', { capIsNew: false }],
 		'eslint/no-alert': 'error',
 		'eslint/no-array-constructor': 'error',
 		'eslint/no-case-declarations': 'error',
 		'eslint/no-console': ['warn', { allow: ['error', 'info', 'warn'] }],
+		'eslint/no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
 		'eslint/no-else-return': 'error',
 		'eslint/no-empty': 'error',
 		'eslint/no-fallthrough': 'error',
@@ -65,12 +167,15 @@ export const baseConfig = defineConfig({
 		'eslint/no-self-compare': 'error',
 		'eslint/no-sequences': 'error',
 		'eslint/no-template-curly-in-string': 'error',
+		'eslint/no-ternary': 'off',
 		'eslint/no-unneeded-ternary': ['error', { defaultAssignment: false }],
 		'eslint/no-useless-computed-key': 'error',
 		'eslint/no-useless-return': 'error',
 		'eslint/no-var': 'error',
+		'eslint/prefer-destructuring': 'off',
 		'eslint/prefer-rest-params': 'error',
 		'eslint/prefer-template': 'error',
+		'eslint/sort-imports': 'off',
 		'eslint/symbol-description': 'error',
 		'eslint/yoda': 'error',
 
@@ -78,11 +183,15 @@ export const baseConfig = defineConfig({
 		'import/default': 'error',
 		'import/first': 'error',
 		'import/namespace': 'error',
+		'import/no-default-export': 'off',
 		'import/no-duplicates': 'error',
 		'import/no-mutable-exports': 'error',
-		'import/no-named-default': 'error',
+		'import/no-named-default': 'off',
+		'import/no-named-export': 'off',
+		'import/no-nodejs-modules': 'off',
 		'import/no-self-import': 'error',
 		'import/no-webpack-loader-syntax': 'error',
+		'import/prefer-default-export': 'off',
 
 		// JSDoc rules
 		'jsdoc/check-access': 'warn',
@@ -94,16 +203,21 @@ export const baseConfig = defineConfig({
 		'jsdoc/require-param': 'warn',
 		'jsdoc/require-param-description': 'warn',
 		'jsdoc/require-param-name': 'warn',
+		'jsdoc/require-param-type': 'off',
 		'jsdoc/require-property': 'warn',
 		'jsdoc/require-property-description': 'warn',
 		'jsdoc/require-property-name': 'warn',
 		'jsdoc/require-returns': 'warn',
 		'jsdoc/require-returns-description': 'warn',
+		'jsdoc/require-returns-type': 'off',
 		'jsdoc/require-yields': 'warn',
 
 		// Node rules
 		'node/no-exports-assign': 'error',
 		'node/no-new-require': 'error',
+
+		// OXC rules
+		'oxc/no-rest-spread-properties': 'off',
 
 		// TypeScript rules
 		'typescript/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
@@ -227,104 +341,4 @@ export const baseConfig = defineConfig({
 		'unicorn/text-encoding-identifier-case': 'error',
 		'unicorn/throw-new-error': 'error',
 	},
-
-	overrides: [
-		// CLI
-		{
-			files: ['**/cli.ts', '**/cli/**/*.ts'],
-			rules: {
-				'eslint/no-console': 'off',
-				'unicorn/no-process-exit': 'off',
-			},
-		},
-
-		// Config
-		{
-			files: ['**/.config.ts', '**/.config.*.ts'],
-			rules: {
-				'eslint/no-console': 'off',
-				'typescript/explicit-function-return-type': 'off',
-			},
-		},
-
-		// Markdown
-		{
-			files: [
-				'**/*.md/**/*.ts',
-				'**/*.md/**/*.js',
-				'**/*.md/**/*.json',
-				'**/*.md/**/*.json5',
-				'**/*.md/**/*.jsonc',
-			],
-			rules: {
-				'eslint/no-alert': 'off',
-				'eslint/no-console': 'off',
-				'eslint/no-labels': 'off',
-				'eslint/no-lone-blocks': 'off',
-				'eslint/no-redeclare': 'off',
-				'eslint/no-unused-expressions': 'off',
-				'eslint/no-unused-labels': 'off',
-				'eslint/no-unused-vars': 'off',
-				'eslint/unicode-bom': 'off',
-				'typescript/await-thenable': 'off',
-				'typescript/consistent-type-imports': 'off',
-				'typescript/no-floating-promises': 'off',
-				'typescript/no-for-in-array': 'off',
-				'typescript/no-implied-eval': 'off',
-				'typescript/no-misused-promises': 'off',
-				'typescript/no-namespace': 'off',
-				'typescript/no-require-imports': 'off',
-				'typescript/no-unnecessary-type-assertion': 'off',
-				'typescript/no-unsafe-argument': 'off',
-				'typescript/no-unsafe-assignment': 'off',
-				'typescript/no-unsafe-call': 'off',
-				'typescript/no-unsafe-member-access': 'off',
-				'typescript/no-unsafe-return': 'off',
-				'typescript/no-var-requires': 'off',
-				'typescript/restrict-plus-operands': 'off',
-				'typescript/restrict-template-expressions': 'off',
-				'typescript/unbound-method': 'off',
-			},
-		},
-
-		// Scripts
-		{
-			files: ['**/scripts/**/*.ts'],
-			rules: {
-				'eslint/no-console': 'off',
-				'typescript/explicit-function-return-type': 'off',
-				'unicorn/no-process-exit': 'off',
-			},
-		},
-
-		// Vitest rules
-		{
-			files: [
-				'**/__tests__/**/*.ts',
-				'**/__tests__/**/*.tsx',
-				'**/*.spec.ts',
-				'**/*.spec.tsx',
-				'**/*.test.ts',
-				'**/*.test.tsx',
-				'**/*.bench.ts',
-				'**/*.bench.tsx',
-				'**/*.benchmark.ts',
-				'**/*.benchmark.tsx',
-			],
-			plugins: ['vitest'],
-			rules: {
-				'vitest/consistent-each-for': 'error',
-				'vitest/consistent-test-it': ['error', { fn: 'it', withinDescribe: 'it' }],
-				'vitest/consistent-vitest-vi': 'error',
-				'vitest/hoisted-apis-on-top': 'error',
-				'vitest/no-conditional-tests': 'error',
-				'vitest/no-identical-title': 'error',
-				'vitest/no-import-node-test': 'error',
-				'vitest/prefer-hooks-in-order': 'error',
-				'vitest/prefer-lowercase-title': 'error',
-				'vitest/require-local-test-context-for-concurrent-snapshots': 'error',
-				'vitest/warn-todo': 'error',
-			},
-		},
-	],
 });
