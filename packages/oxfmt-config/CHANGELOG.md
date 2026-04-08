@@ -1,5 +1,14 @@
 # @mheob/oxfmt-config
 
+## 1.1.0
+
+### Minor Changes
+
+- [#379](https://github.com/mheob/config/pull/379) ([@mheob](https://github.com/mheob)): feat(oxfmt-config): add import sorting and Tailwind CSS class sorting
+
+  Added `sortImports` with a structured group order (type imports, builtins, externals, internals, relatives, side-effects, styles,
+  unknown) and enabled `sortTailwindcss` to automatically sort Tailwind CSS utility classes.
+
 ## 1.0.2
 
 ### Patch Changes
