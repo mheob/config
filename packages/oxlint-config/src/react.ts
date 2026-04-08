@@ -1,8 +1,6 @@
 import { defineConfig } from 'oxlint';
 
 export const reactConfig = defineConfig({
-	plugins: ['react', 'react-perf'],
-
 	overrides: [
 		{
 			files: ['**/*.tsx'],
