@@ -5,9 +5,22 @@ export const baseConfig = defineConfig({
 	proseWrap: 'always',
 	singleQuote: true,
 	useTabs: true,
+	sortImports: {
+		groups: [
+			'type-import',
+			'value-builtin',
+			['type-external', 'value-external'],
+			['type-internal', 'value-internal'],
+			['type-parent', 'value-parent', 'type-sibling', 'value-sibling', 'type-index', 'value-index'],
+			'side-effect',
+			'style',
+			'unknown',
+		],
+	},
 	sortPackageJson: {
 		sortScripts: true,
 	},
+	sortTailwindcss: true,
 	overrides: [
 		{
 			files: ['{.cspell,tsconfig}*.json'],
