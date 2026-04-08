@@ -3,6 +3,16 @@ import { defineConfig } from 'oxlint';
 export const baseConfig = defineConfig({
 	plugins: ['eslint', 'node', 'jsdoc', 'import', 'oxc', 'typescript', 'unicorn'],
 
+	categories: {
+		correctness: 'error',
+		nursery: 'warn',
+		pedantic: 'warn',
+		perf: 'warn',
+		restriction: 'warn',
+		style: 'warn',
+		suspicious: 'error',
+	},
+
 	env: {
 		builtin: true,
 		browser: true,
