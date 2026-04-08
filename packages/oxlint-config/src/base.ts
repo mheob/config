@@ -40,7 +40,7 @@ export const baseConfig = defineConfig({
 
 		// Config
 		{
-			files: ['**/.config.ts', '**/.config.*.ts'],
+			files: ['**/*.config.ts', '**/*.config.*.ts'],
 			rules: {
 				'eslint/no-console': 'off',
 				'typescript/explicit-function-return-type': 'off',
