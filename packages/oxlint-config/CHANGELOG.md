@@ -1,5 +1,13 @@
 # @mheob/oxlint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- [#379](https://github.com/mheob/config/pull/379) ([@mheob](https://github.com/mheob)): feat(oxlint-config): add rule categories with default severity levels to `baseConfig`
+
+- [#379](https://github.com/mheob/config/pull/379) ([@mheob](https://github.com/mheob)): feat(oxlint-config): add `nextjsConfig` with all supported Next.js oxlint rules
+
 ## 2.0.1
 
 ### Patch Changes
