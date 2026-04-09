@@ -1,5 +1,12 @@
 # @mheob/oxfmt-config
 
+## 1.2.0
+
+### Minor Changes
+
+- [#381](https://github.com/mheob/config/pull/381) ([@mheob](https://github.com/mheob)): Remove the explicit `arrowParens: 'avoid'` option from the base config, deferring to oxfmt's built-in default instead. This may
+  affect formatting output for arrow functions if the upstream default differs.
+
 ## 1.1.0
 
 ### Minor Changes
