@@ -1,7 +1,6 @@
 import { defineConfig } from 'oxfmt';
 
 export const baseConfig = defineConfig({
-	arrowParens: 'avoid',
 	overrides: [
 		{
 			files: ['{.cspell,tsconfig}*.json'],
