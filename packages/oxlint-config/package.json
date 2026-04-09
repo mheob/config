@@ -1,6 +1,6 @@
 {
 	"name": "@mheob/oxlint-config",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"private": false,
 	"description": "Shared OXLint configuration",
 	"keywords": [
