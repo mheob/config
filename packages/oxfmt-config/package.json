@@ -36,7 +36,7 @@
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
-		"oxfmt": "^0.44.0",
+		"oxfmt": "^0.47.0",
 		"oxlint": "^1.59.0",
 		"tsdown": "^0.21.7",
 		"typescript": "^6.0.2"
