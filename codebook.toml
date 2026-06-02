@@ -1,2 +1,2 @@
 dictionaries = ["de", "en_us"]
-words = ["cspell", "czg", "esm", "nextjs", "oxc", "oxfmt", "oxlint", "tsdown"]
+words = ["CLI", "cspell", "czg", "esm", "nextjs", "oxc", "oxfmt", "oxlint", "tsdown", "worklet"]

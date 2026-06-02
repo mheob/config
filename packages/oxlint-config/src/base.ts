@@ -1,5 +1,3 @@
-//
-
 import { defineConfig } from 'oxlint';
 
 export const baseConfig = defineConfig({
@@ -115,7 +113,24 @@ export const baseConfig = defineConfig({
 			],
 			plugins: ['vitest'],
 			rules: {
+				'eslint/init-declarations': 'off',
+				'eslint/max-lines': 'off',
+				'eslint/max-statements': 'off',
+				'eslint/no-magic-numbers': 'off',
+				'import/no-namespace': 'off',
 				'vitest/consistent-test-it': ['warn', { fn: 'it', withinDescribe: 'it' }],
+				'vitest/max-nested-describe': 'off',
+				'vitest/no-hooks': 'off',
+				'vitest/no-importing-vitest-globals': 'off',
+				'vitest/no-mocks-import': 'off',
+				'vitest/prefer-called-times': 'off',
+				'vitest/prefer-expect-assertions': 'off',
+				'vitest/prefer-to-be-falsy': 'off',
+				'vitest/prefer-to-be-truthy': 'off',
+				'vitest/require-mock-type-parameters': 'off',
+				'vitest/require-test-timeout': 'off',
+				'vitest/require-to-throw-message': 'off',
+				'vitest/valid-title': 'off',
 			},
 		},
 	],
@@ -125,14 +140,18 @@ export const baseConfig = defineConfig({
 	rules: {
 		// ESLint rules
 		'eslint/capitalized-comments': 'off',
+		'eslint/class-methods-use-this': 'off',
+		'eslint/curly': 'off',
 		'eslint/eqeqeq': ['error', 'smart'],
 		'eslint/func-style': ['warn', 'declaration', { allowArrowFunctions: true }],
 		'eslint/id-length': 'off',
+		'eslint/max-lines': 'off',
 		'eslint/max-lines-per-function': 'off',
 		'eslint/new-cap': ['error', { capIsNew: false }],
 		'eslint/no-console': ['warn', { allow: ['error', 'info', 'warn'] }],
 		'eslint/no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
 		'eslint/no-implicit-coercion': ['error', { allow: ['+', '~'] }],
+		'eslint/no-inline-comments': 'off',
 		'eslint/no-magic-numbers': [
 			'warn',
 			{
@@ -155,10 +174,14 @@ export const baseConfig = defineConfig({
 		'eslint/no-undefined': 'off',
 		'eslint/no-unneeded-ternary': ['error', { defaultAssignment: false }],
 		'eslint/prefer-destructuring': 'off',
+		'eslint/require-await': 'off',
 		'eslint/sort-imports': 'off',
+		'eslint/sort-keys': ['warn', 'asc', { allowLineSeparatedGroups: true, natural: true }],
 
-		// Import rules
+		'import/consistent-type-specifier-style': 'off',
+		'import/group-exports': 'off',
 		'import/max-dependencies': ['warn', { max: 20 }],
+		'import/no-anonymous-default-export': 'off',
 		'import/no-default-export': 'off',
 		'import/no-named-default': 'off',
 		'import/no-named-export': 'off',
@@ -192,8 +215,14 @@ export const baseConfig = defineConfig({
 		'typescript/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
 		'typescript/consistent-type-definitions': ['error', 'interface'],
 		'typescript/explicit-function-return-type': ['error', { allowExpressions: true }],
+		'typescript/no-extraneous-class': [
+			'error',
+			{ allowStaticOnly: true, allowWithDecorator: true },
+		],
+		'typescript/parameter-properties': ['warn', { prefer: 'parameter-property' }],
 
 		// Unicorn rules
 		'unicorn/no-null': 'off',
+		'unicorn/no-static-only-class': 'off',
 	},
 });
