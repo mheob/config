@@ -33,25 +33,37 @@
 		"lint": "bun run --bun oxlint",
 		"lint:fix": "bun run --bun oxlint --fix"
 	},
-	"dependencies": {
-		"eslint-plugin-jsonc": "^3.1.2",
-		"eslint-plugin-regexp": "^3.1.0",
-		"eslint-plugin-yml": "^3.3.1"
-	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
-		"oxfmt": "^0.44.0",
-		"oxlint": "^1.59.0",
-		"tsdown": "^0.21.7",
+		"eslint-plugin-better-tailwindcss": "^4.3.2",
+		"eslint-plugin-jsonc": "^3.1.2",
+		"eslint-plugin-regexp": "^3.1.0",
+		"eslint-plugin-storybook": "^10.3.4",
+		"eslint-plugin-yml": "^3.3.1",
+		"oxfmt": "^0.53.0",
+		"oxlint": "^1.68.0",
+		"tsdown": "^0.21.10",
 		"typescript": "^6.0.2"
 	},
 	"peerDependencies": {
 		"eslint-plugin-better-tailwindcss": "^4.3.2",
+		"eslint-plugin-jsonc": "^3.1.2",
+		"eslint-plugin-regexp": "^3.1.0",
 		"eslint-plugin-storybook": "^10.3.4",
+		"eslint-plugin-yml": "^3.3.1",
 		"oxlint": "^1.59.0"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-better-tailwindcss": {
+			"optional": true
+		},
+		"eslint-plugin-jsonc": {
+			"optional": true
+		},
+		"eslint-plugin-regexp": {
+			"optional": true
+		},
+		"eslint-plugin-yml": {
 			"optional": true
 		},
 		"eslint-plugin-storybook": {
