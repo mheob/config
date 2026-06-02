@@ -38,8 +38,8 @@
 		"lint-staged": "^17.0.7",
 		"oxfmt": "^0.53.0",
 		"oxlint": "^1.68.0",
-		"turbo": "^2.9.5",
-		"typescript": "^6.0.2"
+		"turbo": "^2.9.16",
+		"typescript": "^6.0.3"
 	},
 	"overrides": {
 		"flatted": "^3.4.2",
