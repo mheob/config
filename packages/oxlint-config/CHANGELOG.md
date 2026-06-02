@@ -1,5 +1,16 @@
 # @mheob/oxlint-config
 
+## 2.3.0
+
+### Minor Changes
+
+- [#384](https://github.com/mheob/config/pull/384) ([@mheob](https://github.com/mheob)): Add new lint rules for vitest overrides, import, TypeScript, and unicorn plugins. Move eslint-plugin-jsonc, eslint-plugin-regexp,
+  and eslint-plugin-yml to optional peer dependencies.
+
+### Patch Changes
+
+- [#384](https://github.com/mheob/config/pull/384) ([@mheob](https://github.com/mheob)): Update dependencies: oxfmt ^0.53.0, oxlint ^1.68.0, tsdown ^0.21.10, czg ^1.13.1
+
 ## 2.2.0
 
 ### Minor Changes

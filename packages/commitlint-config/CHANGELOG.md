@@ -1,5 +1,11 @@
 # @mheob/commitlint-config
 
+## 2.0.2
+
+### Patch Changes
+
+- [#384](https://github.com/mheob/config/pull/384) ([@mheob](https://github.com/mheob)): Update dependencies: oxfmt ^0.53.0, oxlint ^1.68.0, tsdown ^0.21.10, czg ^1.13.1
+
 ## 2.0.1
 
 ### Patch Changes
