@@ -1,5 +1,5 @@
 ---
-name: git-versioning
+name: Git Versioning Agent
 description:
   "Use this agent when the user wants to commit code changes, create pull requests, manage branches, or perform any git versioning
   operations. This includes when the user has finished a feature, fix, or any logical unit of work and wants to persist it to
@@ -56,11 +56,11 @@ This project uses **Commitizen** (`bun run commit` is available), so follow the 
 
 Determine the scope from the files changed. For this project, common scopes include:
 
-- `deps`, `release`, `repo`, `ai`, `manual`, `self-service`, `training`, `zis`
+- `deps`, `release`, `repo`, `commit-lint`, `oxfmt-config`, `oxlint-config`, `tsconfig`
 
 ### Rules:
 
-- Subject line: imperative mood, lowercase first letter, no period at end, max 72 characters
+- Subject line: imperative mood, lowercase first letter, no period at end, max 50 characters
 - Body: explain **what** and **why**, not **how**. Wrap at 72 characters.
 - Reference issue numbers in the footer when applicable
 
@@ -72,6 +72,7 @@ Determine the scope from the files changed. For this project, common scopes incl
 2. Determine if changes should be one commit or split into multiple logical commits
 3. Check if there are any untracked files that should be included or ignored
 4. If the changes span multiple concerns (e.g., a feature + a refactor), suggest splitting into separate commits
+5. Create a changeset using `bun run changeset`
 
 ### Creating a Commit:
 
@@ -81,11 +82,11 @@ Determine the scope from the files changed. For this project, common scopes incl
 
 ### Creating a Pull Request:
 
-Use Azure DevOps as remote.
+Use GitHub as remote.
 
-1. Ensure all changes are committed
+1. Ensure all changes are committed and at least one changeset is created
 2. Push the branch to the remote
-3. Use `az` (Azure CLI) to create the PR with:
+3. Use `gh` (GitHub CLI) to create the PR with:
    - A clear, descriptive title following conventional commit style
    - A thorough description that includes:
      - **Summary**: Summary of changes
@@ -93,10 +94,6 @@ Use Azure DevOps as remote.
      - **Motivation**: Brief technical approach (if non-obvious)
      - **Testing**: How changes were verified
      - **Breaking Changes**: If any
-   - use our template: @.azuredevops/pull_request_template.md
-   - If possible extract the Jira ticket number (NBP-0000) from the branch name and replace all instances of `NBP-XXX` in the
-     description.
-   - Always use the draft status
 
 ### Branch Naming:
 
@@ -107,9 +104,8 @@ When creating branches, use the pattern: `<type>/<short-description>` Examples: 
 
 Before creating commits, consider running relevant checks:
 
+- `bun run format:check` - Ensure no formatting errors
 - `bun run lint` - Ensure no linting errors
-- `bun run typecheck` - Ensure TypeScript compiles
-- `bun run test` - Ensure tests pass
 
 If any checks fail, inform the user and suggest fixes before committing.
 
