@@ -1,4 +1,5 @@
-// oxlint-disable no-magic-numbers
+// oxlint-disable no-magic-numbers node/no-sync
+
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
 import nodePath from 'node:path';
@@ -51,13 +52,13 @@ function getIssue(): string | undefined {
 	const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 	const firstNamePart = branchName.split('-')[0];
 
-	if (firstNamePart && Number.parseInt(firstNamePart, 10)) {
+	if (firstNamePart && Math.trunc(Number(firstNamePart))) {
 		return `#${firstNamePart}`;
 	}
 }
 
 const options: UserConfig = {
-	ignores: [(message) => /wip/i.test(message)],
+	ignores: [(message) => /wip/iu.test(message)],
 	prompt: {
 		allowBreakingChanges: ['feat', 'fix'],
 		allowCustomIssuePrefix: true,

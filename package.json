@@ -25,20 +25,20 @@
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.31.0",
-		"@commitlint/cli": "^20.5.3",
+		"@commitlint/cli": "^21.1.0",
 		"@cspell/dict-de-de": "^4.1.2",
 		"@mheob/changeset-changelog": "^3.0.2",
 		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/oxfmt-config": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
-		"@types/node": "^25.9.1",
+		"@types/node": "^25.9.4",
 		"cspell": "^10.0.1",
 		"czg": "^1.13.1",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.0.7",
-		"oxfmt": "^0.53.0",
-		"oxlint": "^1.68.0",
-		"turbo": "^2.9.16",
+		"lint-staged": "^17.0.8",
+		"oxfmt": "^0.56.0",
+		"oxlint": "^1.71.0",
+		"turbo": "^2.10.0",
 		"typescript": "^6.0.3"
 	},
 	"overrides": {
@@ -55,7 +55,7 @@
 	"engines": {
 		"node": "^24.0.0"
 	},
-	"packageManager": "bun@1.3.11",
+	"packageManager": "bun@1.3.14",
 	"trustedDependencies": [
 		"esbuild",
 		"unrs-resolver"
