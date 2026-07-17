@@ -17,7 +17,7 @@
 		"format:check": "turbo run format:check",
 		"lint": "turbo run lint",
 		"lint:fix": "turbo run lint:fix",
-		"prepare": "husky",
+		"prepare": "lefthook install",
 		"release": "changeset publish",
 		"typegen": "turbo run typegen",
 		"version-packages": "changeset version && bun lint",
@@ -34,8 +34,7 @@
 		"@types/node": "^26.1.1",
 		"cspell": "^10.0.1",
 		"czg": "^1.13.1",
-		"husky": "^9.1.7",
-		"lint-staged": "^17.0.8",
+		"lefthook": "^2.1.10",
 		"oxfmt": "^0.59.0",
 		"oxlint": "^1.74.0",
 		"turbo": "^2.10.5",
@@ -45,12 +44,6 @@
 		"flatted": "^3.4.2",
 		"minimatch": "^10.2.3",
 		"picomatch": "^4.0.4"
-	},
-	"lint-staged": {
-		"*.{cjs,js,mjs,jsx,ts,tsx,json,md,mdx,yaml,yml,toml}": [
-			"oxlint --fix --no-error-on-unmatched-pattern",
-			"oxfmt --no-error-on-unmatched-pattern"
-		]
 	},
 	"engines": {
 		"node": "^24.0.0 || >=26.0.0"
