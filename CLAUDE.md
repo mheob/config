@@ -31,8 +31,9 @@ bun run release          # Publish packages
 
 ## Development Workflow
 
-1. **Git Hooks**: Husky is configured for pre-commit hooks
-2. **Lint Staged**: All files are automatically linted and formatted with OXLint and OXFmt on commit
+1. **Git Hooks**: Lefthook is configured for pre-commit, commit-msg, and pre-push hooks
+2. **Staged Linting**: All staged files are automatically linted and formatted with OXLint and OXFmt on commit (config:
+   [lefthook.yml](lefthook.yml))
 3. **Changesets**: Use changesets for version management and changelogs
 4. **Commitizen**: Uses cz-git for interactive commit messages
 
