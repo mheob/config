@@ -1,5 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Astro",
 	"compilerOptions": {
 		"allowJs": true,
 		"allowUnreachableCode": false,
@@ -9,8 +10,8 @@
 		"forceConsistentCasingInFileNames": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"module": "esnext",
+		"moduleResolution": "bundler",
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
@@ -21,7 +22,7 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "ESNext",
+		"target": "es2023",
 		"verbatimModuleSyntax": true
 	}
 }
