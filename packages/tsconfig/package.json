@@ -1,6 +1,6 @@
 {
 	"name": "@mheob/tsconfig",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "My personal configurations for typescript.",
 	"keywords": [
 		"config",
