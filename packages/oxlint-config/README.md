@@ -26,7 +26,13 @@ Combine multiple configs by spreading them into the `extends` array:
 
 ```ts
 // oxlint.config.ts
-import { baseConfig, baseJsConfig, reactConfig, storybookConfig, tailwindcssConfig } from '@mheob/oxlint-config';
+import {
+	baseConfig,
+	baseJsConfig,
+	reactConfig,
+	storybookConfig,
+	tailwindcssConfig,
+} from '@mheob/oxlint-config';
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
@@ -65,8 +71,7 @@ The foundation for all projects. Enables the following OXLint plugins and covers
 | `node`       | Node.js safety rules             |
 | `oxc`        | OXC-native rules                 |
 
-Also ships with file-specific overrides for CLI files, config files, scripts, Markdown code blocks, and Vitest test files
-(enabling the `vitest` plugin for spec/test/bench files).
+Also ships with file-specific overrides for CLI files, config files, scripts, Markdown code blocks, and Vitest test files (enabling the `vitest` plugin for spec/test/bench files).
 
 ### `baseJsConfig`
 
@@ -162,8 +167,7 @@ bun add -D eslint-plugin-better-tailwindcss
 
 ### VS Code
 
-Install the [OXC VS Code extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and add to
-`.vscode/settings.json`:
+Install the [OXC VS Code extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and add to `.vscode/settings.json`:
 
 ```jsonc
 {
