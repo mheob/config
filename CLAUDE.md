@@ -5,7 +5,7 @@ This is a monorepo containing shareable configuration packages for various devel
 ## Project Structure
 
 - **Monorepo Manager**: Turborepo with Bun workspaces
-- **Package Manager**: bun@1.3.11
+- **Package Manager**: bun
 - **Node Version**: ^24.0.0
 - **License**: MIT
 
