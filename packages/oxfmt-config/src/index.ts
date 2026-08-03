@@ -11,7 +11,7 @@ export const baseConfig = defineConfig({
 		{
 			files: ['*.md'],
 			options: {
-				printWidth: 130,
+				proseWrap: 'never',
 			},
 		},
 		{

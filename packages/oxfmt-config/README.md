@@ -61,8 +61,7 @@ Also ships with file-specific overrides:
 
 ### VS Code
 
-Install the [OXC VS Code extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and add to
-`.vscode/settings.json`:
+Install the [OXC VS Code extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and add to `.vscode/settings.json`:
 
 ```jsonc
 {
