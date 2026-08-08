@@ -8,7 +8,7 @@
 		"oxlint",
 		"oxlintconfig"
 	],
-	"homepage": "https://github.com/mheob/config/tree/main/packages/oxfmt-config",
+	"homepage": "https://github.com/mheob/config/tree/main/packages/oxlint-config",
 	"bugs": "https://github.com/mheob/config/issues",
 	"license": "MIT",
 	"author": "Alexander Böhm <tools@alex-boehm.dev>",
@@ -36,10 +36,10 @@
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
 		"eslint-plugin-better-tailwindcss": "^4.7.0",
-		"eslint-plugin-jsonc": "^3.3.0",
+		"eslint-plugin-jsonc": "^3.4.1",
 		"eslint-plugin-regexp": "^3.1.1",
 		"eslint-plugin-storybook": "^10.5.6",
-		"eslint-plugin-yml": "^3.7.0",
+		"eslint-plugin-yml": "^3.8.1",
 		"oxfmt": "^0.62.0",
 		"oxlint": "^1.77.0",
 		"tsdown": "^0.22.14",
@@ -47,10 +47,10 @@
 	},
 	"peerDependencies": {
 		"eslint-plugin-better-tailwindcss": "^4.3.2",
-		"eslint-plugin-jsonc": "^3.1.2",
+		"eslint-plugin-jsonc": "^3.4.1",
 		"eslint-plugin-regexp": "^3.1.0",
-		"eslint-plugin-storybook": "^10.3.4",
-		"eslint-plugin-yml": "^3.3.1",
+		"eslint-plugin-storybook": "^10.5.6",
+		"eslint-plugin-yml": "^3.8.1",
 		"oxlint": "^1.77.0"
 	},
 	"peerDependenciesMeta": {
