@@ -1,5 +1,31 @@
 # @mheob/oxlint-config
 
+## 3.0.0
+
+### Major Changes
+
+- [#403](https://github.com/mheob/config/pull/403) ([@mheob](https://github.com/mheob)): Enable type-aware linting in `baseConfig` via `oxlint-tsgolint`.
+
+  `baseConfig` now sets `options.typeAware` and `options.typeCheck`, which activates the rules that need type information (`no-unsafe-*`, `no-floating-promises`, `strict-boolean-expressions`, `prefer-readonly-parameter-types`, …) and surfaces TypeScript compiler diagnostics through OXLint.
+
+  **This is a breaking change.** To upgrade:
+
+  - Install the new required peer dependency: `bun add -D oxlint-tsgolint`
+  - Make sure every linted file belongs to a `tsconfig.json`. Files outside a TypeScript project resolve to the `error` type and produce false `no-unsafe-*` warnings — root-level `*.config.js` files are the usual offender, so either include them in a tsconfig or exclude them from linting.
+  - Expect new warnings in existing code, and slower lint runs, since a TypeScript program is built for the linted files.
+
+  To stay on the previous behaviour, set `options.typeAware: false` in your own config. Note that `typeCheck` is still marked experimental by OXLint.
+
+### Patch Changes
+
+- [#402](https://github.com/mheob/config/pull/402) ([@mheob](https://github.com/mheob)): Fix documentation drift in the package READMEs and ship a `LICENSE` file with `@mheob/oxfmt-config` and `@mheob/oxlint-config`.
+
+  - `@mheob/commitlint-config`: the README showed CommonJS `require` and Commitizen with `cz-git`; the package is ESM-only and uses `czg`.
+  - `@mheob/oxfmt-config`: the `baseConfig` table listed `arrowParens`, which is no longer set, and claimed the Markdown override raises `printWidth`, when it sets `proseWrap: 'never'`. `sortImports` and `sortTailwindcss` were missing.
+  - `@mheob/oxlint-config`: the `reactConfig` section listed `react-hooks`, `react-dom`, and `react-web-api` plus three peer dependencies that are not used — the config loads the built-in `react`, `react-perf`, and `typescript` plugins. The `nextJsConfig` export is now documented.
+
+- [#400](https://github.com/mheob/config/pull/400) ([@mheob](https://github.com/mheob)): Update the bundled JS plugins and raise their peer dependency floors: `eslint-plugin-jsonc` to `^3.4.1`, `eslint-plugin-storybook` to `^10.5.7`, and `eslint-plugin-yml` to `^3.8.1`.
+
 ## 2.4.0
 
 ### Minor Changes
