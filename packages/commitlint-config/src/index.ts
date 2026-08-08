@@ -13,7 +13,7 @@ import type { UserConfig } from 'czg';
  * @param directoryPaths The directory paths with the containing the packages.
  * @returns An array of package names.
  */
-function getPackagesFromPath(...directoryPaths: string[]): string[] {
+function getPackagesFromPath(...directoryPaths: readonly string[]): string[] {
 	const packages: string[] = [];
 
 	for (const directoryPath of directoryPaths) {
@@ -48,13 +48,15 @@ function getScopes(): string[] {
  *   git branch name = `123-my-branch`  =>  defaultIssues = `#123`
  * @returns The issue number.
  */
-function getIssue(): string | undefined {
+function getIssue(): string | null {
 	const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 	const firstNamePart = branchName.split('-')[0];
 
-	if (firstNamePart && Math.trunc(Number(firstNamePart))) {
-		return `#${firstNamePart}`;
+	if (!firstNamePart || !Math.trunc(Number(firstNamePart))) {
+		return null;
 	}
+
+	return `#${firstNamePart}`;
 }
 
 const options: UserConfig = {
@@ -69,7 +71,7 @@ const options: UserConfig = {
 		breaklineNumber: 80,
 		confirmColorize: true,
 		customIssuePrefixAlias: 'custom',
-		customIssuePrefixAlign: getIssue() ? 'bottom' : 'top',
+		customIssuePrefixAlign: getIssue() === null ? 'top' : 'bottom',
 		customScopesAlias: 'custom',
 		customScopesAlign: 'bottom',
 		defaultBody: '',

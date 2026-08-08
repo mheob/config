@@ -5,8 +5,10 @@ Opinionated, shared [OXLint](https://oxc.rs/docs/guide/usage/linter) configurati
 ## Install
 
 ```bash
-bun add -D @mheob/oxlint-config oxlint
+bun add -D @mheob/oxlint-config oxlint oxlint-tsgolint
 ```
+
+`oxlint-tsgolint` is a **required** peer dependency: `baseConfig` enables type-aware linting, and OXLint does not install the type-aware runtime on its own. See [Type-aware linting](#type-aware-linting) for what that implies — and how to opt out.
 
 ## Usage
 
@@ -72,6 +74,47 @@ The foundation for all projects. Enables the following OXLint plugins and covers
 | `oxc`        | OXC-native rules                 |
 
 Also ships with file-specific overrides for CLI files, config files, scripts, Markdown code blocks, and Vitest test files (enabling the `vitest` plugin for spec/test/bench files).
+
+It also turns on type-aware linting — see the next section.
+
+### Type-aware linting
+
+`baseConfig` sets:
+
+```ts
+options: {
+	typeAware: true,
+	typeCheck: true,
+}
+```
+
+`typeAware` enables the rules that need type information (`no-unsafe-assignment`, `no-floating-promises`, `strict-boolean-expressions`, `prefer-readonly-parameter-types`, …). `typeCheck` additionally reports TypeScript compiler diagnostics through OXLint; it is still marked **experimental** by OXLint.
+
+Two consequences worth planning for:
+
+- **Every linted file needs to belong to a `tsconfig.json`.** Files outside any project — a `*.config.js` at the repo root, standalone scripts — resolve to the `error` type, which produces a burst of false `no-unsafe-*` warnings. Either include those files in a tsconfig or exclude them from linting.
+- **Linting is slower**, since a TypeScript program is built for the linted files.
+
+To opt out entirely:
+
+```ts
+// oxlint.config.ts
+import { baseConfig } from '@mheob/oxlint-config';
+import { defineConfig } from 'oxlint';
+
+export default defineConfig({
+	extends: [baseConfig],
+	options: {
+		typeAware: false,
+	},
+});
+```
+
+**Required peer dependency:**
+
+```bash
+bun add -D oxlint-tsgolint
+```
 
 ### `baseJsConfig`
 
