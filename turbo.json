@@ -4,25 +4,13 @@
 	"globalEnv": ["NODE_ENV"],
 	"tasks": {
 		"build": {
-			"dependsOn": ["gen", "^build"],
+			"dependsOn": ["^build"],
 			"outputs": ["dist/**", ".turbo/**"]
 		},
 		"clean": {},
-		"gen": {
-			"dependsOn": ["typegen", "versiongen"],
-			"outputs": ["src/typegen.d.ts", "src/cli/versions-map.generated.ts"]
-		},
 		"format": { "cache": true },
 		"format:check": { "cache": true },
 		"lint": { "cache": true },
-		"lint:fix": { "cache": true },
-		"typegen": {
-			"cache": true,
-			"outputs": ["src/typegen.d.ts"]
-		},
-		"versiongen": {
-			"cache": true,
-			"outputs": ["src/cli/versions-map.generated.ts"]
-		}
+		"lint:fix": { "cache": true }
 	}
 }

@@ -19,9 +19,7 @@
 		"lint:fix": "turbo run lint:fix",
 		"prepare": "lefthook install",
 		"release": "changeset publish",
-		"typegen": "turbo run typegen",
-		"version-packages": "changeset version && bun lint",
-		"versiongen": "turbo run versiongen"
+		"version-packages": "changeset version && bun lint"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.31.1",
