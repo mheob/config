@@ -1,2 +1,15 @@
 dictionaries = ["de", "en_us"]
-words = ["CLI", "cspell", "czg", "esm", "nextjs", "oxc", "oxfmt", "oxlint", "tsdown", "worklet"]
+words = [
+	"CLI",
+	"breakline",
+	"cspell",
+	"czg",
+	"esm",
+	"nextjs",
+	"oxc",
+	"oxfmt",
+	"oxlint",
+	"tsdown",
+	"tsgo",
+	"worklet",
+]
