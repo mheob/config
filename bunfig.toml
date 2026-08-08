@@ -1,3 +1,5 @@
 [install]
-# Automatically install peer dependencies
-peerDependencies = true
+# Only install package versions published at least 3 days ago
+minimumReleaseAge = 259200
+# Exclude trusted packages from the age gate
+minimumReleaseAgeExcludes = ["@mheob/*"]

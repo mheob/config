@@ -1,3 +1,5 @@
+// oxlint-disable node/no-sync
+
 import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
