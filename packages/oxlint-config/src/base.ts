@@ -28,6 +28,16 @@ export const baseConfig = defineConfig({
 		sampleRate: 'readonly',
 	},
 
+	// Type-aware linting via `oxlint-tsgolint`. This requires a resolvable `tsconfig.json` for every
+	// linted file — files outside a project emit `error`-typed false positives.
+	// `typeCheck` additionally surfaces the TypeScript compiler diagnostics and is still marked
+	// experimental by OXLint, so consumers who need to opt out should set `options.typeAware: false`
+	// in their own config.
+	options: {
+		typeAware: true,
+		typeCheck: true,
+	},
+
 	overrides: [
 		// CLI
 		{
