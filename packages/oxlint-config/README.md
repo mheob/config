@@ -93,20 +93,30 @@ Includes file-specific overrides:
 
 Extends the base with React-specific rules. Applied to `**/*.tsx` files:
 
-| Plugin / Scope  | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| `react`         | JSX correctness (no duplicate props, no comment text nodes, etc.) |
-| `react-hooks`   | Rules of hooks enforcement and exhaustive dependency checks       |
-| `react-dom`     | DOM safety (no dangerouslySetInnerHTML, deprecated APIs, etc.)    |
-| `react-web-api` | Leaked event listeners, intervals, timeouts, and resize observers |
-| `react-perf`    | Plugin loaded; rules can be enabled per project                   |
+| Plugin / Scope | Description                                                                    |
+| -------------- | ------------------------------------------------------------------------------ |
+| `react`        | JSX correctness, file extensions, max JSX depth, `only-export-components`      |
+| `react-perf`   | Plugin loaded; rules can be enabled per project                                |
+| `typescript`   | Turns off `explicit-function-return-type` and `explicit-module-boundary-types` |
 
-Also turns off `typescript/explicit-function-return-type` inside `.tsx` files.
+Also relaxes `eslint/max-lines-per-function` and `eslint/max-statements` inside `.tsx` files.
 
-**Required peer dependencies:**
+All rules come from OXLint's built-in plugins, so no extra peer dependencies are required.
 
-```bash
-bun add -D eslint-plugin-react-dom eslint-plugin-react-web-api eslint-plugin-react-x
+### `nextJsConfig`
+
+Enables OXLint's built-in `nextjs` plugin for `**/*.tsx` files (all rules as `warn`): font loading (`google-font-display`, `google-font-preconnect`, `no-page-custom-font`), script handling (`inline-script-id`, `next-script-for-ga`, `no-sync-scripts`, `no-before-interactive-script-outside-document`), document/head correctness (`no-document-import-in-page`, `no-head-import-in-document`, `no-duplicate-head`, `no-title-in-document-head`), and common mistakes (`no-async-client-component`, `no-html-link-for-pages`, `no-img-element`, `no-typos`).
+
+Combine it with `reactConfig`:
+
+```ts
+// oxlint.config.ts
+import { baseConfig, baseJsConfig, nextJsConfig, reactConfig } from '@mheob/oxlint-config';
+import { defineConfig } from 'oxlint';
+
+export default defineConfig({
+	extends: [baseConfig, baseJsConfig, reactConfig, nextJsConfig],
+});
 ```
 
 ### `storybookConfig`

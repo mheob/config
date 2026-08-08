@@ -41,21 +41,22 @@ export default defineConfig({
 
 The foundation for all projects. Applies the following formatting defaults:
 
-| Option            | Value    | Description                                      |
-| ----------------- | -------- | ------------------------------------------------ |
-| `arrowParens`     | `avoid`  | Omits parentheses around single arrow parameters |
-| `proseWrap`       | `always` | Wraps prose in Markdown files                    |
-| `singleQuote`     | `true`   | Uses single quotes instead of double quotes      |
-| `useTabs`         | `true`   | Indents with tabs instead of spaces              |
-| `sortPackageJson` | enabled  | Sorts `package.json` fields, including scripts   |
+| Option | Value | Description |
+| --- | --- | --- |
+| `proseWrap` | `always` | Wraps prose in Markdown files |
+| `singleQuote` | `true` | Uses single quotes instead of double quotes |
+| `useTabs` | `true` | Indents with tabs instead of spaces |
+| `sortImports` | enabled | Groups imports: types, builtin, external, internal, relative, styles |
+| `sortPackageJson` | enabled | Sorts `package.json` fields, including scripts |
+| `sortTailwindcss` | `true` | Sorts Tailwind CSS classes |
 
 Also ships with file-specific overrides:
 
-| Files                      | Override                                      |
-| -------------------------- | --------------------------------------------- |
-| `{.cspell,tsconfig}*.json` | Uses `jsonc` parser to support comments       |
-| `*.md`                     | Increases `printWidth` to `130`               |
-| `*.{yaml,yml}`             | Sets `printWidth: 130`, double quotes, spaces |
+| Files                      | Override                                           |
+| -------------------------- | -------------------------------------------------- |
+| `{.cspell,tsconfig}*.json` | Uses `jsonc` parser to support comments            |
+| `*.md`                     | Sets `proseWrap: 'never'` (one line per paragraph) |
+| `*.{yaml,yml}`             | Sets `printWidth: 130`, double quotes, spaces      |
 
 ## Editor integration
 

@@ -2,7 +2,7 @@
 
 To make my configurations a bit easier I share my [Commitlint](https://commitlint.js.org/) config.
 
-Another notable tool for using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is [cz-git](https://cz-git.qbb.sh/).
+The interactive prompt is powered by [czg](https://cz-git.qbb.sh/), the standalone CLI of `cz-git`. The package is ESM-only.
 
 ## Install
 
@@ -32,41 +32,36 @@ bun add -D @mheob/commitlint-config
 
 ## Usage
 
-Add this config to your root `package.json`.
+Install `czg` alongside this config and add a script to your root `package.json`.
 
 ```json
 {
-	"config": {
-		"commitizen": {
-			"path": "node_modules/cz-git"
-		}
+	"scripts": {
+		"commit": "czg"
 	}
 }
 ```
 
-Now create a `.commitlint.config.js` file in the root of your project with this content:
+Now create a `commitlint.config.js` file in the root of your project with this content:
 
 ```js
-/** @type {import('cz-git').UserConfig} */
-module.exports = {
-	...require('@mheob/commitlint-config'),
-};
+export { default } from '@mheob/commitlint-config';
 ```
 
 If you want to use your own scopes or if you need to override some settings you can do it in the `commitlint.config.js` this way:
 
 ```js
-const fs = require('node:fs');
-const path = require('node:path');
+import { readdirSync } from 'node:fs';
+import path from 'node:path';
 
-const defaultConfig = require('@mheob/commitlint-config');
+import defaultConfig from '@mheob/commitlint-config';
 
 // dynamically define the scopes
-const apps = fs.readdirSync(path.resolve(__dirname, 'apps'));
-const packages = fs.readdirSync(path.resolve(__dirname, 'packages'));
+const apps = readdirSync(path.resolve(import.meta.dirname, 'apps'));
+const packages = readdirSync(path.resolve(import.meta.dirname, 'packages'));
 
-/** @type {import('cz-git').UserConfig} */
-module.exports = {
+/** @type {import('@mheob/commitlint-config').UserConfig} */
+export default {
 	...defaultConfig,
 	prompt: {
 		...defaultConfig.prompt,
