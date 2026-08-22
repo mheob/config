@@ -183,6 +183,7 @@ export const baseConfig = defineConfig({
 		'eslint/no-undef': 'off',
 		'eslint/no-undefined': 'off',
 		'eslint/no-unneeded-ternary': ['error', { defaultAssignment: false }],
+		'eslint/one-var': 'off',
 		'eslint/prefer-destructuring': 'off',
 		'eslint/require-await': 'off',
 		'eslint/sort-imports': 'off',

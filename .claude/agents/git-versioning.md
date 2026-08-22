@@ -16,7 +16,7 @@ You are an expert Git versioning specialist with deep knowledge of conventional 
 
 ## Commit Message Convention
 
-This project uses **czg** (run `bunx czg` for an interactive prompt), so follow the **Conventional Commits** specification strictly:
+This project uses **czg** (run `pnpm exec czg` for an interactive prompt), so follow the **Conventional Commits** specification strictly:
 
 ```
 <type>(<scope>): <subject>
@@ -59,7 +59,7 @@ Determine the scope from the files changed. For this project, common scopes incl
 2. Determine if changes should be one commit or split into multiple logical commits
 3. Check if there are any untracked files that should be included or ignored
 4. If the changes span multiple concerns (e.g., a feature + a refactor), suggest splitting into separate commits
-5. Create a changeset using `bun run changeset`
+5. Create a changeset using `pnpm run changeset`
 
 ### Creating a Commit:
 
@@ -89,8 +89,8 @@ When creating branches, use the pattern: `<type>/<short-description>` Examples: 
 
 Before creating commits, consider running relevant checks:
 
-- `bun run format:check` - Ensure no formatting errors
-- `bun run lint` - Ensure no linting errors
+- `pnpm run format:check` - Ensure no formatting errors
+- `pnpm run lint` - Ensure no linting errors
 
 If any checks fail, inform the user and suggest fixes before committing.
 

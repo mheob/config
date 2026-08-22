@@ -5,7 +5,7 @@ Opinionated, shared [OXFmt](https://oxc.rs/docs/guide/usage/formatter) configura
 ## Install
 
 ```bash
-bun add -D @mheob/oxfmt-config oxfmt
+pnpm add -D @mheob/oxfmt-config oxfmt
 ```
 
 ## Usage

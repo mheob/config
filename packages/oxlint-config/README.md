@@ -5,7 +5,7 @@ Opinionated, shared [OXLint](https://oxc.rs/docs/guide/usage/linter) configurati
 ## Install
 
 ```bash
-bun add -D @mheob/oxlint-config oxlint oxlint-tsgolint
+pnpm add -D @mheob/oxlint-config oxlint oxlint-tsgolint
 ```
 
 `oxlint-tsgolint` is a **required** peer dependency: `baseConfig` enables type-aware linting, and OXLint does not install the type-aware runtime on its own. See [Type-aware linting](#type-aware-linting) for what that implies — and how to opt out.
@@ -113,7 +113,7 @@ export default defineConfig({
 **Required peer dependency:**
 
 ```bash
-bun add -D oxlint-tsgolint
+pnpm add -D oxlint-tsgolint
 ```
 
 ### `baseJsConfig`
@@ -174,7 +174,7 @@ Enables Storybook-specific rules for story files (`**/*stories.{js,jsx,ts,tsx}`)
 **Required peer dependency:**
 
 ```bash
-bun add -D eslint-plugin-storybook
+pnpm add -D eslint-plugin-storybook
 ```
 
 ### `tailwindcssConfig`
@@ -213,7 +213,7 @@ export default defineConfig({
 **Required peer dependency:**
 
 ```bash
-bun add -D eslint-plugin-better-tailwindcss
+pnpm add -D eslint-plugin-better-tailwindcss
 ```
 
 ## Editor integration

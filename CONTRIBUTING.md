@@ -7,7 +7,7 @@ Thank you for your interest in contributing to this project! This document provi
 ### Prerequisites
 
 - Node.js >= 24.0.0
-- Bun >= 1.3.0
+- pnpm >= 11.0.0
 
 ### Setup
 
@@ -15,13 +15,13 @@ Thank you for your interest in contributing to this project! This document provi
 2. Install dependencies:
 
    ```bash
-   bun install
+   pnpm install
    ```
 
 3. Build all packages:
 
    ```bash
-   bun run build
+   pnpm run build
    ```
 
 ## Development Workflow
@@ -39,8 +39,8 @@ Thank you for your interest in contributing to this project! This document provi
 3. Test your changes:
 
    ```bash
-   bun run build
-   bun run lint
+   pnpm run build
+   pnpm run lint
    ```
 
 ### Commit Guidelines
@@ -92,7 +92,7 @@ Closes #123
 For any user-facing changes, create a changeset:
 
 ```bash
-bun run changeset
+pnpm run changeset
 ```
 
 Follow the prompts to:
@@ -122,7 +122,7 @@ Follow the prompts to:
 All code must pass OXLint checks:
 
 ```bash
-bun run lint
+pnpm run lint
 ```
 
 The pre-commit hook will automatically lint staged files.
@@ -132,7 +132,7 @@ The pre-commit hook will automatically lint staged files.
 Run cspell to check for typos:
 
 ```bash
-bun run cspell
+pnpm run cspell
 ```
 
 Add project-specific terms to `.cspell.json` if needed.
@@ -164,9 +164,9 @@ packages/your-package/
 
 Before submitting a PR:
 
-1. Build all packages: `bun run build`
-2. Run linting: `bun run lint`
-3. Run spell check: `bun run cspell`
+1. Build all packages: `pnpm run build`
+2. Run linting: `pnpm run lint`
+3. Run spell check: `pnpm run cspell`
 4. Test in a local project if possible
 
 ## Pull Request Process

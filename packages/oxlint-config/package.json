@@ -26,34 +26,34 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "bun run --bun tsdown --clean",
-		"clean": "bun run --bun rm -rf .turbo node_modules dist",
-		"format": "bun run --bun oxfmt",
-		"format:check": "bun run --bun oxfmt --check",
-		"lint": "bun run --bun oxlint",
-		"lint:fix": "bun run --bun oxlint --fix"
+		"build": "tsdown --clean",
+		"clean": "rm -rf .turbo node_modules dist",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix"
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
-		"eslint-plugin-better-tailwindcss": "^4.7.0",
-		"eslint-plugin-jsonc": "^3.4.1",
-		"eslint-plugin-regexp": "^3.1.1",
-		"eslint-plugin-storybook": "^10.5.6",
-		"eslint-plugin-yml": "^3.8.1",
-		"oxfmt": "^0.62.0",
-		"oxlint": "^1.77.0",
-		"oxlint-tsgolint": "^7.0.2001",
-		"tsdown": "^0.22.14",
-		"typescript": "^7.0.2"
+		"eslint-plugin-better-tailwindcss": "catalog:",
+		"eslint-plugin-jsonc": "catalog:",
+		"eslint-plugin-regexp": "catalog:",
+		"eslint-plugin-storybook": "catalog:",
+		"eslint-plugin-yml": "catalog:",
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"oxlint-tsgolint": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
 	},
 	"peerDependencies": {
-		"eslint-plugin-better-tailwindcss": "^4.3.2",
-		"eslint-plugin-jsonc": "^3.4.1",
-		"eslint-plugin-regexp": "^3.1.0",
-		"eslint-plugin-storybook": "^10.5.6",
-		"eslint-plugin-yml": "^3.8.1",
-		"oxlint": "^1.77.0",
-		"oxlint-tsgolint": "^7.0.2001"
+		"eslint-plugin-better-tailwindcss": "catalog:",
+		"eslint-plugin-jsonc": "catalog:",
+		"eslint-plugin-regexp": "catalog:",
+		"eslint-plugin-storybook": "catalog:",
+		"eslint-plugin-yml": "catalog:",
+		"oxlint": "catalog:",
+		"oxlint-tsgolint": "catalog:"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-better-tailwindcss": {
