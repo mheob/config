@@ -3,9 +3,6 @@
 	"version": "0.0.0",
 	"private": true,
 	"license": "MIT",
-	"workspaces": [
-		"packages/*"
-	],
 	"type": "module",
 	"scripts": {
 		"build": "turbo run build",
@@ -13,44 +10,37 @@
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo node_modules",
 		"cspell": "cspell .",
+		"cve": "cve-lite . --fail-on high --verbose --cache-dir .cache/cve-lite",
 		"format": "turbo run format",
 		"format:check": "turbo run format:check",
-		"lint": "turbo run lint && bun run lint:root",
-		"lint:fix": "turbo run lint:fix && bun run lint:root -- --fix",
+		"lint": "turbo run lint && pnpm run lint:root",
+		"lint:fix": "turbo run lint:fix && pnpm run lint:root -- --fix",
 		"lint:root": "oxlint --ignore-pattern packages",
 		"prepare": "lefthook install",
 		"release": "changeset publish",
-		"version-packages": "changeset version && bun lint"
+		"version-packages": "changeset version && pnpm lint"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.31.1",
-		"@commitlint/cli": "^21.2.1",
-		"@cspell/dict-de-de": "^4.1.2",
-		"@mheob/changeset-changelog": "^3.0.2",
+		"@changesets/cli": "catalog:",
+		"@commitlint/cli": "catalog:",
+		"@cspell/dict-de-de": "catalog:",
+		"@mheob/changeset-changelog": "catalog:",
 		"@mheob/commitlint-config": "workspace:*",
 		"@mheob/oxfmt-config": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
-		"@types/node": "^26.1.2",
-		"cspell": "^10.0.1",
-		"czg": "^1.13.1",
-		"lefthook": "^2.1.10",
-		"oxfmt": "^0.62.0",
-		"oxlint": "^1.77.0",
-		"oxlint-tsgolint": "^7.0.2001",
-		"turbo": "^2.10.8",
-		"typescript": "^7.0.2"
-	},
-	"overrides": {
-		"flatted": "^3.4.2",
-		"minimatch": "^10.2.3",
-		"picomatch": "^4.0.4"
+		"@types/node": "catalog:",
+		"cspell": "catalog:",
+		"cve-lite-cli": "catalog:",
+		"czg": "catalog:",
+		"lefthook": "catalog:",
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"oxlint-tsgolint": "catalog:",
+		"turbo": "catalog:",
+		"typescript": "catalog:"
 	},
 	"engines": {
 		"node": "^24.0.0 || >=26.0.0"
 	},
-	"packageManager": "bun@1.3.14",
-	"trustedDependencies": [
-		"esbuild",
-		"unrs-resolver"
-	]
+	"packageManager": "pnpm@11.22.0"
 }

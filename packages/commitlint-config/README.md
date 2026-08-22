@@ -24,10 +24,10 @@ yarn add -D @mheob/commitlint-config
 pnpm add -D @mheob/commitlint-config
 ```
 
-### With BUN
+### With PNPM
 
 ```sh
-bun add -D @mheob/commitlint-config
+pnpm add -D @mheob/commitlint-config
 ```
 
 ## Usage

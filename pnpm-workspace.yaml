@@ -1,0 +1,41 @@
+packages:
+  - packages/*
+
+catalogMode: prefer
+
+catalog:
+  "@changesets/cli": ^2.31.1
+  "@commitlint/cli": ^21.2.1
+  "@cspell/dict-de-de": ^4.1.2
+  "@mheob/changeset-changelog": ^3.0.2
+  "@types/node": ^26.1.2
+  cspell: ^10.0.1
+  cve-lite-cli: ^1.29.0
+  czg: ^1.13.1
+  eslint-plugin-better-tailwindcss: ^4.7.0
+  eslint-plugin-jsonc: ^3.4.1
+  eslint-plugin-regexp: ^3.1.1
+  eslint-plugin-storybook: ^10.5.6
+  eslint-plugin-yml: ^3.8.1
+  lefthook: ^2.1.10
+  oxfmt: ^0.62.0
+  oxlint: ^1.77.0
+  oxlint-tsgolint: ^7.0.2001
+  tsdown: ^0.22.14
+  turbo: ^2.10.8
+  typescript: ^7.0.2
+
+# Exclude trusted packages from the age gate
+minimumReleaseAgeExclude:
+  - "@mheob/*"
+
+overrides:
+  flatted: ^3.4.2
+  minimatch: ^10.2.3
+  picomatch: ^4.0.4
+
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true
+  lefthook: true
+  unrs-resolver: true

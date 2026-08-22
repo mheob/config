@@ -11,20 +11,20 @@
 		"./tsdown-config": "./src/tsdown.config.ts"
 	},
 	"scripts": {
-		"clean": "bun run --bun rm -rf .turbo node_modules dist",
-		"format": "bun run --bun oxfmt",
-		"format:check": "bun run --bun oxfmt --check",
-		"lint": "bun run --bun oxlint",
-		"lint:fix": "bun run --bun oxlint --fix"
+		"clean": "rm -rf .turbo node_modules dist",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix"
 	},
 	"dependencies": {
-		"tsdown": "^0.22.14"
+		"tsdown": "catalog:"
 	},
 	"devDependencies": {
-		"oxfmt": "^0.62.0",
-		"oxlint": "^1.77.0",
-		"oxlint-tsgolint": "^7.0.2001",
-		"tsdown": "^0.22.14",
-		"typescript": "^7.0.2"
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"oxlint-tsgolint": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
 	}
 }

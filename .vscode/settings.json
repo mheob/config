@@ -1,5 +1,5 @@
 {
-	"npm.packageManager": "bun",
+	"npm.packageManager": "pnpm",
 
 	"typescript.tsdk": "node_modules/typescript/lib",
 

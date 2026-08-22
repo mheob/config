@@ -4,8 +4,8 @@ This is a monorepo containing shareable configuration packages for various devel
 
 ## Project Structure
 
-- **Monorepo Manager**: Turborepo with Bun workspaces
-- **Package Manager**: bun
+- **Monorepo Manager**: Turborepo with pnpm workspaces
+- **Package Manager**: pnpm
 - **Node Version**: ^24.0.0
 - **License**: MIT
 
@@ -20,20 +20,19 @@ Located in `packages/`:
 ## Key Commands
 
 ```bash
-bun run build            # Build all packages
-bun run lint             # Lint all packages
-bun run clean            # Clean build artifacts
-bun run cspell           # Run spell checker
-bun run changeset        # Create a changeset
-bun run version-packages # Bump versions
-bun run release          # Publish packages
+pnpm run build            # Build all packages
+pnpm run lint             # Lint all packages
+pnpm run clean            # Clean build artifacts
+pnpm run cspell           # Run spell checker
+pnpm run changeset        # Create a changeset
+pnpm run version-packages # Bump versions
+pnpm run release          # Publish packages
 ```
 
 ## Development Workflow
 
 1. **Git Hooks**: Lefthook is configured for pre-commit, commit-msg, and pre-push hooks
-2. **Staged Linting**: All staged files are automatically linted and formatted with OXLint and OXFmt on commit (config:
-   [lefthook.yml](lefthook.yml))
+2. **Staged Linting**: All staged files are automatically linted and formatted with OXLint and OXFmt on commit (config: [lefthook.yml](lefthook.yml))
 3. **Changesets**: Use changesets for version management and changelogs
 4. **Commitizen**: Uses cz-git for interactive commit messages
 
@@ -43,7 +42,7 @@ bun run release          # Publish packages
 - [oxfmt.config.mjs](oxfmt.config.mjs) - Root OXFmt config
 - [commitlint.config.js](commitlint.config.js) - Commitlint config
 - [turbo.json](turbo.json) - Turborepo pipeline configuration
-- [bunfig.toml](bunfig.toml) - Bun configuration
+- [pnpm-workspace.yaml](pnpm-workspace.yaml) - pnpm workspace definition, dependency catalog, and install settings
 
 ## External Services
 
