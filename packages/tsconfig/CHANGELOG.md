@@ -1,5 +1,11 @@
 # @mheob/tsconfig
 
+## 3.0.2
+
+### Patch Changes
+
+- [#404](https://github.com/mheob/config/pull/404) ([@mheob](https://github.com/mheob)): Switch the repository's package manager from Bun to pnpm. The published package contents are unchanged; only the install instructions in the READMEs now use `pnpm add -D`.
+
 ## 3.0.1
 
 ### Patch Changes
