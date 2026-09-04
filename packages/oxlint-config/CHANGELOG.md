@@ -1,5 +1,13 @@
 # @mheob/oxlint-config
 
+## 4.0.1
+
+### Patch Changes
+
+- [#414](https://github.com/mheob/config/pull/414) ([@mheob](https://github.com/mheob)): chore(deps): update all non-major dependencies
+  
+  Raises the catalog ranges of the peer dependencies: `eslint-plugin-jsonc` to `^3.4.2`, `eslint-plugin-regexp` to `^3.2.0`, and `eslint-plugin-storybook` to `^10.6.0`.
+
 ## 4.0.0
 
 ### Major Changes
