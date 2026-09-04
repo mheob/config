@@ -38,9 +38,11 @@ import {
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
-	extends: [baseConfig, baseJsConfig, reactConfig, storybookConfig, tailwindcssConfig],
+	extends: [baseConfig, baseJsConfig, reactConfig, storybookConfig, tailwindcssConfig()],
 });
 ```
+
+`tailwindcssConfig` is a factory function and must be called — see [`tailwindcssConfig`](#tailwindcssconfig) for its options.
 
 Add project-specific rule overrides on top:
 
@@ -187,14 +189,14 @@ Enforces consistent Tailwind CSS class usage via `eslint-plugin-better-tailwindc
 | ----------------------------------------------------- | -------- |
 | `better-tailwindcss/enforce-consistent-class-order`   | warn     |
 | `better-tailwindcss/enforce-consistent-line-wrapping` | warn     |
-| `better-tailwindcss/enforce-canonical-classes`        | warn     |
+| `better-tailwindcss/enforce-canonical-classes`        | error    |
 | `better-tailwindcss/no-deprecated-classes`            | warn     |
 | `better-tailwindcss/no-duplicate-classes`             | warn     |
 | `better-tailwindcss/no-unnecessary-whitespace`        | warn     |
 | `better-tailwindcss/no-conflicting-classes`           | error    |
 | `better-tailwindcss/no-unknown-classes`               | error    |
 
-Configure the Tailwind CSS entry point and class whitelist in your own `oxlint.config.ts`:
+Unlike the other configs, `tailwindcssConfig` is a function. Call it to configure the Tailwind CSS entry point and the classes that `enforce-canonical-classes` and `no-unknown-classes` should ignore:
 
 ```ts
 // oxlint.config.ts
@@ -202,15 +204,20 @@ import { baseConfig, baseJsConfig, tailwindcssConfig } from '@mheob/oxlint-confi
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
-	extends: [baseConfig, baseJsConfig, tailwindcssConfig],
-	settings: {
-		tailwindcss: {
-			config: './src/styles/index.css',
-			whitelist: ['my-prefix-.+'],
-		},
-	},
+	extends: [
+		baseConfig,
+		baseJsConfig,
+		tailwindcssConfig({
+			options: { entrypoint: './src/styles/index.css' },
+			ignoredClasses: ['my-prefix-.+'],
+		}),
+	],
 });
 ```
+
+Both arguments are optional — `tailwindcssConfig()` applies the rules with the plugin defaults.
+
+`options` is passed through to the `better-tailwindcss` settings, so every option of [`eslint-plugin-better-tailwindcss`](https://github.com/schoero/eslint-plugin-better-tailwindcss) is available (`entrypoint`, `tailwindConfig`, `tsconfig`, `cwd`, `detectComponentClasses`, `rootFontSize`, `messageStyle`, `selectors`). The argument type is exported as `TailwindcssConfig`.
 
 **Required peer dependency:**
 
