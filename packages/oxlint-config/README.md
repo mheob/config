@@ -38,9 +38,11 @@ import {
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
-	extends: [baseConfig, baseJsConfig, reactConfig, storybookConfig, tailwindcssConfig],
+	extends: [baseConfig, baseJsConfig, reactConfig, storybookConfig, tailwindcssConfig()],
 });
 ```
+
+`tailwindcssConfig` is a factory function and must be called — see [`tailwindcssConfig`](#tailwindcssconfig) for its options.
 
 Add project-specific rule overrides on top:
 
@@ -72,6 +74,7 @@ The foundation for all projects. Enables the following OXLint plugins and covers
 | `jsdoc`      | JSDoc comment quality            |
 | `node`       | Node.js safety rules             |
 | `oxc`        | OXC-native rules                 |
+| `promise`    | Promise and async correctness    |
 
 Also ships with file-specific overrides for CLI files, config files, scripts, Markdown code blocks, and Vitest test files (enabling the `vitest` plugin for spec/test/bench files).
 
@@ -134,31 +137,32 @@ Includes file-specific overrides:
 
 ### `reactConfig`
 
-Extends the base with React-specific rules. Applied to `**/*.tsx` files:
+Extends the base with React-specific rules. Applied to `**/*.jsx` and `**/*.tsx` files:
 
 | Plugin / Scope | Description                                                                    |
 | -------------- | ------------------------------------------------------------------------------ |
+| `jsx-a11y`     | Accessibility rules for JSX markup                                             |
 | `react`        | JSX correctness, file extensions, max JSX depth, `only-export-components`      |
 | `react-perf`   | Plugin loaded; rules can be enabled per project                                |
 | `typescript`   | Turns off `explicit-function-return-type` and `explicit-module-boundary-types` |
 
-Also relaxes `eslint/max-lines-per-function` and `eslint/max-statements` inside `.tsx` files.
+Also relaxes `eslint/max-lines-per-function` and `eslint/max-statements` inside `.jsx` and `.tsx` files.
 
 All rules come from OXLint's built-in plugins, so no extra peer dependencies are required.
 
 ### `nextJsConfig`
 
-Enables OXLint's built-in `nextjs` plugin for `**/*.tsx` files (all rules as `warn`): font loading (`google-font-display`, `google-font-preconnect`, `no-page-custom-font`), script handling (`inline-script-id`, `next-script-for-ga`, `no-sync-scripts`, `no-before-interactive-script-outside-document`), document/head correctness (`no-document-import-in-page`, `no-head-import-in-document`, `no-duplicate-head`, `no-title-in-document-head`), and common mistakes (`no-async-client-component`, `no-html-link-for-pages`, `no-img-element`, `no-typos`).
+Enables OXLint's built-in `nextjs` plugin for `**/*.jsx` and `**/*.tsx` files (all rules as `warn`): font loading (`google-font-display`, `google-font-preconnect`, `no-page-custom-font`), script handling (`inline-script-id`, `next-script-for-ga`, `no-sync-scripts`, `no-before-interactive-script-outside-document`), document/head correctness (`no-document-import-in-page`, `no-head-import-in-document`, `no-duplicate-head`, `no-title-in-document-head`), and common mistakes (`no-async-client-component`, `no-html-link-for-pages`, `no-img-element`, `no-typos`).
 
-Combine it with `reactConfig`:
+`nextJsConfig` already extends `reactConfig`, so listing `reactConfig` separately is not necessary:
 
 ```ts
 // oxlint.config.ts
-import { baseConfig, baseJsConfig, nextJsConfig, reactConfig } from '@mheob/oxlint-config';
+import { baseConfig, baseJsConfig, nextJsConfig } from '@mheob/oxlint-config';
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
-	extends: [baseConfig, baseJsConfig, reactConfig, nextJsConfig],
+	extends: [baseConfig, baseJsConfig, nextJsConfig],
 });
 ```
 
@@ -185,14 +189,14 @@ Enforces consistent Tailwind CSS class usage via `eslint-plugin-better-tailwindc
 | ----------------------------------------------------- | -------- |
 | `better-tailwindcss/enforce-consistent-class-order`   | warn     |
 | `better-tailwindcss/enforce-consistent-line-wrapping` | warn     |
-| `better-tailwindcss/enforce-canonical-classes`        | warn     |
+| `better-tailwindcss/enforce-canonical-classes`        | error    |
 | `better-tailwindcss/no-deprecated-classes`            | warn     |
 | `better-tailwindcss/no-duplicate-classes`             | warn     |
 | `better-tailwindcss/no-unnecessary-whitespace`        | warn     |
 | `better-tailwindcss/no-conflicting-classes`           | error    |
 | `better-tailwindcss/no-unknown-classes`               | error    |
 
-Configure the Tailwind CSS entry point and class whitelist in your own `oxlint.config.ts`:
+Unlike the other configs, `tailwindcssConfig` is a function. Call it to configure the Tailwind CSS entry point and the classes that `enforce-canonical-classes` and `no-unknown-classes` should ignore:
 
 ```ts
 // oxlint.config.ts
@@ -200,15 +204,20 @@ import { baseConfig, baseJsConfig, tailwindcssConfig } from '@mheob/oxlint-confi
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
-	extends: [baseConfig, baseJsConfig, tailwindcssConfig],
-	settings: {
-		tailwindcss: {
-			config: './src/styles/index.css',
-			whitelist: ['my-prefix-.+'],
-		},
-	},
+	extends: [
+		baseConfig,
+		baseJsConfig,
+		tailwindcssConfig({
+			options: { entrypoint: './src/styles/index.css' },
+			ignoredClasses: ['my-prefix-.+'],
+		}),
+	],
 });
 ```
+
+Both arguments are optional — `tailwindcssConfig()` applies the rules with the plugin defaults.
+
+`options` is passed through to the `better-tailwindcss` settings, so every option of [`eslint-plugin-better-tailwindcss`](https://github.com/schoero/eslint-plugin-better-tailwindcss) is available (`entrypoint`, `tailwindConfig`, `tsconfig`, `cwd`, `detectComponentClasses`, `rootFontSize`, `messageStyle`, `selectors`). The argument type is exported as `TailwindcssConfig`.
 
 **Required peer dependency:**
 
