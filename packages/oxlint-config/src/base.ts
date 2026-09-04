@@ -145,7 +145,7 @@ export const baseConfig = defineConfig({
 		},
 	],
 
-	plugins: ['eslint', 'node', 'jsdoc', 'import', 'oxc', 'typescript', 'unicorn'],
+	plugins: ['eslint', 'node', 'jsdoc', 'import', 'oxc', 'promise', 'typescript', 'unicorn'],
 
 	rules: {
 		// ESLint rules
