@@ -1,5 +1,31 @@
 # @mheob/oxlint-config
 
+## 4.0.0
+
+### Major Changes
+
+- [#412](https://github.com/mheob/config/pull/412) ([@mheob](https://github.com/mheob)): feat(oxlint)!: make `tailwindcssConfig` configurable
+  
+  `tailwindcssConfig` is now a factory function instead of a static config object. It accepts the `better-tailwindcss` plugin settings via `options` and a list of ignored classes via `ignoredClasses`, which is applied to `enforce-canonical-classes` and `no-unknown-classes`. The argument type is exported as `TailwindcssConfig`.
+  
+  `enforce-canonical-classes` is raised from `warn` to `error`.
+  
+  **Breaking change:** update your config from `extends: [tailwindcssConfig]` to `extends: [tailwindcssConfig()]`. Plugin settings that were previously declared under `settings.tailwindcss` in the consuming config now belong in the `options` argument.
+
+### Minor Changes
+
+- [#412](https://github.com/mheob/config/pull/412) ([@mheob](https://github.com/mheob)): feat(oxlint): lint JSX files and enable the `jsx-a11y` and `promise` plugins
+  
+  `reactConfig` and `nextJsConfig` now also apply to `**/*.jsx` files, `reactConfig` enables the `jsx-a11y` plugin, and `baseConfig` enables the `promise` plugin. `nextJsConfig` extends `reactConfig`, so listing both is no longer necessary.
+
+### Patch Changes
+
+- [#406](https://github.com/mheob/config/pull/406) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
+
+- [#413](https://github.com/mheob/config/pull/413) ([@mheob](https://github.com/mheob)): chore(deps): update all non-major dependencies
+  
+  Raises the catalog ranges of the peer dependencies: `oxlint` to `^1.81.0`, `@commitlint/cli` to `^21.2.2`, and `czg` to `^1.14.0`. The remaining updates (`@changesets/cli`, `@types/node`, `cspell`, `cve-lite-cli`, `lefthook`, `oxfmt`, `turbo`) affect development only.
+
 ## 3.0.1
 
 ### Patch Changes
