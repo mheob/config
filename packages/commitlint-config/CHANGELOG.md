@@ -1,5 +1,13 @@
 # @mheob/commitlint-config
 
+## 2.0.7
+
+### Patch Changes
+
+- [#413](https://github.com/mheob/config/pull/413) ([@mheob](https://github.com/mheob)): chore(deps): update all non-major dependencies
+  
+  Raises the catalog ranges of the peer dependencies: `oxlint` to `^1.81.0`, `@commitlint/cli` to `^21.2.2`, and `czg` to `^1.14.0`. The remaining updates (`@changesets/cli`, `@types/node`, `cspell`, `cve-lite-cli`, `lefthook`, `oxfmt`, `turbo`) affect development only.
+
 ## 2.0.6
 
 ### Patch Changes

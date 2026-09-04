@@ -1,5 +1,11 @@
 # @mheob/oxfmt-config
 
+## 1.3.3
+
+### Patch Changes
+
+- [#406](https://github.com/mheob/config/pull/406) ([@renovate](https://github.com/apps/renovate)): chore(deps): update all non-major dependencies
+
 ## 1.3.2
 
 ### Patch Changes
