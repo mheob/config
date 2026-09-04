@@ -3,8 +3,8 @@ import { defineConfig } from 'oxlint';
 export const reactConfig = defineConfig({
 	overrides: [
 		{
-			files: ['**/*.tsx'],
-			plugins: ['react', 'react-perf', 'typescript'],
+			files: ['**/*.jsx', '**/*.tsx'],
+			plugins: ['jsx-a11y', 'react', 'react-perf', 'typescript'],
 			rules: {
 				'eslint/max-lines-per-function': 'off',
 				'eslint/max-statements': 'off',

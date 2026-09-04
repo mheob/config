@@ -1,9 +1,13 @@
 import { defineConfig } from 'oxlint';
 
+import { reactConfig } from './react';
+
 export const nextJsConfig = defineConfig({
+	extends: [reactConfig],
+
 	overrides: [
 		{
-			files: ['**/*.tsx'],
+			files: ['**/*.jsx', '**/*.tsx'],
 			plugins: ['nextjs'],
 			rules: {
 				'nextjs/google-font-display': 'warn',
