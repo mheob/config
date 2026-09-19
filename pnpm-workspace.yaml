@@ -18,10 +18,10 @@ catalog:
   eslint-plugin-storybook: ^10.6.0
   eslint-plugin-yml: ^3.8.1
   lefthook: ^2.1.12
-  oxfmt: ^0.66.0
+  oxfmt: ^0.68.0
   oxlint: ^1.81.0
   oxlint-tsgolint: ^7.0.2001
-  tsdown: ^0.22.14
+  tsdown: ^0.23.0
   turbo: ^2.10.12
   typescript: ^7.0.2
 
