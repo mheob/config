@@ -11,6 +11,7 @@
 		"format": { "cache": true },
 		"format:check": { "cache": true },
 		"lint": { "cache": true },
-		"lint:fix": { "cache": true }
+		"lint:fix": { "cache": true },
+		"test": { "dependsOn": ["build"] }
 	}
 }

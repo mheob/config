@@ -8,23 +8,24 @@ export function tailwindcssConfig({
 	options,
 	ignoredClasses,
 }: Readonly<TailwindcssConfig> = {}): OxlintConfig {
+	// oxlint drops `settings` from configs used in `extends`, so the options go to every rule
+	// instead. Each rule of the plugin accepts all of its common options.
+	const ruleOptions = { ...options };
+	const ignoreOptions = { ...options, ignore: ignoredClasses ?? [] };
+
 	return defineConfig({
 		jsPlugins: ['eslint-plugin-better-tailwindcss'],
 
-		settings: {
-			'better-tailwindcss': options,
-		},
-
 		rules: {
-			'better-tailwindcss/enforce-canonical-classes': ['error', { ignore: ignoredClasses ?? [] }],
-			'better-tailwindcss/enforce-consistent-class-order': 'warn',
-			'better-tailwindcss/enforce-consistent-line-wrapping': 'warn',
-			'better-tailwindcss/no-concatenated-classes': 'error',
-			'better-tailwindcss/no-conflicting-classes': 'error',
-			'better-tailwindcss/no-deprecated-classes': 'warn',
-			'better-tailwindcss/no-duplicate-classes': 'warn',
-			'better-tailwindcss/no-unknown-classes': ['error', { ignore: ignoredClasses ?? [] }],
-			'better-tailwindcss/no-unnecessary-whitespace': 'warn',
+			'better-tailwindcss/enforce-canonical-classes': ['error', ignoreOptions],
+			'better-tailwindcss/enforce-consistent-class-order': ['warn', ruleOptions],
+			'better-tailwindcss/enforce-consistent-line-wrapping': ['warn', ruleOptions],
+			'better-tailwindcss/no-concatenated-classes': ['error', ruleOptions],
+			'better-tailwindcss/no-conflicting-classes': ['error', ruleOptions],
+			'better-tailwindcss/no-deprecated-classes': ['warn', ruleOptions],
+			'better-tailwindcss/no-duplicate-classes': ['warn', ruleOptions],
+			'better-tailwindcss/no-unknown-classes': ['error', ignoreOptions],
+			'better-tailwindcss/no-unnecessary-whitespace': ['warn', ruleOptions],
 		},
 	});
 }

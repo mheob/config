@@ -218,7 +218,7 @@ export default defineConfig({
 
 Both arguments are optional — `tailwindcssConfig()` applies the rules with the plugin defaults.
 
-`options` is passed through to the `better-tailwindcss` settings, so every option of [`eslint-plugin-better-tailwindcss`](https://github.com/schoero/eslint-plugin-better-tailwindcss) is available (`entryPoint`, `tailwindConfig`, `tsconfig`, `cwd`, `detectComponentClasses`, `rootFontSize`, `messageStyle`, `selectors`). The argument type is exported as `TailwindcssConfig`.
+`options` is passed to every rule as rule options, because OXLint does not hand the `settings` of a config in `extends` on to JS plugins. Every common option of [`eslint-plugin-better-tailwindcss`](https://github.com/schoero/eslint-plugin-better-tailwindcss) is available (`entryPoint`, `tailwindConfig`, `tsconfig`, `cwd`, `detectComponentClasses`, `rootFontSize`, `messageStyle`, `selectors`). The argument type is exported as `TailwindcssConfig`.
 
 **Required peer dependency:**
 
