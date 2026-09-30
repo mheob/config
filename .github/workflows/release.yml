@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - ".changeset/**"
+      - ".github/workflows/release.yml"
       - "packages/**"
       - pnpm-lock.yaml
     branches:
@@ -54,11 +55,12 @@ jobs:
         id: changesets
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
-          commit: "chore(release): bump version and deploy packages"
-          title: "chore(release): bump version and deploy packages"
-          setupGitUser: false
-          publish: pnpm run release
-          version: pnpm run version-packages
+          commit-message: "chore(release): bump version and deploy packages"
+          github-token: ${{ secrets.MACHINE_USER_TOKEN }}
+          pr-title: "chore(release): bump version and deploy packages"
+          publish-script: pnpm run release
+          version-script: pnpm run version-packages
         env:
+          # The action only uses the `github-token` input, the changelog generator reads this one.
           GITHUB_TOKEN: ${{ secrets.MACHINE_USER_TOKEN }}
           NPM_CONFIG_PROVENANCE: "true"
