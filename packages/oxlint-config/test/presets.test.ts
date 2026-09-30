@@ -130,34 +130,41 @@ describe.each([
 });
 
 describe('baseConfig top-level await', () => {
-	it('reports top-level await in importable modules', async () => {
-		const { diagnostics } = await lintFixture('base', 'top-level-await.ts');
+	it.each([
+		{
+			file: 'top-level-await.ts',
+			reported: true,
+			rule: 'node(no-top-level-await)',
+			title: 'reports top-level await in importable modules',
+		},
+		{
+			file: 'floating-promise.ts',
+			reported: false,
+			rule: 'unicorn(prefer-top-level-await)',
+			title: 'does not ask importable modules for top-level await',
+		},
+		{
+			file: 'bin.ts',
+			reported: false,
+			rule: 'node(no-top-level-await)',
+			title: 'allows top-level await in files with a hashbang',
+		},
+		{
+			file: 'scripts/top-level-await.ts',
+			reported: false,
+			rule: 'node(no-top-level-await)',
+			title: 'allows top-level await in scripts',
+		},
+		{
+			file: 'scripts/floating-promise.ts',
+			reported: true,
+			rule: 'unicorn(prefer-top-level-await)',
+			title: 'asks scripts for top-level await',
+		},
+	] as const)('$title', async ({ file, reported, rule }) => {
+		const { diagnostics } = await lintFixture('base', file);
 
-		expect(diagnostics.map(({ code }) => code)).toContain('node(no-top-level-await)');
-	});
-
-	it('does not ask importable modules for top-level await', async () => {
-		const { diagnostics } = await lintFixture('base', 'floating-promise.ts');
-
-		expect(diagnostics.map(({ code }) => code)).not.toContain('unicorn(prefer-top-level-await)');
-	});
-
-	it('allows top-level await in files with a hashbang', async () => {
-		const { diagnostics } = await lintFixture('base', 'bin.ts');
-
-		expect(diagnostics.map(({ code }) => code)).not.toContain('node(no-top-level-await)');
-	});
-
-	it('allows top-level await in scripts', async () => {
-		const { diagnostics } = await lintFixture('base', 'scripts/top-level-await.ts');
-
-		expect(diagnostics.map(({ code }) => code)).not.toContain('node(no-top-level-await)');
-	});
-
-	it('asks scripts for top-level await', async () => {
-		const { diagnostics } = await lintFixture('base', 'scripts/floating-promise.ts');
-
-		expect(diagnostics.map(({ code }) => code)).toContain('unicorn(prefer-top-level-await)');
+		expect(diagnostics.map(({ code }) => code).includes(rule), `${rule} in ${file}`).toBe(reported);
 	});
 });
 
