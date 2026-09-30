@@ -76,7 +76,7 @@
 			"initialization_options": {
 				"settings": {
 					"configPath": null,
-					"disableNestedConfig": false,
+					"disableNestedConfig": true,
 					"fixKind": "safe_fix",
 					"run": "onType",
 					"typeAware": true,
@@ -87,7 +87,7 @@
 		"oxfmt": {
 			"initialization_options": {
 				"settings": {
-					"fmt.configPath": null,
+					"fmt.configPath": "./vite.config.ts",
 					"run": "onSave"
 				}
 			}
