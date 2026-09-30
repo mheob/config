@@ -1,5 +1,35 @@
 # @mheob/oxlint-config
 
+## 4.1.0
+
+### Minor Changes
+
+- [#424](https://github.com/mheob/config/pull/424) ([@mheob](https://github.com/mheob)): feat(oxlint): enable `better-tailwindcss/no-concatenated-classes`
+  
+  `tailwindcssConfig` now reports concatenated class names as an error, matching the recommended config of `eslint-plugin-better-tailwindcss`.
+
+### Patch Changes
+
+- [#423](https://github.com/mheob/config/pull/423) ([@mheob](https://github.com/mheob)): chore(deps): update dependencies
+  
+  Raises the catalog ranges of the peer dependencies: `oxlint` to `^1.86.0`, `oxlint-tsgolint` to `^7.0.2003`, `eslint-plugin-regexp` to `^3.3.1`, and `@commitlint/cli` to `^21.2.3`. The remaining updates (`@changesets/cli`, `@types/node`, `cspell`, `cve-lite-cli`, `lefthook`, `oxfmt`, `turbo`) affect development only.
+
+- [#429](https://github.com/mheob/config/pull/429) ([@mheob](https://github.com/mheob)): fix(oxlint): remove the JSON and YAML overrides from `baseJsConfig`
+  
+  OXLint only lints JavaScript and TypeScript files, and JS plugins cannot bring their own parser yet. The overrides for `*.json`, `*.json5`, `*.jsonc`, `tsconfig*.json`, `*.yaml` and `*.yml` never applied, so removing them does not change any lint results. `eslint-plugin-jsonc` and `eslint-plugin-yml` are no longer optional peer dependencies and can be uninstalled.
+
+- [#427](https://github.com/mheob/config/pull/427) ([@mheob](https://github.com/mheob)): fix(oxlint): pass the `tailwindcssConfig` options to the rules
+  
+  OXLint does not hand the `settings` of a config in `extends` on to JS plugins, so `options` such as `entryPoint` never reached `eslint-plugin-better-tailwindcss` and the plugin fell back to the default Tailwind CSS classes. The options are now passed to every rule as rule options. Projects that set `options` may see new findings, because the rules now check against the project's own Tailwind CSS setup.
+
+- [#424](https://github.com/mheob/config/pull/424) ([@mheob](https://github.com/mheob)): fix(oxlint): correct the `TailwindcssConfig` option types
+  
+  `options.entrypoint` is renamed to `options.entryPoint`, the key `eslint-plugin-better-tailwindcss` actually reads. The previous spelling was silently ignored, so the plugin fell back to the default Tailwind CSS classes instead of the project's entry point. `options.selectors` is now typed as an array of selectors, as the plugin expects.
+
+- [#431](https://github.com/mheob/config/pull/431) ([@mheob](https://github.com/mheob)): fix(oxlint): stop the conflicting top-level `await` rules in `baseConfig`
+  
+  `node/no-top-level-await` and `unicorn/prefer-top-level-await` were both active for every file, so code got a warning with and without top-level `await`. Importable modules now only get `node/no-top-level-await`, which no longer reports files with a hashbang. CLI, config and script files only get `unicorn/prefer-top-level-await`. No new warnings are reported anywhere.
+
 ## 4.0.1
 
 ### Patch Changes
