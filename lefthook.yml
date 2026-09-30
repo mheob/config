@@ -7,10 +7,10 @@ pre-commit:
   commands:
     format:
       glob: "**"
-      run: pnpm exec oxfmt --check --no-error-on-unmatched-pattern {staged_files}
+      run: pnpm exec vp fmt --check --no-error-on-unmatched-pattern {staged_files}
     lint:
       glob: "**"
-      run: pnpm exec oxlint --no-error-on-unmatched-pattern {staged_files}
+      run: pnpm exec vp lint --no-error-on-unmatched-pattern {staged_files}
 
 pre-push:
   commands:

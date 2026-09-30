@@ -18,12 +18,10 @@ catalog:
   eslint-plugin-storybook: ^10.6.0
   eslint-plugin-yml: ^3.8.1
   lefthook: ^2.1.14
-  oxfmt: ^0.71.0
-  oxlint: ^1.86.0
-  oxlint-tsgolint: ^7.0.2003
-  tsdown: ^0.23.0
   turbo: ^2.11.5
   typescript: ^7.0.2
+  vite: npm:@voidzero-dev/vite-plus-core@1.0.0
+  vite-plus: 1.0.0
 
 # Exclude trusted packages from the age gate
 minimumReleaseAgeExclude:
@@ -33,9 +31,15 @@ overrides:
   flatted: ^3.4.2
   minimatch: ^10.2.3
   picomatch: ^4.0.4
+  vite@*: "catalog:"
 
 allowBuilds:
   better-sqlite3: true
   esbuild: true
   lefthook: true
   unrs-resolver: true
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"

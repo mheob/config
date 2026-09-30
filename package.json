@@ -15,7 +15,7 @@
 		"format:check": "turbo run format:check",
 		"lint": "turbo run lint && pnpm run lint:root",
 		"lint:fix": "turbo run lint:fix && pnpm run lint:root -- --fix",
-		"lint:root": "oxlint --ignore-pattern packages",
+		"lint:root": "vp lint --ignore-pattern packages",
 		"prepare": "lefthook install",
 		"release": "changeset publish",
 		"version-packages": "changeset version && pnpm lint"
@@ -33,11 +33,9 @@
 		"cve-lite-cli": "catalog:",
 		"czg": "catalog:",
 		"lefthook": "catalog:",
-		"oxfmt": "catalog:",
-		"oxlint": "catalog:",
-		"oxlint-tsgolint": "catalog:",
 		"turbo": "catalog:",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"vite-plus": "catalog:"
 	},
 	"engines": {
 		"node": "^24.0.0 || >=26.0.0"
