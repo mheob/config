@@ -18,6 +18,7 @@
 		"lint:root": "vp lint --ignore-pattern packages",
 		"prepare": "lefthook install",
 		"release": "changeset publish",
+		"test": "turbo run test",
 		"version-packages": "changeset version && pnpm lint"
 	},
 	"devDependencies": {

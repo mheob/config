@@ -206,6 +206,9 @@ catalogs:
     lefthook:
       specifier: ^2.1.14
       version: 2.1.14
+    tailwindcss:
+      specifier: ^4.3.3
+      version: 4.3.3
     turbo:
       specifier: ^2.11.5
       version: 2.11.5
@@ -342,6 +345,9 @@ importers:
       '@mheob/internal':
         specifier: workspace:*
         version: link:../internal
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.6.3
       eslint-plugin-better-tailwindcss:
         specifier: 'catalog:'
         version: 4.7.0(eslint@10.11.0(jiti@2.7.0)(supports-color@7.2.0))(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1)))(tailwindcss@4.3.3)(typescript@7.0.2)
@@ -357,6 +363,9 @@ importers:
       eslint-plugin-yml:
         specifier: 'catalog:'
         version: 3.8.1(eslint@10.11.0(jiti@2.7.0)(supports-color@7.2.0))
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.3.3
       typescript:
         specifier: 'catalog:'
         version: 7.0.2

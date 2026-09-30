@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"jsx": "preserve",
+		"module": "nodenext",
+		"noEmit": true,
+		"strict": true,
+		"target": "esnext"
+	},
+	"include": ["**/*"]
+}

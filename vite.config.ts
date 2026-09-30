@@ -9,6 +9,8 @@ export default defineConfig({
 	},
 	lint: {
 		extends: [lintBaseConfig],
+		// Fixtures break rules on purpose, the tests lint them with their own config.
+		ignorePatterns: ['**/test/fixtures/**'],
 		jsPlugins: [{ name: 'vite-plus', specifier: 'vite-plus/oxlint-plugin' }],
 		options: { typeAware: true, typeCheck: true },
 		rules: { 'vite-plus/prefer-vite-plus-imports': 'error' },
