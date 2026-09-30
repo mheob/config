@@ -129,6 +129,38 @@ describe.each([
 	});
 });
 
+describe('baseConfig top-level await', () => {
+	it('reports top-level await in importable modules', async () => {
+		const { diagnostics } = await lintFixture('base', 'top-level-await.ts');
+
+		expect(diagnostics.map(({ code }) => code)).toContain('node(no-top-level-await)');
+	});
+
+	it('does not ask importable modules for top-level await', async () => {
+		const { diagnostics } = await lintFixture('base', 'floating-promise.ts');
+
+		expect(diagnostics.map(({ code }) => code)).not.toContain('unicorn(prefer-top-level-await)');
+	});
+
+	it('allows top-level await in files with a hashbang', async () => {
+		const { diagnostics } = await lintFixture('base', 'bin.ts');
+
+		expect(diagnostics.map(({ code }) => code)).not.toContain('node(no-top-level-await)');
+	});
+
+	it('allows top-level await in scripts', async () => {
+		const { diagnostics } = await lintFixture('base', 'scripts/top-level-await.ts');
+
+		expect(diagnostics.map(({ code }) => code)).not.toContain('node(no-top-level-await)');
+	});
+
+	it('asks scripts for top-level await', async () => {
+		const { diagnostics } = await lintFixture('base', 'scripts/floating-promise.ts');
+
+		expect(diagnostics.map(({ code }) => code)).toContain('unicorn(prefer-top-level-await)');
+	});
+});
+
 describe('preset combination from the README', () => {
 	it('loads without a config error', async () => {
 		const { configError } = await lintFixture('combined', 'index.tsx');

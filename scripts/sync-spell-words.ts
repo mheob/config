@@ -4,9 +4,6 @@
 //
 // `node scripts/sync-spell-words.ts` writes the merged lists, `--check` only reports drift.
 
-// A CLI script is never loaded with `require(esm)`, so top-level `await` is fine here.
-// oxlint-disable node/no-top-level-await
-
 import { readFile, writeFile } from 'node:fs/promises';
 import process from 'node:process';
 
