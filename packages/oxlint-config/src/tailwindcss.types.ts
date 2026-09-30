@@ -51,16 +51,14 @@ interface TagSelector {
 }
 
 interface BetterTailwindcssOptions {
-	entrypoint?: string;
+	entryPoint?: string;
 	tailwindConfig?: string;
 	tsconfig?: string;
 	cwd?: string;
 	detectComponentClasses?: boolean;
 	rootFontSize?: number;
 	messageStyle?: 'visual' | 'compact' | 'raw';
-	selectors?: {
-		attribute: AttributeSelector | CalleeSelector | VariableSelector | TagSelector;
-	};
+	selectors?: (AttributeSelector | CalleeSelector | VariableSelector | TagSelector)[];
 }
 
 export interface TailwindcssConfig {

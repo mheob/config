@@ -19,6 +19,7 @@ export function tailwindcssConfig({
 			'better-tailwindcss/enforce-canonical-classes': ['error', { ignore: ignoredClasses ?? [] }],
 			'better-tailwindcss/enforce-consistent-class-order': 'warn',
 			'better-tailwindcss/enforce-consistent-line-wrapping': 'warn',
+			'better-tailwindcss/no-concatenated-classes': 'error',
 			'better-tailwindcss/no-conflicting-classes': 'error',
 			'better-tailwindcss/no-deprecated-classes': 'warn',
 			'better-tailwindcss/no-duplicate-classes': 'warn',

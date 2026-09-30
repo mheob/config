@@ -193,6 +193,7 @@ Enforces consistent Tailwind CSS class usage via `eslint-plugin-better-tailwindc
 | `better-tailwindcss/no-deprecated-classes`            | warn     |
 | `better-tailwindcss/no-duplicate-classes`             | warn     |
 | `better-tailwindcss/no-unnecessary-whitespace`        | warn     |
+| `better-tailwindcss/no-concatenated-classes`          | error    |
 | `better-tailwindcss/no-conflicting-classes`           | error    |
 | `better-tailwindcss/no-unknown-classes`               | error    |
 
@@ -208,7 +209,7 @@ export default defineConfig({
 		baseConfig,
 		baseJsConfig,
 		tailwindcssConfig({
-			options: { entrypoint: './src/styles/index.css' },
+			options: { entryPoint: './src/styles/index.css' },
 			ignoredClasses: ['my-prefix-.+'],
 		}),
 	],
@@ -217,7 +218,7 @@ export default defineConfig({
 
 Both arguments are optional — `tailwindcssConfig()` applies the rules with the plugin defaults.
 
-`options` is passed through to the `better-tailwindcss` settings, so every option of [`eslint-plugin-better-tailwindcss`](https://github.com/schoero/eslint-plugin-better-tailwindcss) is available (`entrypoint`, `tailwindConfig`, `tsconfig`, `cwd`, `detectComponentClasses`, `rootFontSize`, `messageStyle`, `selectors`). The argument type is exported as `TailwindcssConfig`.
+`options` is passed through to the `better-tailwindcss` settings, so every option of [`eslint-plugin-better-tailwindcss`](https://github.com/schoero/eslint-plugin-better-tailwindcss) is available (`entryPoint`, `tailwindConfig`, `tsconfig`, `cwd`, `detectComponentClasses`, `rootFontSize`, `messageStyle`, `selectors`). The argument type is exported as `TailwindcssConfig`.
 
 **Required peer dependency:**
 
