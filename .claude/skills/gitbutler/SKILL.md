@@ -1,7 +1,7 @@
 ---
 name: but
 version: 0.22.3
-description: "Commit, push, branch, and manage version control with GitButler. Use for commits, selective dirty-file or hunk commits, branches, diffs, PRs, history edits, squashes, amends, undo, merge, apply, and unapply. For selected dirty files or hunks, inspect with `but diff`; use compact `but status` for commit order, branch/stack placement, or conflict overview; use `but status -fv` when file/hunk IDs or per-commit file details matter. Replaces git write commands."
+description: 'Commit, push, branch, and manage version control with GitButler. Use for commits, selective dirty-file or hunk commits, branches, diffs, PRs, history edits, squashes, amends, undo, merge, apply, and unapply. For selected dirty files or hunks, inspect with `but diff`; use compact `but status` for commit order, branch/stack placement, or conflict overview; use `but status -fv` when file/hunk IDs or per-commit file details matter. Replaces git write commands.'
 author: GitButler Team
 ---
 
@@ -92,9 +92,7 @@ For "get latest from main", "update/sync this workspace", "rebase onto main", or
 1. `but pull` — one command; no preflight needed. Its output reports the resulting state, it refuses safely when uncommitted changes conflict, and `but undo` reverts it.
 2. If commits come back conflicted, resolve them oldest-first following the printed instructions: `but resolve <commit>`, edit the files, then `but resolve finish`. Its result gives the current ID of the next conflict. Add `--status-after` to the finish you expect to clear the last conflict only when the task needs the complete resulting workspace. When it says no conflicted commits remain, stop; do not run a verification status. Finishing a lower commit rebases the ones above it, so always work bottom-up.
 
-`but pull --check` answers "would this conflict?" without updating. Do not use it as a routine
-preflight; use it when the user asks for a preview, repository policy requires one, or other agents'
-branches may move.
+`but pull --check` answers "would this conflict?" without updating. Do not use it as a routine preflight; use it when the user asks for a preview, repository policy requires one, or other agents' branches may move.
 
 Rebasing applied branches onto the latest target IS `but pull` — never `move`, `config target`, `unapply`, or raw `git pull`/`git rebase`. The base shown in status is the last FETCHED state: when `git log` shows `main` (local or remote) ahead of it, that is exactly the update `but pull` fetches and applies — the target setting is not stale and repointing it is never the fix. Pull carries uncommitted changes along, and its output reports the resulting state. If it refuses because uncommitted changes conflict, park them: `but commit -b <branch> -m "wip" <ids>`, pull again, then `but uncommit` the parked commit (there is no stash; do not hand-revert files).
 
@@ -192,7 +190,7 @@ A wrong resolution is reverted with `but undo`.
 ## Git-to-But Map
 
 | git | but |
-|---|---|
+| --- | --- |
 | `git status` | `but status` for branch/stack/commit overview; `but status -fv` for file/hunk details; `but diff` for selected dirty changes |
 | `git add` + `git commit` | `but commit -b <branch> -m ... <ids>` |
 | `git checkout -b` + commit | `but commit -b <new-branch> -m ... <ids>` |
