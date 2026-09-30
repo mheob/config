@@ -44,7 +44,9 @@ export const baseConfig = defineConfig({
 			files: ['**/cli.ts', '**/cli/**/*.ts'],
 			rules: {
 				'eslint/no-console': 'off',
+				'node/no-top-level-await': 'off',
 				'unicorn/no-process-exit': 'off',
+				'unicorn/prefer-top-level-await': 'warn',
 			},
 		},
 
@@ -53,7 +55,9 @@ export const baseConfig = defineConfig({
 			files: ['**/*.config.ts', '**/*.config.*.ts'],
 			rules: {
 				'eslint/no-console': 'off',
+				'node/no-top-level-await': 'off',
 				'typescript/explicit-function-return-type': 'off',
+				'unicorn/prefer-top-level-await': 'warn',
 			},
 		},
 
@@ -102,8 +106,10 @@ export const baseConfig = defineConfig({
 			files: ['**/scripts/**/*.ts'],
 			rules: {
 				'eslint/no-console': 'off',
+				'node/no-top-level-await': 'off',
 				'typescript/explicit-function-return-type': 'off',
 				'unicorn/no-process-exit': 'off',
+				'unicorn/prefer-top-level-await': 'warn',
 			},
 		},
 
@@ -216,6 +222,9 @@ export const baseConfig = defineConfig({
 		// Node rules
 		'node/no-exports-assign': 'error',
 		'node/no-new-require': 'error',
+		// Top-level `await` breaks `require(esm)` of an importable module. The CLI, config and
+		// scripts overrides allow it instead, and so does a hashbang.
+		'node/no-top-level-await': ['warn', { ignoreBin: true }],
 
 		// OXC rules
 		'oxc/no-async-await': 'off',
@@ -235,5 +244,7 @@ export const baseConfig = defineConfig({
 		// Unicorn rules
 		'unicorn/no-null': 'off',
 		'unicorn/no-static-only-class': 'off',
+		// Contradicts `node/no-top-level-await`, so it only applies to entry points.
+		'unicorn/prefer-top-level-await': 'off',
 	},
 });

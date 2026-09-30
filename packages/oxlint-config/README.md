@@ -78,6 +78,8 @@ The foundation for all projects. Enables the following OXLint plugins and covers
 
 Also ships with file-specific overrides for CLI files, config files, scripts, Markdown code blocks, and Vitest test files (enabling the `vitest` plugin for spec/test/bench files).
 
+Top-level `await` depends on the file. Importable modules must not use it (`node/no-top-level-await`), because it breaks `require(esm)` for consumers. CLI files (`cli.ts`, `cli/**`), config files (`*.config.ts`), scripts (`scripts/**`) and files with a hashbang may use it, and in CLI, config and script files `unicorn/prefer-top-level-await` asks for it instead of a floating async call.
+
 It also turns on type-aware linting — see the next section.
 
 ### Type-aware linting
