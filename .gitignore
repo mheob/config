@@ -34,5 +34,8 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# local Claude Code settings
+.claude/settings.local.json
+
 # turbo
 .turbo
