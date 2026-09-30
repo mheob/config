@@ -32,3 +32,6 @@ jobs:
 
       - name: Test files
         run: pnpm run test
+
+      - name: Check spelling
+        run: pnpm run cspell

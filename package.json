@@ -9,7 +9,8 @@
 		"changeset": "changeset",
 		"clean": "turbo run clean",
 		"clean:root": "rm -rf .turbo node_modules",
-		"cspell": "cspell .",
+		"cspell": "node scripts/sync-spell-words.ts --check && cspell .",
+		"cspell:sync": "node scripts/sync-spell-words.ts && vp fmt .cspell.json codebook.toml",
 		"cve": "cve-lite . --fail-on high --verbose --cache-dir .cache/cve-lite",
 		"format": "turbo run format",
 		"format:check": "turbo run format:check",
@@ -34,6 +35,7 @@
 		"cve-lite-cli": "catalog:",
 		"czg": "catalog:",
 		"lefthook": "catalog:",
+		"smol-toml": "catalog:",
 		"turbo": "catalog:",
 		"typescript": "catalog:",
 		"vite-plus": "catalog:"
