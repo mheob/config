@@ -6,6 +6,7 @@ This is a monorepo containing shareable configuration packages for various devel
 
 - **Monorepo Manager**: Turborepo with pnpm workspaces
 - **Package Manager**: pnpm
+- **Toolchain**: Vite+ (`vp lint`, `vp fmt`, `vp pack`); Turborepo runs the package tasks
 - **Node Version**: ^24.0.0
 - **License**: MIT
 
@@ -38,8 +39,8 @@ pnpm run release          # Publish packages
 
 ## Configuration Files
 
-- [oxlint.config.ts](oxlint.config.ts) - Root OXLint config
-- [oxfmt.config.mjs](oxfmt.config.mjs) - Root OXFmt config
+- [vite.config.ts](vite.config.ts) - Root Vite+ config (`lint` block for OXLint, `fmt` block for OXFmt)
+- `packages/*/vite.config.ts` - Library builds (`pack` block, run with `vp pack`)
 - [commitlint.config.js](commitlint.config.js) - Commitlint config
 - [turbo.json](turbo.json) - Turborepo pipeline configuration
 - [pnpm-workspace.yaml](pnpm-workspace.yaml) - pnpm workspace definition, dependency catalog, and install settings

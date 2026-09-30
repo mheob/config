@@ -26,12 +26,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsdown --clean",
+		"build": "vp pack --clean",
 		"clean": "rm -rf .turbo node_modules dist",
-		"format": "oxfmt",
-		"format:check": "oxfmt --check",
-		"lint": "oxlint",
-		"lint:fix": "oxlint --fix"
+		"format": "vp fmt",
+		"format:check": "vp fmt --check",
+		"lint": "vp lint",
+		"lint:fix": "vp lint --fix"
 	},
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
@@ -40,11 +40,8 @@
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
 		"eslint-plugin-yml": "catalog:",
-		"oxfmt": "catalog:",
-		"oxlint": "catalog:",
-		"oxlint-tsgolint": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"vite-plus": "catalog:"
 	},
 	"peerDependencies": {
 		"eslint-plugin-better-tailwindcss": "catalog:",
@@ -52,8 +49,8 @@
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
 		"eslint-plugin-yml": "catalog:",
-		"oxlint": "catalog:",
-		"oxlint-tsgolint": "catalog:"
+		"oxlint": "^1.86.0",
+		"oxlint-tsgolint": "^7.0.2003"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-better-tailwindcss": {

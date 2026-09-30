@@ -10,6 +10,9 @@
 	},
 	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "file",
+	"oxc.disableNestedConfig": true,
+	"oxc.fmt.disableNestedConfig": true,
 
 	// Extensions
 	"better-comments.tags": [

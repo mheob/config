@@ -57,9 +57,7 @@ but diff <branch-id>    # Diff for all changes in branch
 but diff <commit-id>    # Diff for specific commit
 ```
 
-`but diff` accepts at most one target. Bare `but diff` shows every uncommitted file;
-inspect committed files or other entities one target at a time. Unlike `commit`,
-`amend`, and `discard`, it does not accept several positional IDs.
+`but diff` accepts at most one target. Bare `but diff` shows every uncommitted file; inspect committed files or other entities one target at a time. Unlike `commit`, `amend`, and `discard`, it does not accept several positional IDs.
 
 **Hunk IDs:** For uncommitted changes, `but diff` shows each hunk with an ID (e.g., `qs:5`, `uo:d`). Pass these IDs to `but commit` for fine-grained, hunk-level commits.
 
@@ -76,8 +74,7 @@ but open <commit-id>        # With that commit selected
 but open --print <id>       # Print the link instead of opening it
 ```
 
-Commits are addressed by change ID where they have one, so the link keeps
-working after the commit is amended or rebased.
+Commits are addressed by change ID where they have one, so the link keeps working after the commit is amended or rebased.
 
 ## Branching
 
@@ -165,9 +162,7 @@ but pick <commit-sha> --branch <branch>       # Pick specific commit into branch
 but pick <cli-id> --branch <branch>           # Pick using CLI ID (e.g., "nn")
 ```
 
-Name both the source commit and the target branch. Omitting the target prompts
-for one when several branches exist. The source can be a commit SHA (full or
-short) or a CLI ID from `but status`.
+Name both the source commit and the target branch. Omitting the target prompts for one when several branches exist. The source can be a commit SHA (full or short) or a CLI ID from `but status`.
 
 ## Committing
 
@@ -196,13 +191,14 @@ but commit --empty -b <branch> -m "message"  # Insert an empty commit
 `but commit` is not supported from linked worktrees. Use Git directly for the worktree-local commit, and do not run `but setup` there.
 
 **Committing specific files or hunks:** Start with `but diff` for selective dirty commits, then pass CLI IDs as positional arguments:
+
 - **File IDs** from `but diff` or `but status -fv`: commits entire files
 - **Hunk IDs** (`<file-id>:<hunk-id>`) from `but diff`: commits individual hunks
 - IDs are space-separated (`<id> <id>`). Commas are not separators — `a1,b2` is parsed as a single ID and fails to resolve.
 
 **Placing commits:** Use `--above <target>` or `--below <target>` when the new commit should be inserted at a specific position in existing history. Change-ID refs of existing commits remain valid after an insertion; sha and `#N`-suffixed refs may go stale — add `--status-after` when subsequent history edits need fresh refs.
 
-**Several commits from one diff:** Chain `but commit` calls with `&&` to split a broad uncommitted change into several semantic commits: `but commit -b <branch> -m "msg1" a1 b2 && but commit -b <branch> -m "msg2" c3 d4`. Mutation output is concise by default. Add `--status-after` only when the next step needs workspace IDs or details that the mutation result does not provide. The commits stack in the order you write them — the first `but commit` is the oldest of the new commits and each later one goes on top (newest). File/hunk IDs copied from the original output generally remain usable across commits; if an ID stops resolving, re-read the diff and continue. History edits (`amend`, `squash`, `move`, `uncommit`, `reword`) may run in sequence off one status read when every commit ref involved is a change-ID ref; run them one at a time with `--status-after` when a ref is sha-based or `#N`-suffixed, or when the next command needs freshly issued IDs. Bare `but diff` needs no ID from the preceding command, so `but uncommit <id> && but diff` is safe. If commits from that branch must stay *above* the new ones, see "Split an existing commit" in SKILL.md: commit the replacements, then move the preserved block together with `but move <preserved-id> [<preserved-id>...] -b <branch>` so its internal order stays intact.
+**Several commits from one diff:** Chain `but commit` calls with `&&` to split a broad uncommitted change into several semantic commits: `but commit -b <branch> -m "msg1" a1 b2 && but commit -b <branch> -m "msg2" c3 d4`. Mutation output is concise by default. Add `--status-after` only when the next step needs workspace IDs or details that the mutation result does not provide. The commits stack in the order you write them — the first `but commit` is the oldest of the new commits and each later one goes on top (newest). File/hunk IDs copied from the original output generally remain usable across commits; if an ID stops resolving, re-read the diff and continue. History edits (`amend`, `squash`, `move`, `uncommit`, `reword`) may run in sequence off one status read when every commit ref involved is a change-ID ref; run them one at a time with `--status-after` when a ref is sha-based or `#N`-suffixed, or when the next command needs freshly issued IDs. Bare `but diff` needs no ID from the preceding command, so `but uncommit <id> && but diff` is safe. If commits from that branch must stay _above_ the new ones, see "Split an existing commit" in SKILL.md: commit the replacements, then move the preserved block together with `but move <preserved-id> [<preserved-id>...] -b <branch>` so its internal order stays intact.
 
 Example: `but commit -b my-branch -m "Fix bug" ab cd` commits files/hunks `ab` and `cd`.
 
@@ -216,8 +212,7 @@ Edge case: if wanted and unwanted edits are in the same hunk, GitButler cannot s
 
 ### `but squash <SOURCES>... [-t <target>]`
 
-Move changes into a target. Sources are positional; the target is `-t`/`--target`.
-This one command covers squashing, amending, and uncommitting.
+Move changes into a target. Sources are positional; the target is `-t`/`--target`. This one command covers squashing, amending, and uncommitting.
 
 ```bash
 but squash <commit> -t <commit> -m "msg"           # Squash one commit into another
@@ -232,13 +227,9 @@ but squash <branch> -t zz                          # Uncommit all commits and re
 but squash <commit-id>:<file-id> -t <commit>       # Move a committed file into another commit
 ```
 
-All sources must be the same kind (all commits, all branches, all uncommitted changes, `zz`, or all
-committed files) and committed-file sources must come from one commit. If `-t` is omitted, `<SOURCES>`
-must be exactly one branch, which squashes that branch's commits together.
+All sources must be the same kind (all commits, all branches, all uncommitted changes, `zz`, or all committed files) and committed-file sources must come from one commit. If `-t` is omitted, `<SOURCES>` must be exactly one branch, which squashes that branch's commits together.
 
-Message flags (mutually exclusive). Commit and branch sources compose a new message unless the
-target is `zz`, so without a flag they open an editor and block — always pass one. Uncommitted and
-committed-file sources reuse the target's message and need no flag:
+Message flags (mutually exclusive). Commit and branch sources compose a new message unless the target is `zz`, so without a flag they open an editor and block — always pass one. Uncommitted and committed-file sources reuse the target's message and need no flag:
 
 ```bash
 -m "msg"                # New message; repeat -m to append paragraphs
@@ -249,10 +240,7 @@ committed-file sources reuse the target's message and need no flag:
 
 None of the message flags may be used when the target is `zz`.
 
-For multiple independent squash groups, prefer newer/top groups first; change-ID refs from
-one status read stay valid across squashes (the target keeps its ref), so the
-groups may run in sequence — use `--status-after` to get fresh refs only
-when a ref is sha-based or `#N`-suffixed.
+For multiple independent squash groups, prefer newer/top groups first; change-ID refs from one status read stay valid across squashes (the target keeps its ref), so the groups may run in sequence — use `--status-after` to get fresh refs only when a ref is sha-based or `#N`-suffixed.
 
 ### `but amend -t <commit-or-branch> <SOURCES>...`
 
@@ -267,8 +255,7 @@ Decide the target commit yourself: check `but status -fv`, find the commit the c
 
 ### `but move <SOURCES>... <--above|--below|--branch|--unstack>`
 
-Move commits, committed files, or a branch to a different location. Sources are positional and
-space-separated; a target flag is required.
+Move commits, committed files, or a branch to a different location. Sources are positional and space-separated; a target flag is required.
 
 ```bash
 but move <commit> --below <target-commit>          # Place below target (older) — matches status order
@@ -282,12 +269,7 @@ but move <branch> --unstack                        # Tear off (unstack) a branch
 but move <commit-id>:<file-id> --above <commit>    # Move a committed file into a new commit above another
 ```
 
-Sources may not mix kinds, all committed files must come from the same commit, and only one branch
-may be moved at a time. Source order does not matter. For a branch source only `--above` and
-`--unstack` apply; `--below` and `-b <name>` require commit or committed-file sources. `--branch`
-with no value is equivalent to `--unstack`. With the experimental worktree flag on, `-b` also
-accepts a linked worktree or the branch checked out in it, moving commit or committed-file
-sources onto that branch's tip (nothing is created); a branch source is refused there.
+Sources may not mix kinds, all committed files must come from the same commit, and only one branch may be moved at a time. Source order does not matter. For a branch source only `--above` and `--unstack` apply; `--below` and `-b <name>` require commit or committed-file sources. `--branch` with no value is equivalent to `--unstack`. With the experimental worktree flag on, `-b` also accepts a linked worktree or the branch checked out in it, moving commit or committed-file sources onto that branch's tip (nothing is created); a branch source is refused there.
 
 ### `but uncommit <SOURCES>...`
 
@@ -299,12 +281,9 @@ but uncommit <branch>                    # Uncommit all commits and remove the b
 but uncommit <commit-id>:<file-id>       # Uncommit one file from its commit
 ```
 
-Multiple whole commits or multiple branches may be passed together, but source kinds cannot be
-mixed. Uncommitting a branch also removes an empty branch. Multiple committed-file sources must all
-come from the same commit; uncommit files from different commits in separate commands.
+Multiple whole commits or multiple branches may be passed together, but source kinds cannot be mixed. Uncommitting a branch also removes an empty branch. Multiple committed-file sources must all come from the same commit; uncommit files from different commits in separate commands.
 
-When you need file and hunk IDs to recommit selectively, use
-`but uncommit <id> && but diff` in one shell call.
+When you need file and hunk IDs to recommit selectively, use `but uncommit <id> && but diff` in one shell call.
 
 ### `but reword <id>`
 
@@ -368,10 +347,7 @@ but resolve finish
 but resolve finish --status-after  # When clearing the last conflict and its workspace is needed
 ```
 
-The concise result reports leftover markers, surviving uncommitted changes, every remaining
-conflicted commit, and the exact current `but resolve <id>` command. Add `--status-after` to the
-finish you expect to clear the last conflict only when the task needs the complete resulting
-workspace. When it says no conflicted commits remain, stop; do not run a verification status.
+The concise result reports leftover markers, surviving uncommitted changes, every remaining conflicted commit, and the exact current `but resolve <id>` command. Add `--status-after` to the finish you expect to clear the last conflict only when the task needs the complete resulting workspace. When it says no conflicted commits remain, stop; do not run a verification status.
 
 ### `but resolve cancel`
 
@@ -404,25 +380,18 @@ but push <branch-name> -s          # Skip force push protection checks
 but push <branch-name> --no-hooks  # Bypass pre-push hooks (--no-verify also works)
 ```
 
-Force push is enabled by default with protection checks. Use `-s` only when intentionally skipping those checks.
-After a successful push, GitButler also synchronizes PR targets and stack descriptions for the
-selected branch and its ancestors. A forge update failure is reported as a warning; it does not
-turn the completed Git push into a failure.
+Force push is enabled by default with protection checks. Use `-s` only when intentionally skipping those checks. After a successful push, GitButler also synchronizes PR targets and stack descriptions for the selected branch and its ancestors. A forge update failure is reported as a warning; it does not turn the completed Git push into a failure.
 
 ### `but pull`
 
-Update applied branches onto the latest target branch changes (usually `main`).
-Use this for "get latest from main" in a GitButler workspace.
+Update applied branches onto the latest target branch changes (usually `main`). Use this for "get latest from main" in a GitButler workspace.
 
 ```bash
 but pull                      # Fetch and rebase applied branches
 but pull --check              # Dry-run preview: report what would happen, change nothing
 ```
 
-Run `but pull` directly for a straightforward update; its output reports the result and `but undo`
-reverts it. Use `--check` first when the user or repository policy requires a preview without
-updating.
-Do not use raw `git pull` or `git rebase`.
+Run `but pull` directly for a straightforward update; its output reports the result and `but undo` reverts it. Use `--check` first when the user or repository policy requires a preview without updating. Do not use raw `git pull` or `git rebase`.
 
 ### `but pr`
 
@@ -441,10 +410,7 @@ but pr set-draft <selector>   # Mark review as draft
 but pr set-ready <selector>   # Mark review as ready
 ```
 
-**Key behavior:** `but pr new` automatically pushes the selected branch and its ancestors before creating the PR. No need to run `but push` first. Force push and pre-push hooks run by default.
-Use `--no-hooks` to bypass pre-push hooks when needed.
-Review creation remains successful if the follow-up stack synchronization fails, and reports that
-partial success as a warning.
+**Key behavior:** `but pr new` automatically pushes the selected branch and its ancestors before creating the PR. No need to run `but push` first. Force push and pre-push hooks run by default. Use `--no-hooks` to bypass pre-push hooks when needed. Review creation remains successful if the follow-up stack synchronization fails, and reports that partial success as a warning.
 
 Selectors for `auto-merge`, `set-draft`, and `set-ready` can be branch names, branch IDs, stack IDs, or numeric review IDs, comma-separated.
 
@@ -456,18 +422,11 @@ When the selected branch sits on dependencies that already have PRs, the summary
 
 Requires forge integration to be configured via `but config forge auth`.
 
-Same-repository pull requests are automatically registered with GitHub's native stacked pull
-requests API when the repository is enrolled in GitHub's private preview; otherwise GitButler uses
-description footers. `but config forge github-stacks disable` opts out. The setting is
-project-local and shared with Desktop.
+Same-repository pull requests are automatically registered with GitHub's native stacked pull requests API when the repository is enrolled in GitHub's private preview; otherwise GitButler uses description footers. `but config forge github-stacks disable` opts out. The setting is project-local and shared with Desktop.
 
 ### `but land <branch>`
 
-Land a branch directly onto the target (e.g. `origin/master`), skipping a pull request. Fast-forwards
-when possible, otherwise makes a signed merge commit; for a `gb-local` target it moves the refs
-locally. Then reconciles the remaining branches like `but pull`, and deletes each landed branch's
-copy on the push remote (only when fully contained in the landed target), reported as
-`Deleted <remote>/<branch> (landed)`.
+Land a branch directly onto the target (e.g. `origin/master`), skipping a pull request. Fast-forwards when possible, otherwise makes a signed merge commit; for a `gb-local` target it moves the refs locally. Then reconciles the remaining branches like `but pull`, and deletes each landed branch's copy on the push remote (only when fully contained in the landed target), reported as `Deleted <remote>/<branch> (landed)`.
 
 ```bash
 but land <branch-selector> --yes                  # Land onto the target (--yes required non-interactively)
@@ -475,9 +434,7 @@ but land <branch-selector> --no-ff --yes          # Force a merge commit instead
 but land <top-branch> --whole-stack --yes   # Land an entire stack by naming its top segment
 ```
 
-Direct target updates are hard to reverse, so confirmation is required (agents must pass `--yes`).
-A branch stacked on other segments is refused (its tip would also publish them); `--whole-stack`
-is the explicit opt-in, and only the stack's top segment can be named with it.
+Direct target updates are hard to reverse, so confirmation is required (agents must pass `--yes`). A branch stacked on other segments is refused (its tip would also publish them); `--whole-stack` is the explicit opt-in, and only the stack's top segment can be named with it.
 
 ## Workspace Maintenance
 
@@ -553,15 +510,9 @@ but setup
 but setup --init              # Also initialize a new git repo if none exists
 ```
 
-Converts a regular Git repository to the managed GitButler workspace model. Use `--init` in
-non-interactive environments (CI/CD) to ensure a Git repository exists before setup. When the
-experimental single-branch feature is enabled, normal CLI use does not require this command: the
-repository is registered and its target is inferred lazily without checking out
-`gitbutler/workspace` or installing setup hooks.
+Converts a regular Git repository to the managed GitButler workspace model. Use `--init` in non-interactive environments (CI/CD) to ensure a Git repository exists before setup. When the experimental single-branch feature is enabled, normal CLI use does not require this command: the repository is registered and its target is inferred lazily without checking out `gitbutler/workspace` or installing setup hooks.
 
-Rerunning `but setup` on an already-configured project also repairs a missing default target — for
-example if `virtual_branches.toml` was reset while the target survived in Git config — so it is the
-recovery path when target configuration looks broken.
+Rerunning `but setup` on an already-configured project also repairs a missing default target — for example if `virtual_branches.toml` was reset while the target survived in Git config — so it is the recovery path when target configuration looks broken.
 
 ### `but teardown`
 
@@ -630,7 +581,6 @@ but --help                    # List all commands
 but <subcommand> --help       # Detailed help for specific command
 ```
 
-Prefer this reference over exploratory help calls. Use command-specific help when required syntax
-is missing or a command fails; use top-level help only to discover an undocumented command.
+Prefer this reference over exploratory help calls. Use command-specific help when required syntax is missing or a command fails; use top-level help only to discover an undocumented command.
 
 Full documentation: <https://docs.gitbutler.com/cli-overview>
