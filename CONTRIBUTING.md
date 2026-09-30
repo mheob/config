@@ -135,7 +135,13 @@ Run cspell to check for typos:
 pnpm run cspell
 ```
 
-Add project-specific terms to `.cspell.json` if needed.
+Add project-specific terms to `.cspell.json` or `codebook.toml` (the [Codebook](https://github.com/blopker/codebook) config), then merge both word lists:
+
+```bash
+pnpm run cspell:sync
+```
+
+`pnpm run cspell` fails while the lists differ. The lists are merged, never replaced, so remove a word from both files.
 
 ## Package Structure
 
