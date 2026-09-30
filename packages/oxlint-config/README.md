@@ -193,6 +193,7 @@ Enforces consistent Tailwind CSS class usage via `eslint-plugin-better-tailwindc
 | `better-tailwindcss/no-deprecated-classes`            | warn     |
 | `better-tailwindcss/no-duplicate-classes`             | warn     |
 | `better-tailwindcss/no-unnecessary-whitespace`        | warn     |
+| `better-tailwindcss/no-concatenated-classes`          | error    |
 | `better-tailwindcss/no-conflicting-classes`           | error    |
 | `better-tailwindcss/no-unknown-classes`               | error    |
 
