@@ -121,19 +121,13 @@ pnpm add -D oxlint-tsgolint
 
 ### `baseJsConfig`
 
-Extends `baseConfig` with additional rules provided via JS plugins. Should be used alongside `baseConfig` in most projects:
+Extends `baseConfig` with additional rules provided via a JS plugin. Should be used alongside `baseConfig` in most projects:
 
-| JS Plugin              | Scope                                      |
-| ---------------------- | ------------------------------------------ |
-| `eslint-plugin-regexp` | Regex correctness and optimisation         |
-| `eslint-plugin-jsonc`  | JSON/JSONC/JSON5 key ordering and validity |
-| `eslint-plugin-yml`    | YAML structural correctness                |
+| JS Plugin              | Scope                              |
+| ---------------------- | ---------------------------------- |
+| `eslint-plugin-regexp` | Regex correctness and optimisation |
 
-Includes file-specific overrides:
-
-- **JSON files** (`*.json`, `*.json5`, `*.jsonc`) — key sorting, value validation, and structural rules
-- **tsconfig.json** — enforces canonical `compilerOptions` key order
-- **YAML files** (`*.yaml`, `*.yml`) — block mapping, sequence, and whitespace rules
+OXLint only lints JavaScript and TypeScript files. JS plugins cannot bring their own parser yet, so there are no rules for JSON or YAML files.
 
 ### `reactConfig`
 
