@@ -38,20 +38,16 @@
 		"@mheob/internal": "workspace:*",
 		"@types/node": "catalog:",
 		"eslint-plugin-better-tailwindcss": "catalog:",
-		"eslint-plugin-jsonc": "catalog:",
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
-		"eslint-plugin-yml": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite-plus": "catalog:"
 	},
 	"peerDependencies": {
 		"eslint-plugin-better-tailwindcss": "catalog:",
-		"eslint-plugin-jsonc": "catalog:",
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
-		"eslint-plugin-yml": "catalog:",
 		"oxlint": "^1.86.0",
 		"oxlint-tsgolint": "^7.0.2003"
 	},
@@ -59,13 +55,7 @@
 		"eslint-plugin-better-tailwindcss": {
 			"optional": true
 		},
-		"eslint-plugin-jsonc": {
-			"optional": true
-		},
 		"eslint-plugin-regexp": {
-			"optional": true
-		},
-		"eslint-plugin-yml": {
 			"optional": true
 		},
 		"eslint-plugin-storybook": {
