@@ -50,7 +50,7 @@
 		"eslint-plugin-better-tailwindcss": "catalog:",
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
-		"oxlint": "^1.85.0",
+		"oxlint": "^1.87.0",
 		"oxlint-tsgolint": "^7.0.2003"
 	},
 	"peerDependenciesMeta": {
