@@ -179,6 +179,9 @@ catalogs:
     '@types/node':
       specifier: ^26.6.3
       version: 26.6.3
+    conventional-changelog-conventionalcommits:
+      specifier: ^10.4.0
+      version: 10.4.0
     cspell:
       specifier: ^10.3.5
       version: 10.3.5
@@ -282,6 +285,10 @@ importers:
         version: 1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1)
 
   packages/commitlint-config:
+    dependencies:
+      conventional-changelog-conventionalcommits:
+        specifier: 'catalog:'
+        version: 10.4.0
     devDependencies:
       '@commitlint/cli':
         specifier: 'catalog:'

@@ -9,6 +9,7 @@ catalog:
   "@cspell/dict-de-de": ^4.1.2
   "@mheob/changeset-changelog": ^3.0.2
   "@types/node": ^26.6.3
+  conventional-changelog-conventionalcommits: ^10.4.0
   cspell: ^10.3.5
   cve-lite-cli: ^1.37.0
   czg: ^1.14.0
