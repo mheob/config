@@ -1,5 +1,13 @@
 # @mheob/oxlint-config
 
+## 4.1.1
+
+### Patch Changes
+
+- [#434](https://github.com/mheob/config/pull/434) ([@mheob](https://github.com/mheob)): Align the `oxlint` and `oxlint-tsgolint` peer ranges with the versions that ship with Vite+. The `oxlint` peer range drops from `^1.86.0` to `^1.85.0`, so projects that lint with `vp lint` no longer need a second, newer oxlint.
+
+- [#437](https://github.com/mheob/config/pull/437) ([@mheob](https://github.com/mheob)): Update dependencies across the workspace, including `vite-plus` (1.1.0), `eslint-plugin-better-tailwindcss` (^4.9.0), `eslint-plugin-storybook` (^10.6.1), `conventional-changelog-conventionalcommits` (^10.4.1), `turbo` (^2.11.7), `lefthook` (^2.1.17), `cspell` (^10.3.6), and `@types/node` (^26.6.4). Raise the `oxlint` peer range in `oxlint-config` to `^1.87.0`, the version that ships with Vite+ 1.1.0, and the `eslint-plugin-better-tailwindcss` and `eslint-plugin-storybook` peer ranges to `^4.9.0` and `^10.6.1`.
+
 ## 4.1.0
 
 ### Minor Changes
