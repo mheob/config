@@ -43,7 +43,7 @@ pnpm run release          # Publish packages
 
 - [vite.config.ts](vite.config.ts) - Root Vite+ config (`lint` block for OXLint, `fmt` block for OXFmt)
 - `packages/*/vite.config.ts` - Library builds (`pack` block, run with `vp pack`)
-- [commitlint.config.js](commitlint.config.js) - Commitlint config
+- [commitlint.config.ts](commitlint.config.ts) - Commitlint config
 - [turbo.json](turbo.json) - Turborepo pipeline configuration
 - [pnpm-workspace.yaml](pnpm-workspace.yaml) - pnpm workspace definition, dependency catalog, and install settings
 

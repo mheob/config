@@ -5,6 +5,7 @@ import { existsSync, readdirSync } from 'node:fs';
 import nodePath from 'node:path';
 import process from 'node:process';
 
+import createPreset from 'conventional-changelog-conventionalcommits';
 import type { UserConfig } from 'czg';
 
 /**
@@ -59,8 +60,16 @@ function getIssue(): string | null {
 	return `#${firstNamePart}`;
 }
 
+// The preset's typings declare its return type as `{}`, the parser options live under `parser`.
+// oxlint-disable-next-line typescript/no-unsafe-type-assertion
+const { parser: parserOpts } = createPreset() as { readonly parser: unknown };
+
 const options: UserConfig = {
 	ignores: [(message) => /wip/iu.test(message)],
+	// Without a preset, commitlint parses headers with the Angular pattern, which has no `!`
+	// breaking-change marker. Passing the parser options directly keeps them independent of where
+	// the consumer's config file resolves packages from.
+	parserPreset: { parserOpts },
 	prompt: {
 		allowBreakingChanges: ['feat', 'fix'],
 		allowCustomIssuePrefix: true,
