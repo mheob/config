@@ -17,6 +17,7 @@
 		"lint": "turbo run lint && pnpm run lint:root",
 		"lint:fix": "turbo run lint:fix && pnpm run lint:root -- --fix",
 		"lint:root": "vp lint --ignore-pattern packages",
+		"oxlint:sync": "node scripts/sync-oxlint-versions.ts && vp fmt pnpm-workspace.yaml packages/oxlint-config/package.json && pnpm install",
 		"prepare": "lefthook install",
 		"release": "changeset publish",
 		"test": "turbo run test",

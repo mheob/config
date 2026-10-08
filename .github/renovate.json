@@ -1,5 +1,12 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["github>mheob/renovate-config"],
-	"schedule": ["before 4am on Wednesday"]
+	"schedule": ["before 4am on Wednesday"],
+	"packageRules": [
+		{
+			"description": "oxlint and oxlint-tsgolint follow Vite+, see `pnpm run oxlint:sync`",
+			"matchPackageNames": ["oxlint", "oxlint-tsgolint"],
+			"enabled": false
+		}
+	]
 }

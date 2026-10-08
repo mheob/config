@@ -26,6 +26,7 @@ pnpm run lint             # Lint all packages
 pnpm run clean            # Clean build artifacts
 pnpm run cspell           # Run spell checker (fails if .cspell.json and codebook.toml words differ)
 pnpm run cspell:sync      # Merge the word lists of .cspell.json and codebook.toml
+pnpm run oxlint:sync      # Pin oxlint and oxlint-tsgolint to the versions that ship with Vite+
 pnpm run changeset        # Create a changeset
 pnpm run version-packages # Bump versions
 pnpm run release          # Publish packages

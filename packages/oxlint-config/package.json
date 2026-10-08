@@ -40,6 +40,8 @@
 		"eslint-plugin-better-tailwindcss": "catalog:",
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
+		"oxlint": "catalog:",
+		"oxlint-tsgolint": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite-plus": "catalog:"
@@ -48,7 +50,7 @@
 		"eslint-plugin-better-tailwindcss": "catalog:",
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
-		"oxlint": "^1.86.0",
+		"oxlint": "^1.85.0",
 		"oxlint-tsgolint": "^7.0.2003"
 	},
 	"peerDependenciesMeta": {
