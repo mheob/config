@@ -15,7 +15,7 @@ catalog:
   czg: ^1.14.0
   eslint-plugin-better-tailwindcss: ^4.10.0
   eslint-plugin-regexp: ^3.3.1
-  eslint-plugin-storybook: ^10.6.3
+  eslint-plugin-storybook: ^10.6.5
   lefthook: ^2.2.2
   oxlint: 1.88.0
   oxlint-tsgolint: 7.0.2004
@@ -23,8 +23,8 @@ catalog:
   tailwindcss: ^4.3.3
   turbo: ^2.11.10
   typescript: ^7.0.2
-  vite: npm:@voidzero-dev/vite-plus-core@1.3.0
-  vite-plus: 1.3.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
+  vite-plus: 1.4.0
 
 # Exclude trusted packages from the age gate
 minimumReleaseAgeExclude:
