@@ -68,6 +68,7 @@ describe('commitlint rules', () => {
 		{ message: ': remove the GetMe query', rule: 'type-empty' },
 		{ message: 'feat(api):', rule: 'subject-empty' },
 		{ message: 'feat(api)!: Remove the query', rule: 'subject-case' },
+		{ message: 'feat: Wipe the cache', rule: 'subject-case' },
 		{ message: 'feat(api)!: remove the GetMe query.', rule: 'subject-full-stop' },
 		{
 			message: `${LONG_PREFIX}${filler(MAX_HEADER_LENGTH - LONG_PREFIX.length + 1)}`,

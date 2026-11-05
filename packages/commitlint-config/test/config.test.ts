@@ -114,7 +114,18 @@ describe('commitlint config', () => {
 		it.each([
 			{ ignored: true, message: 'wip: save the progress' },
 			{ ignored: true, message: 'WIP' },
+			{ ignored: true, message: 'wip' },
+			{ ignored: true, message: 'WIP: save the progress' },
+			{ ignored: true, message: 'wip(api): draft' },
+			{ ignored: true, message: 'wip!: draft' },
+			{ ignored: true, message: '[WIP] add the login form' },
+			{ ignored: true, message: 'WIP add the login form' },
 			{ ignored: false, message: 'feat: add a new scope' },
+			{ ignored: false, message: 'feat: wipe the cache' },
+			{ ignored: false, message: 'fix: handle swipe gestures' },
+			{ ignored: false, message: 'wipe the cache' },
+			{ ignored: false, message: 'docs: explain how WIP commits are skipped' },
+			{ ignored: false, message: 'feat: add the login form\n\nWIP: the tests follow' },
 		] as const)('ignores `$message`: $ignored', async ({ ignored, message }) => {
 			const { ignores } = await loadConfig();
 

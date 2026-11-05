@@ -15,6 +15,13 @@ const MAX_SUBJECT_LENGTH = 50;
 /** The maximum length of each line in the body and the footer. */
 const MAX_LINE_LENGTH = 72;
 
+/**
+ * Matches work-in-progress commits, which commitlint skips. The header has to start with the
+ * word `wip`, optionally in brackets: `wip`, `WIP: …`, `wip(api): …`, or `[WIP] …`. Words like
+ * `wipe` and a `WIP` later in the message don't count, so those commits still get linted.
+ */
+const WIP_PATTERN = /^\[?wip\b/iu;
+
 /** The commit types the prompt offers. The `type-enum` rule accepts exactly these values. */
 const TYPES: NonNullable<CommitizenGitOptions['types']> = [
 	{ name: 'feat:     A new feature', value: 'feat' },
@@ -90,7 +97,7 @@ function getIssue(): string | null {
 const { parser: parserOpts } = createPreset() as { readonly parser: unknown };
 
 const options: UserConfig = {
-	ignores: [(message) => /wip/iu.test(message)],
+	ignores: [(message) => WIP_PATTERN.test(message)],
 	// Without a preset, commitlint parses headers with the Angular pattern, which has no `!`
 	// breaking-change marker. Passing the parser options directly keeps them independent of where
 	// the consumer's config file resolves packages from.
