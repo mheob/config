@@ -6,9 +6,11 @@ catalogMode: prefer
 catalog:
   "@changesets/cli": ^3.0.3
   "@commitlint/cli": ^21.2.4
+  "@commitlint/lint": ^21.2.4
   "@cspell/dict-de-de": ^4.1.3
   "@mheob/changeset-changelog": ^3.0.2
   "@types/node": ^26.6.6
+  "@vitest/coverage-v8": 5.1.0
   conventional-changelog-conventionalcommits: ^10.4.1
   cspell: ^10.4.0
   cve-lite-cli: ^1.40.0
@@ -17,6 +19,7 @@ catalog:
   eslint-plugin-regexp: ^3.3.3
   eslint-plugin-storybook: ^10.6.5
   lefthook: ^2.2.2
+  oxfmt: 0.76.0
   oxlint: 1.91.0
   oxlint-tsgolint: 7.0.2005
   smol-toml: ^1.9.1

@@ -13,7 +13,7 @@ const installed = {
 // `vp lint` runs the oxlint that ships with Vite+, so the tests and the peer ranges follow it.
 describe('oxlint versions', () => {
 	it.each(['oxlint', 'oxlint-tsgolint'] as const)(
-		'%s matches Vite+ (fix with `pnpm run oxlint:sync`)',
+		'%s matches Vite+ (fix with `pnpm run vite-plus:sync`)',
 		(name) => {
 			expect({ installed: installed[name], peer: peerDependencies[name] }).toStrictEqual({
 				installed: versions[name],

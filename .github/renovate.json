@@ -4,8 +4,8 @@
 	"schedule": ["before 4am on Wednesday"],
 	"packageRules": [
 		{
-			"description": "oxlint and oxlint-tsgolint follow Vite+, see `pnpm run oxlint:sync`",
-			"matchPackageNames": ["oxlint", "oxlint-tsgolint"],
+			"description": "These follow the versions that ship with Vite+, see `pnpm run vite-plus:sync`",
+			"matchPackageNames": ["@vitest/coverage-v8", "oxfmt", "oxlint", "oxlint-tsgolint"],
 			"enabled": false
 		}
 	]
