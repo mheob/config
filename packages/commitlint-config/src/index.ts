@@ -6,7 +6,32 @@ import nodePath from 'node:path';
 import process from 'node:process';
 
 import createPreset from 'conventional-changelog-conventionalcommits';
-import type { UserConfig } from 'czg';
+import type { CommitizenGitOptions, UserConfig } from 'czg';
+
+/** The maximum length of the first line, including the type, the scopes, and the `!` marker. */
+const MAX_HEADER_LENGTH = 72;
+/** The maximum length of the description after `type(scope): `. */
+const MAX_SUBJECT_LENGTH = 50;
+/** The maximum length of each line in the body and the footer. */
+const MAX_LINE_LENGTH = 72;
+
+/** The commit types the prompt offers. The `type-enum` rule accepts exactly these values. */
+const TYPES: NonNullable<CommitizenGitOptions['types']> = [
+	{ name: 'feat:     A new feature', value: 'feat' },
+	{ name: 'fix:      A bug fix', value: 'fix' },
+	{ name: 'docs:     Documentation only changes', value: 'docs' },
+	{
+		name: 'style:    Formatting, whitespace, or other changes that do not affect meaning',
+		value: 'style',
+	},
+	{ name: 'refactor: Code changes that preserve external behaviour', value: 'refactor' },
+	{ name: 'perf:     Performance improvements', value: 'perf' },
+	{ name: 'test:     Adding or changing tests', value: 'test' },
+	{ name: 'build:    Build system or dependency changes', value: 'build' },
+	{ name: 'ci:       CI configuration or pipeline changes', value: 'ci' },
+	{ name: 'chore:    Maintenance tasks that do not change production code', value: 'chore' },
+	{ name: 'revert:   Reverting an earlier commit', value: 'revert' },
+];
 
 /**
  * Returns all packages inside the given path.
@@ -77,7 +102,7 @@ const options: UserConfig = {
 		allowEmptyIssuePrefix: true,
 		allowEmptyScopes: false,
 		breaklineChar: '|',
-		breaklineNumber: 80,
+		breaklineNumber: MAX_LINE_LENGTH,
 		confirmColorize: true,
 		customIssuePrefixAlias: 'custom',
 		customIssuePrefixAlign: getIssue() === null ? 'top' : 'bottom',
@@ -93,8 +118,8 @@ const options: UserConfig = {
 		enableMultipleScopes: true,
 		issuePrefixes: [{ name: 'closes:   ISSUES has been processed', value: 'closes' }],
 		markBreakingChangeMode: true,
-		maxHeaderLength: 100,
-		maxSubjectLength: 72,
+		maxHeaderLength: MAX_HEADER_LENGTH,
+		maxSubjectLength: MAX_SUBJECT_LENGTH,
 		messages: {
 			body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
 			breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
@@ -114,41 +139,23 @@ const options: UserConfig = {
 		scopes: getScopes(),
 		skipQuestions: [],
 		themeColorCode: '',
-		types: [
-			{ name: 'feat:     A new feature', value: 'feat' },
-			{ name: 'fix:      A bug fix', value: 'fix' },
-			{ name: 'docs:     Documentation only changes', value: 'docs' },
-			{ name: 'style:    Changes that do not affect the meaning of the code', value: 'style' },
-			{
-				name: 'refactor: A code change that neither fixes a bug nor adds a feature',
-				value: 'refactor',
-			},
-			{ name: 'perf:     A code change that improves performance', value: 'perf' },
-			{ name: 'test:     Adding missing tests or correcting existing tests', value: 'test' },
-			{ name: 'ci:       Changes to our CI configuration files and scripts', value: 'ci' },
-			{ name: "chore:    Other changes that don't modify src or test files", value: 'chore' },
-			{ name: 'revert:   Reverts a previous commit', value: 'revert' },
-		],
+		types: TYPES,
 		upperCaseSubject: false,
 		useEmoji: false,
 	},
 	rules: {
 		'body-leading-blank': [1, 'always'],
-		'body-max-line-length': [2, 'always', 100],
+		'body-max-line-length': [2, 'always', MAX_LINE_LENGTH],
 		'footer-leading-blank': [1, 'always'],
-		'footer-max-line-length': [2, 'always', 100],
-		'header-max-length': [2, 'always', 100],
+		'footer-max-line-length': [2, 'always', MAX_LINE_LENGTH],
+		'header-max-length': [2, 'always', MAX_HEADER_LENGTH],
 		'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
 		'subject-empty': [2, 'never'],
 		'subject-full-stop': [2, 'never', '.'],
-		'subject-max-length': [2, 'always', 72],
+		'subject-max-length': [2, 'always', MAX_SUBJECT_LENGTH],
 		'type-case': [2, 'always', 'lower-case'],
 		'type-empty': [2, 'never'],
-		'type-enum': [
-			2,
-			'always',
-			['chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test'],
-		],
+		'type-enum': [2, 'always', TYPES.map(({ value }: { readonly value: string }) => value)],
 	},
 };
 
