@@ -1,5 +1,19 @@
 # @mheob/commitlint-config
 
+## 3.0.0
+
+### Major Changes
+
+- [#443](https://github.com/mheob/config/pull/443) ([@mheob](https://github.com/mheob)): Tighten the length limits and add the `build` commit type. Headers may now be at most 72 characters (was 100), subjects at most 50 (was 72), and body and footer lines at most 72 (was 100). The prompt wraps body lines at 72 characters (was 80) and offers the `build` type, which `type-enum` now accepts as well. The prompt and `type-enum` now share one list of types, so they cannot drift apart.
+  
+  To keep the old limits, override `header-max-length`, `subject-max-length`, `body-max-line-length`, and `footer-max-line-length` in your `commitlint.config` file.
+
+### Patch Changes
+
+- [#446](https://github.com/mheob/config/pull/446) ([@mheob](https://github.com/mheob)): Skip only real work-in-progress commits. The header now has to start with the word `wip`, optionally in brackets, as in `wip`, `WIP: save the progress`, `wip(api): draft`, or `[WIP] draft`. Before, every message that contained the letters `wip` anywhere was skipped without being linted, such as `feat: wipe the cache` or `fix: handle swipe gestures`. Those commits are now linted like any other, and so are commits that mention `WIP` only later in the header or in the body. A header like `feat: WIP login form` now fails `subject-case`; write `wip: login form` to skip it.
+
+- [#441](https://github.com/mheob/config/pull/441) ([@mheob](https://github.com/mheob)): Update dependencies across the workspace, including `vite-plus` (1.3.0), `@commitlint/cli` (^21.2.4), `eslint-plugin-better-tailwindcss` (^4.10.0), `eslint-plugin-storybook` (^10.6.3), `turbo` (^2.11.10), `lefthook` (^2.2.2), `cspell` (^10.4.0), and `@types/node` (^26.6.5). Raise the `oxlint` and `oxlint-tsgolint` peer ranges in `oxlint-config` to `^1.88.0` and `^7.0.2004`, the versions that ship with Vite+ 1.3.0, the `eslint-plugin-better-tailwindcss` and `eslint-plugin-storybook` peer ranges to `^4.10.0` and `^10.6.3`, and the `@commitlint/cli` peer range in `commitlint-config` to `^21.2.4`.
+
 ## 2.0.9
 
 ### Patch Changes
