@@ -36,6 +36,8 @@
 	"devDependencies": {
 		"@mheob/internal": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
+		"@types/node": "catalog:",
+		"oxfmt": "catalog:",
 		"typescript": "catalog:",
 		"vite-plus": "catalog:"
 	},

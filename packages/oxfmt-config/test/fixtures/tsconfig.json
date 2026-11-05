@@ -1,0 +1,6 @@
+{
+	// The fixture only needs a comment that plain JSON would reject.
+	"compilerOptions": {
+		"strict": true
+	}
+}

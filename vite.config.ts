@@ -15,4 +15,12 @@ export default defineConfig({
 		options: { typeAware: true, typeCheck: true },
 		rules: { 'vite-plus/prefer-vite-plus-imports': 'error' },
 	},
+	test: {
+		// One run over all packages, so a single report covers the whole repository.
+		coverage: {
+			include: ['packages/*/src/**'],
+			reporter: ['text', 'lcov'],
+		},
+		projects: ['packages/*'],
+	},
 });

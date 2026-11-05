@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # SonarQube Cloud needs the history to detect new code and to assign issues.
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6
@@ -35,3 +38,13 @@ jobs:
 
       - name: Check spelling
         run: pnpm run cspell
+
+      # Pull requests and `main` only, other pushes would add a second analysis of the same code.
+      # Pull requests from forks get no secrets, so they skip the analysis.
+      - name: SonarQube Cloud scan
+        if: >-
+          (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository)
+        uses: SonarSource/sonarqube-scan-action@e805d875275f728fac1885b413934be6d7c63f65 # v8.4.1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

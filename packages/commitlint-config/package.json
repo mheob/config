@@ -29,14 +29,14 @@
 		"format": "vp fmt",
 		"format:check": "vp fmt --check",
 		"lint": "vp lint",
-		"lint:fix": "vp lint --fix",
-		"test": "vp test"
+		"lint:fix": "vp lint --fix"
 	},
 	"dependencies": {
 		"conventional-changelog-conventionalcommits": "catalog:"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "catalog:",
+		"@commitlint/lint": "catalog:",
 		"@mheob/internal": "workspace:*",
 		"@mheob/oxfmt-config": "workspace:*",
 		"@mheob/oxlint-config": "workspace:*",
