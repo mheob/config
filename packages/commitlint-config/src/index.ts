@@ -1,4 +1,4 @@
-// oxlint-disable no-magic-numbers node/no-sync
+// oxlint-disable no-magic-numbers node/no-sync typescript/no-unsafe-enum-assignment
 
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
