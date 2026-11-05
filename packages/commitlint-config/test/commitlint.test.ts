@@ -20,6 +20,24 @@ const commitlintBin = nodePath.join(
 );
 const configPath = nodePath.join(import.meta.dirname, '../dist/index.mjs');
 
+const MAX_HEADER_LENGTH = 72;
+const MAX_SUBJECT_LENGTH = 50;
+const MAX_LINE_LENGTH = 72;
+/** A long header prefix, so a header can reach its limit while the subject stays below its own. */
+const LONG_PREFIX = 'refactor(commitlint-config)!: ';
+/** A note keyword the parser puts into the footer. */
+const BREAKING_NOTE = 'BREAKING CHANGE: ';
+
+/**
+ * Builds a lowercase filler text, so only the length rules can fail.
+ *
+ * @param length The number of characters.
+ * @returns The filler text.
+ */
+function filler(length: number): string {
+	return 'a'.repeat(length);
+}
+
 /**
  * Lints a commit message with the commitlint CLI and the built config, the way a `commit-msg`
  * hook does.
@@ -55,6 +73,11 @@ describe('commitlint config', () => {
 		'feat(api)!: remove the GetMe query',
 		'feat!: remove the GetMe query',
 		'fix(deps,repo)!: drop the support for Node.js 22',
+		'build(deps): update vite-plus to v1.3.0',
+		`${LONG_PREFIX}${filler(MAX_HEADER_LENGTH - LONG_PREFIX.length)}`,
+		`feat: ${filler(MAX_SUBJECT_LENGTH)}`,
+		`feat: add a body\n\n${filler(MAX_LINE_LENGTH)}`,
+		`feat!: drop the old API\n\n${BREAKING_NOTE}${filler(MAX_LINE_LENGTH - BREAKING_NOTE.length)}`,
 	])('accepts `%s`', async (message) => {
 		await expect(lintMessage(message)).resolves.toStrictEqual({ exitCode: 0, output: '' });
 	});
@@ -63,6 +86,19 @@ describe('commitlint config', () => {
 		{ message: 'feet(api)!: remove the GetMe query', rule: 'type-enum' },
 		{ message: 'feat(api)!: Remove the query', rule: 'subject-case' },
 		{ message: 'feat(api)!: remove the GetMe query.', rule: 'subject-full-stop' },
+		{
+			message: `${LONG_PREFIX}${filler(MAX_HEADER_LENGTH - LONG_PREFIX.length + 1)}`,
+			rule: 'header-max-length',
+		},
+		{ message: `feat: ${filler(MAX_SUBJECT_LENGTH + 1)}`, rule: 'subject-max-length' },
+		{
+			message: `feat: add a body\n\n${filler(MAX_LINE_LENGTH + 1)}`,
+			rule: 'body-max-line-length',
+		},
+		{
+			message: `feat!: drop the old API\n\n${BREAKING_NOTE}${filler(MAX_LINE_LENGTH - BREAKING_NOTE.length + 1)}`,
+			rule: 'footer-max-line-length',
+		},
 	] as const)('rejects `$message` with $rule', async ({ message, rule }) => {
 		const result = await lintMessage(message);
 
