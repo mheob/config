@@ -1,3 +1,1 @@
-import { baseConfig } from '../../dist/index.mjs';
-
-export default baseConfig;
+export { baseConfig as default } from '../../dist/index.mjs';

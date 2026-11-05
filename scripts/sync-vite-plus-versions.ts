@@ -31,7 +31,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 // Scoped names are quoted in the catalog, unscoped ones are not.
 function pinCatalogEntry(workspace: string, name: string, version: string): string {
 	const escapedName = name.replaceAll(/[$()*+.?[\\\]^{|}]/gu, String.raw`\$&`);
-	const entry = new RegExp(`^(catalog:\\n(?: {2}.*\\n)*? {2}"?${escapedName}"?: ).*$`, 'mu');
+	const entry = new RegExp(
+		String.raw`^(catalog:\n(?: {2}.*\n)*? {2}"?${escapedName}"?: ).*$`,
+		'mu',
+	);
 
 	if (!entry.test(workspace)) {
 		throw new Error(`pnpm-workspace.yaml: the catalog has no \`${name}\` entry.`);
