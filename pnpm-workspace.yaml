@@ -12,22 +12,22 @@ catalog:
   "@types/node": ^26.6.6
   "@vitest/coverage-v8": 5.1.0
   conventional-changelog-conventionalcommits: ^10.4.1
-  cspell: ^10.4.0
-  cve-lite-cli: ^1.40.0
+  cspell: ^10.5.2
+  cve-lite-cli: ^1.41.4
   czg: ^1.14.0
-  eslint-plugin-better-tailwindcss: ^4.10.0
+  eslint-plugin-better-tailwindcss: ^4.11.0
   eslint-plugin-regexp: ^3.3.3
-  eslint-plugin-storybook: ^10.6.5
+  eslint-plugin-storybook: ^10.6.7
   lefthook: ^2.2.2
-  oxfmt: 0.76.0
-  oxlint: 1.91.0
-  oxlint-tsgolint: 7.0.2005
+  oxfmt: 0.79.0
+  oxlint: 1.94.0
+  oxlint-tsgolint: ^7.0.2007
   smol-toml: ^1.9.1
-  tailwindcss: ^4.3.4
-  turbo: ^2.11.10
+  tailwindcss: ^4.3.5
+  turbo: ^2.11.12
   typescript: ^7.0.2
-  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
-  vite-plus: 1.5.0
+  vite: npm:@voidzero-dev/vite-plus-core@8.3.8000
+  vite-plus: 1.7.0
 
 # Exclude trusted packages from the age gate
 minimumReleaseAgeExclude:
@@ -44,8 +44,3 @@ allowBuilds:
   esbuild: true
   lefthook: true
   unrs-resolver: true
-peerDependencyRules:
-  allowAny:
-    - vite
-  allowedVersions:
-    vite: "*"

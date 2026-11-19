@@ -5,7 +5,7 @@
 	"packageRules": [
 		{
 			"description": "These follow the versions that ship with Vite+, see `pnpm run vite-plus:sync`",
-			"matchPackageNames": ["@vitest/coverage-v8", "oxfmt", "oxlint", "oxlint-tsgolint"],
+			"matchPackageNames": ["@vitest/coverage-v8", "oxfmt", "oxlint"],
 			"enabled": false
 		}
 	]

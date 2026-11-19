@@ -8,7 +8,7 @@ Opinionated, shared [OXLint](https://oxc.rs/docs/guide/usage/linter) configurati
 pnpm add -D @mheob/oxlint-config oxlint oxlint-tsgolint
 ```
 
-`oxlint-tsgolint` is a **required** peer dependency: `baseConfig` enables type-aware linting, and OXLint does not install the type-aware runtime on its own. See [Type-aware linting](#type-aware-linting) for what that implies — and how to opt out.
+`baseConfig` enables type-aware linting, and the standalone OXLint does not install the type-aware runtime on its own, so it needs `oxlint-tsgolint`. With [Vite+](https://viteplus.dev) 1.7.0 or later, `vp lint` runs the type-aware rules through the `tsrs` that ships with Vite+, so you can leave `oxlint-tsgolint` out. See [Type-aware linting](#type-aware-linting) for what type-aware linting implies — and how to opt out.
 
 ## Usage
 
@@ -115,7 +115,7 @@ export default defineConfig({
 });
 ```
 
-**Required peer dependency:**
+**Peer dependency for the standalone OXLint** (not needed with `vp lint` from Vite+ 1.7.0 or later):
 
 ```bash
 pnpm add -D oxlint-tsgolint

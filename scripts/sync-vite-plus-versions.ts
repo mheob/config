@@ -1,7 +1,10 @@
 // Keeps the tools that Vite+ ships on the versions it bundles. `vp lint` and `vp fmt` run the
 // bundled oxlint and oxfmt, and `vp test --coverage` refuses a coverage provider that doesn't match
 // the bundled Vitest. The catalog pins them exactly, so pnpm installs a single copy that the tests
-// share with Vite+, and the peer ranges of `@mheob/oxlint-config` start at the same versions.
+// share with Vite+, and the `oxlint` peer range of `@mheob/oxlint-config` starts at the same version.
+//
+// `oxlint-tsgolint` is not synced: since 1.7.0, Vite+ runs type-aware rules through its own `tsrs`.
+// The catalog keeps it as a caret range, because the standalone oxlint still needs it.
 //
 // `node scripts/sync-vite-plus-versions.ts` reads the installed Vite+, so run `pnpm install` first.
 
@@ -14,11 +17,10 @@ const catalogEntries = {
 	'@vitest/coverage-v8': versions.vitest,
 	oxfmt: versions.oxfmt,
 	oxlint: versions.oxlint,
-	'oxlint-tsgolint': versions['oxlint-tsgolint'],
 };
 
 /** The peer dependencies of `@mheob/oxlint-config` that start at the bundled versions. */
-const oxlintPeers = ['oxlint', 'oxlint-tsgolint'] as const;
+const oxlintPeers = ['oxlint'] as const;
 
 const workspaceUrl = new URL('../pnpm-workspace.yaml', import.meta.url);
 const packageUrl = new URL('../packages/oxlint-config/package.json', import.meta.url);
