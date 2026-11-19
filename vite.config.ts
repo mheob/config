@@ -5,7 +5,8 @@ import { defineConfig } from 'vite-plus';
 export default defineConfig({
 	fmt: {
 		...fmtBaseConfig,
-		ignorePatterns: ['CHANGELOG.md'],
+		// Skills are copied from upstream as they are, like in `.cspell.json`.
+		ignorePatterns: ['.agents/skills/**', '.claude/skills/**', 'CHANGELOG.md'],
 	},
 	lint: {
 		extends: [lintBaseConfig],

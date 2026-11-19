@@ -53,6 +53,7 @@ words = [
 	"tsdown",
 	"tsgo",
 	"tsgolint",
+	"tsrs",
 	"tsup",
 	"turborepo",
 	"unicode",

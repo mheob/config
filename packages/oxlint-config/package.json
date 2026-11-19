@@ -49,8 +49,8 @@
 		"eslint-plugin-better-tailwindcss": "catalog:",
 		"eslint-plugin-regexp": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
-		"oxlint": "^1.91.0",
-		"oxlint-tsgolint": "^7.0.2005"
+		"oxlint": "^1.94.0",
+		"oxlint-tsgolint": "catalog:"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-better-tailwindcss": {
@@ -66,7 +66,7 @@
 			"optional": false
 		},
 		"oxlint-tsgolint": {
-			"optional": false
+			"optional": true
 		}
 	},
 	"engines": {
